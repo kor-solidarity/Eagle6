@@ -1,0 +1,15 @@
+○       ○       ○       ○       ○       ○
+○                                       ○
+        ○                       ○
+            ○               ○
+○                   ○                   ○
+            ○               ○
+○                                       ○
+        ○                       ○
+○                                       ○
+○       ○       ○       ○       ○       ○
+
+playerName(char)
+sp:
+mal_left:
+skill: bool

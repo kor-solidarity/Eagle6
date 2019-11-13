@@ -40,7 +40,7 @@ public  class GameMap {
                     continue;
                 }
                 // 송편이 없으면 만든다. 양은... 우선 1-5
-                this.itemGrid[randomNum] = new SongPyeon((int)(Math.random() * 28 +1));
+                this.itemGrid[randomNum] = new SongPyeon((int)(Math.random() * 5 + 1));
                 songPyeons++;
             }
         }

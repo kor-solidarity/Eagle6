@@ -13,9 +13,6 @@ public class Display {
 
     // 현재 시각화 포기함. 그냥 텍스트로 뭐가 어딨는지만 본다.
 
-    public Display() {
-    }
-
     public void display(GameMap map){
         // 각 맵에 아이템 파악
         for (int i = 0; i < map.getItemGrid().length; i++) {

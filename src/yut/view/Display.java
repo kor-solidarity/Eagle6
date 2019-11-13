@@ -14,9 +14,13 @@ public class Display {
     // 현재 시각화 포기함. 그냥 텍스트로 뭐가 어딨는지만 본다.
 
     public void display(GameMap map){
+        System.out.println("Display().display()");
         // 각 맵에 아이템 파악
         for (int i = 0; i < map.getItemGrid().length; i++) {
-
+            // 널이 아니다 - 뭔가가 있다.
+            if (map.getItemGrid()[i] != null){
+                System.out.println("좌표 " + i + "에 " + map.getItemGrid()[i].getName() + "이(가) 있다.");
+            }
         }
 
 
@@ -77,17 +81,16 @@ public class Display {
     }
     
     public void show_mals(Player[] players){
+        System.out.println("show_mals()");
         // 각 플레이어 말 현황 보여주기.
         for (int i = 0; i < players.length; i++) {
             if (players[i] == null) {
                 continue;
             }
-            System.out.println(players[i].getNick() + " 차례");
+            System.out.println(players[i].getNick() + " (" + players[i].getCharName() + "):");
             for (int j = 0; j < players[i].getMals().length; j++) {
                 System.out.println(players[i].getMals()[j].getNum() +
                         "번 말의 위치: " + players[i].getMals()[j].getGrid());
-
-
             }
         }
         System.out.println();

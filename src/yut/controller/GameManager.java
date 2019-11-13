@@ -9,6 +9,7 @@ public class GameManager {
     public static void main(String[] args) {
         GameManager gm = new GameManager();
         Display disp = new Display();
+        Yut yut = new Yut();
 
         Apeach apeach = null;
         Frodo frodo = null;
@@ -117,19 +118,53 @@ public class GameManager {
 
             // 놀이판 보여주기
             // gm.display(players, gameMap);
-            // Display().
             // 각 말 현황
-
             disp.show_mals(players);
+
+            // 보드 현황(템 어디 떨궈져있는지)
+            disp.display(gameMap);
+
             // 플레이어 순서대로 턴 돌리기
             for (int i = 0; i < players.length; i++) {
                 // 플레이어가 null 이면 없다는 소리, 다음.
                 if (players[i] == null){
                     continue;
                 }
-                System.out.println(players[i].getNick() + "(" + players[i].getClass() + ") 의 차례");
-                // * 2. 플레이어 현황 - 집에 말 수, 송편, 던진 윷 결과들, 남은 던질 수 있는 윷.
-                System.out.println("말 위치");
+                // 플레이어 선택지
+                do {
+                    System.out.println(players[i].getNick() + "(" + players[i].getCharName() + ") 의 차례");
+                    // * 2. 플레이어 현황 - 집에 말 수, 송편, 던진 윷 결과들, 남은 던질 수 있는 윷.
+                    // System.out.println("말 위치");
+                    disp.show_mals(new Player[] {players[i]} );
+                    // 윷던지기 남은 수
+                    System.out.println("던질수있는 윷: " + players[i].getYutCount());
+                    // 플레이어의 특수능력 및 사용가능여부.
+
+                    // 말 위치 보여줬으면 이제 주사위를 던질지, 샵구매를 할지 움직일지 정한다.
+                    System.out.println("선택지:");
+                    System.out.println("1. 주사위 던지기");
+                    System.out.println("2. 말 움직이기");
+                    System.out.println("3. 아이템 구매");
+                    // System.out.println("4. 현황 다시보기");
+
+                    int choice = sc.nextInt();
+                    sc.nextLine();
+                    switch (choice){
+                        case 1:
+                            // 윷 던진다. 이때 우선: 고유스킬을 사용했는지,
+                            // 사용을 안했으면 이 캐릭이 누구인지 확인을 먼저 해야하고 이를 반영한다.
+                            System.out.println("윷 던진다. ");
+                            if (players[i].isSpecialty()){
+                                // if (players[i] instanceof )
+                            }
+                    }
+
+
+
+
+                    // debugging purpose
+                    break;
+                }while (true);
 
 
             }
@@ -176,7 +211,8 @@ public class GameManager {
         // 고유스킬 썼는가: 불리언
 
 
-        Object ten = map.itemGrid[10];
+        // Item ten = map.itemGrid[10];
+
         // 첫줄 10 9 8 7 6 5
         System.out.printf("○       ○       ○       ○       ○       ○\n");
         // 둘째줄 11 4

@@ -8,7 +8,7 @@ public  class GameMap {
 
 
     // 놀이판 좌표, 안에 실제로 들어가야 하는건 템들.
-    public Object[] itemGrid = new Object[29];
+    private Item[] itemGrid = new Item[29];
 
     // 생성되면 송편위치 무작위로 넷 찍는걸로
     public GameMap(/*Object[] itemGrid*/) {
@@ -48,11 +48,11 @@ public  class GameMap {
 
     }
 
-    public Object[] getItemGrid() {
+    public Item[] getItemGrid() {
         return this.itemGrid;
     }
 
-    public void setItemGrid(Object[][] itemGrid) {
+    public void setItemGrid(Item[] itemGrid) {
         this.itemGrid = itemGrid;
     }
 

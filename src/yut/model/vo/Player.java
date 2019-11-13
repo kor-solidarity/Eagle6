@@ -13,16 +13,21 @@ public class Player {
     private String nick;
     // 플레이어 특수능력 사용여부
     private boolean specialty = true;
+    // 특수능력 뭔지 표기. GUI 때 필요할진 모르겠음
+    private String special_skill;
     // 던진 윷 결과들.
     private ArrayList moves = new ArrayList();
     // 남은 던질 수 있는 윷.
     private int yutCount = 1;
     // 플레이어 순서 정하는 용도. 이 시연에선 우선은 미구현
     private int turn;
+    // 케릭터의 고유 이름
+    private String charName;
 
 
-    public Player(String nick) {
+    public Player(String nick, String charName) {
         this.nick = nick;
+        this.charName = charName;
     }
 
     @Override
@@ -36,6 +41,30 @@ public class Player {
                 ", yutCount=" + yutCount +
                 ", turn=" + turn +
                 '}';
+    }
+
+    public String getCharName() {
+        return charName;
+    }
+
+    public int getYutCount() {
+        return yutCount;
+    }
+
+    public void setYutCount(int yutCount) {
+        this.yutCount = yutCount;
+    }
+
+    public int getTurn() {
+        return turn;
+    }
+
+    public void setTurn(int turn) {
+        this.turn = turn;
+    }
+
+    public ArrayList getMoves() {
+        return moves;
     }
 
     public int getSongP() {

@@ -9,9 +9,14 @@ public class Item {
     private int price;
     // 템이름
     private String name;
+    public Object[] item_num = new Object[6];
 
 
     public Item() {
+    }
+    
+    public Item(int price) {
+    	this.price = price;
     }
 
     public Item(int price, String name) {
@@ -19,6 +24,7 @@ public class Item {
         this.name = name;
     }
 
+    
     public int getPrice() {
         return price;
     }
@@ -41,16 +47,7 @@ public class Item {
      * @param itemNum
      * @return
      */
-    public boolean buy(Player player, int itemNum){
-        if (player.getSongP() >= price){
-            player.setSongP(player.getSongP() - price);
-            // 구매까진 완료, 이제 생성.
-            // 생성을 ???????????????????????????????
-            // TODO: 2019-11-12 이 메소드로 새 아이템 생성은 곤란한걸로 판단. 별도 방법 강구요망.
-            return true;
-        }
-        return false;
-    };
+
 
 
 }

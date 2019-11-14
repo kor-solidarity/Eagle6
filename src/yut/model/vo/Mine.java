@@ -1,8 +1,8 @@
 package yut.model.vo;
 
-public class Mine extends Item{
+public class Mine extends Item {
     public Mine() {
-    	super(10, "지뢰");
+        super(10, "지뢰");
     }
 
 }

@@ -19,5 +19,28 @@ public class testing {
             System.out.println(a);
         }
 
+        ArrayList<Integer> integers = new ArrayList<Integer>();
+        integers.add(31);
+        integers.add(1);
+
+        integers.add(51);
+        integers.add(1);
+        integers.add(11);
+        integers.add(14);
+        integers.add(12);
+        integers.add(12);
+        integers.add(1);
+
+        for (int i = 0; i < integers.size(); i++) {
+            System.out.print(integers.get(i) + " ");
+        }
+        System.out.println();
+        integers.remove(integers.indexOf(12));
+        for (int i = 0; i < integers.size(); i++) {
+            System.out.print(integers.get(i) + " ");
+        }
+
+
+
     }
 }

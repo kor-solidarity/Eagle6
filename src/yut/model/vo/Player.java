@@ -16,7 +16,7 @@ public class Player {
     // 특수능력 뭔지 표기. GUI 때 필요할진 모르겠음
     private String special_skill;
     // 던진 윷 결과들.
-    private ArrayList moves = new ArrayList();
+    private ArrayList<Integer> moves = new ArrayList<>();
     // 남은 던질 수 있는 윷.
     private int yutCount = 1;
     // 플레이어 순서 정하는 용도. 이 시연에선 우선은 미구현
@@ -65,6 +65,16 @@ public class Player {
 
     public ArrayList getMoves() {
         return moves;
+    }
+
+    // 윷의 값을 목록에 하나 추가함. 이게 사실상의 setMoves
+    public void addMoves(Integer yutResult){
+        this.moves.add(yutResult);
+    }
+
+    // 이동을 하면서 윷의 값 빼내기.
+    public void useMoves(Integer moveInt){
+        this.moves.remove(this.moves.indexOf(moveInt));
     }
 
     public int getSongP() {

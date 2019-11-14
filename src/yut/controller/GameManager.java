@@ -176,14 +176,7 @@ public class GameManager {
                                 // yut_val
                             }
 
-
-
-
                     }
-
-
-
-
                     // debugging purpose
                     break;
                 }while (true);
@@ -199,6 +192,9 @@ public class GameManager {
         //
     }
 
+    public void move(){
+
+    }
 
     /**
      * 디스플레이에 떠야할 것들:

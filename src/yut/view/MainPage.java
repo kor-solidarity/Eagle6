@@ -21,6 +21,7 @@ public class MainPage extends JPanel {
 
 
     public MainPage(MainFrame mf) {
+        System.out.println("MainPage()");
         this.mf = mf;
         mainPage = this;
 

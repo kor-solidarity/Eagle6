@@ -24,7 +24,6 @@ public class Player {
     // 케릭터의 고유 이름
     private String charName;
 
-
     public Player(String nick, String charName) {
         this.nick = nick;
         this.charName = charName;

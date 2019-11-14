@@ -38,12 +38,13 @@ public class Yut extends JFrame{
         }
     }
 
-    // 윷 확률 올리기
+    // 윷이 나올 확률 올리기
     public int increaseYut(){
         // 랜덤값 1 또는 0, 0이면 모 1이면 도
         if ((int)(Math.random()*2) == 0){
             return 4;
         }else {
+            // 위에 안걸렸으면 그냥 일반던지기.
             return throw_yut();
         }
     }

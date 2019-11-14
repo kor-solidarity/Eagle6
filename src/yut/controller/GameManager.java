@@ -148,17 +148,37 @@ public class GameManager {
                     // System.out.println("4. 현황 다시보기");
 
                     int choice = sc.nextInt();
+
                     sc.nextLine();
                     switch (choice){
                         case 1:
+                            // 윷 던져서 나온 값
+                            int yut_val;
                             // 윷 던진다. 이때 우선: 고유스킬을 사용했는지,
                             // 사용을 안했으면 이 캐릭이 누구인지 확인을 먼저 해야하고 이를 반영한다.
                             System.out.println("윷 던진다. ");
-                            // 또한 캐릭이 어피치인 경우도 고유스킬이 이동관련이 아니기 때문에 무시한다.
-                            if (players[i].isSpecialty() && (players[i] instanceof Apeach)){
+                            // 또한 캐릭이 어피치/ 프로도인 경우도 고유스킬이 이동관련이 아니기 때문에 무시한다.
+                            if (players[i].isSpecialty() && !(players[i] instanceof Apeach || players[i] instanceof Ryan)){
                                 // 라이언이면 이동 두배
+                                if (players[i] instanceof Ryan) {
+                                    yut_val = yut.throw_yut() * 2;
+                                }
+                                // 네오는 윷나올 확률을 올려준다.
+                                else if (players[i] instanceof Neo) {
+                                    yut_val = yut.increaseYut();
+                                }
 
                             }
+                            // 스킬을 구매한 경우
+                            else if (false){
+
+                            }else {
+                                // yut_val
+                            }
+
+
+
+
                     }
 
 

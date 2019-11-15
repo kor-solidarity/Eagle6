@@ -7,14 +7,14 @@ import javax.swing.JFrame;
 
 public class MainFrame extends JFrame {
 
-            public MainFrame() {
-                System.out.println("MainFrame()");
+    public MainFrame() {
+        System.out.println("MainFrame()");
 
-                this.setSize(1500, 800);
-                this.setLayout(null);
+        this.setSize(1500, 800);
+        this.setLayout(null);
 
 
-                new MainPage(this);
+        new MainPage(this);
 
 
         this.setVisible(true);

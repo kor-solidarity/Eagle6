@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class GameManager {
     // 이거 추후 스태틱 전부 없애야됨.
     private static Display disp;
-    private static Yut yut;
+    private static YutMadeByjong yut;
     private static Apeach apeach;
     private static Frodo frodo;
     private static Neo neo;
@@ -17,7 +17,7 @@ public class GameManager {
     public static void main(String[] args) {
         GameManager gm = new GameManager();
         disp = new Display();
-        yut = new Yut();
+        yut = new YutMadeByjong();
 
         apeach = null;
         frodo = null;
@@ -270,6 +270,10 @@ public class GameManager {
         // - 지뢰가 있는지 확인. 있으면 말은 죽는다.
         // - 다른 말들이 있는지 확인. 있으면 그 말은 죽는다.
         // - 미션 깼는지 확인.
+
+        // 말 잡음?
+        boolean captured = false;
+
 
         for (Player pl : players) {
             // 같은 플레이어 말이면 겹친다. 우선은 통과

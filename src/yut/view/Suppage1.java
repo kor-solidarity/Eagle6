@@ -1,16 +1,12 @@
 package yut.view;
 
-import java.awt.Dialog;
-
 import java.awt.Image;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+
 
 
 public class Suppage1 extends JPanel {
@@ -21,15 +17,24 @@ public class Suppage1 extends JPanel {
 	private MainFrame mf;
 
 	public Suppage1(MainFrame mf) {
-
+		//Yut thYutPan=new Yut();//조지연
 		this.mf = mf;
 		this.setSize(1500,800);
 		panel2 = new JPanel();
 		panel2.setLayout(null);
 		panel2.setSize(1500,800);
+		
+		//윷던지는 곳 -조지연
+		Image thYut=new ImageIcon("mini/낙.gif.GIF").getImage().getScaledInstance(300, 400, 0);
+		
 
 
-
+		JLabel throwYutPan=new JLabel(new ImageIcon(thYut));
+		throwYutPan.setLocation(1130,150);
+		throwYutPan.setSize(300,400);
+		
+		
+		
 		Image ic1 = new ImageIcon("mini/판떼기.PNG").getImage().getScaledInstance(1500, 800, 0);
 		JLabel lb1 = new JLabel(new ImageIcon(ic1));
 		lb1.setSize(1500,800);
@@ -217,6 +222,7 @@ public class Suppage1 extends JPanel {
 		label28.setSize(220, 220);
 		label28.setLocation(800, 450);
 
+		panel2.add(throwYutPan);
 		panel2.add(label28);
 		panel2.add(label27);
 		panel2.add(label26);
@@ -250,7 +256,6 @@ public class Suppage1 extends JPanel {
 		panel2.add(label2);
 		panel2.add(label3);
 		panel2.add(lb1);
-
 		/*panel2.add(lb3);*/
 
 

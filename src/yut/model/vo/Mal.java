@@ -3,6 +3,8 @@ package yut.model.vo;
 import java.util.ArrayList;
 
 public class Mal {
+    // 이 말 주인 누구?
+    private Player owner;
     private int grid;
     private int num;  // 몇번째말
     // 말이 여태 지나온 길.
@@ -32,12 +34,33 @@ public class Mal {
         this.grid = grid;
     }
 
+    public Player getOwner() {
+        return owner;
+    }
+
     public int getNum() {
         return num;
     }
 
     public void setNum(int num) {
         this.num = num;
+    }
+
+    // routes 에 숫자 추가:
+    public void addRoutes(int num){
+        this.routes.add(num);
+    }
+    // routes 초기화. 완주 또는 먹혀서 출발 또는 끝 지점으로 도달할 시 사용
+    public void clearRoutes(int num){
+        this.routes = new ArrayList<>();
+    }
+
+    // 빽도일 경우 뒤로 가기위한 그리드값 반환.
+    // 그리고 반환 후 그걸 삭제한다.
+    public int getLastRoute(){
+        int return_grid = this.routes.get(this.routes.size()-1);
+        this.routes.remove(this.routes.size()-1);
+        return return_grid;
     }
 
     public ArrayList getRoutes() {

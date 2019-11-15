@@ -34,7 +34,12 @@ public class testing {
             System.out.print(integers.get(i) + " ");
         }
         System.out.println();
-        integers.remove(integers.indexOf(12));
+        integers.remove(integers.indexOf(1));
+        for (int i = 0; i < integers.size(); i++) {
+            System.out.print(integers.get(i) + " ");
+        }
+        System.out.println();
+        integers.remove(integers.size() - 1);
         for (int i = 0; i < integers.size(); i++) {
             System.out.print(integers.get(i) + " ");
         }

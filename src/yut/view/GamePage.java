@@ -158,7 +158,29 @@ public class GamePage {
 		//노랑송편 grid =23
 		JLabel grid23 = new JLabel(new ImageIcon(yellow));
 		grid23.setSize(250, 250);
-		grid23.setLocation(570, 300);
+		grid23.setLocation(500, 370);
+		//노랑송편 grid =23
+		JLabel grid24 = new JLabel(new ImageIcon(yellow));
+		grid24.setSize(250, 250);
+		grid24.setLocation(430, 440);
+
+		//노랑송편 grid =25
+		Image yellow2 = new ImageIcon("mini/노랑송편2.PNG").getImage().getScaledInstance(110, 110, 0);
+		JLabel grid25 = new JLabel(new ImageIcon(yellow2));
+		grid25.setSize(190, 190);
+		grid25.setLocation(440, 140);
+		//노랑송편 grid =26
+		JLabel grid26 = new JLabel(new ImageIcon(yellow2));
+		grid26.setSize(190, 190);
+		grid26.setLocation(520, 200);
+		//노랑송편 grid =27
+		JLabel grid27 = new JLabel(new ImageIcon(yellow2));
+		grid27.setSize(190, 190);
+		grid27.setLocation(750, 390);
+		//노랑송편 grid =28
+		JLabel grid28 = new JLabel(new ImageIcon(yellow2));
+		grid28.setSize(190, 190);
+		grid28.setLocation(820, 460);
 
 
 
@@ -167,7 +189,11 @@ public class GamePage {
 
 		//게임패널에 부착 
 		gamePanel.add(helpBtn); 
-
+		gamePanel.add(grid28);
+		gamePanel.add(grid27);
+		gamePanel.add(grid26);
+		gamePanel.add(grid25);
+		gamePanel.add(grid24);
 		gamePanel.add(grid23);
 		gamePanel.add(grid22);
 		gamePanel.add(grid21);

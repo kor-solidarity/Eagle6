@@ -83,18 +83,26 @@ public class MainFrame extends JFrame{
 			public void mouseClicked(MouseEvent e) {
 				//마우스 왼쪽 클릭만 입력 될 시
 				if(e.getButton()==1) { 
+					//로딩화면 패널 생성
 					JPanel subPanel1 = new JPanel();
 					subPanel1.setBounds(0, 0, 1500, 800);
 					subPanel1.setLayout(null);
-					
-					Image yut1 = new ImageIcon("mini/움직 라이언.GIF").getImage().getScaledInstance(300, 300, 0);
+					//로딩 라벨 생성
+					Image yut1 = new ImageIcon("mini/로딩.GIF").getImage().getScaledInstance(300, 300, 0);
 					JLabel yut = new JLabel(new ImageIcon(yut1));
 					yut.setSize(300, 300);
-					yut.setLocation(1170, 150);
+					yut.setLocation(600, 280);
 					
-
+					//로딩 배경 라벨 생성
+					Image lodingBackGround = new ImageIcon("mini/선택창 배경.PNG").getImage().getScaledInstance(1500, 800, 0);
+					JLabel lo = new JLabel(new ImageIcon(lodingBackGround));
+					lo.setSize(1500, 800);
+					//lo.setLocation(1170, 150);
+					
+                    //메인 라벨 제거
 					mf.remove(mainPanel);
 					
+					subPanel1.add(lo);
 					subPanel1.add(yut);
 					subPanel1.revalidate();
 				    subPanel1.repaint();
@@ -117,7 +125,7 @@ public class MainFrame extends JFrame{
 
 						}
 					};
-					ts.schedule(tk, 3000);
+					ts.schedule(tk, 4000);
 					
 					//PlayerPage page = new PlayerPage(mf, mainPanel);
 					

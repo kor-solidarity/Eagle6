@@ -29,7 +29,9 @@ public class Player {
         this.charName = charName;
     }
 
-    @Override
+   
+
+	@Override
     public String toString() {
         return "Player{" +
                 "songP=" + songP +

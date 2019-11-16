@@ -25,7 +25,7 @@ public class Suppage1 extends JPanel {
 		panel2.setSize(1500,800);
 		
 		//윷던지는 곳 -조지연
-		Image thYut=new ImageIcon("mini/낙.gif.GIF").getImage().getScaledInstance(300, 400, 0);
+		Image thYut=new ImageIcon("mini/낙.gif").getImage().getScaledInstance(300, 400, 0);
 		
 
 

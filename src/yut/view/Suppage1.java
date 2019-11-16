@@ -198,7 +198,7 @@ public class Suppage1 extends JPanel {
 		label24.setLocation(390, 450);
 
 		//��ȫ����25
-		Image bh2 = new ImageIcon("mini/��ȫ����ݴ�.PNG").getImage().getScaledInstance(190, 190, 0);
+		Image bh2 = new ImageIcon("mini/분홍송편반대.PNG").getImage().getScaledInstance(190, 190, 0);
 		JLabel label25 = new JLabel(new ImageIcon(bh2));
 		label25.setSize(220, 220);
 		label25.setLocation(400, 120);

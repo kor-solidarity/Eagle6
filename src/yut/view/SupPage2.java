@@ -30,7 +30,6 @@ public class SupPage extends JPanel {
 	private JPanel p3;
 	private JPanel p4;
     private ArrayList<String> list = new ArrayList<String>();
-    private 
     
 	
 	TextField txtID1;
@@ -55,7 +54,7 @@ public class SupPage extends JPanel {
 		panel2.setLayout(null);
 		panel2.setSize(1500,800);
 		
-		
+		ArrayList list = new ArrayList();
 		
 		
 		
@@ -152,92 +151,19 @@ public class SupPage extends JPanel {
 
 	   
 		
-		user1c.addMouseListener(new MyMouseAdapter1());
-		user2c.addMouseListener(new MyMouseAdapter2());
-		user3c.addMouseListener(new MyMouseAdapter3());
-		user4c.addMouseListener(new MyMouseAdapter4());
+		
 		
 		
 		lb2.addMouseListener(new MyMouseAdapter());
+		
+		n1.addActionListener(new ActionLisner() {
+			
+		}
 
 		
 		
 		
 	}
-	
-		
-		
-	
-
-
-	
-
-	 class MyMouseAdapter1 extends MouseAdapter{
-	    	@Override
-	    	public void mouseClicked(MouseEvent e) {
-	    		if(e.getButton()== 1) {
-	    			SupPage sp=new SupPage(mf);
-	    			try {
-						BufferedWriter bos = new BufferedWriter(new FileWriter("회원명단.txt" , true));
-						bos.write(txtID1.getText()+"/");
-						
-					} catch (IOException e1) {
-						e1.printStackTrace();
-					}
-	    			try {
-	    				String s;
-	    				String[] array;
-						BufferedReader bos = new BufferedReader(new FileReader("회원명단.txt"));
-						try {
-							while((s = bos.readLine()) !=null) {
-								array = s.split("/");
-								if(txtID1.getText().equals(array[1]));
-							}
-						} catch (IOException e1) {
-							// TODO Auto-generated catch block
-							e1.printStackTrace();
-						}
-					} catch (FileNotFoundException e1) {
-						e1.printStackTrace();
-					}
-
-
-	    			
-	    		}
-	    	}
-	 }
-	 class MyMouseAdapter2 extends MouseAdapter{
-	    	@Override
-	    	public void mouseClicked(MouseEvent e) {
-	    		if(e.getButton()== 1) {
-	    		
-	    			 
-	    		}
-	    	}
-	 }
-	 class MyMouseAdapter3 extends MouseAdapter{
-	    	@Override
-	    	public void mouseClicked(MouseEvent e) {
-	    		if(e.getButton()== 1) {
-	    			//여기다가 중복인지 아닌지 if else if 걸어서 확인
-	    			JOptionPane.showMessageDialog(null, "확인댓당"); 
-	    		}
-	    	}
-	 }
-	 class MyMouseAdapter4 extends MouseAdapter{
-	    	@Override
-	    	public void mouseClicked(MouseEvent e) {
-	    		if(e.getButton()== 1) {
-	    			//여기다가 중복인지 아닌지 if else if 걸어서 확인
-	    			JOptionPane.showMessageDialog(null, "확인댓당"); 
-	    		}
-	    	}
-	 }
-
-	
-		
-	
-		
 	
 	    	
 	

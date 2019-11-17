@@ -3,25 +3,29 @@ package yut.view;
 import java.awt.Image;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.Timer;
 import java.util.TimerTask;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import com.sun.org.glassfish.gmbal.GmbalException;
 
+import yut.model.vo.Item;
 import yut.model.vo.Player;
+import yut.model.vo.Store;
 
 public class GamePage {
 
-	public GamePage(MainFrame mf, JPanel panel/*,Player player*/) {
-		//전 패널 화면 초기화
-		mf.remove(panel);
+	public GamePage(MainFrame mf,JPanel panel, JPanel lo, Player player/*,Player player*/) {
 
-
+		//로딩 패널 제거
+		mf.remove(lo);
+		//게임 패널생성
 		JPanel gamePanel = new JPanel();
 		gamePanel.setBounds(0, 0, 1500, 800);
 		gamePanel.setLayout(null);
@@ -33,6 +37,31 @@ public class GamePage {
 		//도움말 버튼 크기,위치 조정
 		helpBtn.setSize(60,60);
 		helpBtn.setLocation(1130, 450);
+
+		//종료 버튼  생성
+		Image end = new ImageIcon("mini/창버튼.PNG").getImage().getScaledInstance(60, 60, 0);
+		JButton endBtn = new JButton();
+		endBtn = new JButton(new ImageIcon(end));
+		//도움말 버튼 크기,위치 조정
+		endBtn.setSize(60,60);
+		endBtn.setLocation(1130, 50);
+
+		//스킬 3번 생성 예시 
+		Image skil3 = new ImageIcon("mini/벽.PNG").getImage().getScaledInstance(80, 80, 0);
+		JButton skilBtn3 = new JButton();
+		skilBtn3 = new JButton(new ImageIcon(skil3));
+		//도움말 버튼 크기,위치 조정
+		skilBtn3.setSize(80,80);
+		skilBtn3.setLocation(1290, 650);
+		
+		//스킬 4번 생성 예시 
+		Image skil1 = new ImageIcon("mini/폭탄.PNG").getImage().getScaledInstance(80, 80, 0);
+		JButton skilBtn4 = new JButton();
+		skilBtn4 = new JButton(new ImageIcon(skil1));
+		//도움말 버튼 크기,위치 조정
+		skilBtn4.setSize(80,80);
+		skilBtn4.setLocation(1200, 650);
+
 
 
 
@@ -183,11 +212,10 @@ public class GamePage {
 		grid28.setLocation(820, 460);
 
 
-
-
-
-
 		//게임패널에 부착 
+		gamePanel.add(skilBtn3);
+		gamePanel.add(skilBtn4);
+		gamePanel.add(endBtn);
 		gamePanel.add(helpBtn); 
 		gamePanel.add(grid28);
 		gamePanel.add(grid27);
@@ -227,6 +255,82 @@ public class GamePage {
 		mf.revalidate();
 		mf.repaint();
 
+		//스킬 3번 사용시 반응 예씨
+		skilBtn3.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if(e.getButton()==1) {
+					Store shop = new Store();
+					shop.buy(mf, gamePanel, player, 3);
+				}
+			}
+		});
+		
+		//스킬 4번(폭탄) 사용시 반응 예시
+		skilBtn4.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if(e.getButton()==1) {
+					Store shop = new Store();
+					shop.buy(mf, gamePanel, player, 4);
+				}
+			}
+		});
+
+		//종료버튼 클릭시 메인 화면으로 복귀
+		endBtn.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if(e.getButton()==1) {
+					//종료 팝업창 다이얼로그 생성
+					JDialog ed = new JDialog();
+					ed.setSize(600,600);
+					ed.setLocation(400,400);
+					ed.setLayout(null);
+					//종료버튼 생성
+					Image end1 = new ImageIcon("mini/창버튼.PNG").getImage().getScaledInstance(100, 100, 0);
+					JButton endBtn1 = new JButton();
+					endBtn1 = new JButton(new ImageIcon(end1));
+					//도움말 버튼 크기,위치 조정
+					endBtn1.setSize(100,100);
+					endBtn1.setLocation(300, 200);
+					//체크 버튼 생성
+					Image check = new ImageIcon("mini/체크1.PNG").getImage().getScaledInstance(100, 100, 0);
+					JButton checkBtn = new JButton();
+					checkBtn = new JButton(new ImageIcon(check));
+					checkBtn.setSize(100,100);
+					checkBtn.setLocation(100, 200);
+					//버튼 부착
+					ed.add(endBtn1);
+					ed.add(checkBtn);
+					ed.setVisible(true);
+
+					endBtn1.addMouseListener(new MouseAdapter() {
+						@Override
+						public void mouseClicked(MouseEvent e) {
+							if(e.getButton()==1) {
+								//종료 버튼 클릭시 다이얼로그창만 꺼준다
+								ed.dispose();
+							}
+						}
+					});
+
+					//체크 버튼 클릭시 다이얼로그를 종료하고 메인 화면으로 복귀
+					checkBtn.addMouseListener(new MouseAdapter() {
+						@Override
+						public void mouseClicked(MouseEvent e) {
+							if(e.getButton()==1) {
+								mf.remove(gamePanel);
+								mf.add(panel);
+								mf.revalidate();
+								mf.repaint();
+								ed.dispose();
+							}
+						}
+					});
+				}
+			}
+		});
 
 		//도움말 창 버튼 클릭시 반응
 		helpBtn.addMouseListener(new MouseAdapter() {

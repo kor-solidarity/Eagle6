@@ -23,7 +23,8 @@ public class MainFrame extends JFrame{
 
 	public MainFrame() {
 
-		super("NullLayout");
+		//게임 이름 
+		super("윷 나오면 더블로 가!!");
 		//창 사이즈
 		this.setSize(1500,800);
 		//컨테이너 레이아웃 설정
@@ -118,10 +119,8 @@ public class MainFrame extends JFrame{
 						@Override
 						public void run() {
 
-							subPanel1.remove(yut);
-							subPanel1.revalidate();
-							subPanel1.repaint();
-							PlayerPage page = new PlayerPage(mf, mainPanel, subPanel1);
+							
+							PlayerPage page = new PlayerPage(mf, mainPanel,subPanel1);
 
 						}
 					};

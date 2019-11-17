@@ -15,6 +15,7 @@ import javax.swing.JPanel;
 import yut.model.vo.Player;
 
 public class PlayerPage  {
+	private Player player = new Player("ㄴㄴㄴ", "ㄴㄴㄴㄴ");
 
 	
 	public PlayerPage(MainFrame mf , JPanel panel,JPanel sb) {
@@ -87,7 +88,7 @@ public class PlayerPage  {
 	    	public void mouseClicked(MouseEvent e) {
 				if(e.getButton()==1) {
 					
-					GamePage gm = new GamePage(mf, subPanel);
+					GamePage gm = new GamePage(mf, subPanel,player);
 					
 				}
 			}

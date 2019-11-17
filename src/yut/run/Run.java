@@ -1,5 +1,8 @@
 package yut.run;
 
+import javax.swing.JPanel;
+
+import yut.view.GamePage;
 import yut.view.MainFrame;
 
 public class Run {

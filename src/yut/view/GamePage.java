@@ -42,41 +42,74 @@ public class GamePage {
         helpBtn.setSize(60, 60);
         helpBtn.setLocation(1130, 450);
 
-        //종료 버튼  생성
-        Image end = new ImageIcon("mini/창버튼.PNG").getImage().getScaledInstance(60, 60, 0);
-        JButton endBtn = new JButton();
-        endBtn = new JButton(new ImageIcon(end));
+		//종료 버튼  생성
+		Image end = new ImageIcon("mini/창버튼.PNG").getImage().getScaledInstance(40, 40, 0);
+		JButton endBtn = new JButton();
+		endBtn = new JButton(new ImageIcon(end));
+		//도움말 버튼 크기,위치 조정
+		endBtn.setSize(40, 40);
+		endBtn.setLocation(1445, 0);
+		gamePanel.setComponentZOrder(endBtn, 0);
+
+		//스토어 라벨생성
+        Image store = new ImageIcon("mini/스토어.PNG").getImage().getScaledInstance(370, 220, 0);
+        JLabel store1 = new JLabel();
+        store1 = new JLabel(new ImageIcon(store));
         //도움말 버튼 크기,위치 조정
-        endBtn.setSize(60, 60);
-        endBtn.setLocation(1130, 50);
+        store1.setSize(370,220);
+        store1.setLocation(1110, 530);
 
-        //스킬 3번 생성 예시
-        Image skil3 = new ImageIcon("mini/벽.PNG").getImage().getScaledInstance(80, 80, 0);
-        JButton skilBtn3 = new JButton();
-        skilBtn3 = new JButton(new ImageIcon(skil3));
+		//스킬 2번 생성 예시
+		Image skil2 = new ImageIcon("mini/모도스킬.PNG").getImage().getScaledInstance(80, 80, 0);
+        JButton skilBtn2 = new JButton();
+        skilBtn2 = new JButton(new ImageIcon(skil2));
         //도움말 버튼 크기,위치 조정
-        skilBtn3.setSize(80, 80);
-        skilBtn3.setLocation(1290, 650);
+        skilBtn2.setSize(80, 80);
+        skilBtn2.setLocation(1370, 660);
 
-        //스킬 4번 생성 예시
-        Image skil1 = new ImageIcon("mini/폭탄.PNG").getImage().getScaledInstance(80, 80, 0);
-        JButton skilBtn4 = new JButton();
-        skilBtn4 = new JButton(new ImageIcon(skil1));
+
+		//스킬 3번 생성 예시
+		Image skil3 = new ImageIcon("mini/벽.PNG").getImage().getScaledInstance(80, 80, 0);
+		JButton skilBtn3 = new JButton();
+		skilBtn3 = new JButton(new ImageIcon(skil3));
+		//도움말 버튼 크기,위치 조정
+		skilBtn3.setSize(80, 80);
+		skilBtn3.setLocation(1260, 660);
+
+		//스킬 4번 생성 예시
+		Image skil4 = new ImageIcon("mini/폭탄.PNG").getImage().getScaledInstance(80, 80, 0);
+		JButton skilBtn4 = new JButton();
+		skilBtn4 = new JButton(new ImageIcon(skil4));
+		//도움말 버튼 크기,위치 조정
+		skilBtn4.setSize(80, 80);
+		skilBtn4.setLocation(1150, 660);
+
+		//스킬 5번 생성 예시
+		Image skil5 = new ImageIcon("mini/빽도스킬.PNG").getImage().getScaledInstance(80, 80, 0);
+		JButton skilBtn5 = new JButton();
+        skilBtn5 = new JButton(new ImageIcon(skil5));
         //도움말 버튼 크기,위치 조정
-        skilBtn4.setSize(80, 80);
-        skilBtn4.setLocation(1200, 650);
+        skilBtn5.setSize(80, 80);
+        skilBtn5.setLocation(1150, 560);
+
+		//게임 화면에 백그라운드 배경
+		Image mainGround = new ImageIcon("mini/판떼기.PNG").getImage().getScaledInstance(1500, 800, 0);
+		JLabel mainBackGround = new JLabel(new ImageIcon(mainGround));
+		mainBackGround.setSize(1500, 800);
+
+		//윷 백그라운드
+		Image yutGround = new ImageIcon("mini/윷판.PNG").getImage().getScaledInstance(300, 300, 0);
+        JLabel yutBackGround = new JLabel(new ImageIcon(yutGround));
+        yutBackGround.setSize(300, 300);
+        yutBackGround.setLocation(1170,150);
 
 
-        //게임 화면에 백그라운드 배경
-        Image mainGround = new ImageIcon("mini/판떼기.PNG").getImage().getScaledInstance(1500, 800, 0);
-        JLabel mainBackGround = new JLabel(new ImageIcon(mainGround));
-        mainBackGround.setSize(1500, 800);
 
-        //윷던지기 버튼
-        Image yutThrow = new ImageIcon("mini/닉네임.PNG").getImage().getScaledInstance(250, 60, 0);
-        JLabel yutThrow1 = new JLabel(new ImageIcon(yutThrow));
-        yutThrow1.setSize(250, 60);
-        yutThrow1.setLocation(1200, 450);
+		//윷던지기 버튼
+		Image yutThrow = new ImageIcon("mini/윷던지기.PNG").getImage().getScaledInstance(250, 60, 0);
+		JLabel yutThrow1 = new JLabel(new ImageIcon(yutThrow));
+		yutThrow1.setSize(250, 60);
+		yutThrow1.setLocation(1200, 450);
 
 
         //무지 grid = 0
@@ -256,25 +289,25 @@ public class GamePage {
             gamePanel.add(ms4);
         }
 
-        //플레이어 상태창 배경
-        //ryan 배경
-        //보라색>노란색으로 변경
-        Image purple1 = new ImageIcon("mini/pan.PNG").getImage().getScaledInstance(300, 300, 0);
-        JLabel backgroundPurple1 = new JLabel(new ImageIcon(purple1));
-        backgroundPurple1.setSize(300, 197);
-        backgroundPurple1.setLocation(0, 0);
-        //apeach 배경
-        JLabel backgroundPurple2 = new JLabel(new ImageIcon(purple1));
-        backgroundPurple2.setSize(300, 197);
-        backgroundPurple2.setLocation(0, 200);
-        //frodo 배경
-        JLabel backgroundPurple3 = new JLabel(new ImageIcon(purple1));
-        backgroundPurple3.setSize(300, 197);
-        backgroundPurple3.setLocation(0, 400);
-        //neo 배경
-        JLabel backgroundPurple4 = new JLabel(new ImageIcon(purple1));
-        backgroundPurple4.setSize(300, 197);
-        backgroundPurple4.setLocation(0, 600);
+		//플레이어 상태창 배경
+		//ryan 배경
+		//보라색>노란색으로 변경
+		Image purple1 = new ImageIcon("mini/pan.PNG").getImage().getScaledInstance(300, 197, 0);
+		JLabel backgroundPurple1 = new JLabel(new ImageIcon(purple1));
+		backgroundPurple1.setSize(300,197);
+		backgroundPurple1.setLocation(0,0);
+		//apeach 배경
+		JLabel backgroundPurple2 = new JLabel(new ImageIcon(purple1));
+		backgroundPurple2.setSize(300,197);
+		backgroundPurple2.setLocation(0,200);
+		//frodo 배경
+		JLabel backgroundPurple3 = new JLabel(new ImageIcon(purple1));
+		backgroundPurple3.setSize(300,197);
+		backgroundPurple3.setLocation(0,400);
+		//neo 배경
+		JLabel backgroundPurple4 = new JLabel(new ImageIcon(purple1));
+		backgroundPurple4.setSize(300,153);
+		backgroundPurple4.setLocation(0,600);
 
         //정보 헤드
         Image getGreen = new ImageIcon("mini/정보1.PNG").getImage().getScaledInstance(70, 95, 0);
@@ -381,57 +414,65 @@ public class GamePage {
         //jtextfield 글꼴 변경하는 객체 생성
         Font font = new Font("arian", Font.BOLD, 13);
 
-        //text 표시
-        JTextField show = new JTextField(15);
-        String str = "테스트용@@";
-        show.setEditable(false);
-        panel.add(show);
-        show.setText(str);
-        show.setSize(110, 50);
-        show.setLocation(190, 5);
-        show.setFont(font);
-        str += "@@";
+		//text 표시
+		JTextField show = new JTextField(15);
+		String str = Integer.valueOf(player.getSongP()).toString();
+		show.setEditable(false);
+		panel.add(show);
+		show.setText(str);
+		show.setSize(110, 50);
+		show.setLocation(190, 5);
+		show.setFont(font);
+		//str += "@@";
 
 
-        //게임패널에 부착
-        gamePanel.add(skilBtn3);
-        gamePanel.add(skilBtn4);
-        gamePanel.add(endBtn);
-        gamePanel.add(helpBtn);
-        gamePanel.add(grid28);
-        gamePanel.add(grid27);
-        gamePanel.add(grid26);
-        gamePanel.add(grid25);
-        gamePanel.add(grid24);
-        gamePanel.add(grid23);
-        gamePanel.add(grid22);
-        gamePanel.add(grid21);
-        gamePanel.add(grid20);
-        gamePanel.add(grid19);
-        gamePanel.add(grid18);
-        gamePanel.add(grid17);
-        gamePanel.add(grid16);
-        gamePanel.add(grid15);
-        gamePanel.add(grid14);
-        gamePanel.add(grid13);
-        gamePanel.add(grid12);
-        gamePanel.add(grid11);
-        gamePanel.add(grid10);
-        gamePanel.add(grid9);
-        gamePanel.add(grid8);
-        gamePanel.add(grid7);
-        gamePanel.add(grid6);
-        gamePanel.add(grid5);
-        gamePanel.add(grid4);
-        gamePanel.add(grid3);
-        gamePanel.add(grid2);
-        gamePanel.add(grid1);
-        gamePanel.add(grid0);
-        //종철 - 플레이어 정보 입력시 표시되도록 추후 수정(플레이어 이름, 말 상황변화, 송편수, 패널표시)
-        //ryan
-        gamePanel.add(ryan_head_label);
-        gamePanel.add(info1);
-        gamePanel.add(show);
+		//게임패널에 부착
+		//스킬라벨
+
+		gamePanel.add(skilBtn2);
+		gamePanel.add(skilBtn3);
+		gamePanel.add(skilBtn4);
+		gamePanel.add(skilBtn5);
+		gamePanel.add(store1);
+		//종료 /도움말 라벨
+		gamePanel.add(endBtn);
+		gamePanel.add(helpBtn);
+
+		//말판 라벨
+		gamePanel.add(grid28);
+		gamePanel.add(grid27);
+		gamePanel.add(grid26);
+		gamePanel.add(grid25);
+		gamePanel.add(grid24);
+		gamePanel.add(grid23);
+		gamePanel.add(grid22);
+		gamePanel.add(grid21);
+		gamePanel.add(grid20);
+		gamePanel.add(grid19);
+		gamePanel.add(grid18);
+		gamePanel.add(grid17);
+		gamePanel.add(grid16);
+		gamePanel.add(grid15);
+		gamePanel.add(grid14);
+		gamePanel.add(grid13);
+		gamePanel.add(grid12);
+		gamePanel.add(grid11);
+		gamePanel.add(grid10);
+		gamePanel.add(grid9);
+		gamePanel.add(grid8);
+		gamePanel.add(grid7);
+		gamePanel.add(grid6);
+		gamePanel.add(grid5);
+		gamePanel.add(grid4);
+		gamePanel.add(grid3);
+		gamePanel.add(grid2);
+		gamePanel.add(grid1);
+		gamePanel.add(grid0);
+		//종철 - 플레이어 정보 입력시 표시되도록 추후 수정(플레이어 이름, 말 상황변화, 송편수, 패널표시)
+		//ryan
+		gamePanel.add(ryan_head_label);
+		gamePanel.add(info1);
+		gamePanel.add(show);
 
         gamePanel.add(ryan_body_label1);
         gamePanel.add(ryan_body_label2);
@@ -468,9 +509,10 @@ public class GamePage {
         gamePanel.add(backgroundPurple4);
 
 
-        //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-        gamePanel.add(yutThrow1);
-        gamePanel.add(mainBackGround);
+		//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+		gamePanel.add(yutBackGround);
+		gamePanel.add(yutThrow1);
+		gamePanel.add(mainBackGround);
 
         gamePanel.revalidate();
         gamePanel.repaint();
@@ -479,155 +521,178 @@ public class GamePage {
         mf.revalidate();
         mf.repaint();
 
-        ryan_body_label1.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                if (e.getButton() == 1) {
-                    Help hp = new Help(mf);
-                }
-            }
-        });
-        ryan_body_label2.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                if (e.getButton() == 1) {
-                    Help hp = new Help(mf);
-                }
-            }
-        });
-        ryan_body_label3.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                if (e.getButton() == 1) {
-                    Help hp = new Help(mf);
-                }
-            }
-        });
-        ryan_body_label4.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                if (e.getButton() == 1) {
-                    Help hp = new Help(mf);
-                }
-            }
-        });
-        apeach_body_label1.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                if (e.getButton() == 1) {
-                    Help hp = new Help(mf);
-                }
-            }
-        });
-        apeach_body_label2.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                if (e.getButton() == 1) {
-                    Help hp = new Help(mf);
-                }
-            }
-        });
-        apeach_body_label3.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                if (e.getButton() == 1) {
-                    Help hp = new Help(mf);
-                }
-            }
-        });
-        apeach_body_label4.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                if (e.getButton() == 1) {
-                    Help hp = new Help(mf);
-                }
-            }
-        });
-        frodo_body_label1.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                if (e.getButton() == 1) {
-                    Help hp = new Help(mf);
-                }
-            }
-        });
-        frodo_body_label2.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                if (e.getButton() == 1) {
-                    Help hp = new Help(mf);
-                }
-            }
-        });
-        frodo_body_label3.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                if (e.getButton() == 1) {
-                    Help hp = new Help(mf);
-                }
-            }
-        });
-        frodo_body_label4.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                if (e.getButton() == 1) {
-                    Help hp = new Help(mf);
-                }
-            }
-        });
-        neo_body_label1.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                if (e.getButton() == 1) {
-                    Help hp = new Help(mf);
-                }
-            }
-        });
-        neo_body_label2.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                if (e.getButton() == 1) {
-                    Help hp = new Help(mf);
-                }
-            }
-        });
-        neo_body_label3.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                if (e.getButton() == 1) {
-                    Help hp = new Help(mf);
-                }
-            }
-        });
-        neo_body_label4.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                if (e.getButton() == 1) {
-                    Help hp = new Help(mf);
-                }
-            }
-        });
-        ////////@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-        //스킬 3번 사용시 반응 예씨
-        skilBtn3.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                if (e.getButton() == 1) {
-                    Store shop = new Store();
-                    shop.buy(mf, gamePanel, player, 3);
-                }
-            }
+		ryan_body_label1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if(e.getButton()==1) {
+					Help hp = new Help(mf);
+				}
+			}
+		});
+		ryan_body_label2.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if(e.getButton()==1) {
+					Help hp = new Help(mf);
+				}
+			}
+		});
+		ryan_body_label3.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if(e.getButton()==1) {
+					Help hp = new Help(mf);
+				}
+			}
+		});
+		ryan_body_label4.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if(e.getButton()==1) {
+					Help hp = new Help(mf);
+				}
+			}
+		});
+		apeach_body_label1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if(e.getButton()==1) {
+					Help hp = new Help(mf);
+				}
+			}
+		});
+		apeach_body_label2.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if(e.getButton()==1) {
+					Help hp = new Help(mf);
+				}
+			}
+		});
+		apeach_body_label3.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if(e.getButton()==1) {
+					Help hp = new Help(mf);
+				}
+			}
+		});
+		apeach_body_label4.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if(e.getButton()==1) {
+					Help hp = new Help(mf);
+				}
+			}
+		});
+		frodo_body_label1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if(e.getButton()==1) {
+					Help hp = new Help(mf);
+				}
+			}
+		});
+		frodo_body_label2.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if(e.getButton()==1) {
+					Help hp = new Help(mf);
+				}
+			}
+		});
+		frodo_body_label3.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if(e.getButton()==1) {
+					Help hp = new Help(mf);
+				}
+			}
+		});
+		frodo_body_label4.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if(e.getButton()==1) {
+					Help hp = new Help(mf);
+				}
+			}
+		});
+		neo_body_label1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if(e.getButton()==1) {
+					Help hp = new Help(mf);
+				}
+			}
+		});
+		neo_body_label2.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if(e.getButton()==1) {
+					Help hp = new Help(mf);
+				}
+			}
+		});
+		neo_body_label3.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if(e.getButton()==1) {
+					Help hp = new Help(mf);
+				}
+			}
+		});
+		neo_body_label4.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if(e.getButton()==1) {
+					Help hp = new Help(mf);
+				}
+			}
+		});
+		////////@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+		//스킬 2번 사용시 반응 예시
+		skilBtn2.addMouseListener(new MouseAdapter() {
+		    @Override
+		    public void mouseClicked(MouseEvent e) {
+		        if(e.getButton()==1) {
+		            Store shop = new Store();
+		            shop.buy(mf, gamePanel, player, show, 2);
+		        }
+		    }
         });
 
-        //스킬 4번(폭탄) 사용시 반응 예시
-        skilBtn4.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                if (e.getButton() == 1) {
-                    Store shop = new Store();
-                    shop.buy(mf, gamePanel, player, 4);
-                }
-            }
+
+		//스킬 3번 사용시 반응 예시
+		skilBtn3.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if(e.getButton()==1) {
+					Store shop = new Store();
+					shop.buy(mf, gamePanel, player,show, 3);
+				}
+			}
+		});
+
+		//스킬 4번(폭탄) 사용시 반응 예시
+		skilBtn4.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if (e.getButton() == 1) {
+					Store shop = new Store();
+					shop.buy(mf, gamePanel, player,show, 4);
+				}
+			}
+		});
+
+		//스킬 5번(빽도) 사용시 반응
+		skilBtn5.addMouseListener(new MouseAdapter() {
+		    @Override
+		    public void mouseClicked(MouseEvent e) {
+		        if(e.getButton()==1) {
+		            Store shop = new Store();
+		            shop.buy(mf, gamePanel, player, show, 5);
+		        }
+		    }
         });
 
         //종료버튼 클릭시 메인 화면으로 복귀

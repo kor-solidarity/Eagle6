@@ -14,10 +14,10 @@ public class Help {
 
 	public Help(MainFrame mf) {
 
-		//도움말 창 생성
-
+		//도움말 창 생성    
+	    
 		//도움말 배경 라벨 생성
-		Image help_1 = new ImageIcon("mini/도움말1.PNG").getImage().getScaledInstance(1300, 700, 0);
+		Image help_1 = new ImageIcon("mini/도움말 메인.PNG").getImage().getScaledInstance(1300, 700, 0);
 		JLabel helpLb = new JLabel(new ImageIcon(help_1));
 		helpLb.setSize(1300,700);
 
@@ -28,12 +28,12 @@ public class Help {
 
 
 		//앞으로 가기 버튼  생성
-		Image front = new ImageIcon("mini/앞으로.PNG").getImage().getScaledInstance(80, 80, 0);
+		Image front = new ImageIcon("mini/앞으로.PNG").getImage().getScaledInstance(140, 140, 0);
 
-		JButton frontBtn = new JButton(new ImageIcon(front));
+		JLabel frontBtn = new JLabel(new ImageIcon(front));
 		//앞으로 버튼 크기,위치 조정
-		frontBtn.setSize(80,80);
-		frontBtn.setLocation(1200,0);
+		frontBtn.setSize(140,140);
+		frontBtn.setLocation(1170,-20);
 
 		helpSd.add(frontBtn);
 		helpSd.add(helpLb);
@@ -51,11 +51,11 @@ public class Help {
 				JLabel helpLb1 = new JLabel(new ImageIcon(help_2));
 				helpLb1.setSize(1300,700);
 
-				Image front = new ImageIcon("mini/앞으로.PNG").getImage().getScaledInstance(80, 80, 0);
+				Image front = new ImageIcon("mini/앞으로.PNG").getImage().getScaledInstance(140,140, 0);
 
-				JButton frontBtn1 = new JButton(new ImageIcon(front));
-				frontBtn1.setSize(80,80);
-				frontBtn1.setLocation(1200,0);
+				JLabel frontBtn1 = new JLabel(new ImageIcon(front));
+				frontBtn1.setSize(140,140);
+				frontBtn1.setLocation(1170,-20);
 
 				helpSd.remove(frontBtn);
 				helpSd.remove(helpLb);
@@ -72,11 +72,11 @@ public class Help {
 						JLabel helpLb2 = new JLabel(new ImageIcon(help_3));
 						helpLb2.setSize(1300,700);
 
-						Image front = new ImageIcon("mini/앞으로.PNG").getImage().getScaledInstance(80, 80, 0);
+						Image front = new ImageIcon("mini/앞으로.PNG").getImage().getScaledInstance(140,140, 0);
 
-						JButton frontBtn2 = new JButton(new ImageIcon(front));
-						frontBtn2.setSize(80,80);
-						frontBtn2.setLocation(1200,0);
+						JLabel frontBtn2 = new JLabel(new ImageIcon(front));
+						frontBtn2.setSize(140,140);
+						frontBtn2.setLocation(1170,-20);
 
 						helpSd.remove(frontBtn1);
 						helpSd.remove(helpLb1);

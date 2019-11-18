@@ -313,6 +313,7 @@ public class GamePage {
 		neo_body_label4.setSize(100,100);
 		neo_body_label4.setLocation(211,710);
 		
+		
 		//송편,아이디 표시 필드
 		//후에 setText 변경
 		

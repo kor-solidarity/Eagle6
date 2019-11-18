@@ -1,6 +1,10 @@
 package yut.view;
 
+import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -12,6 +16,8 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
 import com.sun.org.glassfish.gmbal.GmbalException;
 
@@ -254,6 +260,145 @@ public class GamePage {
 			gamePanel.add(ms4);
 		}
 
+		//플레이어 상태창 배경
+		//ryan 배경
+		//보라색>노란색으로 변경
+		Image purple1 = new ImageIcon("mini/pan.PNG").getImage().getScaledInstance(300, 300, 0);
+		JLabel backgroundPurple1 = new JLabel(new ImageIcon(purple1));
+		backgroundPurple1.setSize(300,197);
+		backgroundPurple1.setLocation(0,0);
+		//apeach 배경
+		JLabel backgroundPurple2 = new JLabel(new ImageIcon(purple1));
+		backgroundPurple2.setSize(300,197);
+		backgroundPurple2.setLocation(0,200);
+		//frodo 배경
+		JLabel backgroundPurple3 = new JLabel(new ImageIcon(purple1));
+		backgroundPurple3.setSize(300,197);
+		backgroundPurple3.setLocation(0,400);
+		//neo 배경
+		JLabel backgroundPurple4 = new JLabel(new ImageIcon(purple1));
+		backgroundPurple4.setSize(300,197);
+		backgroundPurple4.setLocation(0,600);
+
+		//정보 헤드
+		Image getGreen = new ImageIcon("mini/정보1.PNG").getImage().getScaledInstance(70, 95, 0);
+		JLabel info1 = new JLabel(new ImageIcon(getGreen));
+		info1.setSize(100, 100);
+		info1.setLocation(100,10);
+		JLabel info2 = new JLabel(new ImageIcon(getGreen));
+		info2.setSize(100, 100);
+		info2.setLocation(100,210);
+		JLabel info3 = new JLabel(new ImageIcon(getGreen));
+		info3.setSize(100, 100);
+		info3.setLocation(100,410);
+		JLabel info4 = new JLabel(new ImageIcon(getGreen));
+		info4.setSize(100, 100);
+		info4.setLocation(100,610);
+
+
+		//라이언 머리
+		Image ryan_head = new ImageIcon("mini/ryan1.PNG").getImage().getScaledInstance(110, 110, 0);
+		JLabel ryan_head_label = new JLabel(new ImageIcon(ryan_head));
+		ryan_head_label.setSize(105,105);
+		ryan_head_label.setLocation(0,10);
+		//라이언 몸통
+		Image ryan_body = new ImageIcon("mini/라이언.png").getImage().getScaledInstance(80, 80, 0);
+		JLabel ryan_body_label1 = new JLabel(new ImageIcon(ryan_body));
+		ryan_body_label1.setSize(100,100);
+		ryan_body_label1.setLocation(1,110);
+		JLabel ryan_body_label2 = new JLabel(new ImageIcon(ryan_body));
+		ryan_body_label2.setSize(100,100);
+		ryan_body_label2.setLocation(71,110);
+		JLabel ryan_body_label3 = new JLabel(new ImageIcon(ryan_body));
+		ryan_body_label3.setSize(100,100);
+		ryan_body_label3.setLocation(141,110);
+		JLabel ryan_body_label4 = new JLabel(new ImageIcon(ryan_body));
+		ryan_body_label4.setSize(100,100);
+		ryan_body_label4.setLocation(211,110);
+
+
+
+
+		//어피치 머리
+		Image apeach_head = new ImageIcon("mini/apeach1.PNG").getImage().getScaledInstance(100, 100, 0);
+		JLabel apeach_head_label = new JLabel(new ImageIcon(apeach_head));
+		apeach_head_label.setSize(100,100);
+		apeach_head_label.setLocation(10,210);
+		//어피치 몸통
+		Image apeach_body = new ImageIcon("mini/KakaoTalk_20191107_141544937.png").getImage().getScaledInstance(120, 120, 0);
+		JLabel apeach_body_label1 = new JLabel(new ImageIcon(apeach_body));
+		apeach_body_label1.setSize(100,100);
+		apeach_body_label1.setLocation(1,310);
+		JLabel apeach_body_label2 = new JLabel(new ImageIcon(apeach_body));
+		apeach_body_label2.setSize(100,100);
+		apeach_body_label2.setLocation(71,310);
+		JLabel apeach_body_label3 = new JLabel(new ImageIcon(apeach_body));
+		apeach_body_label3.setSize(100,100);
+		apeach_body_label3.setLocation(141,310);
+		JLabel apeach_body_label4 = new JLabel(new ImageIcon(apeach_body));
+		apeach_body_label4.setSize(100,100);
+		apeach_body_label4.setLocation(211,310);
+
+
+
+		//프로도 머리
+		Image frodo_head = new ImageIcon("mini/frodo1.PNG").getImage().getScaledInstance(100, 100, 0);
+		JLabel frodo_head_label = new JLabel(new ImageIcon(frodo_head));
+		frodo_head_label.setSize(100,100);
+		frodo_head_label.setLocation(10,410);
+		//프로도 몸통
+		Image frodo_body = new ImageIcon("mini/KakaoTalk_20191107_141545047.png").getImage().getScaledInstance(100, 100, 0);
+		JLabel frodo_body_label1 = new JLabel(new ImageIcon(frodo_body));
+		frodo_body_label1.setSize(100,100);
+		frodo_body_label1.setLocation(1,510);
+		JLabel frodo_body_label2 = new JLabel(new ImageIcon(frodo_body));
+		frodo_body_label2.setSize(100,100);
+		frodo_body_label2.setLocation(71,510);
+		JLabel frodo_body_label3 = new JLabel(new ImageIcon(frodo_body));
+		frodo_body_label3.setSize(100,100);
+		frodo_body_label3.setLocation(141,510);
+		JLabel frodo_body_label4 = new JLabel(new ImageIcon(frodo_body));
+		frodo_body_label4.setSize(100,100);
+
+
+
+		//네오 머리
+		Image neo_head = new ImageIcon("mini/neo1.PNG").getImage().getScaledInstance(100, 100, 0);
+		JLabel neo_head_label = new JLabel(new ImageIcon(neo_head));
+		neo_head_label.setSize(100,100);
+		neo_head_label.setLocation(10,610);
+		//네오 몸통
+		Image neo_body = new ImageIcon("mini/KakaoTalk_20191107_141544694.png").getImage().getScaledInstance(100, 100, 0);
+		JLabel neo_body_label1 = new JLabel(new ImageIcon(neo_body));
+		neo_body_label1.setSize(100,100);
+		neo_body_label1.setLocation(1,710);
+		JLabel neo_body_label2 = new JLabel(new ImageIcon(neo_body));
+		neo_body_label2.setSize(100,100);
+		neo_body_label2.setLocation(71,710);
+		JLabel neo_body_label3 = new JLabel(new ImageIcon(neo_body));
+		neo_body_label3.setSize(100,100);
+		neo_body_label3.setLocation(141,710);
+		JLabel neo_body_label4 = new JLabel(new ImageIcon(neo_body));
+		neo_body_label4.setSize(100,100);
+		neo_body_label4.setLocation(211,710);
+
+
+		//송편,아이디 표시 필드
+		//후에 setText 변경
+
+		//jtextfield 글꼴 변경하는 객체 생성
+		Font font = new Font("arian", Font.BOLD, 13);
+
+		//text 표시
+		JTextField show = new JTextField(15);
+		String str = "테스트용@@";
+		show.setEditable(false);
+		panel.add(show);
+		show.setText(str);
+		show.setSize(110, 50);
+		show.setLocation(190, 5);
+		show.setFont(font);
+		str += "@@";
 
 
 		//게임패널에 부착
@@ -290,8 +435,51 @@ public class GamePage {
 		gamePanel.add(grid2);
 		gamePanel.add(grid1);
 		gamePanel.add(grid0);
+		//종철 - 플레이어 정보 입력시 표시되도록 추후 수정(플레이어 이름, 말 상황변화, 송편수, 패널표시)
+		//ryan
+		gamePanel.add(ryan_head_label);
+		gamePanel.add(info1);
+		gamePanel.add(show);
+
+		gamePanel.add(ryan_body_label1);
+		gamePanel.add(ryan_body_label2);
+		gamePanel.add(ryan_body_label3);
+		gamePanel.add(ryan_body_label4);
+		gamePanel.add(backgroundPurple1);
+
+		//apeach
+		gamePanel.add(apeach_head_label);
+		gamePanel.add(info2);
+
+		gamePanel.add(apeach_body_label1);
+		gamePanel.add(apeach_body_label2);
+		gamePanel.add(apeach_body_label3);
+		gamePanel.add(apeach_body_label4);
+		gamePanel.add(backgroundPurple2);
+
+		//frodo
+		gamePanel.add(frodo_head_label);
+		gamePanel.add(info3);
+		gamePanel.add(frodo_body_label1);
+		gamePanel.add(frodo_body_label2);
+		gamePanel.add(frodo_body_label3);
+		gamePanel.add(frodo_body_label4);
+		gamePanel.add(backgroundPurple3);
+
+		//neo
+		gamePanel.add(neo_head_label);
+		gamePanel.add(info4);
+		gamePanel.add(neo_body_label1);
+		gamePanel.add(neo_body_label2);
+		gamePanel.add(neo_body_label3);
+		gamePanel.add(neo_body_label4);
+		gamePanel.add(backgroundPurple4);
+
+
+		//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 		gamePanel.add(yutThrow1);
 		gamePanel.add(mainBackGround);
+
 		gamePanel.revalidate();
 		gamePanel.repaint();
 
@@ -299,6 +487,135 @@ public class GamePage {
 		mf.revalidate();
 		mf.repaint();
 
+		ryan_body_label1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if(e.getButton()==1) {
+					Help hp = new Help(mf);
+				}
+			}
+		});
+		ryan_body_label2.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if(e.getButton()==1) {
+					Help hp = new Help(mf);
+				}
+			}
+		});
+		ryan_body_label3.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if(e.getButton()==1) {
+					Help hp = new Help(mf);
+				}
+			}
+		});
+		ryan_body_label4.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if(e.getButton()==1) {
+					Help hp = new Help(mf);
+				}
+			}
+		});
+		apeach_body_label1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if(e.getButton()==1) {
+					Help hp = new Help(mf);
+				}
+			}
+		});
+		apeach_body_label2.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if(e.getButton()==1) {
+					Help hp = new Help(mf);
+				}
+			}
+		});
+		apeach_body_label3.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if(e.getButton()==1) {
+					Help hp = new Help(mf);
+				}
+			}
+		});
+		apeach_body_label4.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if(e.getButton()==1) {
+					Help hp = new Help(mf);
+				}
+			}
+		});
+		frodo_body_label1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if(e.getButton()==1) {
+					Help hp = new Help(mf);
+				}
+			}
+		});
+		frodo_body_label2.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if(e.getButton()==1) {
+					Help hp = new Help(mf);
+				}
+			}
+		});
+		frodo_body_label3.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if(e.getButton()==1) {
+					Help hp = new Help(mf);
+				}
+			}
+		});
+		frodo_body_label4.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if(e.getButton()==1) {
+					Help hp = new Help(mf);
+				}
+			}
+		});
+		neo_body_label1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if(e.getButton()==1) {
+					Help hp = new Help(mf);
+				}
+			}
+		});
+		neo_body_label2.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if(e.getButton()==1) {
+					Help hp = new Help(mf);
+				}
+			}
+		});
+		neo_body_label3.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if(e.getButton()==1) {
+					Help hp = new Help(mf);
+				}
+			}
+		});
+		neo_body_label4.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if(e.getButton()==1) {
+					Help hp = new Help(mf);
+				}
+			}
+		});
+		////////@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 		//스킬 3번 사용시 반응 예씨
 		skilBtn3.addMouseListener(new MouseAdapter() {
 			@Override
@@ -378,6 +695,7 @@ public class GamePage {
 
 		//도움말 창 버튼 클릭시 반응
 		helpBtn.addMouseListener(new MouseAdapter() {
+
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				if(e.getButton()==1) {
@@ -418,6 +736,7 @@ public class GamePage {
 				}
 			}
 		});
+
 	}
 
 }

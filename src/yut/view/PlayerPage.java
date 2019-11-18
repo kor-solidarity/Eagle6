@@ -50,7 +50,7 @@ public class PlayerPage  {
 		backBtn = new JLabel(new ImageIcon(back));
 		backBtn.setSize(200,200);
 		backBtn.setLocation(-50,600);
-		//라이언 캐릭터 
+		//라이언 캐릭터
 		Image ryan = new ImageIcon("mini/라이언.PNG").getImage().getScaledInstance(200, 200, 0);
 		JLabel ryanBtn = new JLabel(new ImageIcon(ryan));
 		ryanBtn.setSize(200,200);

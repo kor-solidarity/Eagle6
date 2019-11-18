@@ -292,7 +292,6 @@ public class GamePage {
 
 
 
-
 		//네오 머리
 		Image neo_head = new ImageIcon("mini/neo1.PNG").getImage().getScaledInstance(100, 100, 0);
 		JLabel neo_head_label = new JLabel(new ImageIcon(neo_head));

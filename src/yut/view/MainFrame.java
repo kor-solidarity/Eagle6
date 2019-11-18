@@ -81,32 +81,32 @@ public class MainFrame extends JFrame {
         //도움말 클릭시 반응 추가
         startBtn.addMouseListener(new MouseAdapter() {
 
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				//마우스 왼쪽 클릭만 입력 될 시
-				if(e.getButton()==1) {
-					//로딩화면 패널 생성
-					JPanel subPanel1 = new JPanel();
-					subPanel1.setBounds(0, 0, 1500, 800);
-					subPanel1.setLayout(null);
-					//로딩 라벨 생성
-					Image yut1 = new ImageIcon("mini/로딩.GIF").getImage().getScaledInstance(300, 300, 0);
-					JLabel yut = new JLabel(new ImageIcon(yut1));
-					yut.setSize(300, 300);
-					yut.setLocation(600, 180);
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                //마우스 왼쪽 클릭만 입력 될 시
+                if (e.getButton() == 1) {
+                    //로딩화면 패널 생성
+                    JPanel subPanel1 = new JPanel();
+                    subPanel1.setBounds(0, 0, 1500, 800);
+                    subPanel1.setLayout(null);
+                    //로딩 라벨 생성
+                    Image yut1 = new ImageIcon("mini/로딩.GIF").getImage().getScaledInstance(300, 300, 0);
+                    JLabel yut = new JLabel(new ImageIcon(yut1));
+                    yut.setSize(300, 300);
+                    yut.setLocation(600, 180);
 
-					//========== 다영 ==========
-					//캐릭터를 준비중입니다 gif 삽입
-					Image low = new ImageIcon("mini/캐릭터준비중.GIF").getImage().getScaledInstance(650, 200, 0);
-					JLabel loword = new JLabel(new ImageIcon(low));
-					loword.setSize(650, 200);
-					loword.setLocation(420, 450);
+                    //========== 다영 ==========
+                    //캐릭터를 준비중입니다 gif 삽입
+                    Image low = new ImageIcon("mini/캐릭터준비중.GIF").getImage().getScaledInstance(650, 200, 0);
+                    JLabel loword = new JLabel(new ImageIcon(low));
+                    loword.setSize(650, 200);
+                    loword.setLocation(420, 450);
 
-					//로딩 배경 라벨 생성
-					Image lodingBackGround = new ImageIcon("mini/선택창 배경.PNG").getImage().getScaledInstance(1500, 800, 0);
-					JLabel lo = new JLabel(new ImageIcon(lodingBackGround));
-					lo.setSize(1500, 800);
-					//lo.setLocation(1170, 150);
+                    //로딩 배경 라벨 생성
+                    Image lodingBackGround = new ImageIcon("mini/선택창 배경.PNG").getImage().getScaledInstance(1500, 800, 0);
+                    JLabel lo = new JLabel(new ImageIcon(lodingBackGround));
+                    lo.setSize(1500, 800);
+                    //lo.setLocation(1170, 150);
 
 
                     //메인 라벨 제거
@@ -133,14 +133,14 @@ public class MainFrame extends JFrame {
 
                             PlayerPage page = new PlayerPage(mf, mainPanel, subPanel1);
 
-						}
-					};
-					ts.schedule(tk, 100); //원래 4000
+                        }
+                    };
+                    ts.schedule(tk, 100); //원래 4000
 
-					//PlayerPage page = new PlayerPage(mf, mainPanel);
+                    //PlayerPage page = new PlayerPage(mf, mainPanel);
 
-				}
-			}
+                }
+            }
 
         });
 

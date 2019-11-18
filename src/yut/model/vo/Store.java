@@ -53,7 +53,7 @@ public class Store {
                 show.repaint();
 
                 YutMadeByCho yut = new YutMadeByCho();
-                yut.mainYut(2);
+                yut.mainYut(2, player);
 
                 Timer ts = new Timer();
                 TimerTask tk = new TimerTask() {
@@ -311,7 +311,7 @@ public class Store {
 
                 BackDo bd = new BackDo();
                 YutMadeByCho yut = new YutMadeByCho();
-                yut.mainYut(5);
+                yut.mainYut(5, player);
 
                 player.setSongP(player.getSongP()-bd.getPrice());
 

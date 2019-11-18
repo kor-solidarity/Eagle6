@@ -42,25 +42,25 @@ public class GamePage {
         helpBtn.setSize(60, 60);
         helpBtn.setLocation(1130, 450);
 
-		//종료 버튼  생성
-		Image end = new ImageIcon("mini/창버튼.PNG").getImage().getScaledInstance(40, 40, 0);
-		JButton endBtn = new JButton();
-		endBtn = new JButton(new ImageIcon(end));
-		//도움말 버튼 크기,위치 조정
-		endBtn.setSize(40, 40);
-		endBtn.setLocation(1445, 0);
-		gamePanel.setComponentZOrder(endBtn, 0);
+        //종료 버튼  생성
+        Image end = new ImageIcon("mini/창버튼.PNG").getImage().getScaledInstance(40, 40, 0);
+        JButton endBtn = new JButton();
+        endBtn = new JButton(new ImageIcon(end));
+        //도움말 버튼 크기,위치 조정
+        endBtn.setSize(40, 40);
+        endBtn.setLocation(1445, 0);
+        gamePanel.setComponentZOrder(endBtn, 0);
 
-		//스토어 라벨생성
+        //스토어 라벨생성
         Image store = new ImageIcon("mini/스토어.PNG").getImage().getScaledInstance(370, 220, 0);
         JLabel store1 = new JLabel();
         store1 = new JLabel(new ImageIcon(store));
         //도움말 버튼 크기,위치 조정
-        store1.setSize(370,220);
+        store1.setSize(370, 220);
         store1.setLocation(1110, 530);
 
-		//스킬 2번 생성 예시
-		Image skil2 = new ImageIcon("mini/모도스킬.PNG").getImage().getScaledInstance(80, 80, 0);
+        //스킬 2번 생성 예시
+        Image skil2 = new ImageIcon("mini/모도스킬.PNG").getImage().getScaledInstance(80, 80, 0);
         JButton skilBtn2 = new JButton();
         skilBtn2 = new JButton(new ImageIcon(skil2));
         //도움말 버튼 크기,위치 조정
@@ -68,25 +68,25 @@ public class GamePage {
         skilBtn2.setLocation(1370, 660);
 
 
-		//스킬 3번 생성 예시
-		Image skil3 = new ImageIcon("mini/벽.PNG").getImage().getScaledInstance(80, 80, 0);
-		JButton skilBtn3 = new JButton();
-		skilBtn3 = new JButton(new ImageIcon(skil3));
-		//도움말 버튼 크기,위치 조정
-		skilBtn3.setSize(80, 80);
-		skilBtn3.setLocation(1260, 660);
+        //스킬 3번 생성 예시
+        Image skil3 = new ImageIcon("mini/벽.PNG").getImage().getScaledInstance(80, 80, 0);
+        JButton skilBtn3 = new JButton();
+        skilBtn3 = new JButton(new ImageIcon(skil3));
+        //도움말 버튼 크기,위치 조정
+        skilBtn3.setSize(80, 80);
+        skilBtn3.setLocation(1260, 660);
 
-		//스킬 4번 생성 예시
-		Image skil4 = new ImageIcon("mini/폭탄.PNG").getImage().getScaledInstance(80, 80, 0);
-		JButton skilBtn4 = new JButton();
-		skilBtn4 = new JButton(new ImageIcon(skil4));
-		//도움말 버튼 크기,위치 조정
-		skilBtn4.setSize(80, 80);
-		skilBtn4.setLocation(1150, 660);
+        //스킬 4번 생성 예시
+        Image skil4 = new ImageIcon("mini/폭탄.PNG").getImage().getScaledInstance(80, 80, 0);
+        JButton skilBtn4 = new JButton();
+        skilBtn4 = new JButton(new ImageIcon(skil4));
+        //도움말 버튼 크기,위치 조정
+        skilBtn4.setSize(80, 80);
+        skilBtn4.setLocation(1150, 660);
 
-		//스킬 5번 생성 예시
-		Image skil5 = new ImageIcon("mini/빽도스킬.PNG").getImage().getScaledInstance(80, 80, 0);
-		JButton skilBtn5 = new JButton();
+        //스킬 5번 생성 예시
+        Image skil5 = new ImageIcon("mini/빽도스킬.PNG").getImage().getScaledInstance(80, 80, 0);
+        JButton skilBtn5 = new JButton();
         skilBtn5 = new JButton(new ImageIcon(skil5));
         //도움말 버튼 크기,위치 조정
         skilBtn5.setSize(80, 80);
@@ -97,19 +97,18 @@ public class GamePage {
         JLabel mainBackGround = new JLabel(new ImageIcon(mainGround));
         mainBackGround.setSize(1500, 800);
 
-		//윷 백그라운드
-		Image yutGround = new ImageIcon("mini/윷판.PNG").getImage().getScaledInstance(300, 300, 0);
+        //윷 백그라운드
+        Image yutGround = new ImageIcon("mini/윷판.PNG").getImage().getScaledInstance(300, 300, 0);
         JLabel yutBackGround = new JLabel(new ImageIcon(yutGround));
         yutBackGround.setSize(300, 300);
-        yutBackGround.setLocation(1170,150);
+        yutBackGround.setLocation(1170, 150);
 
 
-
-		//윷던지기 버튼
-		Image yutThrow = new ImageIcon("mini/윷던지기.PNG").getImage().getScaledInstance(250, 60, 0);
-		JLabel yutThrow1 = new JLabel(new ImageIcon(yutThrow));
-		yutThrow1.setSize(250, 60);
-		yutThrow1.setLocation(1200, 450);
+        //윷던지기 버튼
+        Image yutThrow = new ImageIcon("mini/윷던지기.PNG").getImage().getScaledInstance(250, 60, 0);
+        JLabel yutThrow1 = new JLabel(new ImageIcon(yutThrow));
+        yutThrow1.setSize(250, 60);
+        yutThrow1.setLocation(1200, 450);
 
 
         //무지 grid = 0
@@ -289,335 +288,329 @@ public class GamePage {
             gamePanel.add(ms4);
         }
 
-		///153
-		//11
+        ///153
+        //11
 
-		//플레이어 상태창 배경
-		//ryan 배경
-		//보라색>노란색으로 변경
-		Image purple1 = new ImageIcon("mini/pan.PNG").getImage().getScaledInstance(300, 197, 0);
-		JLabel backgroundPurple1 = new JLabel(new ImageIcon(purple1));
-		backgroundPurple1.setSize(300,186);
-		backgroundPurple1.setLocation(0,0);
-		//apeach 배경
-		JLabel backgroundPurple2 = new JLabel(new ImageIcon(purple1));
-		backgroundPurple2.setSize(300,186);
-		backgroundPurple2.setLocation(0,189);
-		//frodo 배경
-		JLabel backgroundPurple3 = new JLabel(new ImageIcon(purple1));
-		backgroundPurple3.setSize(300,186);
-		backgroundPurple3.setLocation(0,378);
-		//neo 배경
-		JLabel backgroundPurple4 = new JLabel(new ImageIcon(purple1));
-		backgroundPurple4.setSize(300,186);
-		backgroundPurple4.setLocation(0,567);
+        //플레이어 상태창 배경
+        //ryan 배경
+        //보라색>노란색으로 변경
+        Image purple1 = new ImageIcon("mini/pan.PNG").getImage().getScaledInstance(300, 197, 0);
+        JLabel backgroundPurple1 = new JLabel(new ImageIcon(purple1));
+        backgroundPurple1.setSize(300, 186);
+        backgroundPurple1.setLocation(0, 0);
+        //apeach 배경
+        JLabel backgroundPurple2 = new JLabel(new ImageIcon(purple1));
+        backgroundPurple2.setSize(300, 186);
+        backgroundPurple2.setLocation(0, 189);
+        //frodo 배경
+        JLabel backgroundPurple3 = new JLabel(new ImageIcon(purple1));
+        backgroundPurple3.setSize(300, 186);
+        backgroundPurple3.setLocation(0, 378);
+        //neo 배경
+        JLabel backgroundPurple4 = new JLabel(new ImageIcon(purple1));
+        backgroundPurple4.setSize(300, 186);
+        backgroundPurple4.setLocation(0, 567);
 
-		//정보 헤드
-		Image getGreen = new ImageIcon("mini/정보1.PNG").getImage().getScaledInstance(70, 95, 0);
-		JLabel info1 = new JLabel(new ImageIcon(getGreen));
-		info1.setSize(100, 100);
-		info1.setLocation(100,10);
-		JLabel info2 = new JLabel(new ImageIcon(getGreen));
-		info2.setSize(100, 100);
-		info2.setLocation(100,199);
-		JLabel info3 = new JLabel(new ImageIcon(getGreen));
-		info3.setSize(100, 100);
-		info3.setLocation(100,388);
-		JLabel info4 = new JLabel(new ImageIcon(getGreen));
-		info4.setSize(100, 100);
-		info4.setLocation(100,577);
-
-
-		//라이언 머리
-		Image ryan_head = new ImageIcon("mini/ryan1.PNG").getImage().getScaledInstance(110, 110, 0);
-		JLabel ryan_head_label = new JLabel(new ImageIcon(ryan_head));
-		ryan_head_label.setSize(105,105);
-		ryan_head_label.setLocation(0,10);
-		//라이언 도착 몸통
-		Image ryan_bodyx = new ImageIcon("mini/x라이언말.PNG").getImage().getScaledInstance(80, 80, 0);
-		JLabel ryan_body_labelx1 = new JLabel(new ImageIcon(ryan_bodyx));
-		ryan_body_labelx1.setSize(100,100);
-		ryan_body_labelx1.setLocation(1,99);
-		JLabel ryan_body_labelx2 = new JLabel(new ImageIcon(ryan_bodyx));
-		ryan_body_labelx2.setSize(100,100);
-		ryan_body_labelx2.setLocation(71,99);
-		JLabel ryan_body_labelx3 = new JLabel(new ImageIcon(ryan_bodyx));
-		ryan_body_labelx3.setSize(100,100);
-		ryan_body_labelx3.setLocation(141,99);
-		JLabel ryan_body_labelx4 = new JLabel(new ImageIcon(ryan_bodyx));
-		ryan_body_labelx4.setSize(100,100);
-		ryan_body_labelx4.setLocation(211,99);
-		//라이언 몸통
-		Image ryan_body1 = new ImageIcon("mini/1번라이언말.PNG").getImage().getScaledInstance(80, 80, 0);
-		JLabel ryan_body_label1 = new JLabel(new ImageIcon(ryan_body1));
-		ryan_body_label1.setSize(100,100);
-		ryan_body_label1.setLocation(1,99);
-		Image ryan_body2 = new ImageIcon("mini/2번라이언말.PNG").getImage().getScaledInstance(80, 80, 0);
-		JLabel ryan_body_label2 = new JLabel(new ImageIcon(ryan_body2));
-		ryan_body_label2.setSize(100,100);
-		ryan_body_label2.setLocation(71,99);
-		Image ryan_body3 = new ImageIcon("mini/3번라이언말.PNG").getImage().getScaledInstance(80, 80, 0);
-		JLabel ryan_body_label3 = new JLabel(new ImageIcon(ryan_body3));
-		ryan_body_label3.setSize(100,100);
-		ryan_body_label3.setLocation(141,99);
-		Image ryan_body4 = new ImageIcon("mini/4번라이언말.PNG").getImage().getScaledInstance(80, 80, 0);
-		JLabel ryan_body_label4 = new JLabel(new ImageIcon(ryan_body4));
-		ryan_body_label4.setSize(100,100);
-		ryan_body_label4.setLocation(211,99);
-		//라이언 출발 몸통
-		Image ryan_body1_s = new ImageIcon("mini/1번라이언말출격.PNG").getImage().getScaledInstance(80, 80, 0);
-		JLabel ryan_body_label1_s = new JLabel(new ImageIcon(ryan_body1_s));
-		ryan_body_label1_s.setSize(100,100);
-		ryan_body_label1_s.setLocation(1,99);
-		Image ryan_body2_s = new ImageIcon("mini/2번라이언말출격.PNG").getImage().getScaledInstance(80, 80, 0);
-		JLabel ryan_body_label2_s = new JLabel(new ImageIcon(ryan_body2_s));
-		ryan_body_label2_s.setSize(100,100);
-		ryan_body_label2_s.setLocation(71,99);
-		Image ryan_body3_s = new ImageIcon("mini/3번라이언말출격.PNG").getImage().getScaledInstance(80, 80, 0);
-		JLabel ryan_body_label3_s = new JLabel(new ImageIcon(ryan_body3_s));
-		ryan_body_label3_s.setSize(100,100);
-		ryan_body_label3_s.setLocation(141,99);
-		Image ryan_body4_s = new ImageIcon("mini/4번라이언말출격.PNG").getImage().getScaledInstance(80, 80, 0);
-		JLabel ryan_body_label4_s = new JLabel(new ImageIcon(ryan_body4_s));
-		ryan_body_label4_s.setSize(100,100);
-		ryan_body_label4_s.setLocation(211,99);
+        //정보 헤드
+        Image getGreen = new ImageIcon("mini/정보1.PNG").getImage().getScaledInstance(70, 95, 0);
+        JLabel info1 = new JLabel(new ImageIcon(getGreen));
+        info1.setSize(100, 100);
+        info1.setLocation(100, 10);
+        JLabel info2 = new JLabel(new ImageIcon(getGreen));
+        info2.setSize(100, 100);
+        info2.setLocation(100, 199);
+        JLabel info3 = new JLabel(new ImageIcon(getGreen));
+        info3.setSize(100, 100);
+        info3.setLocation(100, 388);
+        JLabel info4 = new JLabel(new ImageIcon(getGreen));
+        info4.setSize(100, 100);
+        info4.setLocation(100, 577);
 
 
-		//=======================================> 윷판 말 좌표 찾기 - 다영
-		JLabel testmal = new JLabel(new ImageIcon(ryan_body));
-		testmal.setSize(100, 100);
-		//그리드 0일때
-		//testmal.setLocation(990, 640);
-		//그리드 1일때
-		//testmal.setLocation(990, 510);
-		//그리드 2일때
-		//testmal.setLocation(990, 390);
-		//그리드 3일떄
-		//testmal.setLocation(990, 280);
-		//그리드 4일때
-		//testmal.setLocation(990, 170);
-		//그리드 5일때
-		//testmal.setLocation(990, 65);
-
-		//그리드 6일때
-		//testmal.setLocation(855, 65);
-		//그리드 7일때
-		//testmal.setLocation(735, 65);
-		//그리드 8일때
-		//testmal.setLocation(615, 65);
-		//그리드 9일때
-		//testmal.setLocation(495, 65);
-		//그리드 10일때
-		//testmal.setLocation(350, 65);
-
-		//그리드 11일때
-		//testmal.setLocation(350, 180);
-		//그리드 12일때
-		//testmal.setLocation(350, 290);
-		//그리드 13일때
-		//testmal.setLocation(350, 400);
-		//그리드 14일때
-		//testmal.setLocation(350, 510);
-		//그리드 15일때
-		//testmal.setLocation(350, 640);
-
-		//그리드 16일때
-		//testmal.setLocation(475, 640);
-		//그리드 17일때
-		//testmal.setLocation(605, 640);
-		//그리드 18일때
-		//testmal.setLocation(735, 640);
-		//그리드 19일때
-		//testmal.setLocation(865, 640);
-
-		//그리드 25일때
-		//testmal.setLocation(475, 188);
-		//그리드 26일때
-		//testmal.setLocation(560, 245);
-		//그리드 27일때
-		//testmal.setLocation(790, 435);
-		//그리드 28일때
-		//testmal.setLocation(865, 510);
-
-		//그리드 20일때
-		//testmal.setLocation(860, 188);
-		//그리드 21일때
-		//testmal.setLocation(790, 245);
-		//그리드 23일때
-		//testmal.setLocation(565, 435);
-		//그리드 24일때
-		//testmal.setLocation(495, 510);
+        //라이언 머리
+        Image ryan_head = new ImageIcon("mini/ryan1.PNG").getImage().getScaledInstance(110, 110, 0);
+        JLabel ryan_head_label = new JLabel(new ImageIcon(ryan_head));
+        ryan_head_label.setSize(105, 105);
+        ryan_head_label.setLocation(0, 10);
+        //라이언 도착 몸통
+        Image ryan_bodyx = new ImageIcon("mini/x라이언말.PNG").getImage().getScaledInstance(80, 80, 0);
+        JLabel ryan_body_labelx1 = new JLabel(new ImageIcon(ryan_bodyx));
+        ryan_body_labelx1.setSize(100, 100);
+        ryan_body_labelx1.setLocation(1, 99);
+        JLabel ryan_body_labelx2 = new JLabel(new ImageIcon(ryan_bodyx));
+        ryan_body_labelx2.setSize(100, 100);
+        ryan_body_labelx2.setLocation(71, 99);
+        JLabel ryan_body_labelx3 = new JLabel(new ImageIcon(ryan_bodyx));
+        ryan_body_labelx3.setSize(100, 100);
+        ryan_body_labelx3.setLocation(141, 99);
+        JLabel ryan_body_labelx4 = new JLabel(new ImageIcon(ryan_bodyx));
+        ryan_body_labelx4.setSize(100, 100);
+        ryan_body_labelx4.setLocation(211, 99);
+        //라이언 몸통
+        Image ryan_body1 = new ImageIcon("mini/1번라이언말.PNG").getImage().getScaledInstance(80, 80, 0);
+        JLabel ryan_body_label1 = new JLabel(new ImageIcon(ryan_body1));
+        ryan_body_label1.setSize(100, 100);
+        ryan_body_label1.setLocation(1, 99);
+        Image ryan_body2 = new ImageIcon("mini/2번라이언말.PNG").getImage().getScaledInstance(80, 80, 0);
+        JLabel ryan_body_label2 = new JLabel(new ImageIcon(ryan_body2));
+        ryan_body_label2.setSize(100, 100);
+        ryan_body_label2.setLocation(71, 99);
+        Image ryan_body3 = new ImageIcon("mini/3번라이언말.PNG").getImage().getScaledInstance(80, 80, 0);
+        JLabel ryan_body_label3 = new JLabel(new ImageIcon(ryan_body3));
+        ryan_body_label3.setSize(100, 100);
+        ryan_body_label3.setLocation(141, 99);
+        Image ryan_body4 = new ImageIcon("mini/4번라이언말.PNG").getImage().getScaledInstance(80, 80, 0);
+        JLabel ryan_body_label4 = new JLabel(new ImageIcon(ryan_body4));
+        ryan_body_label4.setSize(100, 100);
+        ryan_body_label4.setLocation(211, 99);
+        //라이언 출발 몸통
+        Image ryan_body1_s = new ImageIcon("mini/1번라이언말출격.PNG").getImage().getScaledInstance(80, 80, 0);
+        JLabel ryan_body_label1_s = new JLabel(new ImageIcon(ryan_body1_s));
+        ryan_body_label1_s.setSize(100, 100);
+        ryan_body_label1_s.setLocation(1, 99);
+        Image ryan_body2_s = new ImageIcon("mini/2번라이언말출격.PNG").getImage().getScaledInstance(80, 80, 0);
+        JLabel ryan_body_label2_s = new JLabel(new ImageIcon(ryan_body2_s));
+        ryan_body_label2_s.setSize(100, 100);
+        ryan_body_label2_s.setLocation(71, 99);
+        Image ryan_body3_s = new ImageIcon("mini/3번라이언말출격.PNG").getImage().getScaledInstance(80, 80, 0);
+        JLabel ryan_body_label3_s = new JLabel(new ImageIcon(ryan_body3_s));
+        ryan_body_label3_s.setSize(100, 100);
+        ryan_body_label3_s.setLocation(141, 99);
+        Image ryan_body4_s = new ImageIcon("mini/4번라이언말출격.PNG").getImage().getScaledInstance(80, 80, 0);
+        JLabel ryan_body_label4_s = new JLabel(new ImageIcon(ryan_body4_s));
+        ryan_body_label4_s.setSize(100, 100);
+        ryan_body_label4_s.setLocation(211, 99);
 
 
+        //=======================================> 윷판 말 좌표 찾기 - 다영
+        // JLabel testmal = new JLabel(new ImageIcon(ryan_body));
+        // testmal.setSize(100, 100);
+        //그리드 0일때
+        //testmal.setLocation(990, 640);
+        //그리드 1일때
+        //testmal.setLocation(990, 510);
+        //그리드 2일때
+        //testmal.setLocation(990, 390);
+        //그리드 3일떄
+        //testmal.setLocation(990, 280);
+        //그리드 4일때
+        //testmal.setLocation(990, 170);
+        //그리드 5일때
+        //testmal.setLocation(990, 65);
+
+        //그리드 6일때
+        //testmal.setLocation(855, 65);
+        //그리드 7일때
+        //testmal.setLocation(735, 65);
+        //그리드 8일때
+        //testmal.setLocation(615, 65);
+        //그리드 9일때
+        //testmal.setLocation(495, 65);
+        //그리드 10일때
+        //testmal.setLocation(350, 65);
+
+        //그리드 11일때
+        //testmal.setLocation(350, 180);
+        //그리드 12일때
+        //testmal.setLocation(350, 290);
+        //그리드 13일때
+        //testmal.setLocation(350, 400);
+        //그리드 14일때
+        //testmal.setLocation(350, 510);
+        //그리드 15일때
+        //testmal.setLocation(350, 640);
+
+        //그리드 16일때
+        //testmal.setLocation(475, 640);
+        //그리드 17일때
+        //testmal.setLocation(605, 640);
+        //그리드 18일때
+        //testmal.setLocation(735, 640);
+        //그리드 19일때
+        //testmal.setLocation(865, 640);
+
+        //그리드 25일때
+        //testmal.setLocation(475, 188);
+        //그리드 26일때
+        //testmal.setLocation(560, 245);
+        //그리드 27일때
+        //testmal.setLocation(790, 435);
+        //그리드 28일때
+        //testmal.setLocation(865, 510);
+
+        //그리드 20일때
+        //testmal.setLocation(860, 188);
+        //그리드 21일때
+        //testmal.setLocation(790, 245);
+        //그리드 23일때
+        //testmal.setLocation(565, 435);
+        //그리드 24일때
+        //testmal.setLocation(495, 510);
 
 
-
-		//어피치 머리
-		Image apeach_head = new ImageIcon("mini/apeach1.PNG").getImage().getScaledInstance(100, 100, 0);
-		JLabel apeach_head_label = new JLabel(new ImageIcon(apeach_head));
-		apeach_head_label.setSize(100,100);
-		apeach_head_label.setLocation(10,199);
-		//어피치 도착 몸통
-		Image apeach_bodyx = new ImageIcon("mini/x어피치말.PNG").getImage().getScaledInstance(120, 120, 0);
-		JLabel apeach_body_labelx1 = new JLabel(new ImageIcon(apeach_bodyx));
-		apeach_body_labelx1.setSize(100,100);
-		apeach_body_labelx1.setLocation(1,288);
-		JLabel apeach_body_labelx2 = new JLabel(new ImageIcon(apeach_bodyx));
-		apeach_body_labelx2.setSize(100,100);
-		apeach_body_labelx2.setLocation(71,288);
-		JLabel apeach_body_labelx3 = new JLabel(new ImageIcon(apeach_bodyx));
-		apeach_body_labelx3.setSize(100,100);
-		apeach_body_labelx3.setLocation(141,288);
-		JLabel apeach_body_labelx4 = new JLabel(new ImageIcon(apeach_bodyx));
-		apeach_body_labelx4.setSize(100,100);
-		apeach_body_labelx4.setLocation(211,288);
-		//어피치 몸통
-		Image apeach_body1 = new ImageIcon("mini/1번어피치말.PNG").getImage().getScaledInstance(120, 120, 0);
-		JLabel apeach_body_label1 = new JLabel(new ImageIcon(apeach_body1));
-		apeach_body_label1.setSize(100,100);
-		apeach_body_label1.setLocation(1,288);
-		Image apeach_body2 = new ImageIcon("mini/2번어피치말.PNG").getImage().getScaledInstance(120, 120, 0);
-		JLabel apeach_body_label2 = new JLabel(new ImageIcon(apeach_body2));
-		apeach_body_label2.setSize(100,100);
-		apeach_body_label2.setLocation(71,288);
-		Image apeach_body3 = new ImageIcon("mini/3번어피치말.PNG").getImage().getScaledInstance(120, 120, 0);
-		JLabel apeach_body_label3 = new JLabel(new ImageIcon(apeach_body3));
-		apeach_body_label3.setSize(100,100);
-		apeach_body_label3.setLocation(141,288);
-		Image apeach_body4 = new ImageIcon("mini/4번어피치말.PNG").getImage().getScaledInstance(120, 120, 0);
-		JLabel apeach_body_label4 = new JLabel(new ImageIcon(apeach_body4));
-		apeach_body_label4.setSize(100,100);
-		apeach_body_label4.setLocation(211,288);
-		//어피치 출격 몸통
-		Image apeach_body1_s = new ImageIcon("mini/1번어피치말출격.PNG").getImage().getScaledInstance(120, 120, 0);
-		JLabel apeach_body_label1_s = new JLabel(new ImageIcon(apeach_body1_s));
-		apeach_body_label1_s.setSize(100,100);
-		apeach_body_label1_s.setLocation(1,288);
-		Image apeach_body2_s = new ImageIcon("mini/2번어피치말출격.PNG").getImage().getScaledInstance(120, 120, 0);
-		JLabel apeach_body_label2_s = new JLabel(new ImageIcon(apeach_body2_s));
-		apeach_body_label2_s.setSize(100,100);
-		apeach_body_label2_s.setLocation(71,288);
-		Image apeach_body3_s = new ImageIcon("mini/3번어피치말출격.PNG").getImage().getScaledInstance(120, 120, 0);
-		JLabel apeach_body_label3_s = new JLabel(new ImageIcon(apeach_body3_s));
-		apeach_body_label3_s.setSize(100,100);
-		apeach_body_label3_s.setLocation(141,288);
-		Image apeach_body4_s = new ImageIcon("mini/4번어피치말출격.PNG").getImage().getScaledInstance(120, 120, 0);
-		JLabel apeach_body_label4_s = new JLabel(new ImageIcon(apeach_body4_s));
-		apeach_body_label4_s.setSize(100,100);
-		apeach_body_label4_s.setLocation(211,288);
-
+        //어피치 머리
+        Image apeach_head = new ImageIcon("mini/apeach1.PNG").getImage().getScaledInstance(100, 100, 0);
+        JLabel apeach_head_label = new JLabel(new ImageIcon(apeach_head));
+        apeach_head_label.setSize(100, 100);
+        apeach_head_label.setLocation(10, 199);
+        //어피치 도착 몸통
+        Image apeach_bodyx = new ImageIcon("mini/x어피치말.PNG").getImage().getScaledInstance(120, 120, 0);
+        JLabel apeach_body_labelx1 = new JLabel(new ImageIcon(apeach_bodyx));
+        apeach_body_labelx1.setSize(100, 100);
+        apeach_body_labelx1.setLocation(1, 288);
+        JLabel apeach_body_labelx2 = new JLabel(new ImageIcon(apeach_bodyx));
+        apeach_body_labelx2.setSize(100, 100);
+        apeach_body_labelx2.setLocation(71, 288);
+        JLabel apeach_body_labelx3 = new JLabel(new ImageIcon(apeach_bodyx));
+        apeach_body_labelx3.setSize(100, 100);
+        apeach_body_labelx3.setLocation(141, 288);
+        JLabel apeach_body_labelx4 = new JLabel(new ImageIcon(apeach_bodyx));
+        apeach_body_labelx4.setSize(100, 100);
+        apeach_body_labelx4.setLocation(211, 288);
+        //어피치 몸통
+        Image apeach_body1 = new ImageIcon("mini/1번어피치말.PNG").getImage().getScaledInstance(120, 120, 0);
+        JLabel apeach_body_label1 = new JLabel(new ImageIcon(apeach_body1));
+        apeach_body_label1.setSize(100, 100);
+        apeach_body_label1.setLocation(1, 288);
+        Image apeach_body2 = new ImageIcon("mini/2번어피치말.PNG").getImage().getScaledInstance(120, 120, 0);
+        JLabel apeach_body_label2 = new JLabel(new ImageIcon(apeach_body2));
+        apeach_body_label2.setSize(100, 100);
+        apeach_body_label2.setLocation(71, 288);
+        Image apeach_body3 = new ImageIcon("mini/3번어피치말.PNG").getImage().getScaledInstance(120, 120, 0);
+        JLabel apeach_body_label3 = new JLabel(new ImageIcon(apeach_body3));
+        apeach_body_label3.setSize(100, 100);
+        apeach_body_label3.setLocation(141, 288);
+        Image apeach_body4 = new ImageIcon("mini/4번어피치말.PNG").getImage().getScaledInstance(120, 120, 0);
+        JLabel apeach_body_label4 = new JLabel(new ImageIcon(apeach_body4));
+        apeach_body_label4.setSize(100, 100);
+        apeach_body_label4.setLocation(211, 288);
+        //어피치 출격 몸통
+        Image apeach_body1_s = new ImageIcon("mini/1번어피치말출격.PNG").getImage().getScaledInstance(120, 120, 0);
+        JLabel apeach_body_label1_s = new JLabel(new ImageIcon(apeach_body1_s));
+        apeach_body_label1_s.setSize(100, 100);
+        apeach_body_label1_s.setLocation(1, 288);
+        Image apeach_body2_s = new ImageIcon("mini/2번어피치말출격.PNG").getImage().getScaledInstance(120, 120, 0);
+        JLabel apeach_body_label2_s = new JLabel(new ImageIcon(apeach_body2_s));
+        apeach_body_label2_s.setSize(100, 100);
+        apeach_body_label2_s.setLocation(71, 288);
+        Image apeach_body3_s = new ImageIcon("mini/3번어피치말출격.PNG").getImage().getScaledInstance(120, 120, 0);
+        JLabel apeach_body_label3_s = new JLabel(new ImageIcon(apeach_body3_s));
+        apeach_body_label3_s.setSize(100, 100);
+        apeach_body_label3_s.setLocation(141, 288);
+        Image apeach_body4_s = new ImageIcon("mini/4번어피치말출격.PNG").getImage().getScaledInstance(120, 120, 0);
+        JLabel apeach_body_label4_s = new JLabel(new ImageIcon(apeach_body4_s));
+        apeach_body_label4_s.setSize(100, 100);
+        apeach_body_label4_s.setLocation(211, 288);
 
 
-		//프로도 머리
-		Image frodo_head = new ImageIcon("mini/frodo1.PNG").getImage().getScaledInstance(100, 100, 0);
-		JLabel frodo_head_label = new JLabel(new ImageIcon(frodo_head));
-		frodo_head_label.setSize(100,100);
-		frodo_head_label.setLocation(10,388);
-		//프로도 도착 몸통
-		Image frodo_bodyx = new ImageIcon("mini/x프로도말.PNG").getImage().getScaledInstance(100, 100, 0);
-		JLabel frodo_body_labelx1 = new JLabel(new ImageIcon(frodo_bodyx));
-		frodo_body_labelx1.setSize(100,100);
-		frodo_body_labelx1.setLocation(1,477);
-		JLabel frodo_body_labelx2 = new JLabel(new ImageIcon(frodo_bodyx));
-		frodo_body_labelx2.setSize(100,100);
-		frodo_body_labelx2.setLocation(71,477);
-		JLabel frodo_body_labelx3 = new JLabel(new ImageIcon(frodo_bodyx));
-		frodo_body_labelx3.setSize(100,100);
-		frodo_body_labelx3.setLocation(141,477);
-		JLabel frodo_body_labelx4 = new JLabel(new ImageIcon(frodo_bodyx));
-		frodo_body_labelx4.setSize(100,100);
-		frodo_body_labelx4.setLocation(211,477);
-		//프로도 몸통
-		Image frodo_body1 = new ImageIcon("mini/1번프로도말.PNG").getImage().getScaledInstance(100, 100, 0);
-		JLabel frodo_body_label1 = new JLabel(new ImageIcon(frodo_body1));
-		frodo_body_label1.setSize(100,100);
-		frodo_body_label1.setLocation(1,477);
-		Image frodo_body2 = new ImageIcon("mini/2번프로도말.PNG").getImage().getScaledInstance(100, 100, 0);
-		JLabel frodo_body_label2 = new JLabel(new ImageIcon(frodo_body2));
-		frodo_body_label2.setSize(100,100);
-		frodo_body_label2.setLocation(71,477);
-		Image frodo_body3 = new ImageIcon("mini/3번프로도말.PNG").getImage().getScaledInstance(100, 100, 0);
-		JLabel frodo_body_label3 = new JLabel(new ImageIcon(frodo_body3));
-		frodo_body_label3.setSize(100,100);
-		frodo_body_label3.setLocation(141,477);
-		Image frodo_body4 = new ImageIcon("mini/4번프로도말.PNG").getImage().getScaledInstance(100, 100, 0);
-		JLabel frodo_body_label4 = new JLabel(new ImageIcon(frodo_body4));
-		frodo_body_label4.setSize(100,100);
-		frodo_body_label4.setLocation(211,477);
-		//프로도 출격 몸통
-		Image frodo_body1_s = new ImageIcon("mini/1번프로도말출격.PNG").getImage().getScaledInstance(100, 100, 0);
-		JLabel frodo_body_label1_s = new JLabel(new ImageIcon(frodo_body1_s));
-		frodo_body_label1_s.setSize(100,100);
-		frodo_body_label1_s.setLocation(1,477);
-		Image frodo_body2_s = new ImageIcon("mini/2번프로도말 출격.PNG").getImage().getScaledInstance(100, 100, 0);
-		JLabel frodo_body_label2_s = new JLabel(new ImageIcon(frodo_body2_s));
-		frodo_body_label2_s.setSize(100,100);
-		frodo_body_label2_s.setLocation(71,477);
-		Image frodo_body3_s = new ImageIcon("mini/3번프로도말출격.PNG").getImage().getScaledInstance(100, 100, 0);
-		JLabel frodo_body_label3_s = new JLabel(new ImageIcon(frodo_body3_s));
-		frodo_body_label3_s.setSize(100,100);
-		frodo_body_label3_s.setLocation(141,477);
-		Image frodo_body4_s = new ImageIcon("mini/4번프로도말출격.PNG").getImage().getScaledInstance(100, 100, 0);
-		JLabel frodo_body_label4_s = new JLabel(new ImageIcon(frodo_body4_s));
-		frodo_body_label4_s.setSize(100,100);
-		frodo_body_label4_s.setLocation(211,477);
+        //프로도 머리
+        Image frodo_head = new ImageIcon("mini/frodo1.PNG").getImage().getScaledInstance(100, 100, 0);
+        JLabel frodo_head_label = new JLabel(new ImageIcon(frodo_head));
+        frodo_head_label.setSize(100, 100);
+        frodo_head_label.setLocation(10, 388);
+        //프로도 도착 몸통
+        Image frodo_bodyx = new ImageIcon("mini/x프로도말.PNG").getImage().getScaledInstance(100, 100, 0);
+        JLabel frodo_body_labelx1 = new JLabel(new ImageIcon(frodo_bodyx));
+        frodo_body_labelx1.setSize(100, 100);
+        frodo_body_labelx1.setLocation(1, 477);
+        JLabel frodo_body_labelx2 = new JLabel(new ImageIcon(frodo_bodyx));
+        frodo_body_labelx2.setSize(100, 100);
+        frodo_body_labelx2.setLocation(71, 477);
+        JLabel frodo_body_labelx3 = new JLabel(new ImageIcon(frodo_bodyx));
+        frodo_body_labelx3.setSize(100, 100);
+        frodo_body_labelx3.setLocation(141, 477);
+        JLabel frodo_body_labelx4 = new JLabel(new ImageIcon(frodo_bodyx));
+        frodo_body_labelx4.setSize(100, 100);
+        frodo_body_labelx4.setLocation(211, 477);
+        //프로도 몸통
+        Image frodo_body1 = new ImageIcon("mini/1번프로도말.PNG").getImage().getScaledInstance(100, 100, 0);
+        JLabel frodo_body_label1 = new JLabel(new ImageIcon(frodo_body1));
+        frodo_body_label1.setSize(100, 100);
+        frodo_body_label1.setLocation(1, 477);
+        Image frodo_body2 = new ImageIcon("mini/2번프로도말.PNG").getImage().getScaledInstance(100, 100, 0);
+        JLabel frodo_body_label2 = new JLabel(new ImageIcon(frodo_body2));
+        frodo_body_label2.setSize(100, 100);
+        frodo_body_label2.setLocation(71, 477);
+        Image frodo_body3 = new ImageIcon("mini/3번프로도말.PNG").getImage().getScaledInstance(100, 100, 0);
+        JLabel frodo_body_label3 = new JLabel(new ImageIcon(frodo_body3));
+        frodo_body_label3.setSize(100, 100);
+        frodo_body_label3.setLocation(141, 477);
+        Image frodo_body4 = new ImageIcon("mini/4번프로도말.PNG").getImage().getScaledInstance(100, 100, 0);
+        JLabel frodo_body_label4 = new JLabel(new ImageIcon(frodo_body4));
+        frodo_body_label4.setSize(100, 100);
+        frodo_body_label4.setLocation(211, 477);
+        //프로도 출격 몸통
+        Image frodo_body1_s = new ImageIcon("mini/1번프로도말출격.PNG").getImage().getScaledInstance(100, 100, 0);
+        JLabel frodo_body_label1_s = new JLabel(new ImageIcon(frodo_body1_s));
+        frodo_body_label1_s.setSize(100, 100);
+        frodo_body_label1_s.setLocation(1, 477);
+        Image frodo_body2_s = new ImageIcon("mini/2번프로도말 출격.PNG").getImage().getScaledInstance(100, 100, 0);
+        JLabel frodo_body_label2_s = new JLabel(new ImageIcon(frodo_body2_s));
+        frodo_body_label2_s.setSize(100, 100);
+        frodo_body_label2_s.setLocation(71, 477);
+        Image frodo_body3_s = new ImageIcon("mini/3번프로도말출격.PNG").getImage().getScaledInstance(100, 100, 0);
+        JLabel frodo_body_label3_s = new JLabel(new ImageIcon(frodo_body3_s));
+        frodo_body_label3_s.setSize(100, 100);
+        frodo_body_label3_s.setLocation(141, 477);
+        Image frodo_body4_s = new ImageIcon("mini/4번프로도말출격.PNG").getImage().getScaledInstance(100, 100, 0);
+        JLabel frodo_body_label4_s = new JLabel(new ImageIcon(frodo_body4_s));
+        frodo_body_label4_s.setSize(100, 100);
+        frodo_body_label4_s.setLocation(211, 477);
 
 
-
-		//네오 머리
-		Image neo_head = new ImageIcon("mini/neo1.PNG").getImage().getScaledInstance(100, 100, 0);
-		JLabel neo_head_label = new JLabel(new ImageIcon(neo_head));
-		neo_head_label.setSize(100,100);
-		neo_head_label.setLocation(10,577);
-		//네오도착 몸통
-		Image neo_bodyx = new ImageIcon("mini/x네오말.png").getImage().getScaledInstance(100, 100, 0);
-		JLabel neo_body_labelx1 = new JLabel(new ImageIcon(neo_bodyx));
-		neo_body_labelx1.setSize(100,100);
-		neo_body_labelx1.setLocation(1,666);
-		JLabel neo_body_labelx2 = new JLabel(new ImageIcon(neo_bodyx));
-		neo_body_labelx2.setSize(100,100);
-		neo_body_labelx2.setLocation(71,666);
-		JLabel neo_body_labelx3 = new JLabel(new ImageIcon(neo_bodyx));
-		neo_body_labelx3.setSize(100,100);
-		neo_body_labelx3.setLocation(141,666);
-		JLabel neo_body_labelx4 = new JLabel(new ImageIcon(neo_bodyx));
-		neo_body_labelx4.setSize(100,100);
-		neo_body_labelx4.setLocation(211,666);
-		//네오 몸통
-		Image neo_body1 = new ImageIcon("mini/1번네오말.png").getImage().getScaledInstance(100, 100, 0);
-		JLabel neo_body_label1 = new JLabel(new ImageIcon(neo_body1));
-		neo_body_label1.setSize(100,100);
-		neo_body_label1.setLocation(1,666);
-		Image neo_body2 = new ImageIcon("mini/2번네오말.png").getImage().getScaledInstance(100, 100, 0);
-		JLabel neo_body_label2 = new JLabel(new ImageIcon(neo_body2));
-		neo_body_label2.setSize(100,100);
-		neo_body_label2.setLocation(71,666);
-		Image neo_body3 = new ImageIcon("mini/3번네오말.png").getImage().getScaledInstance(100, 100, 0);
-		JLabel neo_body_label3 = new JLabel(new ImageIcon(neo_body3));
-		neo_body_label3.setSize(100,100);
-		neo_body_label3.setLocation(141,666);
-		Image neo_body4 = new ImageIcon("mini/4번네오말.png").getImage().getScaledInstance(100, 100, 0);
-		JLabel neo_body_label4 = new JLabel(new ImageIcon(neo_body4));
-		neo_body_label4.setSize(100,100);
-		neo_body_label4.setLocation(211,666);
-		//네오 출격 몸통
-		Image neo_body1_s = new ImageIcon("mini/1번네오말출격.png").getImage().getScaledInstance(100, 100, 0);
-		JLabel neo_body_label1_s = new JLabel(new ImageIcon(neo_body1_s));
-		neo_body_label1_s.setSize(100,100);
-		neo_body_label1_s.setLocation(1,666);
-		Image neo_body2_s = new ImageIcon("mini/2번네오말출격.png").getImage().getScaledInstance(100, 100, 0);
-		JLabel neo_body_label2_s = new JLabel(new ImageIcon(neo_body2_s));
-		neo_body_label2_s.setSize(100,100);
-		neo_body_label2_s.setLocation(71,666);
-		Image neo_body3_s = new ImageIcon("mini/3번네오말출격.png").getImage().getScaledInstance(100, 100, 0);
-		JLabel neo_body_label3_s = new JLabel(new ImageIcon(neo_body3_s));
-		neo_body_label3_s.setSize(100,100);
-		neo_body_label3_s.setLocation(141,666);
-		Image neo_body4_s = new ImageIcon("mini/4번네오말출격.png").getImage().getScaledInstance(100, 100, 0);
-		JLabel neo_body_label4_s = new JLabel(new ImageIcon(neo_body4_s));
-		neo_body_label4_s.setSize(100,100);
-		neo_body_label4_s.setLocation(211,666);
-
+        //네오 머리
+        Image neo_head = new ImageIcon("mini/neo1.PNG").getImage().getScaledInstance(100, 100, 0);
+        JLabel neo_head_label = new JLabel(new ImageIcon(neo_head));
+        neo_head_label.setSize(100, 100);
+        neo_head_label.setLocation(10, 577);
+        //네오도착 몸통
+        Image neo_bodyx = new ImageIcon("mini/x네오말.png").getImage().getScaledInstance(100, 100, 0);
+        JLabel neo_body_labelx1 = new JLabel(new ImageIcon(neo_bodyx));
+        neo_body_labelx1.setSize(100, 100);
+        neo_body_labelx1.setLocation(1, 666);
+        JLabel neo_body_labelx2 = new JLabel(new ImageIcon(neo_bodyx));
+        neo_body_labelx2.setSize(100, 100);
+        neo_body_labelx2.setLocation(71, 666);
+        JLabel neo_body_labelx3 = new JLabel(new ImageIcon(neo_bodyx));
+        neo_body_labelx3.setSize(100, 100);
+        neo_body_labelx3.setLocation(141, 666);
+        JLabel neo_body_labelx4 = new JLabel(new ImageIcon(neo_bodyx));
+        neo_body_labelx4.setSize(100, 100);
+        neo_body_labelx4.setLocation(211, 666);
+        //네오 몸통
+        Image neo_body1 = new ImageIcon("mini/1번네오말.png").getImage().getScaledInstance(100, 100, 0);
+        JLabel neo_body_label1 = new JLabel(new ImageIcon(neo_body1));
+        neo_body_label1.setSize(100, 100);
+        neo_body_label1.setLocation(1, 666);
+        Image neo_body2 = new ImageIcon("mini/2번네오말.png").getImage().getScaledInstance(100, 100, 0);
+        JLabel neo_body_label2 = new JLabel(new ImageIcon(neo_body2));
+        neo_body_label2.setSize(100, 100);
+        neo_body_label2.setLocation(71, 666);
+        Image neo_body3 = new ImageIcon("mini/3번네오말.png").getImage().getScaledInstance(100, 100, 0);
+        JLabel neo_body_label3 = new JLabel(new ImageIcon(neo_body3));
+        neo_body_label3.setSize(100, 100);
+        neo_body_label3.setLocation(141, 666);
+        Image neo_body4 = new ImageIcon("mini/4번네오말.png").getImage().getScaledInstance(100, 100, 0);
+        JLabel neo_body_label4 = new JLabel(new ImageIcon(neo_body4));
+        neo_body_label4.setSize(100, 100);
+        neo_body_label4.setLocation(211, 666);
+        //네오 출격 몸통
+        Image neo_body1_s = new ImageIcon("mini/1번네오말출격.png").getImage().getScaledInstance(100, 100, 0);
+        JLabel neo_body_label1_s = new JLabel(new ImageIcon(neo_body1_s));
+        neo_body_label1_s.setSize(100, 100);
+        neo_body_label1_s.setLocation(1, 666);
+        Image neo_body2_s = new ImageIcon("mini/2번네오말출격.png").getImage().getScaledInstance(100, 100, 0);
+        JLabel neo_body_label2_s = new JLabel(new ImageIcon(neo_body2_s));
+        neo_body_label2_s.setSize(100, 100);
+        neo_body_label2_s.setLocation(71, 666);
+        Image neo_body3_s = new ImageIcon("mini/3번네오말출격.png").getImage().getScaledInstance(100, 100, 0);
+        JLabel neo_body_label3_s = new JLabel(new ImageIcon(neo_body3_s));
+        neo_body_label3_s.setSize(100, 100);
+        neo_body_label3_s.setLocation(141, 666);
+        Image neo_body4_s = new ImageIcon("mini/4번네오말출격.png").getImage().getScaledInstance(100, 100, 0);
+        JLabel neo_body_label4_s = new JLabel(new ImageIcon(neo_body4_s));
+        neo_body_label4_s.setSize(100, 100);
+        neo_body_label4_s.setLocation(211, 666);
 
 
         //송편,아이디 표시 필드
@@ -626,141 +619,141 @@ public class GamePage {
         //jtextfield 글꼴 변경하는 객체 생성
         Font font = new Font("arian", Font.BOLD, 13);
 
-		//text 표시
-		JTextField show = new JTextField(15);
-		String str = Integer.valueOf(player.getSongP()).toString();
-		show.setEditable(false);
-		panel.add(show);
-		show.setText(str);
-		show.setSize(110, 50);
-		show.setLocation(190, 5);
-		show.setFont(font);
-		//str += "@@";
+        //text 표시
+        JTextField show = new JTextField(15);
+        String str = Integer.valueOf(player.getSongP()).toString();
+        show.setEditable(false);
+        panel.add(show);
+        show.setText(str);
+        show.setSize(110, 50);
+        show.setLocation(190, 5);
+        show.setFont(font);
+        //str += "@@";
 
 
-		//게임패널에 부착
-		//스킬라벨
+        //게임패널에 부착
+        //스킬라벨
 
-		gamePanel.add(skilBtn2);
-		gamePanel.add(skilBtn3);
-		gamePanel.add(skilBtn4);
-		gamePanel.add(skilBtn5);
-		gamePanel.add(store1);
-		//종료 /도움말 라벨
-		gamePanel.add(endBtn);
-		gamePanel.add(helpBtn);
+        gamePanel.add(skilBtn2);
+        gamePanel.add(skilBtn3);
+        gamePanel.add(skilBtn4);
+        gamePanel.add(skilBtn5);
+        gamePanel.add(store1);
+        //종료 /도움말 라벨
+        gamePanel.add(endBtn);
+        gamePanel.add(helpBtn);
 
-		//말판 라벨
-		gamePanel.add(grid28);
-		gamePanel.add(grid27);
-		gamePanel.add(grid26);
-		gamePanel.add(grid25);
-		gamePanel.add(grid24);
-		gamePanel.add(grid23);
-		gamePanel.add(grid22);
-		gamePanel.add(grid21);
-		gamePanel.add(grid20);
-		gamePanel.add(grid19);
-		gamePanel.add(grid18);
-		gamePanel.add(grid17);
-		gamePanel.add(grid16);
-		gamePanel.add(grid15);
-		gamePanel.add(grid14);
-		gamePanel.add(grid13);
-		gamePanel.add(grid12);
-		gamePanel.add(grid11);
-		gamePanel.add(grid10);
-		gamePanel.add(grid9);
-		gamePanel.add(grid8);
-		gamePanel.add(grid7);
-		gamePanel.add(grid6);
-		gamePanel.add(grid5);
-		gamePanel.add(grid4);
-		gamePanel.add(grid3);
-		gamePanel.add(grid2);
-		gamePanel.add(grid1);
-		gamePanel.add(grid0);
-		//종철 - 플레이어 정보 입력시 표시되도록 추후 수정(플레이어 이름, 말 상황변화, 송편수, 패널표시)
-		//ryan
-		gamePanel.add(ryan_head_label);
-		gamePanel.add(info1);
-		gamePanel.add(show);
-		//그리드값 조건으로 활성화
-		/*		gamePanel.add(ryan_body_labelx1);
-		gamePanel.add(ryan_body_labelx2);
-		gamePanel.add(ryan_body_labelx3);
-		gamePanel.add(ryan_body_labelx4);*/
-		gamePanel.add(ryan_body_label1);
-		gamePanel.add(ryan_body_label2);
-		gamePanel.add(ryan_body_label3);
-		gamePanel.add(ryan_body_label4);
-		gamePanel.add(ryan_body_label1_s);
-		gamePanel.add(ryan_body_label2_s);
-		gamePanel.add(ryan_body_label3_s);
-		gamePanel.add(ryan_body_label4_s);
-		gamePanel.add(backgroundPurple1);
+        //말판 라벨
+        gamePanel.add(grid28);
+        gamePanel.add(grid27);
+        gamePanel.add(grid26);
+        gamePanel.add(grid25);
+        gamePanel.add(grid24);
+        gamePanel.add(grid23);
+        gamePanel.add(grid22);
+        gamePanel.add(grid21);
+        gamePanel.add(grid20);
+        gamePanel.add(grid19);
+        gamePanel.add(grid18);
+        gamePanel.add(grid17);
+        gamePanel.add(grid16);
+        gamePanel.add(grid15);
+        gamePanel.add(grid14);
+        gamePanel.add(grid13);
+        gamePanel.add(grid12);
+        gamePanel.add(grid11);
+        gamePanel.add(grid10);
+        gamePanel.add(grid9);
+        gamePanel.add(grid8);
+        gamePanel.add(grid7);
+        gamePanel.add(grid6);
+        gamePanel.add(grid5);
+        gamePanel.add(grid4);
+        gamePanel.add(grid3);
+        gamePanel.add(grid2);
+        gamePanel.add(grid1);
+        gamePanel.add(grid0);
+        //종철 - 플레이어 정보 입력시 표시되도록 추후 수정(플레이어 이름, 말 상황변화, 송편수, 패널표시)
+        //ryan
+        gamePanel.add(ryan_head_label);
+        gamePanel.add(info1);
+        gamePanel.add(show);
+        //그리드값 조건으로 활성화
+        // gamePanel.add(ryan_body_labelx1);
+        // gamePanel.add(ryan_body_labelx2);
+        // gamePanel.add(ryan_body_labelx3);
+        // gamePanel.add(ryan_body_labelx4);
+        gamePanel.add(ryan_body_label1);
+        gamePanel.add(ryan_body_label2);
+        gamePanel.add(ryan_body_label3);
+        gamePanel.add(ryan_body_label4);
+        gamePanel.add(ryan_body_label1_s);
+        gamePanel.add(ryan_body_label2_s);
+        gamePanel.add(ryan_body_label3_s);
+        gamePanel.add(ryan_body_label4_s);
+        gamePanel.add(backgroundPurple1);
 
-        gamePanel.add(testmal); //============테스트용=============== 좌표찾기 - 다영
-        gamePanel.setComponentZOrder(testmal, 0); //==========테스트용============ 좌표찾기 - 다영
+        // gamePanel.add(testmal); //============테스트용=============== 좌표찾기 - 다영
+        // gamePanel.setComponentZOrder(testmal, 0); //==========테스트용============ 좌표찾기 - 다영
 
 
-		//apeach
-		gamePanel.add(apeach_head_label);
-		gamePanel.add(info2);
-		//그리드값 조건으로 활성화
+        //apeach
+        gamePanel.add(apeach_head_label);
+        gamePanel.add(info2);
+        //그리드값 조건으로 활성화
 		/*		gamePanel.add(apeach_body_labelx1);
 		gamePanel.add(apeach_body_labelx2);
 		gamePanel.add(apeach_body_labelx3);
 		gamePanel.add(apeach_body_labelx4);*/
-		gamePanel.add(apeach_body_label1);
-		gamePanel.add(apeach_body_label2);
-		gamePanel.add(apeach_body_label3);
-		gamePanel.add(apeach_body_label4);
-		gamePanel.add(apeach_body_label1_s);
-		gamePanel.add(apeach_body_label2_s);
-		gamePanel.add(apeach_body_label3_s);
-		gamePanel.add(apeach_body_label4_s);
-		gamePanel.add(backgroundPurple2);
+        gamePanel.add(apeach_body_label1);
+        gamePanel.add(apeach_body_label2);
+        gamePanel.add(apeach_body_label3);
+        gamePanel.add(apeach_body_label4);
+        gamePanel.add(apeach_body_label1_s);
+        gamePanel.add(apeach_body_label2_s);
+        gamePanel.add(apeach_body_label3_s);
+        gamePanel.add(apeach_body_label4_s);
+        gamePanel.add(backgroundPurple2);
 
-		//frodo
-		gamePanel.add(frodo_head_label);
-		gamePanel.add(info3);
-		//그리드값 조건으로 활성화
+        //frodo
+        gamePanel.add(frodo_head_label);
+        gamePanel.add(info3);
+        //그리드값 조건으로 활성화
 /*		gamePanel.add(frodo_body_labelx1);
 		gamePanel.add(frodo_body_labelx2);
 		gamePanel.add(frodo_body_labelx3);
 		gamePanel.add(frodo_body_labelx4);*/
-		gamePanel.add(frodo_body_label1);
-		gamePanel.add(frodo_body_label2);
-		gamePanel.add(frodo_body_label3);
-		gamePanel.add(frodo_body_label4);
-		gamePanel.add(frodo_body_label1_s);
-		gamePanel.add(frodo_body_label2_s);
-		gamePanel.add(frodo_body_label3_s);
-		gamePanel.add(frodo_body_label4_s);
-		gamePanel.add(backgroundPurple3);
+        gamePanel.add(frodo_body_label1);
+        gamePanel.add(frodo_body_label2);
+        gamePanel.add(frodo_body_label3);
+        gamePanel.add(frodo_body_label4);
+        gamePanel.add(frodo_body_label1_s);
+        gamePanel.add(frodo_body_label2_s);
+        gamePanel.add(frodo_body_label3_s);
+        gamePanel.add(frodo_body_label4_s);
+        gamePanel.add(backgroundPurple3);
 
-		//neo
-		gamePanel.add(neo_head_label);
-		gamePanel.add(info4);
-		//그리드값 조건으로 활성화
+        //neo
+        gamePanel.add(neo_head_label);
+        gamePanel.add(info4);
+        //그리드값 조건으로 활성화
 /*		gamePanel.add(neo_body_labelx1);
 		gamePanel.add(neo_body_labelx2);
 		gamePanel.add(neo_body_labelx3);
 		gamePanel.add(neo_body_labelx4);*/
-		gamePanel.add(neo_body_label1);
-		gamePanel.add(neo_body_label2);
-		gamePanel.add(neo_body_label3);
-		gamePanel.add(neo_body_label4);
-		gamePanel.add(neo_body_label1_s);
-		gamePanel.add(neo_body_label2_s);
-		gamePanel.add(neo_body_label3_s);
-		gamePanel.add(neo_body_label4_s);
-		gamePanel.add(backgroundPurple4);
-		//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-		gamePanel.add(yutBackGround);
-		gamePanel.add(yutThrow1);
-		gamePanel.add(mainBackGround);
+        gamePanel.add(neo_body_label1);
+        gamePanel.add(neo_body_label2);
+        gamePanel.add(neo_body_label3);
+        gamePanel.add(neo_body_label4);
+        gamePanel.add(neo_body_label1_s);
+        gamePanel.add(neo_body_label2_s);
+        gamePanel.add(neo_body_label3_s);
+        gamePanel.add(neo_body_label4_s);
+        gamePanel.add(backgroundPurple4);
+        //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+        gamePanel.add(yutBackGround);
+        gamePanel.add(yutThrow1);
+        gamePanel.add(mainBackGround);
 
         gamePanel.revalidate();
         gamePanel.repaint();
@@ -769,179 +762,194 @@ public class GamePage {
         mf.revalidate();
         mf.repaint();
 
-		ryan_body_label1.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				if(e.getButton()==1) {
-					gamePanel.remove(ryan_body_label1);
-					gamePanel.repaint();
-				}
-			}
-		});
-		ryan_body_label2.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				if(e.getButton()==1) {
-					gamePanel.remove(ryan_body_label2);
-					gamePanel.repaint();				}
-			}
-		});
-		ryan_body_label3.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				if(e.getButton()==1) {
-					gamePanel.remove(ryan_body_label3);
-					gamePanel.repaint();				}
-			}
-		});
-		ryan_body_label4.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				if(e.getButton()==1) {
-					gamePanel.remove(apeach_body_label4);
-					gamePanel.repaint();				}
-			}
-		});
-		apeach_body_label1.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				if(e.getButton()==1) {
-					gamePanel.remove(apeach_body_label1);
-					gamePanel.repaint();				}
-			}
-		});
-		apeach_body_label2.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				if(e.getButton()==1) {
-					gamePanel.remove(apeach_body_label2);
-					gamePanel.repaint();				}
-			}
-		});
-		apeach_body_label3.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				if(e.getButton()==1) {
-					gamePanel.remove(apeach_body_label3);
-					gamePanel.repaint();				}
-			}
-		});
-		apeach_body_label4.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				if(e.getButton()==1) {
-					gamePanel.remove(apeach_body_label4);
-					gamePanel.repaint();				}
-			}
-		});
-		frodo_body_label1.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				if(e.getButton()==1) {
-					gamePanel.remove(frodo_body_label1);
-					gamePanel.repaint();				}
-			}
-		});
-		frodo_body_label2.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				if(e.getButton()==1) {
-					gamePanel.remove(frodo_body_label2);
-					gamePanel.repaint();					}
-			}
-		});
-		frodo_body_label3.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				if(e.getButton()==1) {
-					gamePanel.remove(frodo_body_label3);
-					gamePanel.repaint();					}
-			}
-		});
-		frodo_body_label4.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				if(e.getButton()==1) {
-					gamePanel.remove(frodo_body_label4);
-					gamePanel.repaint();					}
-			}
-		});
-		neo_body_label1.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				if(e.getButton()==1) {
-					gamePanel.remove(neo_body_label1);
-					gamePanel.repaint();					}
-			}
-		});
-		neo_body_label2.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				if(e.getButton()==1) {
-					gamePanel.remove(neo_body_label2);
-					gamePanel.repaint();				}
-			}
-		});
-		neo_body_label3.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				if(e.getButton()==1) {
-					gamePanel.remove(neo_body_label3);
-					gamePanel.repaint();				}
-			}
-		});
-		neo_body_label4.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				if(e.getButton()==1) {
-					gamePanel.remove(neo_body_label4);
-					gamePanel.repaint();				}
-			}
-		});
-		////////@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-		//스킬 2번 사용시 반응 예시
-		skilBtn2.addMouseListener(new MouseAdapter() {
-		    @Override
-		    public void mouseClicked(MouseEvent e) {
-		        if(e.getButton()==1) {
-		            Store shop = new Store();
-		            shop.buy(mf, gamePanel, player, show, 2);
-		        }
-		    }
+        ryan_body_label1.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if (e.getButton() == 1) {
+                    gamePanel.remove(ryan_body_label1);
+                    gamePanel.repaint();
+                }
+            }
+        });
+        ryan_body_label2.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if (e.getButton() == 1) {
+                    gamePanel.remove(ryan_body_label2);
+                    gamePanel.repaint();
+                }
+            }
+        });
+        ryan_body_label3.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if (e.getButton() == 1) {
+                    gamePanel.remove(ryan_body_label3);
+                    gamePanel.repaint();
+                }
+            }
+        });
+        ryan_body_label4.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if (e.getButton() == 1) {
+                    gamePanel.remove(apeach_body_label4);
+                    gamePanel.repaint();
+                }
+            }
+        });
+        apeach_body_label1.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if (e.getButton() == 1) {
+                    gamePanel.remove(apeach_body_label1);
+                    gamePanel.repaint();
+                }
+            }
+        });
+        apeach_body_label2.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if (e.getButton() == 1) {
+                    gamePanel.remove(apeach_body_label2);
+                    gamePanel.repaint();
+                }
+            }
+        });
+        apeach_body_label3.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if (e.getButton() == 1) {
+                    gamePanel.remove(apeach_body_label3);
+                    gamePanel.repaint();
+                }
+            }
+        });
+        apeach_body_label4.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if (e.getButton() == 1) {
+                    gamePanel.remove(apeach_body_label4);
+                    gamePanel.repaint();
+                }
+            }
+        });
+        frodo_body_label1.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if (e.getButton() == 1) {
+                    gamePanel.remove(frodo_body_label1);
+                    gamePanel.repaint();
+                }
+            }
+        });
+        frodo_body_label2.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if (e.getButton() == 1) {
+                    gamePanel.remove(frodo_body_label2);
+                    gamePanel.repaint();
+                }
+            }
+        });
+        frodo_body_label3.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if (e.getButton() == 1) {
+                    gamePanel.remove(frodo_body_label3);
+                    gamePanel.repaint();
+                }
+            }
+        });
+        frodo_body_label4.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if (e.getButton() == 1) {
+                    gamePanel.remove(frodo_body_label4);
+                    gamePanel.repaint();
+                }
+            }
+        });
+        neo_body_label1.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if (e.getButton() == 1) {
+                    gamePanel.remove(neo_body_label1);
+                    gamePanel.repaint();
+                }
+            }
+        });
+        neo_body_label2.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if (e.getButton() == 1) {
+                    gamePanel.remove(neo_body_label2);
+                    gamePanel.repaint();
+                }
+            }
+        });
+        neo_body_label3.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if (e.getButton() == 1) {
+                    gamePanel.remove(neo_body_label3);
+                    gamePanel.repaint();
+                }
+            }
+        });
+        neo_body_label4.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if (e.getButton() == 1) {
+                    gamePanel.remove(neo_body_label4);
+                    gamePanel.repaint();
+                }
+            }
+        });
+        ////////@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+        //스킬 2번 사용시 반응 예시
+        skilBtn2.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if (e.getButton() == 1) {
+                    Store shop = new Store();
+                    shop.buy(mf, gamePanel, player, show, 2);
+                }
+            }
         });
 
 
-		//스킬 3번 사용시 반응 예시
-		skilBtn3.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				if(e.getButton()==1) {
-					Store shop = new Store();
-					shop.buy(mf, gamePanel, player,show, 3);
-				}
-			}
-		});
+        //스킬 3번 사용시 반응 예시
+        skilBtn3.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if (e.getButton() == 1) {
+                    Store shop = new Store();
+                    shop.buy(mf, gamePanel, player, show, 3);
+                }
+            }
+        });
 
-		//스킬 4번(폭탄) 사용시 반응 예시
-		skilBtn4.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				if (e.getButton() == 1) {
-					Store shop = new Store();
-					shop.buy(mf, gamePanel, player,show, 4);
-				}
-			}
-		});
+        //스킬 4번(폭탄) 사용시 반응 예시
+        skilBtn4.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if (e.getButton() == 1) {
+                    Store shop = new Store();
+                    shop.buy(mf, gamePanel, player, show, 4);
+                }
+            }
+        });
 
-		//스킬 5번(빽도) 사용시 반응
-		skilBtn5.addMouseListener(new MouseAdapter() {
-		    @Override
-		    public void mouseClicked(MouseEvent e) {
-		        if(e.getButton()==1) {
-		            Store shop = new Store();
-		            shop.buy(mf, gamePanel, player, show, 5);
-		        }
-		    }
+        //스킬 5번(빽도) 사용시 반응
+        skilBtn5.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if (e.getButton() == 1) {
+                    Store shop = new Store();
+                    shop.buy(mf, gamePanel, player, show, 5);
+                }
+            }
         });
 
         //종료버튼 클릭시 메인 화면으로 복귀
@@ -1014,49 +1022,47 @@ public class GamePage {
         yutThrow1.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                if (e.getButton() == 1&&player.getYutCount()>0) {
+                if (e.getButton() == 1 && player.getYutCount() > 0) {
                     //윷 gif 파일 적용
                     //========조지연===========
                     //todo:버튼을 누르면 값을 저장할 arraylist를 생성하고 거기에 윷값을 넣어줘야함!!!!!!!!
                     //윷던지기 버튼 던질때 YutMadeByCho클래스 객체생성
-                    YutMadeByCho thorwYut=new YutMadeByCho();
-                    thorwYut.mainYut(1,player);
+                    YutMadeByCho thorwYut = new YutMadeByCho();
+                    thorwYut.mainYut(1, player);
                     //YutMadeByCho메소드에서 반환받은 값 저장할 변수
                     int yutNum;
-                    yutNum=thorwYut.throwYut(player);
+                    yutNum = thorwYut.throwYut(player);
                     //윷값이 낙이 나왔을때
-                    if(yutNum==0) {
+                    if (yutNum == 0) {
                         Image yut1 = new ImageIcon("mini/낙영상.GIF").getImage().getScaledInstance(300, 300, 0);
                         JLabel yut = new JLabel(new ImageIcon(yut1));
                         yut.setSize(300, 300);
                         yut.setLocation(1170, 150);
 
-                    gamePanel.add(yut);
-                    gamePanel.revalidate();
-                    gamePanel.repaint();
-                    gamePanel.setComponentZOrder(yut, 0);
+                        gamePanel.add(yut);
+                        gamePanel.revalidate();
+                        gamePanel.repaint();
+                        gamePanel.setComponentZOrder(yut, 0);
 
-                    Timer ts = new Timer();
-                    TimerTask tk = new TimerTask() {
+                        Timer ts = new Timer();
+                        TimerTask tk = new TimerTask() {
 
-                        @Override
-                        public void run() {
+                            @Override
+                            public void run() {
 
-                            gamePanel.remove(yut);
-                            gamePanel.revalidate();
-                            gamePanel.repaint();
+                                gamePanel.remove(yut);
+                                gamePanel.revalidate();
+                                gamePanel.repaint();
 
                             }
                         };
                         ts.schedule(tk, 2400);
                     }//윷값이 도가 나왔을때
-                    else if(yutNum==1) {
+                    else if (yutNum == 1) {
                         Image yut1 = new ImageIcon("mini/도.GIF").getImage().getScaledInstance(300, 300, 0);
                         JLabel yut = new JLabel(new ImageIcon(yut1));
                         yut.setSize(300, 300);
                         yut.setLocation(1170, 150);
-
-
 
 
                         gamePanel.add(yut);
@@ -1073,8 +1079,7 @@ public class GamePage {
                                 JButton dodoBtn = new JButton();
                                 dodoBtn = new JButton(new ImageIcon(dodo));
                                 dodoBtn.setLocation(1170, 150);
-                                dodoBtn.setSize(50,50);
-
+                                dodoBtn.setSize(50, 50);
 
 
                                 gamePanel.remove(yut);
@@ -1089,7 +1094,7 @@ public class GamePage {
                         ts.schedule(tk, 2400);
 
                     }//윷값이 개가 나왔을때
-                    else if(yutNum==2) {
+                    else if (yutNum == 2) {
                         Image yut1 = new ImageIcon("mini/개.GIF").getImage().getScaledInstance(300, 300, 0);
                         JLabel yut = new JLabel(new ImageIcon(yut1));
                         yut.setSize(300, 300);
@@ -1110,8 +1115,7 @@ public class GamePage {
                                 JButton dodoBtn = new JButton();
                                 dodoBtn = new JButton(new ImageIcon(dodo));
                                 dodoBtn.setLocation(1170, 150);
-                                dodoBtn.setSize(50,50);
-
+                                dodoBtn.setSize(50, 50);
 
 
                                 gamePanel.remove(yut);
@@ -1125,7 +1129,7 @@ public class GamePage {
                         };
                         ts.schedule(tk, 3400);
                     }//윷값이 걸이 나왔을때
-                    else if(yutNum==3) {
+                    else if (yutNum == 3) {
                         Image yut1 = new ImageIcon("mini/걸.gif.GIF").getImage().getScaledInstance(300, 300, 0);
                         JLabel yut = new JLabel(new ImageIcon(yut1));
                         yut.setSize(300, 300);
@@ -1146,8 +1150,7 @@ public class GamePage {
                                 JButton dodoBtn = new JButton();
                                 dodoBtn = new JButton(new ImageIcon(dodo));
                                 dodoBtn.setLocation(1170, 150);
-                                dodoBtn.setSize(50,50);
-
+                                dodoBtn.setSize(50, 50);
 
 
                                 gamePanel.remove(yut);
@@ -1160,7 +1163,7 @@ public class GamePage {
                         };
                         ts.schedule(tk, 3400);
                     }//윷값이 윷이 나왔을때
-                    else if(yutNum==4) {
+                    else if (yutNum == 4) {
                         Image yut1 = new ImageIcon("mini/윷.gir.GIF").getImage().getScaledInstance(300, 300, 0);
                         JLabel yut = new JLabel(new ImageIcon(yut1));
                         yut.setSize(300, 300);
@@ -1181,8 +1184,7 @@ public class GamePage {
                                 JButton dodoBtn = new JButton();
                                 dodoBtn = new JButton(new ImageIcon(dodo));
                                 dodoBtn.setLocation(1170, 150);
-                                dodoBtn.setSize(50,50);
-
+                                dodoBtn.setSize(50, 50);
 
 
                                 gamePanel.remove(yut);
@@ -1196,7 +1198,7 @@ public class GamePage {
                         };
                         ts.schedule(tk, 3600);
                     }//윷값이 모일때
-                    else if(yutNum==5) {
+                    else if (yutNum == 5) {
                         Image yut1 = new ImageIcon("mini/모.GIF").getImage().getScaledInstance(300, 300, 0);
                         JLabel yut = new JLabel(new ImageIcon(yut1));
                         yut.setSize(300, 300);
@@ -1217,8 +1219,7 @@ public class GamePage {
                                 JButton dodoBtn = new JButton();
                                 dodoBtn = new JButton(new ImageIcon(dodo));
                                 dodoBtn.setLocation(1170, 150);
-                                dodoBtn.setSize(50,50);
-
+                                dodoBtn.setSize(50, 50);
 
 
                                 gamePanel.remove(yut);
@@ -1231,7 +1232,7 @@ public class GamePage {
                             }
                         };
                         ts.schedule(tk, 3400);
-                    }else if(yutNum==-1) {
+                    } else if (yutNum == -1) {
                         Image yut1 = new ImageIcon("mini/백도.GIF").getImage().getScaledInstance(300, 300, 0);
                         JLabel yut = new JLabel(new ImageIcon(yut1));
                         yut.setSize(300, 300);
@@ -1252,8 +1253,7 @@ public class GamePage {
                                 JButton dodoBtn = new JButton();
                                 dodoBtn = new JButton(new ImageIcon(dodo));
                                 dodoBtn.setLocation(1170, 150);
-                                dodoBtn.setSize(50,50);
-
+                                dodoBtn.setSize(50, 50);
 
 
                                 gamePanel.remove(yut);

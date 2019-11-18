@@ -29,9 +29,8 @@ public class Player {
         this.charName = charName;
     }
 
-   
 
-	@Override
+    @Override
     public String toString() {
         return "Player{" +
                 "songP=" + songP +
@@ -69,12 +68,12 @@ public class Player {
     }
 
     // 윷의 값을 목록에 하나 추가함. 이게 사실상의 setMoves
-    public void addMoves(Integer yutResult){
+    public void addMoves(Integer yutResult) {
         this.moves.add(yutResult);
     }
 
     // 이동을 하면서 윷의 값 빼내기.
-    public void useMoves(Integer moveInt){
+    public void useMoves(Integer moveInt) {
         this.moves.remove(this.moves.indexOf(moveInt));
     }
 

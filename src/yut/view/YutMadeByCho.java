@@ -6,101 +6,140 @@ import yut.model.vo.Item;
 import yut.model.vo.Player;
 
 public class YutMadeByCho {
-	int yutNum = 0;//윷결과값저장하는 변수
-	
-	public int mainYut(int num,Player player) {
-		switch(num) {
-		case 1:yutNum=throwYut(player);player.setYutCount(0);break;
-		case 2:yutNum=moOrDo();break;
-		case 3:yutNum=neoIncreaseYut();break;
-		case 4:yutNum=ryanMoveDouble(player);break;
-		case 5:yutNum=mustBackDo();break;
-		}
-		return yutNum;
-		
-	}
-	//윷확률, 결과값 받을 메소드
-	public int throwYut(Player player) {
-	//랜덤값으로 윷확률 받기
-	int yutRate=new Random().nextInt(10)+1;
-	
-	switch(yutRate) {
-	case 1: yutNum=nak();break;//낙나왔을때
-	case 2: yutNum=Do(); break;//도
-	case 3: yutNum=gea(); break;//개
-	case 4: yutNum=gea(); break;//개
-	case 5: yutNum=gul(); break;//걸
-	case 6: yutNum=gul(); break;//걸
-	case 7: yutNum=yut(player); break;//윷
-	case 8: yutNum=yut(player); break;//윷
-	case 9: yutNum=mo(player); break;//모
-	case 10: yutNum=backDo(); break;//백도
-	
-	}
-	 return yutNum;
-	}
-	
-	public int nak() {
-		return 0;
-	}
-	public int Do() {
-		return 1;
-	}
-	public int gea() {
-		return 2;
-	}
-	public int gul() {
-		return 3;
-	}
-	public int yut(Player player) {
-	    player.setYutCount(player.getYutCount()+1);
-		return 4;
-	}
-	public int mo(Player player) {
-		player.setYutCount(player.getYutCount()+1);
-	    return 5;
-	}
-	public int backDo() {
-		return -1;
-	}
-	
-	 // 모아니면 도 아이템
-    public int moOrDo(){
-    	//아이템 메소드에 가격과 이름 설정
-    	Item item=new Item(5,"moOrDo");
+    int yutNum = 0;//윷결과값저장하는 변수
+
+    public int mainYut(int num, Player player) {
+        switch (num) {
+            case 1:
+                yutNum = throwYut(player);
+                player.setYutCount(0);
+                break;
+            case 2:
+                yutNum = moOrDo();
+                break;
+            case 3:
+                yutNum = neoIncreaseYut();
+                break;
+            case 4:
+                yutNum = ryanMoveDouble(player);
+                break;
+            case 5:
+                yutNum = mustBackDo();
+                break;
+        }
+        return yutNum;
+
+    }
+
+    //윷확률, 결과값 받을 메소드
+    public int throwYut(Player player) {
+        //랜덤값으로 윷확률 받기
+        int yutRate = new Random().nextInt(10) + 1;
+
+        switch (yutRate) {
+            case 1:
+                yutNum = nak();
+                break;//낙나왔을때
+            case 2:
+                yutNum = Do();
+                break;//도
+            case 3:
+                yutNum = gea();
+                break;//개
+            case 4:
+                yutNum = gea();
+                break;//개
+            case 5:
+                yutNum = gul();
+                break;//걸
+            case 6:
+                yutNum = gul();
+                break;//걸
+            case 7:
+                yutNum = yut(player);
+                break;//윷
+            case 8:
+                yutNum = yut(player);
+                break;//윷
+            case 9:
+                yutNum = mo(player);
+                break;//모
+            case 10:
+                yutNum = backDo();
+                break;//백도
+
+        }
+        return yutNum;
+    }
+
+    public int nak() {
+        return 0;
+    }
+
+    public int Do() {
+        return 1;
+    }
+
+    public int gea() {
+        return 2;
+    }
+
+    public int gul() {
+        return 3;
+    }
+
+    public int yut(Player player) {
+        player.setYutCount(player.getYutCount() + 1);
+        return 4;
+    }
+
+    public int mo(Player player) {
+        player.setYutCount(player.getYutCount() + 1);
+        return 5;
+    }
+
+    public int backDo() {
+        return -1;
+    }
+
+    // 모아니면 도 아이템
+    public int moOrDo() {
+        //아이템 메소드에 가격과 이름 설정
+        Item item = new Item(5, "moOrDo");
         // 랜덤값 1 또는 0, 0이면 모 1이면 도
-        if ((int)(Math.random()*2) == 0){
+        if ((int) (Math.random() * 2) == 0) {
             return 5;
-        }else {
+        } else {
             return 1;
         }
     }
 
     // Neo 패시브 윷 확률 올리기
-    public int neoIncreaseYut(){
-    	
+    public int neoIncreaseYut() {
+
         // 랜덤값 1 또는 0, 0,1이면 윷 2면 낙
-    	int random=(int)(Math.random()*3); 
-        if (random== 0||random==1){
+        int random = (int) (Math.random() * 3);
+        if (random == 0 || random == 1) {
             return 4;
-        }else {
+        } else {
             return nak();
         }
     }
- 
-    
+
 
     //ryan패시브 첫말*2로 이동
     public int ryanMoveDouble(Player player) {
-    	int num=throwYut(player);
-        return 2*num;
+        int num = throwYut(player);
+        return 2 * num;
     }
+
     //아이템 무조건 백도 메소드
     public int mustBackDo() {
         return -1;
     }
-	public static void main(String[] args) {
-		
-		System.out.println();
-	}
+
+    public static void main(String[] args) {
+
+        System.out.println();
+    }
 }

@@ -19,19 +19,23 @@ public class Mission {
         String fileName = "mini/";
 
         // 번호에 따라 파일명 기입
-        switch (random_mission_num){
+        switch (random_mission_num) {
             case 1:
                 System.out.println("미션1");
-                fileName += "Mission_1.PNG";break;
+                fileName += "Mission_1.PNG";
+                break;
             case 2:
                 System.out.println("미션2");
-                fileName += "Mission_2.PNG";break;
+                fileName += "Mission_2.PNG";
+                break;
             case 3:
                 System.out.println("미션3");
-                fileName += "Mission_3.PNG";break;
+                fileName += "Mission_3.PNG";
+                break;
             case 4:
                 System.out.println("미션4");
-                fileName += "Mission_4.PNG";break;
+                fileName += "Mission_4.PNG";
+                break;
         }
 
         Image missionImg = new ImageIcon(fileName)
@@ -47,7 +51,6 @@ public class Mission {
         // super();
 
 
-
         // switch(random_mission_num) {
         //     case 1 : firstArrive(null, null); break;
         //
@@ -59,7 +62,6 @@ public class Mission {
         // }
 
 
-
     }
 
     public void firstArrive(Player player, Mal mal) {
@@ -68,7 +70,6 @@ public class Mission {
 
             player.setSongP(player.getSongP() + 10);
         }
-
 
 
     }
@@ -91,7 +92,6 @@ public class Mission {
     public void firstBackDoCatch() {
 
     }
-
 
 
 }

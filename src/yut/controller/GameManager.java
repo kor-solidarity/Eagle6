@@ -219,8 +219,8 @@ public class GameManager {
         // System.out.println("player " + players.getNick() + "(" + players.getCharName() + ")");
         // System.out.println("moving " + move_num);
         // 0 이하로 들어와선 안됨
-    	int i = 0; //player[i] - 다영
-    	
+        int i = 0; //player[i] - 다영
+
         if (move_num <= 0) {
             return;
         }
@@ -265,52 +265,54 @@ public class GameManager {
             move_num--;
             // TODO: 2019-11-15 :  한칸이동 끝나면 벽이 있나 확인.
             //  있으면 그대로 멈추고 끝
-            
-            
+
+
             //============= 미션 ----- 다영 (여기에 넣는게 맞는지 확인) ================
-            int random = ((int) Math.random() * 4) + 1;
-    		int counter = 0;
-    		
-    		switch(random) {
-    		case 1:
-    			//1등으로 들어오기
-    			if(mal.getGrid() == -1) {
-					players[i].setSongP(players[i].getSongP() + 10);
-					} break;
-					
-    		case 2: 
-    			//다른 플레이어 말 1등으로 잡기
-    			
-    			for (Player pl : players) {
-    				//잡은게 내 말일 경우
-    	            if (pl.getCharName().equals(mal.getOwner().getCharName())) {
-    	                continue;
-    	            }
+            int random = ((int) (Math.random() * 4)) + 1;
+            int counter = 0;
 
-    	            //잡은게 다른 플레이어 말일 경우
-    	            for (Mal enemy : pl.getMals()) {
-    	                if (enemy.getGrid() == mal.getGrid()) {
-    	                	pl.setSongP(pl.getSongP() + 10);
-    	                }
-    	            }
+            switch (random) {
+                case 1:
+                    //1등으로 들어오기
+                    if (mal.getGrid() == -1) {
+                        players[i].setSongP(players[i].getSongP() + 10);
+                    }
+                    break;
 
-    	        } break;
-    		
-    		case 3:
-    			//정중앙에 1등으로 가기
-    			if(mal.getGrid() == 22) {
-    				players[i].setSongP(players[i].getSongP() + 10);
-    			} break;
-    			
-    		case 4: 
-    			//빽도로 말 잡기
-    			//잡은게 내 말일 경우
-    			//잡은게 다른 플레이어 말일 경우
-    			break;
-    			
-    		}
-    		
-    		
+                case 2:
+                    //다른 플레이어 말 1등으로 잡기
+
+                    for (Player pl : players) {
+                        //잡은게 내 말일 경우
+                        if (pl.getCharName().equals(mal.getOwner().getCharName())) {
+                            continue;
+                        }
+
+                        //잡은게 다른 플레이어 말일 경우
+                        for (Mal enemy : pl.getMals()) {
+                            if (enemy.getGrid() == mal.getGrid()) {
+                                pl.setSongP(pl.getSongP() + 10);
+                            }
+                        }
+
+                    }
+                    break;
+
+                case 3:
+                    //정중앙에 1등으로 가기
+                    if (mal.getGrid() == 22) {
+                        players[i].setSongP(players[i].getSongP() + 10);
+                    }
+                    break;
+
+                case 4:
+                    //빽도로 말 잡기
+                    //잡은게 내 말일 경우
+                    //잡은게 다른 플레이어 말일 경우
+                    break;
+
+            }
+
 
         }
 
@@ -338,9 +340,6 @@ public class GameManager {
             }
 
         }
-
-
-
 
 
     }

@@ -1,13 +1,42 @@
 package yut.model.vo;
 
-public class Mission {
+import javax.swing.*;
+import java.awt.*;
+
+public class Mission extends JLabel {
+    // 미션번호
+    int random_mission_num;
+    // 미션 완수 여부
+    boolean finished = false;
+    // 미션 완수한 플레이어 이름
+    String winner;
 
     public void mission(Player player, Mal mal) {
+        // 미션번호 무작위로 생성.
+        random_mission_num = ((int) (Math.random() * 4)) + 1;
+        // 미션 내용 들어갈 사진 위치
+        String fileName = "mini/";
 
-        int random = ((int) Math.random() * 4) + 1;
-        int counter = 0;
+        // 번호에 따라 파일명 기입
+        switch (random_mission_num){
+            case 1:
+                fileName += "Mission_1.PNG";break;
+            case 2:
+                fileName += "Mission_2.PNG";break;
+            case 3:
+                fileName += "Mission_3.PNG";break;
+            case 4:
+                fileName += "Mission_4.PNG";break;
+        }
 
-        switch(random) {
+        Image missionImg = new ImageIcon(fileName)
+                .getImage().getScaledInstance(330, 140, 0);
+        // 미션
+        // super();
+
+
+
+        switch(random_mission_num) {
             case 1 : firstArrive(null, null); break;
 
             case 2 : firstCatch(null, null); break;

@@ -3,22 +3,24 @@ package yut.view;
 import java.util.Random;
 
 import yut.model.vo.Item;
+import yut.model.vo.Player;
 
 public class YutMadeByCho {
 	int yutNum = 0;//윷결과값저장하는 변수
-	public int mainYut(int num) {
-		
+	
+	public int mainYut(int num,Player player) {
 		switch(num) {
-		case 1:yutNum=throwYut();break;
+		case 1:yutNum=throwYut(player);player.setYutCount(0);break;
 		case 2:yutNum=moOrDo();break;
 		case 3:yutNum=neoIncreaseYut();break;
-		case 4:yutNum=ryanMoveDouble();break;
+		case 4:yutNum=ryanMoveDouble(player);break;
+		case 5:yutNum=mustBackDo();break;
 		}
 		return yutNum;
 		
 	}
 	//윷확률, 결과값 받을 메소드
-	public int throwYut() {
+	public int throwYut(Player player) {
 	//랜덤값으로 윷확률 받기
 	int yutRate=new Random().nextInt(10)+1;
 	
@@ -29,9 +31,9 @@ public class YutMadeByCho {
 	case 4: yutNum=gea(); break;//개
 	case 5: yutNum=gul(); break;//걸
 	case 6: yutNum=gul(); break;//걸
-	case 7: yutNum=yut(); break;//윷
-	case 8: yutNum=yut(); break;//윷
-	case 9: yutNum=mo(); break;//모
+	case 7: yutNum=yut(player); break;//윷
+	case 8: yutNum=yut(player); break;//윷
+	case 9: yutNum=mo(player); break;//모
 	case 10: yutNum=backDo(); break;//백도
 	
 	}
@@ -50,11 +52,13 @@ public class YutMadeByCho {
 	public int gul() {
 		return 3;
 	}
-	public int yut() {
+	public int yut(Player player) {
+	    player.setYutCount(player.getYutCount()+1);
 		return 4;
 	}
-	public int mo() {
-		return 5;
+	public int mo(Player player) {
+		player.setYutCount(player.getYutCount()+1);
+	    return 5;
 	}
 	public int backDo() {
 		return -1;
@@ -87,13 +91,16 @@ public class YutMadeByCho {
     
 
     //ryan패시브 첫말*2로 이동
-    public int ryanMoveDouble() {
-    	int num=throwYut();
+    public int ryanMoveDouble(Player player) {
+    	int num=throwYut(player);
         return 2*num;
     }
-	
+    //아이템 무조건 백도 메소드
+    public int mustBackDo() {
+        return -1;
+    }
 	public static void main(String[] args) {
 		
-		//System.out.println(ryanMoveDouble());
+		System.out.println();
 	}
 }

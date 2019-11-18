@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class GameManager {
     // 이거 추후 스태틱 전부 없애야됨.
     private static Display disp;
-    private static YutMadeByjong yut;
+    private static YutMadeByCho yut;//조지연수정1118_1
     private static Apeach apeach;
     private static Frodo frodo;
     private static Neo neo;
@@ -17,7 +17,7 @@ public class GameManager {
     public static void main(String[] args) {
         GameManager gm = new GameManager();
         disp = new Display();
-        yut = new YutMadeByjong();
+        yut = new YutMadeByCho();//조지연수정1118_1
 
         apeach = null;
         frodo = null;
@@ -169,7 +169,7 @@ public class GameManager {
                             if (players[i].isSpecialty() && !(players[i] instanceof Apeach || players[i] instanceof Ryan)) {
                                 // 라이언이면 이동 두배
                                 if (players[i] instanceof Ryan) {
-                                    yut_val = yut.throw_yut() * 2;
+                                    yut_val = yut.ryanMoveDouble(players[i]);//조지연수정1118_1
                                 }
                                 // 네오는 윷나올 확률을 올려준다.
                                 else if (players[i] instanceof Neo) {

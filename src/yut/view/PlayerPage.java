@@ -70,6 +70,7 @@ public class PlayerPage  {
 		mf.repaint();
 		mf.setVisible(true);
 		
+		
 		backBtn.addMouseListener(new MouseAdapter() {
 			@Override
 	    	public void mouseClicked(MouseEvent e) {

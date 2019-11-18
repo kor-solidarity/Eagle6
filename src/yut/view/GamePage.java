@@ -289,7 +289,6 @@ public class GamePage {
 		frodo_body_label3.setLocation(141,510);
 		JLabel frodo_body_label4 = new JLabel(new ImageIcon(frodo_body));
 		frodo_body_label4.setSize(100,100);
-		frodo_body_label4.setLocation(211,510);
 
 
 

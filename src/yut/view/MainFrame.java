@@ -92,13 +92,13 @@ public class MainFrame extends JFrame{
 					Image yut1 = new ImageIcon("mini/로딩.GIF").getImage().getScaledInstance(300, 300, 0);
 					JLabel yut = new JLabel(new ImageIcon(yut1));
 					yut.setSize(300, 300);
-					yut.setLocation(600, 200);
+					yut.setLocation(600, 180);
 					
 					//========== 다영 ========== 
 					//캐릭터를 준비중입니다 gif 삽입
-					Image low = new ImageIcon("mini/캐릭터준비중.GIF").getImage().getScaledInstance(700, 250, 0);
+					Image low = new ImageIcon("mini/캐릭터준비중.GIF").getImage().getScaledInstance(650, 200, 0);
 					JLabel loword = new JLabel(new ImageIcon(low));
-					loword.setSize(700, 250);
+					loword.setSize(650, 200);
 					loword.setLocation(420, 450);
 					
 					//로딩 배경 라벨 생성
@@ -134,7 +134,7 @@ public class MainFrame extends JFrame{
 
 						}
 					};
-					ts.schedule(tk, 4000);
+					ts.schedule(tk, 100); //원래 4000
 					
 					//PlayerPage page = new PlayerPage(mf, mainPanel);
 					

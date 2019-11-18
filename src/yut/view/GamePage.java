@@ -153,7 +153,7 @@ public class GamePage {
         Image tube = new ImageIcon("mini/tube.PNG").getImage().getScaledInstance(180, 180, 0);
         JLabel grid15 = new JLabel(new ImageIcon(tube));
         grid15.setSize(180, 180);
-        grid15.setLocation(300, 610);
+        grid15.setLocation(300, 600);
         //보라송편 grid =16
         Image purple = new ImageIcon("mini/보라송편.PNG").getImage().getScaledInstance(110, 110, 0);
         JLabel grid16 = new JLabel(new ImageIcon(purple));
@@ -312,6 +312,74 @@ public class GamePage {
 		ryan_body_label4.setSize(100,100);
 		ryan_body_label4.setLocation(211,110);
 
+		//=======================================> 윷판 말 좌표 찾기 - 다영
+		JLabel testmal = new JLabel(new ImageIcon(ryan_body));
+		testmal.setSize(100, 100);
+		//그리드 0일때
+		//testmal.setLocation(990, 640); 
+		//그리드 1일때
+		//testmal.setLocation(990, 510); 
+		//그리드 2일때
+		//testmal.setLocation(990, 390); 
+		//그리드 3일떄
+		//testmal.setLocation(990, 280); 
+		//그리드 4일때
+		//testmal.setLocation(990, 170); 
+		//그리드 5일때
+		//testmal.setLocation(990, 65); 
+		
+		//그리드 6일때
+		//testmal.setLocation(855, 65); 
+		//그리드 7일때
+		//testmal.setLocation(735, 65); 
+		//그리드 8일때
+		//testmal.setLocation(615, 65); 
+		//그리드 9일때
+		//testmal.setLocation(495, 65); 
+		//그리드 10일때
+		//testmal.setLocation(350, 65); 
+		
+		//그리드 11일때
+		//testmal.setLocation(350, 180); 
+		//그리드 12일때
+		//testmal.setLocation(350, 290);
+		//그리드 13일때
+		//testmal.setLocation(350, 400);
+		//그리드 14일때
+		//testmal.setLocation(350, 510);
+		//그리드 15일때
+		//testmal.setLocation(350, 640);
+		
+		//그리드 16일때
+		//testmal.setLocation(475, 640);
+		//그리드 17일때 
+		//testmal.setLocation(605, 640);
+		//그리드 18일때
+		//testmal.setLocation(735, 640);
+		//그리드 19일때
+		//testmal.setLocation(865, 640);
+		
+		//그리드 25일때
+		//testmal.setLocation(475, 188);
+		//그리드 26일때
+		//testmal.setLocation(560, 245);
+		//그리드 27일때
+		//testmal.setLocation(790, 435);
+		//그리드 28일때
+		//testmal.setLocation(865, 510);
+		
+		//그리드 20일때
+		//testmal.setLocation(860, 188);
+		//그리드 21일때
+		//testmal.setLocation(790, 245);
+		//그리드 23일때
+		//testmal.setLocation(565, 435);
+		//그리드 24일때
+		//testmal.setLocation(495, 510);
+		
+		
+		
+		
 
 
 
@@ -441,6 +509,8 @@ public class GamePage {
 		gamePanel.add(ryan_body_label2);
 		gamePanel.add(ryan_body_label3);
 		gamePanel.add(ryan_body_label4);
+		gamePanel.add(testmal); //============테스트용=============== 좌표찾기 - 다영
+		gamePanel.setComponentZOrder(testmal, 0); //==========테스트용============ 좌표찾기 - 다영
 		gamePanel.add(backgroundPurple1);
 
 		//apeach

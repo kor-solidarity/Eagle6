@@ -252,7 +252,14 @@ public class PlayerPage  {
 					Image yut1 = new ImageIcon("mini/로딩.GIF").getImage().getScaledInstance(300, 300, 0);
 					JLabel yut = new JLabel(new ImageIcon(yut1));
 					yut.setSize(300, 300);
-					yut.setLocation(600, 280);
+					yut.setLocation(600, 180);
+					
+					//========== 다영 ========== 
+                    //게임을 준비중입니다 gif 삽입
+                    Image low2 = new ImageIcon("mini/게임준비중.GIF").getImage().getScaledInstance(650, 200, 0);
+                    JLabel loword2 = new JLabel(new ImageIcon(low2));
+                    loword2.setSize(650, 200);
+                    loword2.setLocation(420, 450);
 
 					//로딩 배경 라벨 생성
 					Image lodingBackGround = new ImageIcon("mini/선택창 배경.PNG").getImage().getScaledInstance(1500, 800, 0);
@@ -265,9 +272,11 @@ public class PlayerPage  {
 
 					lo.add(lo1);
 					lo.add(yut);
+					lo.add(loword2); //--- 추가 : 다영
 					lo.revalidate();
 					lo.repaint();
 					lo.setComponentZOrder(yut, 0);
+					lo.setComponentZOrder(loword2, 1); //--- 추가  : 다영
 
 					mf.add(lo);
 					mf.revalidate();
@@ -282,7 +291,7 @@ public class PlayerPage  {
 							GamePage gm = new GamePage(mf,panel,lo,player);
 						}
 					};
-					ts.schedule(tk, 4000);
+					ts.schedule(tk, 100); //원래 4000
 
 
 				}

@@ -14,8 +14,8 @@ import javax.swing.JPanel;
 
 import yut.model.vo.Player;
 
-public class PlayerPage {
-    private Player player = new Player("김성준", "라이언");//플레이어 예시로 넘길려고 해놓은 것
+public class PlayerPage  {
+	private Player player = new Player("김성준", "라이언");//플레이어 예시로 넘길려고 해놓은 것
 
     public PlayerPage(MainFrame mf, JPanel panel, JPanel sb) {
         player.setSongP(100);//임의로 테스트용
@@ -238,20 +238,27 @@ public class PlayerPage {
             }
         });
 
-        //게임시작 버튼 활성
-        gameBtn.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                if (e.getButton() == 1) {
-                    //로딩화면 패널 생성
-                    JPanel lo = new JPanel();
-                    lo.setBounds(0, 0, 1500, 800);
-                    lo.setLayout(null);
-                    //로딩 라벨 생성
-                    Image yut1 = new ImageIcon("mini/로딩.GIF").getImage().getScaledInstance(300, 300, 0);
-                    JLabel yut = new JLabel(new ImageIcon(yut1));
-                    yut.setSize(300, 300);
-                    yut.setLocation(600, 280);
+		//게임시작 버튼 활성
+		gameBtn.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if(e.getButton()==1) {
+					//로딩화면 패널 생성
+					JPanel lo = new JPanel();
+					lo.setBounds(0, 0, 1500, 800);
+					lo.setLayout(null);
+					//로딩 라벨 생성
+					Image yut1 = new ImageIcon("mini/로딩.GIF").getImage().getScaledInstance(300, 300, 0);
+					JLabel yut = new JLabel(new ImageIcon(yut1));
+					yut.setSize(300, 300);
+					yut.setLocation(600, 180);
+
+					//========== 다영 ==========
+                    //게임을 준비중입니다 gif 삽입
+                    Image low2 = new ImageIcon("mini/게임준비중.GIF").getImage().getScaledInstance(650, 200, 0);
+                    JLabel loword2 = new JLabel(new ImageIcon(low2));
+                    loword2.setSize(650, 200);
+                    loword2.setLocation(420, 450);
 
                     //로딩 배경 라벨 생성
                     Image lodingBackGround = new ImageIcon("mini/선택창 배경.PNG").getImage().getScaledInstance(1500, 800, 0);
@@ -262,11 +269,13 @@ public class PlayerPage {
                     //메인 라벨 제거
                     mf.remove(subPanel);
 
-                    lo.add(lo1);
-                    lo.add(yut);
-                    lo.revalidate();
-                    lo.repaint();
-                    lo.setComponentZOrder(yut, 0);
+					lo.add(lo1);
+					lo.add(yut);
+					lo.add(loword2); //--- 추가 : 다영
+					lo.revalidate();
+					lo.repaint();
+					lo.setComponentZOrder(yut, 0);
+					lo.setComponentZOrder(loword2, 1); //--- 추가  : 다영
 
                     mf.add(lo);
                     mf.revalidate();
@@ -278,10 +287,10 @@ public class PlayerPage {
                         @Override
                         public void run() {
 
-                            GamePage gm = new GamePage(mf, panel, lo, player);
-                        }
-                    };
-                    ts.schedule(tk, 4000);
+							GamePage gm = new GamePage(mf,panel,lo,player);
+						}
+					};
+					ts.schedule(tk, 100); //원래 4000
 
 
                 }

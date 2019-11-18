@@ -92,22 +92,32 @@ public class MainFrame extends JFrame{
 					Image yut1 = new ImageIcon("mini/로딩.GIF").getImage().getScaledInstance(300, 300, 0);
 					JLabel yut = new JLabel(new ImageIcon(yut1));
 					yut.setSize(300, 300);
-					yut.setLocation(600, 280);
+					yut.setLocation(600, 200);
+					
+					//========== 다영 ========== 
+					//캐릭터를 준비중입니다 gif 삽입
+					Image low = new ImageIcon("mini/캐릭터준비중.GIF").getImage().getScaledInstance(700, 250, 0);
+					JLabel loword = new JLabel(new ImageIcon(low));
+					loword.setSize(700, 250);
+					loword.setLocation(420, 450);
 					
 					//로딩 배경 라벨 생성
 					Image lodingBackGround = new ImageIcon("mini/선택창 배경.PNG").getImage().getScaledInstance(1500, 800, 0);
 					JLabel lo = new JLabel(new ImageIcon(lodingBackGround));
 					lo.setSize(1500, 800);
 					//lo.setLocation(1170, 150);
+				
 					
                     //메인 라벨 제거
 					mf.remove(mainPanel);
 					
 					subPanel1.add(lo);
 					subPanel1.add(yut);
+					subPanel1.add(loword); //추가 - 다영
 					subPanel1.revalidate();
 				    subPanel1.repaint();
 					subPanel1.setComponentZOrder(yut, 0);
+					subPanel1.setComponentZOrder(loword, 1); //추가 - 다영
 					
 					mf.add(subPanel1);
 					mf.revalidate();

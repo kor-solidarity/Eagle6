@@ -134,7 +134,7 @@ public class MainFrame extends JFrame{
 
 						}
 					};
-					ts.schedule(tk, 4000);
+					ts.schedule(tk, 100);
 					
 					//PlayerPage page = new PlayerPage(mf, mainPanel);
 					
@@ -150,10 +150,8 @@ public class MainFrame extends JFrame{
 				//마우스 왼쪽 클릭만 입력 될 시
 				if(e.getButton()==1) { 
 					Help hp = new Help(mf);
-				
 				}
 			}
-
 		});
 
 

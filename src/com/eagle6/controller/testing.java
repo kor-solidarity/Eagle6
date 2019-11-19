@@ -22,14 +22,10 @@ public class testing {
         integers.add(31);
         integers.add(1);
 
-        integers.add(51);
-        integers.add(1);
-        integers.add(11);
-        integers.add(14);
-        integers.add(12);
         integers.add(12);
         integers.add(1);
 
+        System.out.println("integers.size() " + integers.size());
         for (int i = 0; i < integers.size(); i++) {
             System.out.print(integers.get(i) + " ");
         }

@@ -14,7 +14,8 @@ public class Mission {
     // 미션 완수한 플레이어 이름
     String winner;
 
-    public Mission(Player player, MainFrame mf, JPanel panel) {
+    // 미션에 플레이어가 있는 이유??
+    public Mission(/*Player player,*/ MainFrame mf, JPanel panel) {
 
         // 미션번호 무작위로 생성
         missionNum = ((int) (Math.random() * 4)) + 1;

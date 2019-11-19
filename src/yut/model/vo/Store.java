@@ -20,7 +20,19 @@ public class Store {
     // 상점 클래스.
     // 여기서 각 템들이
 
-    public boolean buy(MainFrame mf, JPanel panel, Player player, JTextField show, int itemNum,int x, int y) {
+    /**
+     *
+     *
+     * @param mf: ??
+     * @param panel: 게임페이지
+     * @param player: 이걸 누른 플레이어
+     * @param show: 가격 표시
+     * @param itemNum: 아이템 고유번호
+     * @param x
+     * @param y
+     * @return
+     */
+    public boolean buy(MainFrame mf, JPanel panel, Player player, /*JTextField show,*/ int itemNum,int x, int y) {
         if(itemNum ==4) {
             if(player.getSongP()>=10) {
                 //플레이어 말의 위치에 있는 grid값을 변수에 저장
@@ -51,9 +63,9 @@ public class Store {
 
                 String str1 = Integer.valueOf(player.getSongP()).toString();
 
-                show.setText(str1);
-                show.revalidate();
-                show.repaint();
+                // show.setText(str1);
+                // show.revalidate();
+                // show.repaint();
 
                 panel.add(motion);
                 panel.add(pop1);
@@ -116,7 +128,7 @@ public class Store {
 
     }
 
-    public boolean buy(MainFrame mf, JPanel panel, Player player, JTextField show, int itemNum) {
+    public boolean buy(MainFrame mf, JPanel panel, Player player, /*JTextField show,*/ int itemNum) {
         UpgoDouble ud = new UpgoDouble();
 
 
@@ -145,9 +157,9 @@ public class Store {
                 panel.setComponentZOrder(mo1, 0);
                 panel.setComponentZOrder(pop1, 0);
 
-                show.setText(str1);
-                show.revalidate();
-                show.repaint();
+                // show.setText(str1);
+                // show.revalidate();
+                // show.repaint();
 
                 YutMadeByCho yut = new YutMadeByCho();
                GamePage.yutgap= yut.mainYut(2, player);//윷값보내기
@@ -203,9 +215,11 @@ public class Store {
 
         }
 
-
+        // 벽
         if(itemNum ==3) {
             if(player.getSongP()>=10) {
+                // player.setSongP(10);
+                // System.out.println("qwerty");
                 int wall = player.getMals()[1].getGrid();
                 //벽 이미지를 grid를 *좌표(아직 안만들어짐)으로 해당위치에 벽 라벨 생성
                 Image ww = new ImageIcon("mini/벽.PNG").getImage().getScaledInstance(70, 70, 0);
@@ -229,9 +243,9 @@ public class Store {
                 player.setSongP(player.getSongP()-w.getPrice());
                 String str1 = Integer.valueOf(player.getSongP()).toString();
 
-                show.setText(str1);
-                show.revalidate();
-                show.repaint();
+                // show.setText(str1);
+                // show.revalidate();
+                // show.repaint();
 
 
 
@@ -328,9 +342,9 @@ public class Store {
 
                 String str1 = Integer.valueOf(player.getSongP()).toString();
 
-                show.setText(str1);
-                show.revalidate();
-                show.repaint();
+                // show.setText(str1);
+                // show.revalidate();
+                // show.repaint();
 
                 panel.add(motion);
                 panel.add(pop1);
@@ -414,9 +428,9 @@ public class Store {
 
                 String str1 = Integer.valueOf(player.getSongP()).toString();
 
-                show.setText(str1);
-                show.revalidate();
-                show.repaint();
+                // show.setText(str1);
+                // show.revalidate();
+                // show.repaint();
 
                 panel.add(pop1);
                 panel.add(motion);

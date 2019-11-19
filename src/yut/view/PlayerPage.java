@@ -25,11 +25,11 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import yut.model.vo.Player;
+import yut.model.vo.*;
 
 public class PlayerPage {
 
-    private Player player = new Player("김성준", "라이언");//플레이어 예시로 넘길려고 해놓은 것
+    // private Player player = new Player("김성준", "라이언");//플레이어 예시로 넘길려고 해놓은 것
     TextField n1;
     TextField n2;
     TextField n3;
@@ -39,7 +39,8 @@ public class PlayerPage {
     //ArrayList arr=new ArrayList();
 
     public PlayerPage(MainFrame mf, JPanel panel, JPanel sb) {
-        player.setSongP(100);//임의로 테스트용
+        System.out.println("PlayerPage()");
+        // player.setSongP(100);//임의로 테스트용
 
 
         n1 = new TextField(20);
@@ -496,8 +497,22 @@ public class PlayerPage {
 
                         @Override
                         public void run() {
-
-                            GamePage gm = new GamePage(mf, panel, lo, player);
+                            // 은석: 플레이어 생성
+                            // 라이언, 어피치, 프로도, 네오
+                            Player[] players = new Player[4];
+                            if (nickName[0] != null) {
+                                players[0] = new Ryan(nickName[0]);
+                            }
+                            if (nickName[1] != null) {
+                                players[1] = new Apeach(nickName[1]);
+                            }
+                            if (nickName[2] != null) {
+                                players[2] =  new Frodo(nickName[2]);
+                            }
+                            if (nickName[3] != null) {
+                                players[3] = new Neo(nickName[3]);
+                            }
+                            GamePage gm = new GamePage(mf, panel, lo, players);
                         }
                     };
                     ts.schedule(tk, 100); //원래 4000

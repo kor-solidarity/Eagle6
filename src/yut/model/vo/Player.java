@@ -5,7 +5,7 @@ import java.util.Arrays;
 
 public class Player {
     // 송편 수
-    private int songP = 2;
+    private int songP = 52;
     // 말 수
     private Mal[] mals = {new Mal(1), new Mal(2),
             new Mal(3), new Mal(4)};

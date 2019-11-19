@@ -9,6 +9,9 @@ public class Mal {
     private int num;  // 몇번째말
     // 말이 여태 지나온 길.
     private ArrayList<Integer> routes = new ArrayList();
+
+    private MapGrid mapGrid;
+
     // { 2, 3, 4, 5}
     // Integer[] route = new Integer[];
 

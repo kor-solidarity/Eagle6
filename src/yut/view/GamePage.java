@@ -50,7 +50,6 @@ public static int yutgap;//YutMadeByCho에서 윷값 받을 수 있는 전역변
         Image end = new ImageIcon("mini/창버튼.PNG").getImage().getScaledInstance(40, 40, 0);
         JButton endBtn = new JButton();
         endBtn = new JButton(new ImageIcon(end));
-        //도움말 버튼 크기,위치 조정
         endBtn.setSize(40, 40);
         endBtn.setLocation(1445, 0);
         gamePanel.setComponentZOrder(endBtn, 0);
@@ -59,7 +58,6 @@ public static int yutgap;//YutMadeByCho에서 윷값 받을 수 있는 전역변
         Image store = new ImageIcon("mini/스토어.PNG").getImage().getScaledInstance(370, 220, 0);
         JLabel store1 = new JLabel();
         store1 = new JLabel(new ImageIcon(store));
-        //도움말 버튼 크기,위치 조정
         store1.setSize(370, 220);
         store1.setLocation(1110, 530);
 
@@ -67,7 +65,6 @@ public static int yutgap;//YutMadeByCho에서 윷값 받을 수 있는 전역변
         Image skil2 = new ImageIcon("mini/모도스킬.PNG").getImage().getScaledInstance(80, 80, 0);
         JButton skilBtn2 = new JButton();
         skilBtn2 = new JButton(new ImageIcon(skil2));
-        //도움말 버튼 크기,위치 조정
         skilBtn2.setSize(80, 80);
         skilBtn2.setLocation(1370, 660);
 
@@ -76,7 +73,6 @@ public static int yutgap;//YutMadeByCho에서 윷값 받을 수 있는 전역변
         Image skil3 = new ImageIcon("mini/벽.PNG").getImage().getScaledInstance(80, 80, 0);
         JButton skilBtn3 = new JButton();
         skilBtn3 = new JButton(new ImageIcon(skil3));
-        //도움말 버튼 크기,위치 조정
         skilBtn3.setSize(80, 80);
         skilBtn3.setLocation(1260, 660);
 
@@ -84,7 +80,6 @@ public static int yutgap;//YutMadeByCho에서 윷값 받을 수 있는 전역변
         Image skil4 = new ImageIcon("mini/폭탄.PNG").getImage().getScaledInstance(80, 80, 0);
         JButton skilBtn4 = new JButton();
         skilBtn4 = new JButton(new ImageIcon(skil4));
-        //도움말 버튼 크기,위치 조정
         skilBtn4.setSize(80, 80);
         skilBtn4.setLocation(1150, 660);
 
@@ -92,7 +87,6 @@ public static int yutgap;//YutMadeByCho에서 윷값 받을 수 있는 전역변
         Image skil5 = new ImageIcon("mini/빽도스킬.PNG").getImage().getScaledInstance(80, 80, 0);
         JButton skilBtn5 = new JButton();
         skilBtn5 = new JButton(new ImageIcon(skil5));
-        //도움말 버튼 크기,위치 조정
         skilBtn5.setSize(80, 80);
         skilBtn5.setLocation(1150, 560);
 
@@ -351,7 +345,7 @@ public static int yutgap;//YutMadeByCho에서 윷값 받을 수 있는 전역변
         Image ryan_body1 = new ImageIcon("mini/1번라이언말.PNG").getImage().getScaledInstance(80, 80, 0);
         JLabel ryan_body_label1 = new JLabel(new ImageIcon(ryan_body1));
         ryan_body_label1.setSize(100, 100);
-        ryan_body_label1.setLocation(1, 99);
+        ryan_body_label1.setLocation(300, 159);//1 99
         Image ryan_body2 = new ImageIcon("mini/2번라이언말.PNG").getImage().getScaledInstance(80, 80, 0);
         JLabel ryan_body_label2 = new JLabel(new ImageIcon(ryan_body2));
         ryan_body_label2.setSize(100, 100);
@@ -382,6 +376,7 @@ public static int yutgap;//YutMadeByCho에서 윷값 받을 수 있는 전역변
         ryan_body_label4_s.setSize(100, 100);
         ryan_body_label4_s.setLocation(211, 99);
 
+        
 
         //=======================================> 윷판 말 좌표 찾기 - 다영
         // JLabel testmal = new JLabel(new ImageIcon(ryan_body));
@@ -1015,8 +1010,18 @@ public static int yutgap;//YutMadeByCho에서 윷값 받을 수 있는 전역변
             @Override
             public void mouseClicked(MouseEvent e) {
                 if (e.getButton() == 1) {
-                    Store shop = new Store();
-                    shop.buy(mf, gamePanel, player, show, 4);
+                    
+                    ryan_body_label1.addMouseListener(new MouseAdapter() {
+                        @Override
+                        public void mouseClicked(MouseEvent e) {
+                             int x = ryan_body_label1.getX();
+                             int y = ryan_body_label1.getY();
+                             Store shop = new Store();
+                             shop.buy(mf, gamePanel, player, show, 4,x,y);
+                        }
+                    });
+                    
+                  
                 }
             }
         });

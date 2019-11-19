@@ -288,9 +288,6 @@ public class GamePage {
             gamePanel.add(ms4);
         }
 
-        ///153
-        //11
-
         //플레이어 상태창 배경
         //ryan 배경
         //보라색>노란색으로 변경
@@ -617,19 +614,85 @@ public class GamePage {
         //후에 setText 변경
 
         //jtextfield 글꼴 변경하는 객체 생성
-        Font font = new Font("arian", Font.BOLD, 13);
+        Font font = new Font("arian", Font.BOLD, 20);
+        Font font2 = new Font("arian", Font.BOLD, 20);
 
-        //text 표시
-        JTextField show = new JTextField(15);
-        String str = Integer.valueOf(player.getSongP()).toString();
-        show.setEditable(false);
-        panel.add(show);
-        show.setText(str);
-        show.setSize(110, 50);
-        show.setLocation(190, 5);
-        show.setFont(font);
-        //str += "@@";
-
+        //송편 text 표시
+        //라이언 송편표시
+        JTextField show_ryan_songP = new JTextField(15);
+        String str1 = Integer.valueOf(player.getSongP()).toString();
+        show_ryan_songP.setEditable(false);
+        panel.add(show_ryan_songP);
+        show_ryan_songP.setText(str1);
+        show_ryan_songP.setSize(110, 40);
+        show_ryan_songP.setLocation(190, 55);
+        show_ryan_songP.setFont(font);
+        //어피치 송편표시
+        JTextField show_apeach_songP = new JTextField(15);
+        String str2 = Integer.valueOf(player.getSongP()).toString();
+        show_apeach_songP.setEditable(false);
+        panel.add(show_apeach_songP);
+        show_apeach_songP.setText(str2);
+        show_apeach_songP.setSize(110, 40);
+        show_apeach_songP.setLocation(190, 244);
+        show_apeach_songP.setFont(font);
+        //프로도 송편표시
+        JTextField show_frodo_songP = new JTextField(15);
+        String str3 = Integer.valueOf(player.getSongP()).toString();
+        show_frodo_songP.setEditable(false);
+        panel.add(show_ryan_songP);
+        show_frodo_songP.setText(str3);
+        show_frodo_songP.setSize(110, 40);
+        show_frodo_songP.setLocation(190, 433);
+        show_frodo_songP.setFont(font);
+        //네오 송편표시
+        JTextField show_neo_songP = new JTextField(15);
+        String str4 = Integer.valueOf(player.getSongP()).toString();
+        show_neo_songP.setEditable(false);
+        panel.add(show_ryan_songP);
+        show_neo_songP.setText(str4);
+        show_neo_songP.setSize(110, 40);
+        show_neo_songP.setLocation(190, 622);
+        show_neo_songP.setFont(font);
+        
+        //닉네임 표시
+        //라이언 닉네임 표시
+        JTextField show_ryan_name = new JTextField(15);
+        String str1_n = "라이언";
+        show_ryan_name.setEditable(false);
+        panel.add(show_ryan_songP);
+        show_ryan_name.setText(str1_n);
+        show_ryan_name.setSize(110, 40);
+        show_ryan_name.setLocation(190, 5);
+        show_ryan_name.setFont(font2);
+        //어피치 닉네임 표시
+        JTextField show_apeach_name = new JTextField(15);
+        String str2_n = "어피치";
+        show_apeach_name.setEditable(false);
+        panel.add(show_ryan_songP);
+        show_apeach_name.setText(str2_n);
+        show_apeach_name.setSize(110, 40);
+        show_apeach_name.setLocation(190, 194);
+        show_apeach_name.setFont(font2);
+        //프로도 닉네임 표시
+        JTextField show_frodo_name = new JTextField(15);
+        String str3_n = "프로도";
+        show_frodo_name.setEditable(false);
+        panel.add(show_ryan_songP);
+        show_frodo_name.setText(str3_n);
+        show_frodo_name.setSize(110, 40);
+        show_frodo_name.setLocation(190, 383);
+        show_frodo_name.setFont(font2);
+        //네오 닉네임 표시
+        JTextField show_neo_name = new JTextField(15);
+        String str4_n = "네오";
+        show_neo_name.setEditable(false);
+        panel.add(show_ryan_songP);
+        show_neo_name.setText(str4_n);
+        show_neo_name.setSize(110, 40);
+        show_neo_name.setLocation(190, 572);
+        show_neo_name.setFont(font2);
+        
 
         //게임패널에 부착
         //스킬라벨
@@ -677,7 +740,8 @@ public class GamePage {
         //ryan
         gamePanel.add(ryan_head_label);
         gamePanel.add(info1);
-        gamePanel.add(show);
+        gamePanel.add(show_ryan_name);
+        gamePanel.add(show_ryan_songP);
         //그리드값 조건으로 활성화
         // gamePanel.add(ryan_body_labelx1);
         // gamePanel.add(ryan_body_labelx2);
@@ -700,6 +764,8 @@ public class GamePage {
         //apeach
         gamePanel.add(apeach_head_label);
         gamePanel.add(info2);
+        gamePanel.add(show_apeach_name);
+        gamePanel.add(show_apeach_songP);
         //그리드값 조건으로 활성화
 		/*		gamePanel.add(apeach_body_labelx1);
 		gamePanel.add(apeach_body_labelx2);
@@ -718,6 +784,8 @@ public class GamePage {
         //frodo
         gamePanel.add(frodo_head_label);
         gamePanel.add(info3);
+        gamePanel.add(show_frodo_name);
+        gamePanel.add(show_frodo_songP);
         //그리드값 조건으로 활성화
 /*		gamePanel.add(frodo_body_labelx1);
 		gamePanel.add(frodo_body_labelx2);
@@ -736,6 +804,8 @@ public class GamePage {
         //neo
         gamePanel.add(neo_head_label);
         gamePanel.add(info4);
+        gamePanel.add(show_neo_name);
+        gamePanel.add(show_neo_songP);
         //그리드값 조건으로 활성화
 /*		gamePanel.add(neo_body_labelx1);
 		gamePanel.add(neo_body_labelx2);
@@ -793,7 +863,7 @@ public class GamePage {
             @Override
             public void mouseClicked(MouseEvent e) {
                 if (e.getButton() == 1) {
-                    gamePanel.remove(apeach_body_label4);
+                    gamePanel.remove(ryan_body_label4);
                     gamePanel.repaint();
                 }
             }
@@ -907,7 +977,11 @@ public class GamePage {
             }
         });
         ////////@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-        //스킬 2번 사용시 반응 예시
+
+        
+        
+        /*     임시주석@@@@@@ 합칠때 풀어주시거나 무시@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  
+  * 	//스킬 2번 사용시 반응 예시
         skilBtn2.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -950,7 +1024,7 @@ public class GamePage {
                     shop.buy(mf, gamePanel, player, show, 5);
                 }
             }
-        });
+        });*/
 
         //종료버튼 클릭시 메인 화면으로 복귀
         endBtn.addMouseListener(new MouseAdapter() {

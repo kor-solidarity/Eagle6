@@ -21,6 +21,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 import yut.model.vo.Item;
+import yut.model.vo.Mission;
 import yut.model.vo.Player;
 import yut.model.vo.Store;
 import yut.model.vo.Mal;
@@ -38,6 +39,7 @@ public static int yutgap;//YutMadeByCho에서 윷값 받을 수 있는 전역변
         gamePanel.setBounds(0, 0, 1500, 800);
         gamePanel.setLayout(null);
 
+        Mission ms = new Mission(player, mf, gamePanel);
         //도움말 버튼  생성
         Image help = new ImageIcon("mini/도움말 게임.PNG").getImage().getScaledInstance(60, 60, 0);
         JButton helpBtn = new JButton();
@@ -244,47 +246,8 @@ public static int yutgap;//YutMadeByCho에서 윷값 받을 수 있는 전역변
         grid28.setLocation(820, 460);
 
 
-        //*********다영**********
-        //*** 미션 랜덤으로 띄우기 ***
-        int random = ((int) (Math.random() * 4)) + 1;
-
-        //미션1
-        Image m1 = new ImageIcon("mini/Mission_1.PNG").getImage().getScaledInstance(330, 140, 0);
-        JLabel ms1 = new JLabel(new ImageIcon(m1));
-        ms1.setLocation(1150, 10);
-        ms1.setSize(330, 140);
-
-        //미션2
-        Image m2 = new ImageIcon("mini/Mission_2.PNG").getImage().getScaledInstance(330, 140, 0);
-        JLabel ms2 = new JLabel(new ImageIcon(m2));
-        ms2.setLocation(1150, 10);
-        ms2.setSize(330, 140);
-
-        //미션3
-        Image m3 = new ImageIcon("mini/Mission_3.PNG").getImage().getScaledInstance(330, 140, 0);
-        JLabel ms3 = new JLabel(new ImageIcon(m3));
-        ms3.setLocation(1150, 10);
-        ms3.setSize(330, 140);
-
-        //미션4
-        Image m4 = new ImageIcon("mini/Mission_4.PNG").getImage().getScaledInstance(330, 140, 0);
-        JLabel ms4 = new JLabel(new ImageIcon(m4));
-        ms4.setLocation(1150, 10);
-        ms4.setSize(330, 140);
-
-        if (random == 1) {
-            System.out.println("미션1");
-            gamePanel.add(ms1);
-        } else if (random == 2) {
-            System.out.println("미션2");
-            gamePanel.add(ms2);
-        } else if (random == 3) {
-            System.out.println("미션3");
-            gamePanel.add(ms3);
-        } else if (random == 4) {
-            System.out.println("미션4");
-            gamePanel.add(ms4);
-        }
+        ///153
+        //11
 
         //플레이어 상태창 배경
         //ryan 배경
@@ -345,7 +308,7 @@ public static int yutgap;//YutMadeByCho에서 윷값 받을 수 있는 전역변
         Image ryan_body1 = new ImageIcon("mini/1번라이언말.PNG").getImage().getScaledInstance(80, 80, 0);
         JLabel ryan_body_label1 = new JLabel(new ImageIcon(ryan_body1));
         ryan_body_label1.setSize(100, 100);
-        ryan_body_label1.setLocation(300, 159);//1 99
+        ryan_body_label1.setLocation(1, 99);
         Image ryan_body2 = new ImageIcon("mini/2번라이언말.PNG").getImage().getScaledInstance(80, 80, 0);
         JLabel ryan_body_label2 = new JLabel(new ImageIcon(ryan_body2));
         ryan_body_label2.setSize(100, 100);
@@ -376,7 +339,6 @@ public static int yutgap;//YutMadeByCho에서 윷값 받을 수 있는 전역변
         ryan_body_label4_s.setSize(100, 100);
         ryan_body_label4_s.setLocation(211, 99);
 
-        
 
         //=======================================> 윷판 말 좌표 찾기 - 다영
         // JLabel testmal = new JLabel(new ImageIcon(ryan_body));
@@ -655,7 +617,7 @@ public static int yutgap;//YutMadeByCho에서 윷값 받을 수 있는 전역변
         show_neo_songP.setSize(110, 40);
         show_neo_songP.setLocation(190, 622);
         show_neo_songP.setFont(font);
-        
+
         //닉네임 표시
         //라이언 닉네임 표시
         JTextField show_ryan_name = new JTextField(15);
@@ -693,7 +655,7 @@ public static int yutgap;//YutMadeByCho에서 윷값 받을 수 있는 전역변
         show_neo_name.setSize(110, 40);
         show_neo_name.setLocation(190, 572);
         show_neo_name.setFont(font2);
-        
+
 
         //게임패널에 부착
         //스킬라벨
@@ -979,9 +941,9 @@ public static int yutgap;//YutMadeByCho에서 윷값 받을 수 있는 전역변
         });
         ////////@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
-        
-        
-        /*     임시주석@@@@@@ 합칠때 풀어주시거나 무시@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  
+
+
+        /*     임시주석@@@@@@ 합칠때 풀어주시거나 무시@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
   * 	//스킬 2번 사용시 반응 예시
         skilBtn2.addMouseListener(new MouseAdapter() {
             @Override
@@ -1010,7 +972,7 @@ public static int yutgap;//YutMadeByCho에서 윷값 받을 수 있는 전역변
             @Override
             public void mouseClicked(MouseEvent e) {
                 if (e.getButton() == 1) {
-                    
+
                     ryan_body_label1.addMouseListener(new MouseAdapter() {
                         @Override
                         public void mouseClicked(MouseEvent e) {
@@ -1020,8 +982,8 @@ public static int yutgap;//YutMadeByCho에서 윷값 받을 수 있는 전역변
                              shop.buy(mf, gamePanel, player, show, 4,x,y);
                         }
                     });
-                    
-                  
+
+
                 }
             }
         });
@@ -1104,7 +1066,6 @@ public static int yutgap;//YutMadeByCho에서 윷값 받을 수 있는 전역변
         });
 
         //윷 던지기 버튼을 눌럿을시 반응
-        
         yutThrow1.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -1118,10 +1079,10 @@ public static int yutgap;//YutMadeByCho에서 윷값 받을 수 있는 전역변
                     //윷던지기 버튼 던질때 YutMadeByCho클래스 객체생성
                     YutMadeByCho thorwYut = new YutMadeByCho();
                     yutgap=thorwYut.mainYut(1, player);
-                  
+
                     yutgap = thorwYut.throwYut(player);
                     //윷값이 낙이 나왔을때
-                   
+
                     if (yutgap == 0) {
                         Image yut1 = new ImageIcon("mini/낙영상.GIF").getImage().getScaledInstance(300, 300, 0);
                         JLabel yut = new JLabel(new ImageIcon(yut1));
@@ -1153,7 +1114,7 @@ public static int yutgap;//YutMadeByCho에서 윷값 받을 수 있는 전역변
                         yut.setSize(300, 300);
                         yut.setLocation(1170, 150);
                         alist.add(yutgap);
-                        
+
                         gamePanel.add(yut);
                         gamePanel.revalidate();
                         gamePanel.repaint();
@@ -1166,7 +1127,7 @@ public static int yutgap;//YutMadeByCho에서 윷값 받을 수 있는 전역변
                             public void run() {
                                 Image dodo = new ImageIcon("mini/도버튼.PNG").getImage().getScaledInstance(50, 50, 0);
                                 JButton dodoBtn = new JButton(new ImageIcon(dodo));
-                               
+
                                 dodoBtn.setLocation(1170, 150);
                                 dodoBtn.setSize(50, 50);
 
@@ -1176,7 +1137,7 @@ public static int yutgap;//YutMadeByCho에서 윷값 받을 수 있는 전역변
                                 gamePanel.revalidate();
                                 gamePanel.repaint();
                                 gamePanel.setComponentZOrder(dodoBtn, 0);
-                                
+
                                 dodoBtn.addMouseListener(new MouseAdapter() {
                                     @Override
                                     public void mouseClicked(MouseEvent e) {
@@ -1185,7 +1146,7 @@ public static int yutgap;//YutMadeByCho에서 윷값 받을 수 있는 전역변
                                         gamePanel.remove(dodoBtn);
                                         gamePanel.revalidate();
                                         gamePanel.repaint();
-                                        
+
                                     }});
 
                             }
@@ -1212,7 +1173,7 @@ public static int yutgap;//YutMadeByCho에서 윷값 받을 수 있는 전역변
 
                                 Image dodo = new ImageIcon("mini/개버튼.PNG").getImage().getScaledInstance(50, 50, 0);
                                 JButton dodoBtn = new JButton(new ImageIcon(dodo));
-                               
+
                                 dodoBtn.setLocation(1170, 150);
                                 dodoBtn.setSize(50, 50);
 
@@ -1410,15 +1371,15 @@ public static int yutgap;//YutMadeByCho에서 윷값 받을 수 있는 전역변
                         ts.schedule(tk, 3600);
                     }
                     //윷값저장할 arrayList
-                     
-                     
-                    
-               
+
+
+
+
                     for(int i=0;i<alist.size();i++) {
                         System.out.println(alist);
                     }
-                    
-                    
+
+
                 }
             }}
         });

@@ -38,7 +38,7 @@ public class YutMadeByCho {
     //윷확률, 결과값 받을 메소드
     public int throwYut(Player player) {
         //랜덤값으로 윷확률 받기
-        player.setYutCount(player.getYutCount() - 1);
+        
         int yutRate = new Random().nextInt(10) + 1;
 
         switch (yutRate) {

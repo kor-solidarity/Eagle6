@@ -1390,6 +1390,7 @@ public class GamePage {
             }
         });
             }
+    
     public void reroad_songP(Player player) {
     	System.out.println("test");
 

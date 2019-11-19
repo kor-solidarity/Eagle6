@@ -57,19 +57,19 @@ public class PlayerPage {
         subPanel.setLayout(null);
 
         //유저 정보 입력 라벨로 변경
-        Image main2 = new ImageIcon("mini/선택창 배경.PNG").getImage().getScaledInstance(1500, 770, 0);
+        Image main2 = new ImageIcon("mini/뉴선택창.PNG").getImage().getScaledInstance(1500, 770, 0);
         JLabel mainLb2 = new JLabel();
         mainLb2 = new JLabel(new ImageIcon(main2));
         //메인 라벨 크기 조정
         mainLb2.setSize(1500, 770);
 
         //윷놀이 게임 시작 버튼  생성
-        Image game = new ImageIcon("mini/스타트 선택창.PNG").getImage().getScaledInstance(220, 220, 0);
+        Image game = new ImageIcon("mini/스타트1.PNG").getImage().getScaledInstance(170, 170, 0);
         JButton gameBtn = new JButton();
         gameBtn = new JButton(new ImageIcon(game));
         //도움말 버튼 크기,위치 조정
-        gameBtn.setSize(220, 220);
-        gameBtn.setLocation(1270, 530);
+        gameBtn.setSize(170, 170);
+        gameBtn.setLocation(1310, 580);
 
 
         //뒤로가기 버튼
@@ -82,22 +82,22 @@ public class PlayerPage {
         Image ryan = new ImageIcon("mini/라이언.PNG").getImage().getScaledInstance(200, 200, 0);
         JLabel ryanBtn = new JLabel(new ImageIcon(ryan));
         ryanBtn.setSize(200, 200);
-        ryanBtn.setLocation(600, 430);
+        ryanBtn.setLocation(100, 30);
         //어피치 캐릭터
         Image apeach = new ImageIcon("mini/어피치.PNG").getImage().getScaledInstance(230, 230, 0);
         JLabel apeachBtn = new JLabel(new ImageIcon(apeach));
         apeachBtn.setSize(230, 230);
-        apeachBtn.setLocation(600, 50);
+        apeachBtn.setLocation(380, 550);
         //네오 캐릭터
         Image neo = new ImageIcon("mini/네오.PNG").getImage().getScaledInstance(230, 230, 0);
         JLabel neoBtn = new JLabel(new ImageIcon(neo));
         neoBtn.setSize(230, 230);
-        neoBtn.setLocation(1050, 200);
+        neoBtn.setLocation(1050, 550);
         //프로도 캐릭터
         Image prodo = new ImageIcon("mini/프로도.PNG").getImage().getScaledInstance(230, 230, 0);
         JLabel prodoBtn = new JLabel(new ImageIcon(prodo));
         prodoBtn.setSize(230, 230);
-        prodoBtn.setLocation(100, 200);
+        prodoBtn.setLocation(810, 10);
 
         //체크버튼
         Image icon4 = new ImageIcon("mini/체크.PNG").getImage().getScaledInstance(100, 100, 0);
@@ -308,7 +308,7 @@ public class PlayerPage {
                     Image prodo1 = new ImageIcon("mini/프로도캐릭.GIF").getImage().getScaledInstance(170, 170, 0);
                     JLabel prodo2 = new JLabel(new ImageIcon(prodo1));
                     prodo2.setSize(170, 170);
-                    prodo2.setLocation(100, 200);
+                    prodo2.setLocation(810, 10);
 
                     subPanel.remove(prodoBtn);
                     subPanel.add(prodo2);
@@ -342,7 +342,7 @@ public class PlayerPage {
                     Image neno1 = new ImageIcon("mini/네오캐릭.GIF").getImage().getScaledInstance(170, 170, 0);
                     JLabel neno2 = new JLabel(new ImageIcon(neno1));
                     neno2.setSize(170, 170);
-                    neno2.setLocation(1060, 210);
+                    neno2.setLocation(1050, 550);
 
                     subPanel.remove(neoBtn);
                     subPanel.add(neno2);
@@ -375,7 +375,7 @@ public class PlayerPage {
                     Image apeach1 = new ImageIcon("mini/어피치캐릭.GIF").getImage().getScaledInstance(150, 150, 0);
                     JLabel apeach2 = new JLabel(new ImageIcon(apeach1));
                     apeach2.setSize(150, 150);
-                    apeach2.setLocation(610, 60);
+                    apeach2.setLocation(380, 550);
 
                     subPanel.remove(apeachBtn);
                     subPanel.add(apeach2);
@@ -408,7 +408,7 @@ public class PlayerPage {
                     Image ryan1 = new ImageIcon("mini/라이언캐릭.GIF").getImage().getScaledInstance(200, 200, 0);
                     JLabel ryan2 = new JLabel(new ImageIcon(ryan1));
                     ryan2.setSize(200, 200);
-                    ryan2.setLocation(600, 430);
+                    ryan2.setLocation(100, 30);
 
                     subPanel.remove(ryanBtn);
                     subPanel.add(ryan2);

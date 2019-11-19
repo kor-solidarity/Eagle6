@@ -51,5 +51,6 @@ public class MapGrid {
         for (int i = 0; i < MapGrid.GRIDS.size(); i++) {
             System.out.println("x: " + MapGrid.GRIDS.get(i).x + " y: " + MapGrid.GRIDS.get(i).y);
         }
+        
     }
 }

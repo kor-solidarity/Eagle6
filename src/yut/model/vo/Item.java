@@ -1,5 +1,7 @@
 package yut.model.vo;
 
+import javax.swing.JLabel;
+
 public class Item {
     // 아이템은 맵상에 올라갈 템, 그리고 바로 사용될 일회성 스킬 둘로 나눠진다.
     // 올라갈 템: 송편, 벽, 순간이동, 지뢰
@@ -22,7 +24,7 @@ public class Item {
         this.price = price;
     }
 
-    public Item(int price,/*int grid,*/ String name) {
+    public Item(int price,/*int grid,JLabel lb,*/ String name) {
         this.price = price;
         //this.grid = grid;
         this.name = name;

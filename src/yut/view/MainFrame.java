@@ -37,27 +37,27 @@ public class MainFrame extends JFrame {
         mainPanel.setLayout(null);
 
         //메인 패널 배경 라벨 생성
-        Image main = new ImageIcon("mini/로고수정.PNG").getImage().getScaledInstance(1500, 770, 0);
+        Image main = new ImageIcon("mini/바탕화면 기본.PNG").getImage().getScaledInstance(1500, 770, 0);
         JLabel mainLb = new JLabel();
         mainLb = new JLabel(new ImageIcon(main));
         //메인 라벨 크기 조정
         mainLb.setSize(1500, 770);
 
         //게임 시작 버튼  생성
-        Image start = new ImageIcon("mini/게임스타트버튼.PNG").getImage().getScaledInstance(350, 140, 0);
-        JButton startBtn = new JButton();
-        startBtn = new JButton(new ImageIcon(start));
+        Image start = new ImageIcon("mini/뉴게임스타트.PNG").getImage().getScaledInstance(370, 180, 0);
+        JLabel startBtn = new JLabel();
+        startBtn = new JLabel(new ImageIcon(start));
         //메인 라벨 크기 ,위치 조정
-        startBtn.setSize(350, 140);
-        startBtn.setLocation(170, 440);
+        startBtn.setSize(370, 180);
+        startBtn.setLocation(70, 468);
 
         //도움말 버튼  생성
-        Image help = new ImageIcon("mini/도움말.PNG").getImage().getScaledInstance(100, 100, 0);
+        Image help = new ImageIcon("mini/뉴도움말.PNG").getImage().getScaledInstance(100, 100, 0);
         JButton helpBtn = new JButton();
         helpBtn = new JButton(new ImageIcon(help));
         //도움말 버튼 크기,위치 조정
         helpBtn.setSize(100, 100);
-        helpBtn.setLocation(1380, 650);
+        helpBtn.setLocation(700, 400);
 
         //패널에 메인 배경 부착
         mainPanel.add(mainLb);

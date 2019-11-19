@@ -48,6 +48,7 @@ public class GameMap {
     }
 
     public Item[] getItemGrid() {
+        System.out.println();
         return this.itemGrid;
     }
 

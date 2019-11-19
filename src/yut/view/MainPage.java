@@ -86,7 +86,7 @@ public class MainPage extends JPanel {
 				ys =true;
 				
 */
-                changePage.changePanel(mf, mainPage, new SupPage(mf));
+                // changePage.changePanel(mf, mainPage, new SupPage(mf));
 
 
                 int i = 1;

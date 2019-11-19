@@ -204,6 +204,7 @@ public class PlayerPage {
                 // TODO Auto-generated method stub
 
                 try {
+                    System.out.println("actionPerformed");
                     String s;
                     String[] array;
                     boolean idCheck = false;
@@ -224,6 +225,7 @@ public class PlayerPage {
                         }
                         BufferedWriter bos = new BufferedWriter(new FileWriter("회원명단.txt", true));
                         if (idCheck) {
+                            System.out.println("idCheck true " + n1.getText());
                             bos.write(n1.getText() + "/");
                         }
                     }

@@ -442,6 +442,8 @@ public class GamePage {
         //testmal.setLocation(860, 188);
         //그리드 21일때
         //testmal.setLocation(790, 245);
+        //그리드 22일때
+        //testmal.setLocation(685, 350);
         //그리드 23일때
         //testmal.setLocation(565, 435);
         //그리드 24일때

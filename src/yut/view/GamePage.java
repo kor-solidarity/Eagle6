@@ -1416,8 +1416,6 @@ public class GamePage {
                                             System.out.println("useMoves한후:"+player.getMoves());//삭제할거
                                         }
                                     });
-
-
                                 }
                             };
                             ts.schedule(tk, 3600);

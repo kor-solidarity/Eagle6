@@ -16,6 +16,8 @@ public class GameManager {
     // private static Ryan ryan;
 
     public GameManager(GamePage gamePage){
+        // GAME OVER?
+        boolean finished = false;
         // 은석 : 턴 시작
         do {
 
@@ -24,17 +26,44 @@ public class GameManager {
                 if (p == null) {
                     continue;
                 }
-                System.out.println(p.getNick() + " turn");
-                p.setSongP(p.getSongP() + 10);
-                gamePage.show_ryan_songP.repaint();
-                System.out.println(p.getSongP());
-                while(p.getYutCount() > 0 || p.getMoves().size() > 0){
+                gamePage.reload_songP(p);
+                gamePage.player = p;
+                // gamePage.show_ryan_songP.repaint();
 
+                // 이게 돌고있는 한 해당 플레이어 턴.
+                while(p.getYutCount() > 0 || p.getMoves().size() > 0){
+                    // 말 다 돌았는지 확인.
+                    // 29, 즉 완주 안한 말이 하나라도 있으면 끝
+                    for (int i = 0; i < p.getMals().length; i++) {
+                        if (p.getMals()[i].getGrid() != 29){
+                            finished = true;
+                            break;
+                        }
+                    }
+                    if (finished) {
+                        break;
+                    }
                 }
 
+                if (finished) {
+                    break;
+                }
 
             }
-        }while (true);
+            if (!finished) {
+                // 전원 다 차례 끝내고 다음 턴으로 넘기기
+                for (Player p: gamePage.players ){
+                    if (p != null) {
+                        p.setSongP(p.getSongP() + 2);
+                        gamePage.reload_songP(p);
+                    }
+                }
+            }
+        }while (!finished);
+
+        // 코드가 여기에 도달하면 게임 끝.
+
+
     }
 
     // public static void main(String[] args) {

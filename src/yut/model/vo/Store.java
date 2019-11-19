@@ -23,20 +23,18 @@ public class Store {
     // 여기서 각 템들이
 
     /**
-     *
-     *
-     * @param mf: ??
-     * @param panel: 게임페이지
-     * @param player: 이걸 누른 플레이어
-     * @param show: 가격 표시
+     * @param mf:      ??
+     * @param panel:   게임페이지
+     * @param player:  이걸 누른 플레이어
      * @param itemNum: 아이템 고유번호
-     * @param x
-     * @param y
+     * @param x1:
+     * @param y1:
      * @return
      */
-    public boolean buy(MainFrame mf, JPanel panel, Player player, /*JTextField show,*/ int itemNum,int x, int y) {
-        if(itemNum ==4) {
-            if(player.getSongP()>=10) {
+    // param show:    가격 표시라는데 우선 주석처리
+    public boolean buy(MainFrame mf, JPanel panel, Player player, /*JTextField show,*/ int itemNum, int x1, int y1) {
+        if (itemNum == 4) {
+            if (player.getSongP() >= 10) {
                 //플레이어 말의 위치에 있는 grid값을 변수에 저장
                 int mine = player.getMals()[0].getGrid();
 
@@ -45,7 +43,7 @@ public class Store {
                 Image mm = new ImageIcon("mini/폭탄.PNG").getImage().getScaledInstance(50, 50, 0);
                 JLabel mine1 = new JLabel(new ImageIcon(mm));
                 mine1.setSize(50, 50);
-                mine1.setLocation(x1+60, y1+20);
+                mine1.setLocation(x1 + 60, y1 + 20);
 
                 //폭탄 설치시 문구 생성
                 Image pop = new ImageIcon("mini/폭탄설치로고.PNG").getImage().getScaledInstance(200, 80, 0);
@@ -67,7 +65,7 @@ public class Store {
 
                 System.out.println(alist);
                 //플레이어 송편을 가격만큼 감소
-                player.setSongP(player.getSongP()-m.getPrice());
+                player.setSongP(player.getSongP() - m.getPrice());
 
                 String str1 = Integer.valueOf(player.getSongP()).toString();
 
@@ -97,7 +95,7 @@ public class Store {
                     }
                 };
                 ts.schedule(tk, 1300);
-            }else {
+            } else {
                 //플레이어 송편 부족시 라벨 생성
                 Image lack = new ImageIcon("mini/송편부족.PNG").getImage().getScaledInstance(200, 80, 0);
                 JLabel lack1 = new JLabel(new ImageIcon(lack));
@@ -131,8 +129,10 @@ public class Store {
                 };
                 ts.schedule(tk, 1300);
 
-            }return true;
-        }return false;
+            }
+            return true;
+        }
+        return false;
 
     }
 
@@ -142,8 +142,8 @@ public class Store {
 
         Exchange e = new Exchange();
 
-        if(itemNum == 2) {
-            if(player.getSongP()>=5) {
+        if (itemNum == 2) {
+            if (player.getSongP() >= 5) {
                 //모or도 임펙트 생성
                 Image mo = new ImageIcon("mini/슬롯머신.GIF").getImage().getScaledInstance(300, 200, 0);
                 JLabel mo1 = new JLabel(new ImageIcon(mo));
@@ -155,7 +155,7 @@ public class Store {
                 pop1.setSize(200, 80);
                 pop1.setLocation(1200, 500);
                 //플레이어 송편 감소
-                player.setSongP(player.getSongP()-5);
+                player.setSongP(player.getSongP() - 5);
                 String str1 = Integer.valueOf(player.getSongP()).toString();
 
                 panel.add(mo1);
@@ -170,7 +170,7 @@ public class Store {
                 // show.repaint();
 
                 YutMadeByCho yut = new YutMadeByCho();
-                GamePage.yutgap= yut.mainYut(2, player);//윷값보내기
+                GamePage.yutgap = yut.mainYut(2, player);//윷값보내기
 
                 Timer ts = new Timer();
                 TimerTask tk = new TimerTask() {
@@ -186,7 +186,7 @@ public class Store {
                 };
                 ts.schedule(tk, 1300);
 
-            }else {
+            } else {
                 //플레이어 송편 부족시 라벨 생성 
                 Image lack = new ImageIcon("mini/송편부족.PNG").getImage().getScaledInstance(200, 80, 0);
                 JLabel lack1 = new JLabel(new ImageIcon(lack));
@@ -224,8 +224,8 @@ public class Store {
         }
 
         // 벽
-        if(itemNum ==3) {
-            if(player.getSongP()>=10) {
+        if (itemNum == 3) {
+            if (player.getSongP() >= 10) {
                 int wall = player.getMals()[1].getGrid();
                 //벽 이미지를 grid를 *좌표(아직 안만들어짐)으로 해당위치에 벽 라벨 생성
                 Image ww = new ImageIcon("mini/벽.PNG").getImage().getScaledInstance(70, 70, 0);
@@ -244,15 +244,14 @@ public class Store {
                 wall2.setLocation(1000, 480);
 
                 //벽 클래스에 객체 생성
-                Wall w = new Wall(wall,wall1);
+                Wall w = new Wall(wall, wall1);
                 //플레이어 송편 감소
-                player.setSongP(player.getSongP()-w.getPrice());
+                player.setSongP(player.getSongP() - w.getPrice());
                 String str1 = Integer.valueOf(player.getSongP()).toString();
 
                 // show.setText(str1);
                 // show.revalidate();
                 // show.repaint();
-
 
 
                 panel.add(wall1);
@@ -279,7 +278,7 @@ public class Store {
                 ts.schedule(tk, 1300);
 
 
-            }else {
+            } else {
                 //플레이어 송편 부족시 라벨 생성 
                 Image lack = new ImageIcon("mini/송편부족.PNG").getImage().getScaledInstance(200, 80, 0);
                 JLabel lack1 = new JLabel(new ImageIcon(lack));
@@ -317,10 +316,8 @@ public class Store {
         }
 
 
-
-
-        if(itemNum==5) {
-            if(player.getSongP()>=20) {
+        if (itemNum == 5) {
+            if (player.getSongP() >= 20) {
                 //빽도 사용시 문구 생성
                 Image pop = new ImageIcon("mini/빽도이미지.PNG").getImage().getScaledInstance(200, 80, 0);
                 JLabel pop1 = new JLabel(new ImageIcon(pop));
@@ -334,11 +331,9 @@ public class Store {
 
                 BackDo bd = new BackDo();
                 YutMadeByCho yut = new YutMadeByCho();
-                GamePage.yutgap=yut.mainYut(5, player);
+                GamePage.yutgap = yut.mainYut(5, player);
 
-                player.setSongP(player.getSongP()-bd.getPrice());
-
-
+                player.setSongP(player.getSongP() - bd.getPrice());
 
 
                 String str1 = Integer.valueOf(player.getSongP()).toString();
@@ -365,9 +360,9 @@ public class Store {
                         panel.revalidate();
                         panel.repaint();
                         if ((int) (Math.random() * 2) == 0) {
-                            GamePage.yutgap= 5;
+                            GamePage.yutgap = 5;
                         } else {
-                            GamePage.yutgap= 1;
+                            GamePage.yutgap = 1;
                         }
 
                     }
@@ -376,8 +371,7 @@ public class Store {
                 ts.schedule(tk, 1300);
 
 
-
-            }else {
+            } else {
                 //플레이어 송편 부족시 라벨 생성 
                 Image lack = new ImageIcon("mini/송편부족.PNG").getImage().getScaledInstance(200, 80, 0);
                 JLabel lack1 = new JLabel(new ImageIcon(lack));
@@ -414,22 +408,10 @@ public class Store {
 
             return true;
         }
-        return false; 
-
-
-
-
-
-
-
-
-
-
-
+        return false;
 
 
     }
-
 
 
 }

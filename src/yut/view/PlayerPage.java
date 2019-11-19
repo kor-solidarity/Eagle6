@@ -507,7 +507,7 @@ public class PlayerPage {
                                 players[1] = new Apeach(nickName[1]);
                             }
                             if (nickName[2] != null) {
-                                players[2] =  new Frodo(nickName[2]);
+                                players[2] = new Frodo(nickName[2]);
                             }
                             if (nickName[3] != null) {
                                 players[3] = new Neo(nickName[3]);

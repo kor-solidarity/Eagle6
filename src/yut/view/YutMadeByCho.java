@@ -36,6 +36,7 @@ public class YutMadeByCho {
     }
 
     //윷확률, 결과값 받을 메소드
+    // 기본 윷던지기
     public int throwYut(Player player) {
         //랜덤값으로 윷확률 받기
         

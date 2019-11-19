@@ -74,10 +74,10 @@ public class Mission {
 
     }
 
-    public String confirmMission (Player[] player, Mal[] mal) {
+    public String confirmMission(Player[] player, Mal[] mal) {
 
         int i = 0;
-        
+
         //미션 완수 보상 (송편 10개 증정)
         player[i].setSongP(player[i].getSongP() + 10);
 
@@ -85,8 +85,6 @@ public class Mission {
         return player[i].getNick();
 
     }
-
-
 
 
 }

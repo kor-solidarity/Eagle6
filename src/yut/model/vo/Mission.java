@@ -21,19 +21,15 @@ public class Mission {
         // 번호에 따라 파일명 기입
         switch (random_mission_num) {
             case 1:
-                System.out.println("미션1");
                 fileName += "Mission_1.PNG";
                 break;
             case 2:
-                System.out.println("미션2");
                 fileName += "Mission_2.PNG";
                 break;
             case 3:
-                System.out.println("미션3");
                 fileName += "Mission_3.PNG";
                 break;
             case 4:
-                System.out.println("미션4");
                 fileName += "Mission_4.PNG";
                 break;
         }

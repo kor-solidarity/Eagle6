@@ -16,7 +16,10 @@ public class YutMadeByCho {
                 break;
             case 2:
                 yutNum = moOrDo();
+                System.out.println(moOrDo());
+                throwYut(player);
                 break;
+                
             case 3:
                 yutNum = neoIncreaseYut();
                 break;
@@ -105,7 +108,7 @@ public class YutMadeByCho {
     // 모아니면 도 아이템
     public int moOrDo() {
         //아이템 메소드에 가격과 이름 설정
-        Item item = new Item(5, "moOrDo");
+        //Item item = new Item(5, "moOrDo");
         // 랜덤값 1 또는 0, 0이면 모 1이면 도
         if ((int) (Math.random() * 2) == 0) {
             return 5;

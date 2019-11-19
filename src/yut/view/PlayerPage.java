@@ -27,14 +27,17 @@ import javax.swing.JTextField;
 import yut.model.vo.Player;
 
 public class PlayerPage {
-    private Player player = new Player("김성준", "라이언");//플레이어 예시로 넘길려고 해놓은 것
+    //플레이어 예시
+    private Player player = new Player("dd", "Ryan");
+    
+   
     TextField n1;
     TextField n2;
     TextField n3;
     TextField n4;
 
     public PlayerPage(MainFrame mf, JPanel panel, JPanel sb) {
-        player.setSongP(100);//임의로 테스트용
+     player.setSongP(100);
 
 
         n1 = new TextField(20);

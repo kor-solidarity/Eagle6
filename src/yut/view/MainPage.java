@@ -13,7 +13,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 
-
 public class MainPage extends JPanel {
 
     private MainFrame mf;

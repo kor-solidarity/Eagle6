@@ -295,137 +295,128 @@ public class GameManager {
 
 
             //============= 미션 ----- 다영 (여기에 넣는게 맞는지 확인) ================
-            int random = ((int) (Math.random() * 4)) + 1;
-            int counter = 0;
+            //에러나서 아래 부분 다 일단은 주석으로 바꿔놓음!!!!
+            /*Mission m = new Mission();
 
-            switch (random) {
-                case 1:
-                    //1등으로 들어오기
-                    if (mal.getGrid() == -1) {
-                        players[i].setSongP(players[i].getSongP() + 10);
-                    }
-                    break;
+            //1등으로 들어오기
+            if (mal.getGrid() == -1) {
+               m.confirmMission(player[i], mal[i]);
 
-                case 2:
-                    //다른 플레이어 말 1등으로 잡기
-
-                    for (Player pl : players) {
-                        //잡은게 내 말일 경우
-                        if (pl.getCharName().equals(mal.getOwner().getCharName())) {
-                            continue;
-                        }
-
-                        //잡은게 다른 플레이어 말일 경우
-                        for (Mal enemy : pl.getMals()) {
-                            if (enemy.getGrid() == mal.getGrid()) {
-                                pl.setSongP(pl.getSongP() + 10);
-                            }
-                        }
-
-                    }
-                    break;
-
-                case 3:
-                    //정중앙에 1등으로 가기
-                    if (mal.getGrid() == 22) {
-                        players[i].setSongP(players[i].getSongP() + 10);
-                    }
-                    break;
-
-                case 4:
-                    //빽도로 말 잡기
-                    //잡은게 내 말일 경우
-                    //잡은게 다른 플레이어 말일 경우
-                    break;
-
+            //정중앙에 1등으로 가기
+            } else if(mal.getGrid() == 22) {
+                m.confirmMission(player[i], mal[i]);
             }
 
 
-        }
 
-        // 이동 후 해야하는 일:
-        // - 지뢰가 있는지 확인. 있으면 말은 죽는다.
-        // - 다른 말들이 있는지 확인. 있으면 그 말은 죽는다.
-        // - 미션 깼는지 확인.
-
-        // 말 잡음?
-        boolean captured = false;
-
-
-        for (Player pl : players) {
-            // 같은 플레이어 말이면 겹친다. 우선은 통과
-            if (pl.getCharName().equals(mal.getOwner().getCharName())) {
-                continue;
-            }
-
-            // 다른 플레이어면 같은 그리드에 적이 있는지 확인한다.
-            for (Mal enemy : pl.getMals()) {
-                if (enemy.getGrid() == mal.getGrid()) {
-
-                    enemy.setGrid(-1);
+            //다른 플레이어 말 1등으로 잡기
+            for (Player pl : players) {
+                //잡은게 내 말일 경우
+                if (pl.getCharName().equals(mal.getOwner().getCharName())) {
+                    continue;
                 }
+
+                //잡은게 다른 플레이어 말일 경우
+                for (Mal enemy : pl.getMals()) {
+                    if (enemy.getGrid() == mal.getGrid()) {
+                        pl.setSongP(pl.getSongP() + 10);
+                    }
+                }
+
             }
 
+            //빽도로 말 잡기
+            //잡은게 내 말일 경우
+            //잡은게 다른 플레이어 말일 경우
+
+        }*/
+
+
+    }
+
+    // 이동 후 해야하는 일:
+    // - 지뢰가 있는지 확인. 있으면 말은 죽는다.
+    // - 다른 말들이 있는지 확인. 있으면 그 말은 죽는다.
+    // - 미션 깼는지 확인.
+
+    // 말 잡음?
+    boolean captured = false;
+
+
+    for (Player pl : players) {
+        // 같은 플레이어 말이면 겹친다. 우선은 통과
+        if (pl.getCharName().equals(mal.getOwner().getCharName())) {
+            continue;
         }
 
+        // 다른 플레이어면 같은 그리드에 적이 있는지 확인한다.
+        for (Mal enemy : pl.getMals()) {
+            if (enemy.getGrid() == mal.getGrid()) {
+
+                enemy.setGrid(-1);
+            }
+        }
 
     }
 
-    /**
-     * 디스플레이에 떠야할 것들:
-     * 말, 템.
-     *
-     * @return 윷 결과값
-     */
-    // public int roll_yut(){}
-    public void display(Player[] players, GameMap map) {
-        // 게임 맵과 플레이어 현황 등 모든걸 표기.
 
-        // 송편: S
-        // 벽: W
-        // 지뢰: M
-        // 순간이동: X - 출발, O - 도착
-        // 말: 플레이어 캐릭명 첫글자 (R/F/N/A)
-        //
-        // ○       ○       ○       ○       ○       ○
-        // ○                                       ○
-        //         ○                       ○
-        //             ○               ○
-        // ○                   ○                   ○
-        //             ○               ○
-        // ○                                       ○
-        //         ○                       ○
-        // ○                                       ○
-        // ○       ○       ○       ○       ○       ○
-        // 플레이어명(캐릭)
-        // 송편:
-        // 남은 말:
-        // 고유스킬 썼는가: 불리언
+}
+
+/**
+ * 디스플레이에 떠야할 것들:
+ * 말, 템.
+ *
+ * @return 윷 결과값
+ */
+// public int roll_yut(){}
+public void display(Player[] players, GameMap map) {
+    // 게임 맵과 플레이어 현황 등 모든걸 표기.
+
+    // 송편: S
+    // 벽: W
+    // 지뢰: M
+    // 순간이동: X - 출발, O - 도착
+    // 말: 플레이어 캐릭명 첫글자 (R/F/N/A)
+    //
+    // ○       ○       ○       ○       ○       ○
+    // ○                                       ○
+    //         ○                       ○
+    //             ○               ○
+    // ○                   ○                   ○
+    //             ○               ○
+    // ○                                       ○
+    //         ○                       ○
+    // ○                                       ○
+    // ○       ○       ○       ○       ○       ○
+    // 플레이어명(캐릭)
+    // 송편:
+    // 남은 말:
+    // 고유스킬 썼는가: 불리언
 
 
-        // Item ten = map.itemGrid[10];
+    // Item ten = map.itemGrid[10];
 
-        // 첫줄 10 9 8 7 6 5
-        System.out.printf("○       ○       ○       ○       ○       ○\n");
-        // 둘째줄 11 4
-        System.out.printf("○                                       ○\n");
-        // 25 20
-        System.out.printf("        ○                       ○\n");
-        // 26 21
-        System.out.printf("            ○               ○\n");
-        // 12 22 3
-        System.out.printf("○                   ○                   ○\n");
-        // 23 27
-        System.out.printf("            ○               ○\n");
-        // 13 2
-        System.out.printf("○                                       ○\n");
-        // 24 28
-        System.out.printf("        ○                       ○\n");
-        // 14 1
-        System.out.printf("○                                       ○\n");
-        // 15 16 17 18 19 0
-        System.out.printf("○       ○       ○       ○       ○       ○");
-        // 🥮 🚧
-    }
+    // 첫줄 10 9 8 7 6 5
+    System.out.printf("○       ○       ○       ○       ○       ○\n");
+    // 둘째줄 11 4
+    System.out.printf("○                                       ○\n");
+    // 25 20
+    System.out.printf("        ○                       ○\n");
+    // 26 21
+    System.out.printf("            ○               ○\n");
+    // 12 22 3
+    System.out.printf("○                   ○                   ○\n");
+    // 23 27
+    System.out.printf("            ○               ○\n");
+    // 13 2
+    System.out.printf("○                                       ○\n");
+    // 24 28
+    System.out.printf("        ○                       ○\n");
+    // 14 1
+    System.out.printf("○                                       ○\n");
+    // 15 16 17 18 19 0
+    System.out.printf("○       ○       ○       ○       ○       ○");
+    // 🥮 🚧
+}
 
 }

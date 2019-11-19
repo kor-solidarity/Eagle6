@@ -20,16 +20,22 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
+import yut.model.vo.Apeach;
+import yut.model.vo.Frodo;
 import yut.model.vo.Item;
 import yut.model.vo.Mission;
+import yut.model.vo.Neo;
 import yut.model.vo.Player;
+import yut.model.vo.Ryan;
 import yut.model.vo.Store;
 import yut.model.vo.Mal;
 
 public class GamePage {
     public static int yutgap;//YutMadeByCho에서 윷값 받을 수 있는 전역변수
-
-
+    JTextField show_ryan_songP;
+    JTextField show_apeach_songP;
+    JTextField show_frodo_songP;
+    JTextField show_neo_songP;
     public GamePage(MainFrame mf, JPanel panel, JPanel lo, Player player/*,Player player*/) {
         System.out.println("entering GamePage");
         //로딩 패널 제거
@@ -338,7 +344,7 @@ public class GamePage {
         //후에 setText 변경
         //송편 text 표시
         //라이언 송편표시
-        JTextField show_ryan_songP = new JTextField(15);
+        show_ryan_songP = new JTextField(15);
         String str1 = Integer.valueOf(player.getSongP()).toString();
         show_ryan_songP.setEditable(false);
         panel.add(show_ryan_songP);
@@ -419,7 +425,7 @@ public class GamePage {
         info2.setSize(100, 100);
         info2.setLocation(100, 199);
         //어피치 송편표시
-        JTextField show_apeach_songP = new JTextField(15);
+        show_apeach_songP = new JTextField(15);
         String str2 = Integer.valueOf(player.getSongP()).toString();
         show_apeach_songP.setEditable(false);
         panel.add(show_apeach_songP);
@@ -498,7 +504,7 @@ public class GamePage {
         info3.setSize(100, 100);
         info3.setLocation(100, 388);
       //프로도 송편표시
-        JTextField show_frodo_songP = new JTextField(15);
+        show_frodo_songP = new JTextField(15);
         String str3 = Integer.valueOf(player.getSongP()).toString();
         show_frodo_songP.setEditable(false);
         panel.add(show_ryan_songP);
@@ -578,7 +584,7 @@ public class GamePage {
         info4.setSize(100, 100);
         info4.setLocation(100, 577);
       //네오 송편표시
-        JTextField show_neo_songP = new JTextField(15);
+        show_neo_songP = new JTextField(15);
         String str4 = Integer.valueOf(player.getSongP()).toString();
         show_neo_songP.setEditable(false);
         panel.add(show_ryan_songP);
@@ -1383,6 +1389,26 @@ public class GamePage {
                 }
             }
         });
+    }
+    public void reroad_songP(Player player) {
+    	System.out.println("test");
+
+        if(player instanceof Ryan) {
+        show_ryan_songP.setText(Integer.valueOf(player.getSongP()).toString());
+        show_ryan_songP.repaint();
+        }
+        if(player instanceof Apeach){
+        	show_apeach_songP.setText(Integer.valueOf(player.getSongP()).toString());
+            show_apeach_songP.repaint();
+        }
+        if(player instanceof Frodo){
+        	show_frodo_songP.setText(Integer.valueOf(player.getSongP()).toString());
+            show_frodo_songP.repaint();
+        }
+        if(player instanceof Neo){
+        	show_neo_songP.setText(Integer.valueOf(player.getSongP()).toString());
+            show_neo_songP.repaint();
+        }
     }
 
 }

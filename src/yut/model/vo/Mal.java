@@ -1,5 +1,7 @@
 package yut.model.vo;
 
+import yut.view.GamePage;
+
 import java.util.ArrayList;
 
 public class Mal {
@@ -12,7 +14,12 @@ public class Mal {
 
     private MapGrid mapGrid;
 
-    // { 2, 3, 4, 5}
+    // 그리드 -1일때 위치할 곳.
+    private int init_x;
+    private int init_y;
+
+
+   // { 2, 3, 4, 5}
     // Integer[] route = new Integer[];
 
     public Mal(int num) {
@@ -28,6 +35,21 @@ public class Mal {
                 ", routes=" + routes +
                 '}';
     }
+
+    public int getInit_x() {
+        return init_x;
+    }
+
+    // init_x, init_y 설정
+    public void setInit_xy(int x, int y) {
+        this.init_x = x;
+        this.init_y = y;
+    }
+
+    public int getInit_y() {
+        return init_y;
+    }
+
 
     public int getGrid() {
         return grid;
@@ -78,7 +100,7 @@ public class Mal {
     /**
      * @param move_num : 윷의 결과값
      */
-    public void move(int move_num){
+    public void move(int move_num, GamePage gp){
             // num 값 만큼 움직여야함.
             // 와일문을 써서 한번에 한칸씩 움직인다.
             // 한칸 움직인 후에는 그 위치에 벽이 있나 확인한다. 있으면 그대로 종료.
@@ -89,43 +111,65 @@ public class Mal {
             return;
         }
 
+
+
         // 말이 움직이기 시작한 최초위치.
         int start_grid = this.getGrid();
+        System.out.println("출발위치 " + start_grid);
 
         // move_num 이 0이 아니면 계속 갈 수 있다는 소리
         while (move_num > 0) {
+            System.out.println("moving");
             // 처음 출발하는 말.
             if (this.getGrid() == -1) {
                 this.setGrid(1);
+                gp.ryan_body_label1.setLocation(MapGrid.GRIDS.get(1).x, MapGrid.GRIDS.get(1).y);
 
             } else if (this.getGrid() == 5) {
                 // 우측상단에 있으니 대각 진입
                 this.setGrid(20);
+                gp.ryan_body_label1.setLocation(MapGrid.GRIDS.get(20).x, MapGrid.GRIDS.get(20).y);
             } else if (this.getGrid() == 10) {
                 // 좌측상단에 있으니 대각 진입
                 this.setGrid(25);
+                gp.ryan_body_label1.setLocation(MapGrid.GRIDS.get(25).x, MapGrid.GRIDS.get(25).y);
 
             } else if (this.getGrid() == 26) {
                 // 정가운데 좌측상단 바로 옆에 있으니 정가운데로
                 this.setGrid(22);
+                gp.ryan_body_label1.setLocation(MapGrid.GRIDS.get(22).x, MapGrid.GRIDS.get(22).y);
             } else if (this.getGrid() == 22 && start_grid == 22) {
                 // 정가운데에 위치하고 있고 정가운데에서 출발한 경우
                 // 우측하단으로 내려간다.
                 this.setGrid(27);
+                gp.ryan_body_label1.setLocation(MapGrid.GRIDS.get(27).x, MapGrid.GRIDS.get(27).y);
             } else if (this.getGrid() == 24) {
                 // 대각에 나와서 좌측하단 모서리 도착
                 this.setGrid(15);
+                gp.ryan_body_label1.setLocation(MapGrid.GRIDS.get(15).x, MapGrid.GRIDS.get(15).y);
             } else if (this.getGrid() == 19 || this.getGrid() == 28) {
                 // 19 || 28 걸렸다면 마지막 칸이라는거.
                 this.setGrid(0);
+                gp.ryan_body_label1.setLocation(MapGrid.GRIDS.get(0).x, MapGrid.GRIDS.get(0).y);
             } else if (this.getGrid() == 0) {
                 // 0까지 왔으면 도착했다는 소리.
                 this.setGrid(29);
+                gp.ryan_body_label1.setLocation(MapGrid.GRIDS.get(29).x, MapGrid.GRIDS.get(29).y);
             } else {
                 // 위에 해당사항 없으면 그냥 1추가
                 this.setGrid(this.getGrid() + 1);
+                gp.ryan_body_label1.setLocation(MapGrid.GRIDS.get(this.getGrid() ).x,
+                        MapGrid.GRIDS.get(this.getGrid()).y);
             }
 
+            System.out.println(" 최종위치 " + this.getGrid());
+            System.out.println("x "+gp.ryan_body_label1.getX() + " y " + gp.ryan_body_label1.getY());
+            System.out.println();
+            try {
+                Thread.sleep(2000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             move_num--;
         }
             // do {

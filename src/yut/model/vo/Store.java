@@ -156,7 +156,9 @@ public class Store {
                 pop1.setLocation(1200, 500);
                 //플레이어 송편 감소
                 player.setSongP(player.getSongP() - 5);
-                String str1 = Integer.valueOf(player.getSongP()).toString();
+                // String str1 = Integer.valueOf(player.getSongP()).toString();
+
+
 
                 panel.add(mo1);
                 panel.add(pop1);

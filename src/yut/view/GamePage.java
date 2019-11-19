@@ -42,13 +42,18 @@ public class GamePage {
 
     // 현재 어떤게 클릭된 상태인가?
     public int selected_button = 0;
+    // 선택된 말
+    public int selected_mal = -1;
 
-    //라이언 닉네임 표시
+    //
     public JTextField show_ryan_name;
     public JTextField show_ryan_songP;
     public JTextField show_apeach_songP;
     public JTextField show_frodo_songP;
     public JTextField show_neo_songP;
+
+    // 라이언 말 1
+    public JLabel ryan_body_label1;
 
 
     // todo 있어야 하는 이유를 모르겠음 - 은석
@@ -335,7 +340,7 @@ public class GamePage {
             ryan_body_labelx4.setLocation(211, 99);
             //라이언 몸통
             Image ryan_body1 = new ImageIcon("mini/1번라이언말.PNG").getImage().getScaledInstance(80, 80, 0);
-            JLabel ryan_body_label1 = new JLabel(new ImageIcon(ryan_body1));
+            ryan_body_label1 = new JLabel(new ImageIcon(ryan_body1));
             ryan_body_label1.setSize(100, 100);
             ryan_body_label1.setLocation(1, 99);
             Image ryan_body2 = new ImageIcon("mini/2번라이언말.PNG").getImage().getScaledInstance(80, 80, 0);
@@ -355,18 +360,22 @@ public class GamePage {
             JLabel ryan_body_label1_s = new JLabel(new ImageIcon(ryan_body1_s));
             ryan_body_label1_s.setSize(100, 100);
             ryan_body_label1_s.setLocation(1, 99);
+            players[0].getMals()[0].setInit_xy(1, 99);
             Image ryan_body2_s = new ImageIcon("mini/2번라이언말출격.PNG").getImage().getScaledInstance(80, 80, 0);
             JLabel ryan_body_label2_s = new JLabel(new ImageIcon(ryan_body2_s));
             ryan_body_label2_s.setSize(100, 100);
             ryan_body_label2_s.setLocation(71, 99);
+            players[0].getMals()[1].setInit_xy(71, 99);
             Image ryan_body3_s = new ImageIcon("mini/3번라이언말출격.PNG").getImage().getScaledInstance(80, 80, 0);
             JLabel ryan_body_label3_s = new JLabel(new ImageIcon(ryan_body3_s));
             ryan_body_label3_s.setSize(100, 100);
             ryan_body_label3_s.setLocation(141, 99);
+            players[0].getMals()[2].setInit_xy(141, 99);
             Image ryan_body4_s = new ImageIcon("mini/4번라이언말출격.PNG").getImage().getScaledInstance(80, 80, 0);
             JLabel ryan_body_label4_s = new JLabel(new ImageIcon(ryan_body4_s));
             ryan_body_label4_s.setSize(100, 100);
             ryan_body_label4_s.setLocation(211, 99);
+            players[0].getMals()[3].setInit_xy(211, 99);
 
 
             //종철 - 플레이어 정보 입력시 표시되도록 추후 수정(플레이어 이름, 말 상황변화, 송편수, 패널표시)
@@ -390,13 +399,21 @@ public class GamePage {
             gamePanel.add(ryan_body_label4_s);
             gamePanel.add(backgroundPurple1);
 
-
+            // 말 누르기.
             ryan_body_label1.addMouseListener(new MouseAdapter() {
                 @Override
+                // 클릭하는 경우:
+                // 1. 윷버튼이 클릭된 경우 그 값에 맞게 이동한다.
+                // 2. 클릭이 안된 경우 말만 선택된걸로 본다.
                 public void mouseClicked(MouseEvent e) {
+                    // 우선은 위 절차 무시하고 이동만.
                     if (e.getButton() == 1) {
-                        gamePanel.remove(ryan_body_label1);
-                        gamePanel.repaint();
+                        // gamePanel.remove(ryan_body_label1);
+                        // gamePanel.repaint();
+                        // 시연이기에 개를 가정.
+
+                        players[0].getMals()[0].move(1, Outer());
+
                     }
                 }
             });
@@ -467,15 +484,19 @@ public class GamePage {
             JLabel apeach_body_labelx1 = new JLabel(new ImageIcon(apeach_bodyx));
             apeach_body_labelx1.setSize(100, 100);
             apeach_body_labelx1.setLocation(1, 288);
+            players[1].getMals()[0].setInit_xy(1, 288);
             JLabel apeach_body_labelx2 = new JLabel(new ImageIcon(apeach_bodyx));
             apeach_body_labelx2.setSize(100, 100);
             apeach_body_labelx2.setLocation(71, 288);
+            players[1].getMals()[1].setInit_xy(71, 288);
             JLabel apeach_body_labelx3 = new JLabel(new ImageIcon(apeach_bodyx));
             apeach_body_labelx3.setSize(100, 100);
             apeach_body_labelx3.setLocation(141, 288);
+            players[1].getMals()[2].setInit_xy(141, 288);
             JLabel apeach_body_labelx4 = new JLabel(new ImageIcon(apeach_bodyx));
             apeach_body_labelx4.setSize(100, 100);
             apeach_body_labelx4.setLocation(211, 288);
+            players[1].getMals()[3].setInit_xy(211, 288);
             //어피치 몸통
             Image apeach_body1 = new ImageIcon("mini/1번어피치말.PNG").getImage().getScaledInstance(120, 120, 0);
             JLabel apeach_body_label1 = new JLabel(new ImageIcon(apeach_body1));
@@ -609,15 +630,19 @@ public class GamePage {
             JLabel frodo_body_labelx1 = new JLabel(new ImageIcon(frodo_bodyx));
             frodo_body_labelx1.setSize(100, 100);
             frodo_body_labelx1.setLocation(1, 477);
+            players[2].getMals()[0].setInit_xy(1, 477);
             JLabel frodo_body_labelx2 = new JLabel(new ImageIcon(frodo_bodyx));
             frodo_body_labelx2.setSize(100, 100);
             frodo_body_labelx2.setLocation(71, 477);
+            players[2].getMals()[1].setInit_xy(71, 477);
             JLabel frodo_body_labelx3 = new JLabel(new ImageIcon(frodo_bodyx));
             frodo_body_labelx3.setSize(100, 100);
             frodo_body_labelx3.setLocation(141, 477);
+            players[2].getMals()[2].setInit_xy(141, 477);
             JLabel frodo_body_labelx4 = new JLabel(new ImageIcon(frodo_bodyx));
             frodo_body_labelx4.setSize(100, 100);
             frodo_body_labelx4.setLocation(211, 477);
+            players[2].getMals()[3].setInit_xy(211, 477);
             //프로도 몸통
             Image frodo_body1 = new ImageIcon("mini/1번프로도말.PNG").getImage().getScaledInstance(100, 100, 0);
             JLabel frodo_body_label1 = new JLabel(new ImageIcon(frodo_body1));
@@ -750,15 +775,19 @@ public class GamePage {
             JLabel neo_body_labelx1 = new JLabel(new ImageIcon(neo_bodyx));
             neo_body_labelx1.setSize(100, 100);
             neo_body_labelx1.setLocation(1, 666);
+            players[3].getMals()[0].setInit_xy(1, 666);
             JLabel neo_body_labelx2 = new JLabel(new ImageIcon(neo_bodyx));
             neo_body_labelx2.setSize(100, 100);
             neo_body_labelx2.setLocation(71, 666);
+            players[3].getMals()[1].setInit_xy(71, 666);
             JLabel neo_body_labelx3 = new JLabel(new ImageIcon(neo_bodyx));
             neo_body_labelx3.setSize(100, 100);
             neo_body_labelx3.setLocation(141, 666);
+            players[3].getMals()[2].setInit_xy(141, 666);
             JLabel neo_body_labelx4 = new JLabel(new ImageIcon(neo_bodyx));
             neo_body_labelx4.setSize(100, 100);
             neo_body_labelx4.setLocation(211, 666);
+            players[3].getMals()[3].setInit_xy(211, 666);
             //네오 몸통
             Image neo_body1 = new ImageIcon("mini/1번네오말.png").getImage().getScaledInstance(100, 100, 0);
             JLabel neo_body_label1 = new JLabel(new ImageIcon(neo_body1));
@@ -968,6 +997,7 @@ public class GamePage {
                 if (e.getButton() == 1) {
                     Store shop = new Store();
                     shop.buy(mf, gamePanel, player, 5);
+                    Outer().reload_songP(player);
                 }
             }
         });
@@ -1561,6 +1591,11 @@ public class GamePage {
         new GameManager(this);
     }
 
+    /**
+     * 게임 내 송편현황 갱신
+     *
+     * @param player - 갱신할 대상인 플레이어
+     */
     public void reload_songP(Player player) {
 
         if (player instanceof Ryan) {
@@ -1576,6 +1611,11 @@ public class GamePage {
             show_neo_songP.setText(Integer.valueOf(player.getSongP()).toString());
             show_neo_songP.repaint();
         }
+    }
+
+
+    public GamePage Outer(){
+        return this;
     }
 
 }

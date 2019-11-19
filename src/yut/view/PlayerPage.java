@@ -13,6 +13,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -27,11 +28,15 @@ import javax.swing.JTextField;
 import yut.model.vo.Player;
 
 public class PlayerPage {
-    private Player player = new Player("김성준", "라이언");//플레이어 예시로 넘길려고 해놓은 것
-    TextField n1;
-    TextField n2;
-    TextField n3;
-    TextField n4;
+
+	private Player player = new Player("김성준", "라이언");//플레이어 예시로 넘길려고 해놓은 것
+	TextField n1;
+	TextField n2;
+	TextField n3;
+	TextField n4;
+	int playerNum;
+	String[] nickName=new String[4];
+	//ArrayList arr=new ArrayList();
 
     public PlayerPage(MainFrame mf, JPanel panel, JPanel sb) {
         player.setSongP(100);//임의로 테스트용
@@ -115,53 +120,53 @@ public class PlayerPage {
         user4c.setSize(100, 100);
         user4c.setLocation(880, 630);
 
-        //유저닉네임 텍스트
-        JTextField n1 = new JTextField("user1(eng plz)");
-        n1.setBounds(60, 450, 230, 50);
-        n1.setFont(new Font("Serif", Font.BOLD, 35));
-        n1.setHorizontalAlignment(JTextField.LEFT);
-        //텍스트 누르면 text안에 value 사라지게하는
-        n1.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                n1.setText("");
-            }
-        });
+		//유저닉네임 텍스트
+		JTextField n1 = new JTextField("user1");
+		n1.setBounds(60, 450, 230, 50);
+		n1.setFont(new Font("Serif", Font.BOLD, 35));
+		n1.setHorizontalAlignment(JTextField.LEFT);
+		//텍스트 누르면 text안에 value 사라지게하는
+		n1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				n1.setText("");
+			}
+		});
 
 
-        JTextField n2 = new JTextField("user2(eng plz)");
-        n2.setBounds(650, 200, 230, 50);
-        n2.setFont(new Font("Serif", Font.BOLD, 35));
-        n2.setHorizontalAlignment(JTextField.LEFT);
-        n2.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                n2.setText("");
-            }
-        });
+		JTextField n2 = new JTextField("user2");
+		n2.setBounds(650, 200, 230, 50);
+		n2.setFont(new Font("Serif", Font.BOLD, 35));
+		n2.setHorizontalAlignment(JTextField.LEFT);
+		n2.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				n2.setText("");
+			}
+		});
 
 
-        JTextField n3 = new JTextField("user3(eng plz)");
-        n3.setBounds(1130, 450, 230, 50);
-        n3.setFont(new Font("Serif", Font.BOLD, 35));
-        n3.setHorizontalAlignment(JTextField.LEFT);
-        n3.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                n3.setText("");
-            }
-        });
+		JTextField n3 = new JTextField("user3");
+		n3.setBounds(1130, 450, 230, 50);
+		n3.setFont(new Font("Serif", Font.BOLD, 35));
+		n3.setHorizontalAlignment(JTextField.LEFT);
+		n3.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				n3.setText("");
+			}
+		});
 
-        JTextField n4 = new JTextField("user4(eng plz)");
-        n4.setBounds(650, 650, 230, 50);
-        n4.setFont(new Font("Serif", Font.BOLD, 35));
-        n4.setHorizontalAlignment(JTextField.LEFT);
-        n4.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                n4.setText("");
-            }
-        });
+		JTextField n4 = new JTextField("user4");
+		n4.setBounds(650, 650, 230, 50);
+		n4.setFont(new Font("Serif", Font.BOLD, 35));
+		n4.setHorizontalAlignment(JTextField.LEFT);
+		n4.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				n4.setText("");
+			}
+		});
 
 
         subPanel.add(n1);
@@ -196,167 +201,105 @@ public class PlayerPage {
         mf.setVisible(true);
 
 
-        //진혁 체크버튼이벤트
-        user1c.addActionListener(new ActionListener() {
+		//진혁 체크버튼이벤트 //수정
+		user1c.addActionListener(new ActionListener() {
 
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                // TODO Auto-generated method stub
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				nickName[0]=n1.getText();
 
-                try {
-                    System.out.println("actionPerformed");
-                    String s;
-                    String[] array;
-                    boolean idCheck = false;
-                    BufferedReader bo = new BufferedReader(new FileReader("회원명단.txt"));
-                    while ((s = bo.readLine()) != null) {
-                        array = s.split("/");
-                        for (int i = 0; i < array.length; i++) {
-                            if (n1.getText().equals(array[i])) {
-                                JOptionPane.showMessageDialog(null, "중복입니다.");
-                                return;
-                            } else {
-                                JOptionPane.showMessageDialog(null, "사용가능한아이디입니다.");
-                                idCheck = true;
-                                break;
+				for(int i=0;i<nickName.length;i++) {
+					if(i == 0) {
+						continue;
+					}
+					if(nickName[0].equals(nickName[i])) {
+						JOptionPane.showMessageDialog(null, "중복입니다");
+						return;
 
-                            }
+					}
+				}
+				JOptionPane.showMessageDialog(null, "생성되었습니다");
+				subPanel.remove(n1);
+				subPanel.remove(user1c);
+				subPanel.repaint();
+				playerNum++;
 
-                        }
-                        BufferedWriter bos = new BufferedWriter(new FileWriter("회원명단.txt", true));
-                        if (idCheck) {
-                            System.out.println("idCheck true " + n1.getText());
-                            bos.write(n1.getText() + "/");
-                        }
-                    }
-
-
-                } catch (IOException e1) {
-                    e1.printStackTrace();
-                }
-
-            }
-
-        });
+			}
+		});
 
         user2c.addActionListener(new ActionListener() {
 
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                // TODO Auto-generated method stub
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				nickName[1]=n2.getText();
 
-                try {
-                    String s;
-                    String[] array;
-                    boolean idCheck = false;
-                    BufferedReader bo = new BufferedReader(new FileReader("회원명단.txt"));
-                    while ((s = bo.readLine()) != null) {
-                        array = s.split("/");
-                        for (int i = 0; i < array.length; i++) {
-                            if (n2.getText().equals(array[i])) {
-                                JOptionPane.showMessageDialog(null, "중복입니다.");
-                                return;
-                            } else {
-                                JOptionPane.showMessageDialog(null, "사용가능한아이디입니다.");
-                                idCheck = true;
-                                break;
+				for(int i=0;i<nickName.length;i++) {
+					if(i == 1) {
+						continue;
+					}
+					if(nickName[1].equals(nickName[i])) {
+						JOptionPane.showMessageDialog(null, "중복입니다");
+						return;
+					}
+					}
+				JOptionPane.showMessageDialog(null, "생성되었습니다");
+					subPanel.remove(n2);
+					subPanel.remove(user2c);
+					subPanel.repaint();
+					playerNum++;
 
-                            }
-
-                        }
-                        BufferedWriter bos = new BufferedWriter(new FileWriter("회원명단.txt", true));
-                        if (idCheck) {
-                            bos.write(n2.getText() + "/");
-                        }
-                    }
-
-
-                } catch (IOException e1) {
-                    e1.printStackTrace();
-                }
-
-            }
-
-        });
+			}
+		});
 
         user3c.addActionListener(new ActionListener() {
 
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                // TODO Auto-generated method stub
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				nickName[2]=n3.getText();
+				for(int i=0;i<nickName.length;i++) {
+					if(i == 2) {
+						continue;
+					}
+					if(nickName[2].equals(nickName[i])) {
+						JOptionPane.showMessageDialog(null, "중복입니다");
+						return;
 
-                try {
-                    String s;
-                    String[] array;
-                    boolean idCheck = false;
-                    BufferedReader bo = new BufferedReader(new FileReader("회원명단.txt"));
-                    while ((s = bo.readLine()) != null) {
-                        array = s.split("/");
-                        for (int i = 0; i < array.length; i++) {
-                            if (n3.getText().equals(array[i])) {
-                                JOptionPane.showMessageDialog(null, "중복입니다.");
-                                return;
-                            } else {
-                                JOptionPane.showMessageDialog(null, "사용가능한아이디입니다.");
-                                idCheck = true;
-                                break;
+					}
+				}
+			JOptionPane.showMessageDialog(null, "생성되었습니다");
+			subPanel.remove(n3);
+			subPanel.remove(user3c);
+			subPanel.repaint();
+			playerNum++;
 
-                            }
-
-                        }
-                        BufferedWriter bos = new BufferedWriter(new FileWriter("회원명단.txt", true));
-                        if (idCheck) {
-                            bos.write(n3.getText() + "/");
-                        }
-                    }
-
-
-                } catch (IOException e1) {
-                    e1.printStackTrace();
-                }
-
-            }
-
-        });
+			}
+		});
 
         user4c.addActionListener(new ActionListener() {
 
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                // TODO Auto-generated method stub
-                try {
-                    String s;
-                    String[] array;
-                    boolean idCheck = false;
-                    BufferedReader bo = new BufferedReader(new FileReader("회원명단.txt"));
-                    while ((s = bo.readLine()) != null) {
-                        array = s.split("/");
-                        for (int i = 0; i < array.length; i++) {
-                            if (n4.getText().equals(array[i])) {
-                                JOptionPane.showMessageDialog(null, "중복입니다.");
-                                return;
-                            } else {
-                                JOptionPane.showMessageDialog(null, "사용가능한아이디입니다.");
-                                idCheck = true;
-                                break;
-
-                            }
-
-                        }
-                        BufferedWriter bos = new BufferedWriter(new FileWriter("회원명단.txt", true));
-                        if (idCheck) {
-                            bos.write(n4.getText() + "/");
-                        }
-                    }
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				nickName[3]=n4.getText();
+				for(int i=0;i<nickName.length;i++) {
+					if(i == 3) {
+						continue;
+					}
+					if(nickName[3].equals(nickName[i])) {
+						JOptionPane.showMessageDialog(null, "중복입니다");
+						return;
+					}
+				}
+				JOptionPane.showMessageDialog(null, "생성되었습니다");
+				subPanel.remove(n4);
+				subPanel.remove(user4c);
+				subPanel.repaint();
+				playerNum++;
+				}
 
 
-                } catch (IOException e1) {
-                    e1.printStackTrace();
-                }
 
-            }
+		});
 
-        });
 
         //프로도 클릭시 모션 생성
         prodoBtn.addMouseListener(new MouseAdapter() {
@@ -504,20 +447,22 @@ public class PlayerPage {
             }
         });
 
-        //게임시작 버튼 활성
-        gameBtn.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                if (e.getButton() == 1) {
-                    //로딩화면 패널 생성
-                    JPanel lo = new JPanel();
-                    lo.setBounds(0, 0, 1500, 800);
-                    lo.setLayout(null);
-                    //로딩 라벨 생성
-                    Image yut1 = new ImageIcon("mini/로딩.GIF").getImage().getScaledInstance(300, 300, 0);
-                    JLabel yut = new JLabel(new ImageIcon(yut1));
-                    yut.setSize(300, 300);
-                    yut.setLocation(600, 180);
+		//게임시작 버튼 활성
+		gameBtn.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if (e.getButton() == 1 && playerNum >=2) { //입력2이상일시 스타트버튼가능
+
+
+					//로딩화면 패널 생성
+					JPanel lo = new JPanel();
+					lo.setBounds(0, 0, 1500, 800);
+					lo.setLayout(null);
+					//로딩 라벨 생성
+					Image yut1 = new ImageIcon("mini/로딩.GIF").getImage().getScaledInstance(300, 300, 0);
+					JLabel yut = new JLabel(new ImageIcon(yut1));
+					yut.setSize(300, 300);
+					yut.setLocation(600, 180);
 
                     //========== 다영 ==========
                     //게임을 준비중입니다 gif 삽입

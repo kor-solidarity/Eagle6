@@ -9,6 +9,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -28,7 +29,8 @@ import yut.model.vo.Mal;
 
 public class GamePage {
     public static int yutgap;//YutMadeByCho에서 윷값 받을 수 있는 전역변수
-
+    public static int yutgap1;
+    private int a=0;
 
     public GamePage(MainFrame mf, JPanel panel, JPanel lo, Player player/*,Player player*/) {
         System.out.println("entering GamePage");
@@ -939,18 +941,18 @@ public class GamePage {
                 }
             }
         });
-        ////////@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+       
 
 
 
-        /*     임시주석@@@@@@ 합칠때 풀어주시거나 무시@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-  * 	//스킬 2번 사용시 반응 예시
+       
+   	//스킬 2번 사용시 반응 예시
         skilBtn2.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 if (e.getButton() == 1) {
                     Store shop = new Store();
-                    shop.buy(mf, gamePanel, player, show, 2);
+                    shop.buy(mf, gamePanel, player,show_ryan_songP, 2);
                 }
             }
         });
@@ -962,7 +964,7 @@ public class GamePage {
             public void mouseClicked(MouseEvent e) {
                 if (e.getButton() == 1) {
                     Store shop = new Store();
-                    shop.buy(mf, gamePanel, player, show, 3);
+                    shop.buy(mf, gamePanel, player, show_ryan_songP, 3);
                 }
             }
         });
@@ -979,7 +981,7 @@ public class GamePage {
                              int x = ryan_body_label1.getX();
                              int y = ryan_body_label1.getY();
                              Store shop = new Store();
-                             shop.buy(mf, gamePanel, player, show, 4,x,y);
+                             shop.buy(mf, gamePanel, player, show_ryan_songP, 4,x,y);
                         }
                     });
 
@@ -994,10 +996,10 @@ public class GamePage {
             public void mouseClicked(MouseEvent e) {
                 if (e.getButton() == 1) {
                     Store shop = new Store();
-                    shop.buy(mf, gamePanel, player, show, 5);
+                    shop.buy(mf, gamePanel, player,show_ryan_songP, 5);
                 }
             }
-        });*/
+        });
 
         //종료버튼 클릭시 메인 화면으로 복귀
         endBtn.addMouseListener(new MouseAdapter() {
@@ -1070,6 +1072,8 @@ public class GamePage {
             @Override
             public void mouseClicked(MouseEvent e) {
                 ArrayList alist = new ArrayList();//조지연 윷값저장할 배열
+               
+             
                 Mal mal = new Mal(0);//임의로 0을 넣음
                 if (player.getYutCount() > 0) {
                     if (e.getButton() == 1) {
@@ -1078,12 +1082,23 @@ public class GamePage {
                         //todo:버튼을 누르면 값을 저장할 arraylist를 생성하고 거기에 윷값을 넣어줘야함!!!!!!!!
                         //윷던지기 버튼 던질때 YutMadeByCho클래스 객체생성
                         YutMadeByCho thorwYut = new YutMadeByCho();
+                        System.out.println("yutgap1이 값을 가지는지 확인"+yutgap1);
+                        if(yutgap1==-1||yutgap1==1||yutgap1==5) {
+                           if(yutgap1==1) {
+                               System.out.println("도");
+                           }else if(yutgap1==5) {
+                               System.out.println("모");
+                           }
+                        }
+                 if(yutgap1==0) {
                         yutgap = thorwYut.mainYut(1, player);
-
+                   
                         yutgap = thorwYut.throwYut(player);
                         //윷값이 낙이 나왔을때
+                        System.out.println("안녕 : " + yutgap1);
+                        System.out.println("yutgap1이 값을 가지지않을때 yutgap"+yutgap);
 
-                        if (yutgap == 0) {
+                    if (yutgap == 10) {
                             Image yut1 = new ImageIcon("mini/낙영상.GIF").getImage().getScaledInstance(300, 300, 0);
                             JLabel yut = new JLabel(new ImageIcon(yut1));
                             yut.setSize(300, 300);
@@ -1113,8 +1128,9 @@ public class GamePage {
                             JLabel yut = new JLabel(new ImageIcon(yut1));
                             yut.setSize(300, 300);
                             yut.setLocation(1170, 150);
-                            alist.add(yutgap);
-
+                            alist.add(a,yutgap);
+                            a++;
+                            System.out.println("alist add이후"+alist);
                             gamePanel.add(yut);
                             gamePanel.revalidate();
                             gamePanel.repaint();
@@ -1141,11 +1157,16 @@ public class GamePage {
                                     dodoBtn.addMouseListener(new MouseAdapter() {
                                         @Override
                                         public void mouseClicked(MouseEvent e) {
-                                            mal.move(yutgap);
+                                            //mal.move(yutgap);
                                             System.out.println(mal.getGrid());
                                             gamePanel.remove(dodoBtn);
                                             gamePanel.revalidate();
                                             gamePanel.repaint();
+                                            for(int i=0; i<alist.size();i++) {
+                                                System.out.println(alist.get(i));
+                                            }
+                                            alist.remove(yutgap);
+                                            System.out.println("윷값 삭제되는지 확인"+alist);
 
                                         }
                                     });
@@ -1160,7 +1181,9 @@ public class GamePage {
                             JLabel yut = new JLabel(new ImageIcon(yut1));
                             yut.setSize(300, 300);
                             yut.setLocation(1170, 150);
-                            alist.add(yutgap);
+                            alist.add(yutgap,yutgap);
+                        
+                            System.out.println("alist add이후"+alist);
                             gamePanel.add(yut);
                             gamePanel.revalidate();
                             gamePanel.repaint();
@@ -1187,11 +1210,13 @@ public class GamePage {
                                     dodoBtn.addMouseListener(new MouseAdapter() {
                                         @Override
                                         public void mouseClicked(MouseEvent e) {
-                                            mal.move(yutgap);
+                                           // mal.move(yutgap);
                                             System.out.println(mal.getGrid());
                                             gamePanel.remove(dodoBtn);
                                             gamePanel.revalidate();
                                             gamePanel.repaint();
+                                            alist.remove(yutgap);
+                                            System.out.println("윷값 삭제되는지 확인"+alist);
                                         }
                                     });
 
@@ -1204,7 +1229,9 @@ public class GamePage {
                             JLabel yut = new JLabel(new ImageIcon(yut1));
                             yut.setSize(300, 300);
                             yut.setLocation(1170, 150);
-                            alist.add(yutgap);
+                            alist.add(a,yutgap);
+                            a++;
+                            System.out.println("alist add이후"+alist);
                             gamePanel.add(yut);
                             gamePanel.revalidate();
                             gamePanel.repaint();
@@ -1230,11 +1257,13 @@ public class GamePage {
                                     dodoBtn.addMouseListener(new MouseAdapter() {
                                         @Override
                                         public void mouseClicked(MouseEvent e) {
-                                            mal.move(yutgap);
+                                          //  mal.move(yutgap);
                                             System.out.println(mal.getGrid());
                                             gamePanel.remove(dodoBtn);
                                             gamePanel.revalidate();
                                             gamePanel.repaint();
+                                            alist.remove(yutgap);
+                                            System.out.println("윷값 삭제되는지 확인"+alist);
                                         }
                                     });
 
@@ -1248,7 +1277,8 @@ public class GamePage {
                             yut.setSize(300, 300);
                             yut.setLocation(1170, 150);
                             player.setYutCount(player.getYutCount() + 1);
-                            alist.add(yutgap);
+                            alist.add(yutgap,yutgap);
+                            System.out.println("alist add이후"+alist);
                             gamePanel.add(yut);
                             gamePanel.revalidate();
                             gamePanel.repaint();
@@ -1275,11 +1305,13 @@ public class GamePage {
                                     dodoBtn.addMouseListener(new MouseAdapter() {
                                         @Override
                                         public void mouseClicked(MouseEvent e) {
-                                            mal.move(yutgap);
+                                            //mal.move(yutgap);
                                             System.out.println(mal.getGrid());
                                             gamePanel.remove(dodoBtn);
                                             gamePanel.revalidate();
                                             gamePanel.repaint();
+                                            alist.remove(yutgap);
+                                            System.out.println("윷값 삭제되는지 확인"+alist);
                                         }
                                     });
 
@@ -1288,13 +1320,14 @@ public class GamePage {
                             };
                             ts.schedule(tk, 3600);
                         }//윷값이 모일때
-                        else if (yutgap == 5) {
+                        else if (yutgap == 5||yutgap1==5) {
                             Image yut1 = new ImageIcon("mini/모.GIF").getImage().getScaledInstance(300, 300, 0);
                             JLabel yut = new JLabel(new ImageIcon(yut1));
                             yut.setSize(300, 300);
                             yut.setLocation(1170, 150);
                             player.setYutCount(player.getYutCount() + 1);
-                            alist.add(yutgap);
+                            alist.add(yutgap,yutgap);
+                            System.out.println("alist add이후"+alist);
                             gamePanel.add(yut);
                             gamePanel.revalidate();
                             gamePanel.repaint();
@@ -1320,11 +1353,16 @@ public class GamePage {
                                     dodoBtn.addMouseListener(new MouseAdapter() {
                                         @Override
                                         public void mouseClicked(MouseEvent e) {
-                                            mal.move(yutgap);
+                                           // mal.move(yutgap);
                                             System.out.println(mal.getGrid());
                                             gamePanel.remove(dodoBtn);
                                             gamePanel.revalidate();
                                             gamePanel.repaint();
+                                            for(int i=0;i<alist.size();i++) {
+                                               System.out.println(alist.get(i));
+                                            }
+                                            alist.remove(0);
+                                            System.out.println("윷값 삭제되는지 확인"+alist);
                                         }
                                     });
 
@@ -1337,7 +1375,8 @@ public class GamePage {
                             JLabel yut = new JLabel(new ImageIcon(yut1));
                             yut.setSize(300, 300);
                             yut.setLocation(1170, 150);
-                            alist.add(yutgap);
+                            alist.add(yutgap,yutgap);
+                            System.out.println("alist add이후"+alist);
                             gamePanel.add(yut);
                             gamePanel.revalidate();
                             gamePanel.repaint();
@@ -1363,11 +1402,13 @@ public class GamePage {
                                     dodoBtn.addMouseListener(new MouseAdapter() {
                                         @Override
                                         public void mouseClicked(MouseEvent e) {
-                                            mal.move(yutgap);
+                                            //mal.move(yutgap);
                                             System.out.println(mal.getGrid());
                                             gamePanel.remove(dodoBtn);
                                             gamePanel.revalidate();
                                             gamePanel.repaint();
+                                            alist.remove(yutgap);
+                                            System.out.println("윷값 삭제되는지 확인"+alist);
                                         }
                                     });
 
@@ -1384,7 +1425,157 @@ public class GamePage {
                         }
 
 
-                    }
+                 }else if(yutgap1==-1||yutgap1==1||yutgap1==5) {
+                     System.out.println("모or도를 눌렀을때 윷값"+yutgap1);
+                     if (yutgap1==5) {
+                         Image yut1 = new ImageIcon("mini/모.GIF").getImage().getScaledInstance(300, 300, 0);
+                         JLabel yut = new JLabel(new ImageIcon(yut1));
+                         yut.setSize(300, 300);
+                         yut.setLocation(1170, 150);
+                         player.setYutCount(player.getYutCount() + 1);
+                         alist.add(yutgap1,yutgap1);
+                         System.out.println("alist add이후"+alist);
+                         gamePanel.add(yut);
+                         gamePanel.revalidate();
+                         gamePanel.repaint();
+                         gamePanel.setComponentZOrder(yut, 0);
+
+                         Timer ts = new Timer();
+                         TimerTask tk = new TimerTask() {
+
+                             @Override
+                             public void run() {
+
+                                 Image dodo = new ImageIcon("mini/모버튼.PNG").getImage().getScaledInstance(50, 50, 0);
+                                 JButton dodoBtn = new JButton(new ImageIcon(dodo));
+                                 dodoBtn.setLocation(1220, 150);
+                                 dodoBtn.setSize(50, 50);
+
+
+                                 gamePanel.remove(yut);
+                                 gamePanel.add(dodoBtn);
+                                 gamePanel.revalidate();
+                                 gamePanel.repaint();
+                                 gamePanel.setComponentZOrder(dodoBtn, 0);
+                                 dodoBtn.addMouseListener(new MouseAdapter() {
+                                     @Override
+                                     public void mouseClicked(MouseEvent e) {
+                                        // mal.move(yutgap);
+                                         System.out.println(mal.getGrid());
+                                         gamePanel.remove(dodoBtn);
+                                         gamePanel.revalidate();
+                                         gamePanel.repaint();
+                                         alist.remove(yutgap);
+                                         System.out.println("윷값 삭제되는지 확인"+alist);
+                                     }
+                                 });
+
+
+                             }
+                         };
+                         ts.schedule(tk, 3400);
+                     } else if (yutgap1 == -1) {
+                         Image yut1 = new ImageIcon("mini/백도.GIF").getImage().getScaledInstance(300, 300, 0);
+                         JLabel yut = new JLabel(new ImageIcon(yut1));
+                         yut.setSize(300, 300);
+                         yut.setLocation(1170, 150);
+                         alist.add(yutgap1,yutgap1);
+                         System.out.println("alist add이후"+alist);
+                         gamePanel.add(yut);
+                         gamePanel.revalidate();
+                         gamePanel.repaint();
+                         gamePanel.setComponentZOrder(yut, 0);
+
+                         Timer ts = new Timer();
+                         TimerTask tk = new TimerTask() {
+
+                             @Override
+                             public void run() {
+
+                                 Image dodo = new ImageIcon("mini/백도버튼.PNG").getImage().getScaledInstance(50, 50, 0);
+                                 JButton dodoBtn = new JButton(new ImageIcon(dodo));
+                                 dodoBtn.setLocation(1170, 150);
+                                 dodoBtn.setSize(50, 50);
+
+
+                                 gamePanel.remove(yut);
+                                 gamePanel.add(dodoBtn);
+                                 gamePanel.revalidate();
+                                 gamePanel.repaint();
+                                 gamePanel.setComponentZOrder(dodoBtn, 0);
+                                 player.setYutCount(player.getYutCount()-1);
+                             
+                                 dodoBtn.addMouseListener(new MouseAdapter() {
+                                     @Override
+                                     public void mouseClicked(MouseEvent e) {
+                                         //mal.move(yutgap);
+                                         System.out.println(mal.getGrid());
+                                         gamePanel.remove(dodoBtn);
+                                         gamePanel.revalidate();
+                                         gamePanel.repaint();
+                                         alist.remove(yutgap);
+                                         System.out.println("윷값 삭제되는지 확인"+alist);
+                                     }
+                                 });
+
+
+                             }
+                         };
+                         ts.schedule(tk, 3600);
+                     }
+                     else if (yutgap1==1) {
+                         Image yut1 = new ImageIcon("mini/도.GIF").getImage().getScaledInstance(300, 300, 0);
+                         JLabel yut = new JLabel(new ImageIcon(yut1));
+                         yut.setSize(300, 300);
+                         yut.setLocation(1170, 150);
+                         alist.add(yutgap1,yutgap1);
+                         System.out.println("alist add이후"+alist);
+                         gamePanel.add(yut);
+                         gamePanel.revalidate();
+                         gamePanel.repaint();
+                         gamePanel.setComponentZOrder(yut, 0);
+
+                         Timer ts = new Timer();
+                         TimerTask tk = new TimerTask() {
+
+                             @Override
+                             public void run() {
+                                 Image dodo = new ImageIcon("mini/도버튼.PNG").getImage().getScaledInstance(50, 50, 0);
+                                 JButton dodoBtn = new JButton(new ImageIcon(dodo));
+
+                                 dodoBtn.setLocation(1170, 150);
+                                 dodoBtn.setSize(50, 50);
+
+
+                                 gamePanel.remove(yut);
+                                 gamePanel.add(dodoBtn);
+                                 gamePanel.revalidate();
+                                 gamePanel.repaint();
+                                 gamePanel.setComponentZOrder(dodoBtn, 0);
+
+                                 dodoBtn.addMouseListener(new MouseAdapter() {
+                                     @Override
+                                     public void mouseClicked(MouseEvent e) {
+                                         //mal.move(yutgap);
+                                         System.out.println(mal.getGrid());
+                                         gamePanel.remove(dodoBtn);
+                                         gamePanel.revalidate();
+                                         gamePanel.repaint();
+                                         alist.remove(yutgap);
+                                         System.out.println("윷값 삭제되는지 확인"+alist);
+
+                                     }
+                                 });
+
+                             }
+                         };
+                         ts.schedule(tk, 2400);
+
+                     }
+                 } 
+                 }
+                 
+                 
                 }
             }
         });

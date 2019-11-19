@@ -116,7 +116,7 @@ public class Store {
 
     }
 
-    public boolean buy(MainFrame mf, JPanel panel, Player player, JTextField show, int itemNum) {
+    public boolean buy(MainFrame mf, JPanel panel, Player player, JTextField show,int itemNum) {
         UpgoDouble ud = new UpgoDouble();
 
 
@@ -150,8 +150,9 @@ public class Store {
                 show.repaint();
 
                 YutMadeByCho yut = new YutMadeByCho();
-               GamePage.yutgap= yut.mainYut(2, player);//윷값보내기
-
+               GamePage.yutgap1= yut.mainYut(2, player);//윷값보내기
+               System.out.println("스토어 : " + GamePage.yutgap1);
+               
                 Timer ts = new Timer();
                 TimerTask tk = new TimerTask() {
 
@@ -408,7 +409,7 @@ public class Store {
 
                 BackDo bd = new BackDo();
                 YutMadeByCho yut = new YutMadeByCho();
-                GamePage.yutgap=yut.mainYut(5, player);
+                GamePage.yutgap1=yut.mainYut(5, player);
 
                 player.setSongP(player.getSongP()-bd.getPrice());
 

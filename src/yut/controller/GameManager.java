@@ -173,7 +173,7 @@ public class GameManager {
                                 }
                                 // 네오는 윷나올 확률을 올려준다.
                                 else if (players[i] instanceof Neo) {
-                                    yut_val = yut.neoIncreaseYut();
+                                    //yut_val = yut.neoIncreaseYut();
                                 }
 
                             }

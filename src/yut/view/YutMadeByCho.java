@@ -10,27 +10,25 @@ public class YutMadeByCho {
     int yutNum = 0;//윷결과값저장하는 변수
 
     public int mainYut(int num, Player player) {
-        player.setYutCount(player.getYutCount() - 1);
+       
 
-        switch (num) {
+        switch (1) {
             case 1:
                 yutNum = throwYut(player);
-                player.setYutCount(0);
                 break;
             case 2:
-                yutNum = moOrDo();
-                System.out.println(moOrDo());
-                throwYut(player);
+                yutNum = moOrDo(player);
+          
                 break;
 
             case 3:
-                yutNum = neoIncreaseYut();
+                yutNum = neoIncreaseYut(player);
                 break;
             case 4:
                 yutNum = ryanMoveDouble(player);
                 break;
             case 5:
-                yutNum = mustBackDo();
+                yutNum = mustBackDo(player);
                 break;
         }
         return yutNum;
@@ -40,7 +38,8 @@ public class YutMadeByCho {
     //윷확률, 결과값 받을 메소드
     public int throwYut(Player player) {
         //랜덤값으로 윷확률 받기
-        int yutRate = new Random().nextInt(2) + 6;
+        player.setYutCount(player.getYutCount() - 1);
+        int yutRate = new Random().nextInt(10) + 1;
 
         switch (yutRate) {
             case 1:
@@ -79,7 +78,7 @@ public class YutMadeByCho {
     }
 
     public int nak() {
-        return 0;
+        return 10;
     }
 
     public int Do() {
@@ -110,19 +109,20 @@ public class YutMadeByCho {
     }
 
     // 모아니면 도 아이템
-    public int moOrDo() {
+    public int moOrDo(Player player) {
+        player.setYutCount(player.getYutCount() + 1);
         //아이템 메소드에 가격과 이름 설정
         //Item item = new Item(5, "moOrDo");
         // 랜덤값 1 또는 0, 0이면 모 1이면 도
         if ((int) (Math.random() * 2) == 0) {
-            return 5;
+            return mo(player);
         } else {
-            return 1;
+            return Do();
         }
     }
 
     // Neo 패시브 윷 확률 올리기
-    public int neoIncreaseYut() {
+    public int neoIncreaseYut(Player player) {
 
         // 랜덤값 1 또는 0, 0,1이면 윷 2면 낙
         int random = (int) (Math.random() * 3);
@@ -141,7 +141,8 @@ public class YutMadeByCho {
     }
 
     //아이템 무조건 백도 메소드
-    public int mustBackDo() {
+    public int mustBackDo(Player player) {
+        //player.setYutCount(player.getYutCount() + 1);
         return -1;
     }
 

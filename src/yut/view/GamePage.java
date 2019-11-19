@@ -9,6 +9,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -49,6 +50,12 @@ public class GamePage {
     public JTextField show_apeach_songP;
     public JTextField show_frodo_songP;
     public JTextField show_neo_songP;
+
+
+    // TODO: 2019-11-19 ???????????
+    //
+    // public static int yutgap1;
+    // private int a=0;
 
     public GamePage(MainFrame mf, JPanel panel, JPanel lo, Player[] players/*,Player player*/) {
         this.players = players;
@@ -1053,7 +1060,10 @@ public class GamePage {
         yutThrow1.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
+
                 ArrayList alist = new ArrayList();//조지연 윷값저장할 배열
+
+
                 Mal mal = new Mal(0);//임의로 0을 넣음
                 if (player.getYutCount() > 0) {
                     if (e.getButton() == 1) {
@@ -1062,12 +1072,17 @@ public class GamePage {
                         //todo:버튼을 누르면 값을 저장할 arraylist를 생성하고 거기에 윷값을 넣어줘야함!!!!!!!!
                         //윷던지기 버튼 던질때 YutMadeByCho클래스 객체생성
                         YutMadeByCho thorwYut = new YutMadeByCho();
+                        System.out.println("yutgap1이 값을 가지는지 확인"+yutgap1);
+
+                 if(yutgap1==0) {
                         yutgap = thorwYut.mainYut(1, player);
 
                         yutgap = thorwYut.throwYut(player);
                         //윷값이 낙이 나왔을때
+                        System.out.println("안녕 : " + yutgap1);
+                        System.out.println("yutgap1이 값을 가지지않을때 yutgap"+yutgap);
 
-                        if (yutgap == 0) {
+                    if (yutgap == 10) {
                             Image yut1 = new ImageIcon("mini/낙영상.GIF").getImage().getScaledInstance(300, 300, 0);
                             JLabel yut = new JLabel(new ImageIcon(yut1));
                             yut.setSize(300, 300);
@@ -1083,7 +1098,7 @@ public class GamePage {
 
                                 @Override
                                 public void run() {
-
+                                    player.setYutCount(player.getYutCount()-1);
                                     gamePanel.remove(yut);
                                     gamePanel.revalidate();
                                     gamePanel.repaint();
@@ -1097,8 +1112,9 @@ public class GamePage {
                             JLabel yut = new JLabel(new ImageIcon(yut1));
                             yut.setSize(300, 300);
                             yut.setLocation(1170, 150);
-                            alist.add(yutgap);
 
+
+                            System.out.println("alist add이후"+alist);
                             gamePanel.add(yut);
                             gamePanel.revalidate();
                             gamePanel.repaint();
@@ -1125,11 +1141,16 @@ public class GamePage {
                                     dodoBtn.addMouseListener(new MouseAdapter() {
                                         @Override
                                         public void mouseClicked(MouseEvent e) {
-                                            mal.move(yutgap);
+                                            player.addMoves(yutgap);
+                                            System.out.println("addMoves후: "+player.getMoves());//삭제할거
+                                            player.setYutCount(player.getYutCount()-1);
+                                            System.out.println("아이템썼을때 윷카운트 감소되는지:"+player.getYutCount());//삭제할거
                                             System.out.println(mal.getGrid());
                                             gamePanel.remove(dodoBtn);
                                             gamePanel.revalidate();
                                             gamePanel.repaint();
+                                            player.useMoves(yutgap);
+                                            System.out.println("useMoves한후:"+player.getMoves());//삭제할거
 
                                         }
                                     });
@@ -1144,7 +1165,9 @@ public class GamePage {
                             JLabel yut = new JLabel(new ImageIcon(yut1));
                             yut.setSize(300, 300);
                             yut.setLocation(1170, 150);
-                            alist.add(yutgap);
+
+
+                            System.out.println("alist add이후"+alist);
                             gamePanel.add(yut);
                             gamePanel.revalidate();
                             gamePanel.repaint();
@@ -1171,11 +1194,16 @@ public class GamePage {
                                     dodoBtn.addMouseListener(new MouseAdapter() {
                                         @Override
                                         public void mouseClicked(MouseEvent e) {
-                                            mal.move(yutgap);
+                                            player.addMoves(yutgap);
+                                            System.out.println("addMoves후: "+player.getMoves());//삭제할거
+                                            player.setYutCount(player.getYutCount()-1);
+                                            System.out.println("아이템썼을때 윷카운트 감소되는지:"+player.getYutCount());//삭제할거
                                             System.out.println(mal.getGrid());
                                             gamePanel.remove(dodoBtn);
                                             gamePanel.revalidate();
                                             gamePanel.repaint();
+                                            player.useMoves(yutgap);
+                                            System.out.println("useMoves한후:"+player.getMoves());//삭제할거
                                         }
                                     });
 
@@ -1188,7 +1216,8 @@ public class GamePage {
                             JLabel yut = new JLabel(new ImageIcon(yut1));
                             yut.setSize(300, 300);
                             yut.setLocation(1170, 150);
-                            alist.add(yutgap);
+
+                            System.out.println("alist add이후"+alist);
                             gamePanel.add(yut);
                             gamePanel.revalidate();
                             gamePanel.repaint();
@@ -1214,11 +1243,16 @@ public class GamePage {
                                     dodoBtn.addMouseListener(new MouseAdapter() {
                                         @Override
                                         public void mouseClicked(MouseEvent e) {
-                                            mal.move(yutgap);
+                                            player.addMoves(yutgap);
+                                            System.out.println("addMoves후: "+player.getMoves());//삭제할거
+                                            player.setYutCount(player.getYutCount()-1);
+                                            System.out.println("아이템썼을때 윷카운트 감소되는지:"+player.getYutCount());//삭제할거
                                             System.out.println(mal.getGrid());
                                             gamePanel.remove(dodoBtn);
                                             gamePanel.revalidate();
                                             gamePanel.repaint();
+                                            player.useMoves(yutgap);
+                                            System.out.println("useMoves한후:"+player.getMoves());//삭제할거
                                         }
                                     });
 
@@ -1232,7 +1266,7 @@ public class GamePage {
                             yut.setSize(300, 300);
                             yut.setLocation(1170, 150);
                             player.setYutCount(player.getYutCount() + 1);
-                            alist.add(yutgap);
+
                             gamePanel.add(yut);
                             gamePanel.revalidate();
                             gamePanel.repaint();
@@ -1259,11 +1293,16 @@ public class GamePage {
                                     dodoBtn.addMouseListener(new MouseAdapter() {
                                         @Override
                                         public void mouseClicked(MouseEvent e) {
-                                            mal.move(yutgap);
+                                            player.addMoves(yutgap);
+                                            System.out.println("addMoves후: "+player.getMoves());//삭제할거
+                                            player.setYutCount(player.getYutCount()+1);
+                                            System.out.println("아이템썼을때 윷카운트 감소되는지:"+player.getYutCount());//삭제할거
                                             System.out.println(mal.getGrid());
                                             gamePanel.remove(dodoBtn);
                                             gamePanel.revalidate();
                                             gamePanel.repaint();
+                                            player.useMoves(yutgap);
+                                            System.out.println("useMoves한후:"+player.getMoves());//삭제할거
                                         }
                                     });
 
@@ -1272,13 +1311,14 @@ public class GamePage {
                             };
                             ts.schedule(tk, 3600);
                         }//윷값이 모일때
-                        else if (yutgap == 5) {
+                        else if (yutgap == 5||yutgap1==5) {
                             Image yut1 = new ImageIcon("mini/모.GIF").getImage().getScaledInstance(300, 300, 0);
                             JLabel yut = new JLabel(new ImageIcon(yut1));
                             yut.setSize(300, 300);
                             yut.setLocation(1170, 150);
                             player.setYutCount(player.getYutCount() + 1);
-                            alist.add(yutgap);
+
+                            System.out.println("alist add이후"+alist);
                             gamePanel.add(yut);
                             gamePanel.revalidate();
                             gamePanel.repaint();
@@ -1304,11 +1344,16 @@ public class GamePage {
                                     dodoBtn.addMouseListener(new MouseAdapter() {
                                         @Override
                                         public void mouseClicked(MouseEvent e) {
-                                            mal.move(yutgap);
+                                            player.addMoves(yutgap);
+                                            System.out.println("addMoves후: "+player.getMoves());//삭제할거
+                                            player.setYutCount(player.getYutCount()+1);
+                                            System.out.println("아이템썼을때 윷카운트 감소되는지:"+player.getYutCount());//삭제할거
                                             System.out.println(mal.getGrid());
                                             gamePanel.remove(dodoBtn);
                                             gamePanel.revalidate();
                                             gamePanel.repaint();
+                                            player.useMoves(yutgap);
+                                            System.out.println("useMoves한후:"+player.getMoves());//삭제할거
                                         }
                                     });
 
@@ -1321,7 +1366,8 @@ public class GamePage {
                             JLabel yut = new JLabel(new ImageIcon(yut1));
                             yut.setSize(300, 300);
                             yut.setLocation(1170, 150);
-                            alist.add(yutgap);
+
+
                             gamePanel.add(yut);
                             gamePanel.revalidate();
                             gamePanel.repaint();
@@ -1347,15 +1393,18 @@ public class GamePage {
                                     dodoBtn.addMouseListener(new MouseAdapter() {
                                         @Override
                                         public void mouseClicked(MouseEvent e) {
-                                            mal.move(yutgap);
-                                            System.out.println(mal.getGrid());
+                                            player.addMoves(yutgap);
+                                            System.out.println("addMoves후: "+player.getMoves());//삭제할거
+                                            player.setYutCount(player.getYutCount()-1);
+                                            System.out.println("아이템썼을때 윷카운트 감소되는지:"+player.getYutCount());//삭제할거
+                                            System.out.println("mal.getGrid()값: "+mal.getGrid());
                                             gamePanel.remove(dodoBtn);
                                             gamePanel.revalidate();
                                             gamePanel.repaint();
+                                            player.useMoves(yutgap);
+                                            System.out.println("useMoves한후:"+player.getMoves());//삭제할거
                                         }
                                     });
-
-
                                 }
                             };
                             ts.schedule(tk, 3600);
@@ -1368,7 +1417,163 @@ public class GamePage {
                         }
 
 
-                    }
+                 }else if(yutgap1==-1||yutgap1==1||yutgap1==5) {
+                     System.out.println("모or도를 눌렀을때 윷값"+yutgap1);
+                     if (yutgap1==5) {
+                         Image yut1 = new ImageIcon("mini/모.GIF").getImage().getScaledInstance(300, 300, 0);
+                         JLabel yut = new JLabel(new ImageIcon(yut1));
+                         yut.setSize(300, 300);
+                         yut.setLocation(1170, 150);
+                         player.setYutCount(player.getYutCount() + 1);
+
+                         gamePanel.add(yut);
+                         gamePanel.revalidate();
+                         gamePanel.repaint();
+                         gamePanel.setComponentZOrder(yut, 0);
+
+                         Timer ts = new Timer();
+                         TimerTask tk = new TimerTask() {
+
+                             @Override
+                             public void run() {
+
+                                 Image dodo = new ImageIcon("mini/모버튼.PNG").getImage().getScaledInstance(50, 50, 0);
+                                 JButton dodoBtn = new JButton(new ImageIcon(dodo));
+                                 dodoBtn.setLocation(1220, 150);
+                                 dodoBtn.setSize(50, 50);
+
+
+                                 gamePanel.remove(yut);
+                                 gamePanel.add(dodoBtn);
+                                 gamePanel.revalidate();
+                                 gamePanel.repaint();
+                                 gamePanel.setComponentZOrder(dodoBtn, 0);
+                                 dodoBtn.addMouseListener(new MouseAdapter() {
+                                     @Override
+                                     public void mouseClicked(MouseEvent e) {
+                                         player.addMoves(yutgap1);
+                                         System.out.println("addMoves후: "+player.getMoves());//삭제할거
+                                         player.setYutCount(player.getYutCount()+1);
+                                         System.out.println("아이템썼을때 윷카운트 감소되는지:"+player.getYutCount());//삭제할거
+                                         System.out.println(mal.getGrid());
+                                         gamePanel.remove(dodoBtn);
+                                         gamePanel.revalidate();
+                                         gamePanel.repaint();
+                                         player.useMoves(yutgap1);
+                                         System.out.println("useMoves한후:"+player.getMoves());//삭제할거
+                                     }
+                                 });
+
+
+                             }
+                         };
+                         ts.schedule(tk, 3400);
+                     } else if (yutgap1 == -1) {
+                         Image yut1 = new ImageIcon("mini/백도.GIF").getImage().getScaledInstance(300, 300, 0);
+                         JLabel yut = new JLabel(new ImageIcon(yut1));
+                         yut.setSize(300, 300);
+                         yut.setLocation(1170, 150);
+
+                         gamePanel.add(yut);
+                         gamePanel.revalidate();
+                         gamePanel.repaint();
+                         gamePanel.setComponentZOrder(yut, 0);
+
+                         Timer ts = new Timer();
+                         TimerTask tk = new TimerTask() {
+
+                             @Override
+                             public void run() {
+
+                                 Image dodo = new ImageIcon("mini/백도버튼.PNG").getImage().getScaledInstance(50, 50, 0);
+                                 JButton dodoBtn = new JButton(new ImageIcon(dodo));
+                                 dodoBtn.setLocation(1170, 150);
+                                 dodoBtn.setSize(50, 50);
+
+
+                                 gamePanel.remove(yut);
+                                 gamePanel.add(dodoBtn);
+                                 gamePanel.revalidate();
+                                 gamePanel.repaint();
+                                 gamePanel.setComponentZOrder(dodoBtn, 0);
+                                 player.setYutCount(player.getYutCount()-1);
+
+                                 dodoBtn.addMouseListener(new MouseAdapter() {
+                                     @Override
+                                     public void mouseClicked(MouseEvent e) {
+                                         player.addMoves(yutgap1);
+                                         System.out.println("addMoves후: "+player.getMoves());//삭제할거
+                                         player.setYutCount(player.getYutCount()-1);
+                                         System.out.println("아이템썼을때 윷카운트 감소되는지:"+player.getYutCount());//삭제할거
+                                         System.out.println(mal.getGrid());
+                                         gamePanel.remove(dodoBtn);
+                                         gamePanel.revalidate();
+                                         gamePanel.repaint();
+                                         player.useMoves(yutgap1);
+                                         System.out.println("useMoves한후:"+player.getMoves());//삭제할거
+                                     }
+                                 });
+
+
+                             }
+                         };
+                         ts.schedule(tk, 3600);
+                     }
+                     else if (yutgap1==1) {
+                         Image yut1 = new ImageIcon("mini/도.GIF").getImage().getScaledInstance(300, 300, 0);
+                         JLabel yut = new JLabel(new ImageIcon(yut1));
+                         yut.setSize(300, 300);
+                         yut.setLocation(1170, 150);
+
+                         gamePanel.add(yut);
+                         gamePanel.revalidate();
+                         gamePanel.repaint();
+                         gamePanel.setComponentZOrder(yut, 0);
+
+                         Timer ts = new Timer();
+                         TimerTask tk = new TimerTask() {
+
+                             @Override
+                             public void run() {
+                                 Image dodo = new ImageIcon("mini/도버튼.PNG").getImage().getScaledInstance(50, 50, 0);
+                                 JButton dodoBtn = new JButton(new ImageIcon(dodo));
+
+                                 dodoBtn.setLocation(1170, 150);
+                                 dodoBtn.setSize(50, 50);
+
+
+                                 gamePanel.remove(yut);
+                                 gamePanel.add(dodoBtn);
+                                 gamePanel.revalidate();
+                                 gamePanel.repaint();
+                                 gamePanel.setComponentZOrder(dodoBtn, 0);
+
+                                 dodoBtn.addMouseListener(new MouseAdapter() {
+                                     @Override
+                                     public void mouseClicked(MouseEvent e) {
+                                         player.addMoves(yutgap1);
+                                         System.out.println("addMoves후: "+player.getMoves());//삭제할거
+                                         player.setYutCount(player.getYutCount()-1);
+                                         System.out.println("아이템썼을때 윷카운트 감소되는지:"+player.getYutCount());//삭제할거
+                                         System.out.println(mal.getGrid());
+                                         gamePanel.remove(dodoBtn);
+                                         gamePanel.revalidate();
+                                         gamePanel.repaint();
+                                         player.useMoves(yutgap1);
+                                         System.out.println("useMoves한후:"+player.getMoves());//삭제할거
+
+                                     }
+                                 });
+
+                             }
+                         };
+                         ts.schedule(tk, 2400);
+
+                     }
+                 }
+                 }
+
+
                 }
             }
         });

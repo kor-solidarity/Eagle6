@@ -246,99 +246,14 @@ public class GamePage {
         grid28.setLocation(820, 460);
 
 
-        ///153
-        //11
 
-        //플레이어 상태창 배경
-        //ryan 배경
-        //보라색>노란색으로 변경
-        Image purple1 = new ImageIcon("mini/pan.PNG").getImage().getScaledInstance(300, 197, 0);
-        JLabel backgroundPurple1 = new JLabel(new ImageIcon(purple1));
-        backgroundPurple1.setSize(300, 186);
-        backgroundPurple1.setLocation(0, 0);
-        //apeach 배경
-        JLabel backgroundPurple2 = new JLabel(new ImageIcon(purple1));
-        backgroundPurple2.setSize(300, 186);
-        backgroundPurple2.setLocation(0, 189);
-        //frodo 배경
-        JLabel backgroundPurple3 = new JLabel(new ImageIcon(purple1));
-        backgroundPurple3.setSize(300, 186);
-        backgroundPurple3.setLocation(0, 378);
-        //neo 배경
-        JLabel backgroundPurple4 = new JLabel(new ImageIcon(purple1));
-        backgroundPurple4.setSize(300, 186);
-        backgroundPurple4.setLocation(0, 567);
-
-        //정보 헤드
-        Image getGreen = new ImageIcon("mini/정보1.PNG").getImage().getScaledInstance(70, 95, 0);
-        JLabel info1 = new JLabel(new ImageIcon(getGreen));
-        info1.setSize(100, 100);
-        info1.setLocation(100, 10);
-        JLabel info2 = new JLabel(new ImageIcon(getGreen));
-        info2.setSize(100, 100);
-        info2.setLocation(100, 199);
-        JLabel info3 = new JLabel(new ImageIcon(getGreen));
-        info3.setSize(100, 100);
-        info3.setLocation(100, 388);
-        JLabel info4 = new JLabel(new ImageIcon(getGreen));
-        info4.setSize(100, 100);
-        info4.setLocation(100, 577);
-
-
-        //라이언 머리
-        Image ryan_head = new ImageIcon("mini/ryan1.PNG").getImage().getScaledInstance(110, 110, 0);
-        JLabel ryan_head_label = new JLabel(new ImageIcon(ryan_head));
-        ryan_head_label.setSize(105, 105);
-        ryan_head_label.setLocation(0, 10);
-        //라이언 도착 몸통
-        Image ryan_bodyx = new ImageIcon("mini/x라이언말.PNG").getImage().getScaledInstance(80, 80, 0);
-        JLabel ryan_body_labelx1 = new JLabel(new ImageIcon(ryan_bodyx));
-        ryan_body_labelx1.setSize(100, 100);
-        ryan_body_labelx1.setLocation(1, 99);
-        JLabel ryan_body_labelx2 = new JLabel(new ImageIcon(ryan_bodyx));
-        ryan_body_labelx2.setSize(100, 100);
-        ryan_body_labelx2.setLocation(71, 99);
-        JLabel ryan_body_labelx3 = new JLabel(new ImageIcon(ryan_bodyx));
-        ryan_body_labelx3.setSize(100, 100);
-        ryan_body_labelx3.setLocation(141, 99);
-        JLabel ryan_body_labelx4 = new JLabel(new ImageIcon(ryan_bodyx));
-        ryan_body_labelx4.setSize(100, 100);
-        ryan_body_labelx4.setLocation(211, 99);
-        //라이언 몸통
-        Image ryan_body1 = new ImageIcon("mini/1번라이언말.PNG").getImage().getScaledInstance(80, 80, 0);
-        JLabel ryan_body_label1 = new JLabel(new ImageIcon(ryan_body1));
-        ryan_body_label1.setSize(100, 100);
-        ryan_body_label1.setLocation(1, 99);
-        Image ryan_body2 = new ImageIcon("mini/2번라이언말.PNG").getImage().getScaledInstance(80, 80, 0);
-        JLabel ryan_body_label2 = new JLabel(new ImageIcon(ryan_body2));
-        ryan_body_label2.setSize(100, 100);
-        ryan_body_label2.setLocation(71, 99);
-        Image ryan_body3 = new ImageIcon("mini/3번라이언말.PNG").getImage().getScaledInstance(80, 80, 0);
-        JLabel ryan_body_label3 = new JLabel(new ImageIcon(ryan_body3));
-        ryan_body_label3.setSize(100, 100);
-        ryan_body_label3.setLocation(141, 99);
-        Image ryan_body4 = new ImageIcon("mini/4번라이언말.PNG").getImage().getScaledInstance(80, 80, 0);
-        JLabel ryan_body_label4 = new JLabel(new ImageIcon(ryan_body4));
-        ryan_body_label4.setSize(100, 100);
-        ryan_body_label4.setLocation(211, 99);
-        //라이언 출발 몸통
-        Image ryan_body1_s = new ImageIcon("mini/1번라이언말출격.PNG").getImage().getScaledInstance(80, 80, 0);
-        JLabel ryan_body_label1_s = new JLabel(new ImageIcon(ryan_body1_s));
-        ryan_body_label1_s.setSize(100, 100);
-        ryan_body_label1_s.setLocation(1, 99);
-        Image ryan_body2_s = new ImageIcon("mini/2번라이언말출격.PNG").getImage().getScaledInstance(80, 80, 0);
-        JLabel ryan_body_label2_s = new JLabel(new ImageIcon(ryan_body2_s));
-        ryan_body_label2_s.setSize(100, 100);
-        ryan_body_label2_s.setLocation(71, 99);
-        Image ryan_body3_s = new ImageIcon("mini/3번라이언말출격.PNG").getImage().getScaledInstance(80, 80, 0);
-        JLabel ryan_body_label3_s = new JLabel(new ImageIcon(ryan_body3_s));
-        ryan_body_label3_s.setSize(100, 100);
-        ryan_body_label3_s.setLocation(141, 99);
-        Image ryan_body4_s = new ImageIcon("mini/4번라이언말출격.PNG").getImage().getScaledInstance(80, 80, 0);
-        JLabel ryan_body_label4_s = new JLabel(new ImageIcon(ryan_body4_s));
-        ryan_body_label4_s.setSize(100, 100);
-        ryan_body_label4_s.setLocation(211, 99);
-
+        //jtextfield 글꼴 변경하는 객체 생성
+        Font font = new Font("arian", Font.BOLD, 20);
+        Font font2 = new Font("arian", Font.BOLD, 20);
+        
+        
+ 
+        
 
         //=======================================> 윷판 말 좌표 찾기 - 다영
         // JLabel testmal = new JLabel(new ImageIcon(ryan_body));
@@ -407,7 +322,120 @@ public class GamePage {
         //그리드 24일때
         //testmal.setLocation(495, 510);
 
+        //플레이어 상태창 배경
+        //ryan 배경
+        //보라색>노란색으로 변경
+        Image purple1 = new ImageIcon("mini/pan.PNG").getImage().getScaledInstance(300, 197, 0);
+        JLabel backgroundPurple1 = new JLabel(new ImageIcon(purple1));
+        backgroundPurple1.setSize(300, 186);
+        backgroundPurple1.setLocation(0, 0);
+        //정보 헤드
+        Image getGreen = new ImageIcon("mini/정보1.PNG").getImage().getScaledInstance(70, 95, 0);
+        JLabel info1 = new JLabel(new ImageIcon(getGreen));
+        info1.setSize(100, 100);
+        info1.setLocation(100, 10);
+        //송편,아이디 표시 필드
+        //후에 setText 변경
+        //송편 text 표시
+        //라이언 송편표시
+        JTextField show_ryan_songP = new JTextField(15);
+        String str1 = Integer.valueOf(player.getSongP()).toString();
+        show_ryan_songP.setEditable(false);
+        panel.add(show_ryan_songP);
+        show_ryan_songP.setText(str1);
+        show_ryan_songP.setSize(110, 40);
+        show_ryan_songP.setLocation(190, 55);
+        show_ryan_songP.setFont(font);
+        //닉네임 표시
+        //라이언 닉네임 표시
+        JTextField show_ryan_name = new JTextField(15);
+        String str1_n = "라이언";
+        show_ryan_name.setEditable(false);
+        panel.add(show_ryan_songP);
+        show_ryan_name.setText(str1_n);
+        show_ryan_name.setSize(110, 40);
+        show_ryan_name.setLocation(190, 5);
+        show_ryan_name.setFont(font2);
+        //라이언 머리
+        Image ryan_head = new ImageIcon("mini/ryan1.PNG").getImage().getScaledInstance(110, 110, 0);
+        JLabel ryan_head_label = new JLabel(new ImageIcon(ryan_head));
+        ryan_head_label.setSize(105, 105);
+        ryan_head_label.setLocation(0, 10);
+        //라이언 도착 몸통
+        Image ryan_bodyx = new ImageIcon("mini/x라이언말.PNG").getImage().getScaledInstance(80, 80, 0);
+        JLabel ryan_body_labelx1 = new JLabel(new ImageIcon(ryan_bodyx));
+        ryan_body_labelx1.setSize(100, 100);
+        ryan_body_labelx1.setLocation(1, 99);
+        JLabel ryan_body_labelx2 = new JLabel(new ImageIcon(ryan_bodyx));
+        ryan_body_labelx2.setSize(100, 100);
+        ryan_body_labelx2.setLocation(71, 99);
+        JLabel ryan_body_labelx3 = new JLabel(new ImageIcon(ryan_bodyx));
+        ryan_body_labelx3.setSize(100, 100);
+        ryan_body_labelx3.setLocation(141, 99);
+        JLabel ryan_body_labelx4 = new JLabel(new ImageIcon(ryan_bodyx));
+        ryan_body_labelx4.setSize(100, 100);
+        ryan_body_labelx4.setLocation(211, 99);
+        //라이언 몸통
+        Image ryan_body1 = new ImageIcon("mini/1번라이언말.PNG").getImage().getScaledInstance(80, 80, 0);
+        JLabel ryan_body_label1 = new JLabel(new ImageIcon(ryan_body1));
+        ryan_body_label1.setSize(100, 100);
+        ryan_body_label1.setLocation(1, 99);
+        Image ryan_body2 = new ImageIcon("mini/2번라이언말.PNG").getImage().getScaledInstance(80, 80, 0);
+        JLabel ryan_body_label2 = new JLabel(new ImageIcon(ryan_body2));
+        ryan_body_label2.setSize(100, 100);
+        ryan_body_label2.setLocation(71, 99);
+        Image ryan_body3 = new ImageIcon("mini/3번라이언말.PNG").getImage().getScaledInstance(80, 80, 0);
+        JLabel ryan_body_label3 = new JLabel(new ImageIcon(ryan_body3));
+        ryan_body_label3.setSize(100, 100);
+        ryan_body_label3.setLocation(141, 99);
+        Image ryan_body4 = new ImageIcon("mini/4번라이언말.PNG").getImage().getScaledInstance(80, 80, 0);
+        JLabel ryan_body_label4 = new JLabel(new ImageIcon(ryan_body4));
+        ryan_body_label4.setSize(100, 100);
+        ryan_body_label4.setLocation(211, 99);
+        //라이언 출발 몸통
+        Image ryan_body1_s = new ImageIcon("mini/1번라이언말출격.PNG").getImage().getScaledInstance(80, 80, 0);
+        JLabel ryan_body_label1_s = new JLabel(new ImageIcon(ryan_body1_s));
+        ryan_body_label1_s.setSize(100, 100);
+        ryan_body_label1_s.setLocation(1, 99);
+        Image ryan_body2_s = new ImageIcon("mini/2번라이언말출격.PNG").getImage().getScaledInstance(80, 80, 0);
+        JLabel ryan_body_label2_s = new JLabel(new ImageIcon(ryan_body2_s));
+        ryan_body_label2_s.setSize(100, 100);
+        ryan_body_label2_s.setLocation(71, 99);
+        Image ryan_body3_s = new ImageIcon("mini/3번라이언말출격.PNG").getImage().getScaledInstance(80, 80, 0);
+        JLabel ryan_body_label3_s = new JLabel(new ImageIcon(ryan_body3_s));
+        ryan_body_label3_s.setSize(100, 100);
+        ryan_body_label3_s.setLocation(141, 99);
+        Image ryan_body4_s = new ImageIcon("mini/4번라이언말출격.PNG").getImage().getScaledInstance(80, 80, 0);
+        JLabel ryan_body_label4_s = new JLabel(new ImageIcon(ryan_body4_s));
+        ryan_body_label4_s.setSize(100, 100);
+        ryan_body_label4_s.setLocation(211, 99);
 
+
+        //apeach 배경
+        JLabel backgroundPurple2 = new JLabel(new ImageIcon(purple1));
+        backgroundPurple2.setSize(300, 186);
+        backgroundPurple2.setLocation(0, 189);
+        JLabel info2 = new JLabel(new ImageIcon(getGreen));
+        info2.setSize(100, 100);
+        info2.setLocation(100, 199);
+        //어피치 송편표시
+        JTextField show_apeach_songP = new JTextField(15);
+        String str2 = Integer.valueOf(player.getSongP()).toString();
+        show_apeach_songP.setEditable(false);
+        panel.add(show_apeach_songP);
+        show_apeach_songP.setText(str2);
+        show_apeach_songP.setSize(110, 40);
+        show_apeach_songP.setLocation(190, 244);
+        show_apeach_songP.setFont(font);
+        //어피치 닉네임 표시
+        JTextField show_apeach_name = new JTextField(15);
+        String str2_n = "어피치";
+        show_apeach_name.setEditable(false);
+        panel.add(show_ryan_songP);
+        show_apeach_name.setText(str2_n);
+        show_apeach_name.setSize(110, 40);
+        show_apeach_name.setLocation(190, 194);
+        show_apeach_name.setFont(font2);
         //어피치 머리
         Image apeach_head = new ImageIcon("mini/apeach1.PNG").getImage().getScaledInstance(100, 100, 0);
         JLabel apeach_head_label = new JLabel(new ImageIcon(apeach_head));
@@ -462,6 +490,31 @@ public class GamePage {
         apeach_body_label4_s.setSize(100, 100);
         apeach_body_label4_s.setLocation(211, 288);
 
+        //frodo 배경
+        JLabel backgroundPurple3 = new JLabel(new ImageIcon(purple1));
+        backgroundPurple3.setSize(300, 186);
+        backgroundPurple3.setLocation(0, 378);
+        JLabel info3 = new JLabel(new ImageIcon(getGreen));
+        info3.setSize(100, 100);
+        info3.setLocation(100, 388);
+      //프로도 송편표시
+        JTextField show_frodo_songP = new JTextField(15);
+        String str3 = Integer.valueOf(player.getSongP()).toString();
+        show_frodo_songP.setEditable(false);
+        panel.add(show_ryan_songP);
+        show_frodo_songP.setText(str3);
+        show_frodo_songP.setSize(110, 40);
+        show_frodo_songP.setLocation(190, 433);
+        show_frodo_songP.setFont(font);
+        //프로도 닉네임 표시
+        JTextField show_frodo_name = new JTextField(15);
+        String str3_n = "프로도";
+        show_frodo_name.setEditable(false);
+        panel.add(show_ryan_songP);
+        show_frodo_name.setText(str3_n);
+        show_frodo_name.setSize(110, 40);
+        show_frodo_name.setLocation(190, 383);
+        show_frodo_name.setFont(font2);
 
         //프로도 머리
         Image frodo_head = new ImageIcon("mini/frodo1.PNG").getImage().getScaledInstance(100, 100, 0);
@@ -517,7 +570,31 @@ public class GamePage {
         frodo_body_label4_s.setSize(100, 100);
         frodo_body_label4_s.setLocation(211, 477);
 
-
+        //neo 배경
+        JLabel backgroundPurple4 = new JLabel(new ImageIcon(purple1));
+        backgroundPurple4.setSize(300, 186);
+        backgroundPurple4.setLocation(0, 567);
+        JLabel info4 = new JLabel(new ImageIcon(getGreen));
+        info4.setSize(100, 100);
+        info4.setLocation(100, 577);
+      //네오 송편표시
+        JTextField show_neo_songP = new JTextField(15);
+        String str4 = Integer.valueOf(player.getSongP()).toString();
+        show_neo_songP.setEditable(false);
+        panel.add(show_ryan_songP);
+        show_neo_songP.setText(str4);
+        show_neo_songP.setSize(110, 40);
+        show_neo_songP.setLocation(190, 622);
+        show_neo_songP.setFont(font);
+        //네오 닉네임 표시
+        JTextField show_neo_name = new JTextField(15);
+        String str4_n = "네오";
+        show_neo_name.setEditable(false);
+        panel.add(show_ryan_songP);
+        show_neo_name.setText(str4_n);
+        show_neo_name.setSize(110, 40);
+        show_neo_name.setLocation(190, 572);
+        show_neo_name.setFont(font2);       
         //네오 머리
         Image neo_head = new ImageIcon("mini/neo1.PNG").getImage().getScaledInstance(100, 100, 0);
         JLabel neo_head_label = new JLabel(new ImageIcon(neo_head));
@@ -573,89 +650,7 @@ public class GamePage {
         neo_body_label4_s.setLocation(211, 666);
 
 
-        //송편,아이디 표시 필드
-        //후에 setText 변경
-
-        //jtextfield 글꼴 변경하는 객체 생성
-        Font font = new Font("arian", Font.BOLD, 20);
-        Font font2 = new Font("arian", Font.BOLD, 20);
-
-        //송편 text 표시
-        //라이언 송편표시
-        JTextField show_ryan_songP = new JTextField(15);
-        String str1 = Integer.valueOf(player.getSongP()).toString();
-        show_ryan_songP.setEditable(false);
-        panel.add(show_ryan_songP);
-        show_ryan_songP.setText(str1);
-        show_ryan_songP.setSize(110, 40);
-        show_ryan_songP.setLocation(190, 55);
-        show_ryan_songP.setFont(font);
-        //어피치 송편표시
-        JTextField show_apeach_songP = new JTextField(15);
-        String str2 = Integer.valueOf(player.getSongP()).toString();
-        show_apeach_songP.setEditable(false);
-        panel.add(show_apeach_songP);
-        show_apeach_songP.setText(str2);
-        show_apeach_songP.setSize(110, 40);
-        show_apeach_songP.setLocation(190, 244);
-        show_apeach_songP.setFont(font);
-        //프로도 송편표시
-        JTextField show_frodo_songP = new JTextField(15);
-        String str3 = Integer.valueOf(player.getSongP()).toString();
-        show_frodo_songP.setEditable(false);
-        panel.add(show_ryan_songP);
-        show_frodo_songP.setText(str3);
-        show_frodo_songP.setSize(110, 40);
-        show_frodo_songP.setLocation(190, 433);
-        show_frodo_songP.setFont(font);
-        //네오 송편표시
-        JTextField show_neo_songP = new JTextField(15);
-        String str4 = Integer.valueOf(player.getSongP()).toString();
-        show_neo_songP.setEditable(false);
-        panel.add(show_ryan_songP);
-        show_neo_songP.setText(str4);
-        show_neo_songP.setSize(110, 40);
-        show_neo_songP.setLocation(190, 622);
-        show_neo_songP.setFont(font);
-
-        //닉네임 표시
-        //라이언 닉네임 표시
-        JTextField show_ryan_name = new JTextField(15);
-        String str1_n = "라이언";
-        show_ryan_name.setEditable(false);
-        panel.add(show_ryan_songP);
-        show_ryan_name.setText(str1_n);
-        show_ryan_name.setSize(110, 40);
-        show_ryan_name.setLocation(190, 5);
-        show_ryan_name.setFont(font2);
-        //어피치 닉네임 표시
-        JTextField show_apeach_name = new JTextField(15);
-        String str2_n = "어피치";
-        show_apeach_name.setEditable(false);
-        panel.add(show_ryan_songP);
-        show_apeach_name.setText(str2_n);
-        show_apeach_name.setSize(110, 40);
-        show_apeach_name.setLocation(190, 194);
-        show_apeach_name.setFont(font2);
-        //프로도 닉네임 표시
-        JTextField show_frodo_name = new JTextField(15);
-        String str3_n = "프로도";
-        show_frodo_name.setEditable(false);
-        panel.add(show_ryan_songP);
-        show_frodo_name.setText(str3_n);
-        show_frodo_name.setSize(110, 40);
-        show_frodo_name.setLocation(190, 383);
-        show_frodo_name.setFont(font2);
-        //네오 닉네임 표시
-        JTextField show_neo_name = new JTextField(15);
-        String str4_n = "네오";
-        show_neo_name.setEditable(false);
-        panel.add(show_ryan_songP);
-        show_neo_name.setText(str4_n);
-        show_neo_name.setSize(110, 40);
-        show_neo_name.setLocation(190, 572);
-        show_neo_name.setFont(font2);
-
+ 
 
         //게임패널에 부착
         //스킬라벨

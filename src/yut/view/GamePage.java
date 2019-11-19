@@ -20,6 +20,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 import yut.model.vo.Item;
+import yut.model.vo.Mission;
 import yut.model.vo.Player;
 import yut.model.vo.Store;
 
@@ -34,6 +35,7 @@ public class GamePage {
         gamePanel.setBounds(0, 0, 1500, 800);
         gamePanel.setLayout(null);
 
+        Mission ms = new Mission(player, mf, gamePanel);
         //도움말 버튼  생성
         Image help = new ImageIcon("mini/도움말 게임.PNG").getImage().getScaledInstance(60, 60, 0);
         JButton helpBtn = new JButton();
@@ -246,48 +248,6 @@ public class GamePage {
         grid28.setLocation(820, 460);
 
 
-        //*********다영**********
-        //*** 미션 랜덤으로 띄우기 ***
-        int random = ((int) (Math.random() * 4)) + 1;
-
-        //미션1
-        Image m1 = new ImageIcon("mini/Mission_1.PNG").getImage().getScaledInstance(330, 140, 0);
-        JLabel ms1 = new JLabel(new ImageIcon(m1));
-        ms1.setLocation(1150, 10);
-        ms1.setSize(330, 140);
-
-        //미션2
-        Image m2 = new ImageIcon("mini/Mission_2.PNG").getImage().getScaledInstance(330, 140, 0);
-        JLabel ms2 = new JLabel(new ImageIcon(m2));
-        ms2.setLocation(1150, 10);
-        ms2.setSize(330, 140);
-
-        //미션3
-        Image m3 = new ImageIcon("mini/Mission_3.PNG").getImage().getScaledInstance(330, 140, 0);
-        JLabel ms3 = new JLabel(new ImageIcon(m3));
-        ms3.setLocation(1150, 10);
-        ms3.setSize(330, 140);
-
-        //미션4
-        Image m4 = new ImageIcon("mini/Mission_4.PNG").getImage().getScaledInstance(330, 140, 0);
-        JLabel ms4 = new JLabel(new ImageIcon(m4));
-        ms4.setLocation(1150, 10);
-        ms4.setSize(330, 140);
-
-        if (random == 1) {
-            System.out.println("미션1");
-            gamePanel.add(ms1);
-        } else if (random == 2) {
-            System.out.println("미션2");
-            gamePanel.add(ms2);
-        } else if (random == 3) {
-            System.out.println("미션3");
-            gamePanel.add(ms3);
-        } else if (random == 4) {
-            System.out.println("미션4");
-            gamePanel.add(ms4);
-        }
-
         ///153
         //11
 
@@ -383,8 +343,10 @@ public class GamePage {
 
 
         //=======================================> 윷판 말 좌표 찾기 - 다영
-        // JLabel testmal = new JLabel(new ImageIcon(ryan_body));
-        // testmal.setSize(100, 100);
+        //JLabel testmal = new JLabel(new ImageIcon(ryan_body1));
+        //testmal.setSize(100, 100);
+        //그리드 22일때
+        //testmal.setLocation(685, 350);
         //그리드 0일때
         //testmal.setLocation(990, 640);
         //그리드 1일때
@@ -693,8 +655,8 @@ public class GamePage {
         gamePanel.add(ryan_body_label4_s);
         gamePanel.add(backgroundPurple1);
 
-        // gamePanel.add(testmal); //============테스트용=============== 좌표찾기 - 다영
-        // gamePanel.setComponentZOrder(testmal, 0); //==========테스트용============ 좌표찾기 - 다영
+        //gamePanel.add(testmal); //============테스트용=============== 좌표찾기 - 다영
+        //gamePanel.setComponentZOrder(testmal, 0); //==========테스트용============ 좌표찾기 - 다영
 
 
         //apeach

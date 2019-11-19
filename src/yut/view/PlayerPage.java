@@ -265,6 +265,8 @@ public class PlayerPage {
                         BufferedWriter bos = new BufferedWriter(new FileWriter("회원명단.txt", true));
                         if (idCheck) {
                             bos.write(n2.getText() + "/");
+                            bos.close();
+                            break;
                         }
                     }
 

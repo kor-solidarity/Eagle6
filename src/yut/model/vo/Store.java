@@ -53,8 +53,8 @@ public class Store {
                 show.repaint();
 
                 YutMadeByCho yut = new YutMadeByCho();
-                yut.mainYut(2, player);
-
+               GamePage.yutgap= yut.mainYut(2, player);//윷값보내기
+               
                 Timer ts = new Timer();
                 TimerTask tk = new TimerTask() {
 
@@ -311,7 +311,7 @@ public class Store {
 
                 BackDo bd = new BackDo();
                 YutMadeByCho yut = new YutMadeByCho();
-                yut.mainYut(5, player);
+                GamePage.yutgap=yut.mainYut(5, player);
 
                 player.setSongP(player.getSongP()-bd.getPrice());
 

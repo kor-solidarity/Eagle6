@@ -6,9 +6,12 @@ import yut.model.vo.Item;
 import yut.model.vo.Player;
 
 public class YutMadeByCho {
+    
     int yutNum = 0;//윷결과값저장하는 변수
 
     public int mainYut(int num, Player player) {
+        player.setYutCount(player.getYutCount() - 1);
+    
         switch (num) {
             case 1:
                 yutNum = throwYut(player);
@@ -34,7 +37,7 @@ public class YutMadeByCho {
     //윷확률, 결과값 받을 메소드
     public int throwYut(Player player) {
         //랜덤값으로 윷확률 받기
-        int yutRate = new Random().nextInt(10) + 1;
+        int yutRate = new Random().nextInt(2) + 6;
 
         switch (yutRate) {
             case 1:
@@ -89,7 +92,8 @@ public class YutMadeByCho {
     }
 
     public int yut(Player player) {
-        player.setYutCount(player.getYutCount() + 1);
+       player.setYutCount(player.getYutCount() + 1);
+       
         return 4;
     }
 
@@ -140,6 +144,6 @@ public class YutMadeByCho {
 
     public static void main(String[] args) {
 
-        System.out.println();
+      
     }
 }

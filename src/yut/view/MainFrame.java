@@ -10,6 +10,11 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import javax.imageio.ImageIO;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -24,6 +29,9 @@ import yut.model.vo.Player;
 public class MainFrame extends JFrame {
     //메인 화면 출력
     private MainFrame mf;
+    public static Clip clip;
+   
+   
 
     public MainFrame() {
 
@@ -38,7 +46,9 @@ public class MainFrame extends JFrame {
         } catch (IOException e1) {
             e1.printStackTrace();
         }
-        
+
+        audioPlayer("sound/시작메인음악.WAV");
+
 
         //메인 패널 생성
         JPanel mainPanel = new JPanel();
@@ -103,7 +113,28 @@ public class MainFrame extends JFrame {
             @Override
             public void mouseClicked(MouseEvent e) {
                 //마우스 왼쪽 클릭만 입력 될 시
+              
                 if (e.getButton() == 1) {
+                  
+                    //시작오디오 종료
+                    stopAudio();
+                    
+                    //체크소리
+                    File file = new File("sound/클릭사운드.WAV");
+                    System.out.println(file.exists()); //true
+                    try {
+                        AudioInputStream stream = AudioSystem.getAudioInputStream(file);
+                        Clip clip = AudioSystem.getClip();
+                        clip.open(stream);
+                        clip.flush();
+                        clip.start();
+
+
+                    } catch(Exception e1) {
+
+                        e1.printStackTrace();
+                    }
+
                     //로딩화면 패널 생성
                     JPanel subPanel1 = new JPanel();
                     subPanel1.setBounds(0, 0, 1500, 800);
@@ -142,14 +173,15 @@ public class MainFrame extends JFrame {
                     mf.add(subPanel1);
                     mf.revalidate();
                     mf.repaint();
-
+                    
                     Timer ts = new Timer();
                     TimerTask tk = new TimerTask() {
 
                         @Override
                         public void run() {
-
-
+                           
+                            //선택창 배경음악 시작
+                            audioPlayer("sound/배경음악.WAV");
                             PlayerPage page = new PlayerPage(mf, mainPanel, subPanel1);
 
                         }
@@ -178,6 +210,35 @@ public class MainFrame extends JFrame {
 
 
     }
+    //메인 오디오 실행 메소드
+    public static void audioPlayer(String file) {
+        //오디오 프로그램 실행
+        File file1 = new File(file);
+        try {
+            AudioInputStream stream = AudioSystem.getAudioInputStream(file1);
+            clip = AudioSystem.getClip();
+            clip.open(stream);
+            clip.flush();
+            clip.start();
+            clip.loop(50);
+
+
+
+        } catch(Exception e1) {
+
+            e1.printStackTrace();
+        }
+    }
+    
+    
+    //메인 오디오 정지 메소드
+    public static void stopAudio() {
+       
+        clip.stop();
+        clip.close();
+        
+    }
+
 
 
 }

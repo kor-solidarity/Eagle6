@@ -9,6 +9,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -17,6 +18,9 @@ import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -27,7 +31,11 @@ import javax.swing.JTextField;
 
 import yut.model.vo.*;
 
+
 public class PlayerPage {
+
+    //오디오 추가 
+    private Clip clip;
 
     // private Player player = new Player("김성준", "라이언");//플레이어 예시로 넘길려고 해놓은 것
     TextField n1;
@@ -207,6 +215,20 @@ public class PlayerPage {
 
             @Override
             public void actionPerformed(ActionEvent e) {
+                //오디오 프로그램 실행
+                File file = new File("sound/클릭사운드.WAV");
+                System.out.println(file.exists()); //true
+                try {
+                    AudioInputStream stream = AudioSystem.getAudioInputStream(file);
+                    clip = AudioSystem.getClip();
+                    clip.open(stream);
+                    clip.start();
+
+                } catch(Exception e1) {
+
+                    e1.printStackTrace();
+                }
+
                 nickName[0] = n1.getText();
 
                 for (int i = 0; i < nickName.length; i++) {
@@ -232,6 +254,20 @@ public class PlayerPage {
 
             @Override
             public void actionPerformed(ActionEvent e) {
+                //오디오 프로그램 실행
+                File file = new File("sound/클릭사운드.WAV");
+                System.out.println(file.exists()); //true
+                try {
+                    AudioInputStream stream = AudioSystem.getAudioInputStream(file);
+                    clip = AudioSystem.getClip();
+                    clip.open(stream);
+                    clip.start();
+
+
+                } catch(Exception e1) {
+
+                    e1.printStackTrace();
+                }
                 nickName[1] = n2.getText();
 
                 for (int i = 0; i < nickName.length; i++) {
@@ -256,6 +292,20 @@ public class PlayerPage {
 
             @Override
             public void actionPerformed(ActionEvent e) {
+                //오디오 프로그램 실행
+                File file = new File("sound/클릭사운드.WAV");
+                System.out.println(file.exists()); //true
+                try {
+                    AudioInputStream stream = AudioSystem.getAudioInputStream(file);
+                    clip = AudioSystem.getClip();
+                    clip.open(stream);
+                    clip.start();
+
+
+                } catch(Exception e1) {
+
+                    e1.printStackTrace();
+                }
                 nickName[2] = n3.getText();
                 for (int i = 0; i < nickName.length; i++) {
                     if (i == 2) {
@@ -280,6 +330,22 @@ public class PlayerPage {
 
             @Override
             public void actionPerformed(ActionEvent e) {
+                //오디오 프로그램 실행
+                File file = new File("sound/클릭사운드.WAV");
+                System.out.println(file.exists()); //true
+                try {
+                    AudioInputStream stream = AudioSystem.getAudioInputStream(file);
+                    clip = AudioSystem.getClip();
+                    clip.open(stream);
+                    clip.start();
+
+
+                } catch(Exception e1) {
+
+                    e1.printStackTrace();
+                }
+               
+                
                 nickName[3] = n4.getText();
                 for (int i = 0; i < nickName.length; i++) {
                     if (i == 3) {
@@ -443,6 +509,10 @@ public class PlayerPage {
                     mf.add(panel);
                     mf.revalidate();
                     mf.repaint();
+                   //오디오 종료
+                    MainFrame.stopAudio();
+                    //오디오 실행
+                    MainFrame.audioPlayer("sound/시작메인음악.WAV");
                 }
             }
         });
@@ -452,7 +522,6 @@ public class PlayerPage {
             @Override
             public void mouseClicked(MouseEvent e) {
                 if (e.getButton() == 1 && playerNum >= 2) { //입력2이상일시 스타트버튼가능
-
 
                     //로딩화면 패널 생성
                     JPanel lo = new JPanel();
@@ -512,6 +581,10 @@ public class PlayerPage {
                             if (nickName[3] != null) {
                                 players[3] = new Neo(nickName[3]);
                             }
+                           
+                          
+                           
+                           
                             GamePage gm = new GamePage(mf, panel, lo, players);
                         }
                     };

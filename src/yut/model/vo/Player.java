@@ -62,6 +62,9 @@ public class Player {
     public void setTurn(int turn) {
         this.turn = turn;
     }
+    public boolean getSpecialty() {
+        return specialty;
+    }
 
     public ArrayList getMoves() {
         return moves;
@@ -107,5 +110,8 @@ public class Player {
 
     public void setSpecialty(boolean specialty) {
         this.specialty = specialty;
+    }
+    public void skill() {
+        
     }
 }

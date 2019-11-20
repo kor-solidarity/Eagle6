@@ -137,6 +137,7 @@ public class YutMadeByCho {
     //ryan패시브 첫말*2로 이동
     public int ryanMoveDouble(Player player) {
         int num = throwYut(player);
+        System.out.println("윷클래스안에 라이언패시브 확인:"+num);
         return 2 * num;
     }
 

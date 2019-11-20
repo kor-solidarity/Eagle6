@@ -36,7 +36,7 @@ import yut.model.vo.Store;
 import yut.model.vo.Mal;
 
 public class GamePage {
-    public static int yutgap;//YutMadeByCho에서 윷값 받을 수 있는 전역변수
+    public static int YUTGAP;//YutMadeByCho에서 윷값 받을 수 있는 전역변수
 
     public Player[] players;
 
@@ -44,7 +44,7 @@ public class GamePage {
     public Player player;
 
     // 현재 어떤게 클릭된 상태인가?
-    public int selected_button = 0;
+    public static int SELECTED_BUTTON = 0;
     // 선택된 말
     public int selected_mal = -1;
     
@@ -443,7 +443,7 @@ public class GamePage {
                         // gamePanel.repaint();
                         // 시연이기에 개를 가정.
 
-                        players[0].getMals()[0].move(1, Outer());
+                        players[0].getMals()[0].move(YUTGAP, Outer());
 
                     }
                 }
@@ -985,7 +985,7 @@ public class GamePage {
                     boolean buy_successful = shop.buy(mf, gamePanel, player, 2);
                     System.out.println(buy_successful);
                     if (buy_successful=true) {
-                        selected_button = 10;//moOrDo버튼번호
+                        SELECTED_BUTTON = 10;//moOrDo버튼번호
                        yutThrow1.doClick(50);
                     }
                     Outer().reload_songP(player);
@@ -1039,7 +1039,7 @@ public class GamePage {
                     boolean buy_successful = shop.buy(mf, gamePanel, player, 5);
                     System.out.println(buy_successful);
                     if (buy_successful=true) {
-                        selected_button = 5;//backDo버튼번호
+                        SELECTED_BUTTON = 5;//backDo버튼번호
                        yutThrow1.doClick(50);
                     }
                     Outer().reload_songP(player);
@@ -1144,39 +1144,41 @@ public class GamePage {
 //                        System.out.println("yutgap1이 값을 가지는지 확인"+yutgap1);
 
                         System.out.println("플레이어 남은 횟수 : " + player.getYutCount());
-                        if(selected_button == 10) {//아이템 moOrDo
+                        if(SELECTED_BUTTON == 10) {//아이템 moOrDo
                                System.out.println("모도아이템");
-                            yutgap = throwYut.mainYut(2, player);
-                            selected_button = 0;
+                            YUTGAP = throwYut.mainYut(2, player);
+                            SELECTED_BUTTON = 0;
                             player.setYutCount(player.getYutCount() -1);
-                        }else if(selected_button==5) {//아이템백도
+                        }else if(SELECTED_BUTTON==5) {//아이템백도
                             System.out.println("백도");
-                            yutgap = throwYut.mainYut(5, player);
-                            selected_button=0;
+                            YUTGAP = throwYut.mainYut(5, player);
+                            SELECTED_BUTTON=0;
                             player.setYutCount(player.getYutCount() -1);
-                        }else if(selected_button==4) {//라이언패시브->버튼으로 받는거 아니라서 수정해야함
+                        }else if(SELECTED_BUTTON==4) {//라이언패시브->버튼으로 받는거 아니라서 수정해야함
                             System.out.println("라이언 윷값*2패시브");
-                            yutgap = throwYut.mainYut(4, player);
-                            selected_button=0;
+                            YUTGAP = throwYut.mainYut(4, player);
+                            System.out.println("라이언패시브 확인");
+                            SELECTED_BUTTON=0;
                             player.setYutCount(player.getYutCount() -1);
-                        }else if(selected_button==8) {//네오윷값올리는 패시브->버튼으로 받는거 아니라서 수정해야함
+                        }else if(SELECTED_BUTTON==8) {//네오윷값올리는 패시브->버튼으로 받는거 아니라서 수정해야함
                             System.out.println("네오 윷값올리는 패시브");
-                            yutgap = throwYut.mainYut(3, player);
-                            selected_button=0;
+                            YUTGAP = throwYut.mainYut(3, player);
+                            System.out.println("네오 확인");
+                            SELECTED_BUTTON=0;
                             player.setYutCount(player.getYutCount() -1);
                         }
                         else{
                             System.out.println("기본던지기");
-                            yutgap = throwYut.mainYut(1, player);
-                            selected_button=0;
+                            YUTGAP = throwYut.mainYut(1, player);
+                            SELECTED_BUTTON=0;
                         }
 
 
                         //윷값이 낙이 나왔을때
 
-                        System.out.println("yutgap "+yutgap);
+                        System.out.println("yutgap "+YUTGAP);
                     // 낙인 경우 - 아무일 없이 끝
-                    if (yutgap == 0) {
+                    if (YUTGAP == 0) {
                             Image yut1 = new ImageIcon("mini/낙영상.GIF").getImage().getScaledInstance(300, 300, 0);
                             JLabel yut = new JLabel(new ImageIcon(yut1));
                             yut.setSize(300, 300);
@@ -1203,7 +1205,7 @@ public class GamePage {
                         // delay 시간 이후 task 안 run() 수행
                             ts.schedule(tk, 2400);
                         }//윷값이 도가 나왔을때
-                        else if (yutgap == 1) {
+                        else if (YUTGAP == 1) {
                             Image yut1 = new ImageIcon("mini/도.GIF").getImage().getScaledInstance(300, 300, 0);
                             JLabel yut = new JLabel(new ImageIcon(yut1));
                             yut.setSize(300, 300);
@@ -1255,7 +1257,7 @@ public class GamePage {
                             ts.schedule(tk, 2400);
 
                         }//윷값이 개가 나왔을때
-                        else if (yutgap == 2) {
+                        else if (YUTGAP == 2) {
                             Image yut1 = new ImageIcon("mini/개.GIF").getImage().getScaledInstance(300, 300, 0);
                             JLabel yut = new JLabel(new ImageIcon(yut1));
                             yut.setSize(300, 300);
@@ -1305,7 +1307,7 @@ public class GamePage {
                             };
                             ts.schedule(tk, 3400);
                         }//윷값이 걸이 나왔을때
-                        else if (yutgap == 3) {
+                        else if (YUTGAP == 3) {
                             Image yut1 = new ImageIcon("mini/걸.gif.GIF").getImage().getScaledInstance(300, 300, 0);
                             JLabel yut = new JLabel(new ImageIcon(yut1));
                             yut.setSize(300, 300);
@@ -1354,7 +1356,7 @@ public class GamePage {
                             };
                             ts.schedule(tk, 3400);
                         }//윷값이 윷이 나왔을때
-                        else if (yutgap == 4) {
+                        else if (YUTGAP == 4) {
                             Image yut1 = new ImageIcon("mini/윷gir.GIF").getImage().getScaledInstance(300, 300, 0);
                             JLabel yut = new JLabel(new ImageIcon(yut1));
                             yut.setSize(300, 300);
@@ -1406,7 +1408,7 @@ public class GamePage {
                             };
                             ts.schedule(tk, 3600);
                         }//윷값이 모일때
-                        else if (yutgap==5) {
+                        else if (YUTGAP==5) {
                             Image yut1 = new ImageIcon("mini/모.GIF").getImage().getScaledInstance(300, 300, 0);
                             JLabel yut = new JLabel(new ImageIcon(yut1));
                             yut.setSize(300, 300);
@@ -1455,7 +1457,7 @@ public class GamePage {
                                 }
                             };
                             ts.schedule(tk, 3400);
-                        } else if (yutgap == -1) {
+                        } else if (YUTGAP == -1) {
                             // 빽도인 경우
                             Image yut1 = new ImageIcon("mini/백도.GIF").getImage().getScaledInstance(300, 300, 0);
                             JLabel yut = new JLabel(new ImageIcon(yut1));
@@ -1505,11 +1507,11 @@ public class GamePage {
                             ts.schedule(tk, 3600);
                         }
                     // 낙이 아닌 경우: move 에 값 추가
-                    if(yutgap != 0) {
-                        player.addMoves(yutgap);
+                    if(YUTGAP != 0) {
+                        player.addMoves(YUTGAP);
                     }
                     // 윷 또는 모: yutCount +1
-                    if(yutgap >= 4) {
+                    if(YUTGAP >= 4) {
                         player.setYutCount(player.getYutCount() + 1);
                     }
                     // 한번 던졌으니 무조건 yutCount 감소

@@ -30,6 +30,7 @@ public class GameManager {
                 }
                 gamePage.reload_songP(p);
                 gamePage.player = p;
+                p.skill();
                 // gamePage.show_ryan_songP.repaint();
                 System.out.println(p.getNick() + "getYutCount() " + p.getYutCount());
                 System.out.println(p.getMoves().size());

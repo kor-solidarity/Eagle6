@@ -171,7 +171,7 @@ public class Store {
                 // show.repaint();
 
                 YutMadeByCho yut = new YutMadeByCho();
-                GamePage.yutgap = yut.mainYut(2, player);//윷값보내기
+                GamePage.YUTGAP = yut.mainYut(2, player);//윷값보내기
 
                 Timer ts = new Timer();
                 TimerTask tk = new TimerTask() {
@@ -332,7 +332,7 @@ public class Store {
 
                 BackDo bd = new BackDo();
                 YutMadeByCho yut = new YutMadeByCho();
-                GamePage.yutgap = yut.mainYut(5, player);
+                GamePage.YUTGAP = yut.mainYut(5, player);
 
                 player.setSongP(player.getSongP() - bd.getPrice());
 
@@ -361,9 +361,9 @@ public class Store {
                         panel.revalidate();
                         panel.repaint();
                         if ((int) (Math.random() * 2) == 0) {
-                            GamePage.yutgap = 5;
+                            GamePage.YUTGAP = 5;
                         } else {
-                            GamePage.yutgap = 1;
+                            GamePage.YUTGAP = 1;
                         }
 
                     }

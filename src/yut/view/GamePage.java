@@ -56,7 +56,7 @@ public class GamePage {
     //
     
     //라이언 닉네임 표시
-
+ 
     // 라이언 말 1
     public JLabel ryan_body_label1;
     public JLabel ryan_body_label2;

@@ -47,16 +47,42 @@ public class GamePage {
     public int selected_button = 0;
     // 선택된 말
     public int selected_mal = -1;
-
-    //라이언 닉네임 표시
+    
     public JTextField show_ryan_name;
     public JTextField show_ryan_songP;
     public JTextField show_apeach_songP;
     public JTextField show_frodo_songP;
     public JTextField show_neo_songP;
+    //
+    
+    //라이언 닉네임 표시
 
     // 라이언 말 1
     public JLabel ryan_body_label1;
+    public JLabel ryan_body_label2;
+    public JLabel ryan_body_label3;
+    public JLabel ryan_body_label4;
+    public JLabel apeach_body_label1;
+    public JLabel apeach_body_label2;
+    public JLabel apeach_body_label3;
+    public JLabel apeach_body_label4;
+    public JLabel frodo_body_label1;
+    public JLabel frodo_body_label2;
+    public JLabel frodo_body_label3;
+    public JLabel frodo_body_label4;
+    public JLabel neo_body_label1;
+    public JLabel neo_body_label2;
+    public JLabel neo_body_label3;
+    public JLabel neo_body_label4;
+
+    
+    public JLabel[][] Mals = {{ryan_body_label1, ryan_body_label2, ryan_body_label3, ryan_body_label4},
+                            {apeach_body_label1, apeach_body_label2, apeach_body_label3, apeach_body_label4},
+                            {frodo_body_label1, frodo_body_label2, frodo_body_label3, frodo_body_label4},
+                            {neo_body_label1, neo_body_label2, neo_body_label3, neo_body_label4}};
+  //말 배열
+    
+    
     //게임 패널생성
     public JPanel gamePanel;
 
@@ -349,7 +375,7 @@ public class GamePage {
             ryan_body_label1.setSize(100, 100);
             ryan_body_label1.setLocation(1, 99);
             Image ryan_body2 = new ImageIcon("mini/2번라이언말.PNG").getImage().getScaledInstance(80, 80, 0);
-            JLabel ryan_body_label2 = new JLabel(new ImageIcon(ryan_body2));
+            ryan_body_label2 = new JLabel(new ImageIcon(ryan_body2));
             ryan_body_label2.setSize(100, 100);
             ryan_body_label2.setLocation(71, 99);
             Image ryan_body3 = new ImageIcon("mini/3번라이언말.PNG").getImage().getScaledInstance(80, 80, 0);
@@ -357,7 +383,7 @@ public class GamePage {
             ryan_body_label3.setSize(100, 100);
             ryan_body_label3.setLocation(141, 99);
             Image ryan_body4 = new ImageIcon("mini/4번라이언말.PNG").getImage().getScaledInstance(80, 80, 0);
-            JLabel ryan_body_label4 = new JLabel(new ImageIcon(ryan_body4));
+            ryan_body_label4 = new JLabel(new ImageIcon(ryan_body4));
             ryan_body_label4.setSize(100, 100);
             ryan_body_label4.setLocation(211, 99);
             //라이언 출발 몸통
@@ -504,19 +530,19 @@ public class GamePage {
             players[1].getMals()[3].setInit_xy(211, 288);
             //어피치 몸통
             Image apeach_body1 = new ImageIcon("mini/1번어피치말.PNG").getImage().getScaledInstance(120, 120, 0);
-            JLabel apeach_body_label1 = new JLabel(new ImageIcon(apeach_body1));
+             apeach_body_label1 = new JLabel(new ImageIcon(apeach_body1));
             apeach_body_label1.setSize(100, 100);
             apeach_body_label1.setLocation(1, 288);
             Image apeach_body2 = new ImageIcon("mini/2번어피치말.PNG").getImage().getScaledInstance(120, 120, 0);
-            JLabel apeach_body_label2 = new JLabel(new ImageIcon(apeach_body2));
+            apeach_body_label2 = new JLabel(new ImageIcon(apeach_body2));
             apeach_body_label2.setSize(100, 100);
             apeach_body_label2.setLocation(71, 288);
             Image apeach_body3 = new ImageIcon("mini/3번어피치말.PNG").getImage().getScaledInstance(120, 120, 0);
-            JLabel apeach_body_label3 = new JLabel(new ImageIcon(apeach_body3));
+            apeach_body_label3 = new JLabel(new ImageIcon(apeach_body3));
             apeach_body_label3.setSize(100, 100);
             apeach_body_label3.setLocation(141, 288);
             Image apeach_body4 = new ImageIcon("mini/4번어피치말.PNG").getImage().getScaledInstance(120, 120, 0);
-            JLabel apeach_body_label4 = new JLabel(new ImageIcon(apeach_body4));
+            apeach_body_label4 = new JLabel(new ImageIcon(apeach_body4));
             apeach_body_label4.setSize(100, 100);
             apeach_body_label4.setLocation(211, 288);
             //어피치 출격 몸통
@@ -650,19 +676,19 @@ public class GamePage {
             players[2].getMals()[3].setInit_xy(211, 477);
             //프로도 몸통
             Image frodo_body1 = new ImageIcon("mini/1번프로도말.PNG").getImage().getScaledInstance(100, 100, 0);
-            JLabel frodo_body_label1 = new JLabel(new ImageIcon(frodo_body1));
+            frodo_body_label1 = new JLabel(new ImageIcon(frodo_body1));
             frodo_body_label1.setSize(100, 100);
             frodo_body_label1.setLocation(1, 477);
             Image frodo_body2 = new ImageIcon("mini/2번프로도말.PNG").getImage().getScaledInstance(100, 100, 0);
-            JLabel frodo_body_label2 = new JLabel(new ImageIcon(frodo_body2));
+            frodo_body_label2 = new JLabel(new ImageIcon(frodo_body2));
             frodo_body_label2.setSize(100, 100);
             frodo_body_label2.setLocation(71, 477);
             Image frodo_body3 = new ImageIcon("mini/3번프로도말.PNG").getImage().getScaledInstance(100, 100, 0);
-            JLabel frodo_body_label3 = new JLabel(new ImageIcon(frodo_body3));
+            frodo_body_label3 = new JLabel(new ImageIcon(frodo_body3));
             frodo_body_label3.setSize(100, 100);
             frodo_body_label3.setLocation(141, 477);
             Image frodo_body4 = new ImageIcon("mini/4번프로도말.PNG").getImage().getScaledInstance(100, 100, 0);
-            JLabel frodo_body_label4 = new JLabel(new ImageIcon(frodo_body4));
+            frodo_body_label4 = new JLabel(new ImageIcon(frodo_body4));
             frodo_body_label4.setSize(100, 100);
             frodo_body_label4.setLocation(211, 477);
             //프로도 출격 몸통
@@ -795,19 +821,19 @@ public class GamePage {
             players[3].getMals()[3].setInit_xy(211, 666);
             //네오 몸통
             Image neo_body1 = new ImageIcon("mini/1번네오말.png").getImage().getScaledInstance(100, 100, 0);
-            JLabel neo_body_label1 = new JLabel(new ImageIcon(neo_body1));
+            neo_body_label1 = new JLabel(new ImageIcon(neo_body1));
             neo_body_label1.setSize(100, 100);
             neo_body_label1.setLocation(1, 666);
             Image neo_body2 = new ImageIcon("mini/2번네오말.png").getImage().getScaledInstance(100, 100, 0);
-            JLabel neo_body_label2 = new JLabel(new ImageIcon(neo_body2));
+            neo_body_label2 = new JLabel(new ImageIcon(neo_body2));
             neo_body_label2.setSize(100, 100);
             neo_body_label2.setLocation(71, 666);
             Image neo_body3 = new ImageIcon("mini/3번네오말.png").getImage().getScaledInstance(100, 100, 0);
-            JLabel neo_body_label3 = new JLabel(new ImageIcon(neo_body3));
+            neo_body_label3 = new JLabel(new ImageIcon(neo_body3));
             neo_body_label3.setSize(100, 100);
             neo_body_label3.setLocation(141, 666);
             Image neo_body4 = new ImageIcon("mini/4번네오말.png").getImage().getScaledInstance(100, 100, 0);
-            JLabel neo_body_label4 = new JLabel(new ImageIcon(neo_body4));
+            neo_body_label4 = new JLabel(new ImageIcon(neo_body4));
             neo_body_label4.setSize(100, 100);
             neo_body_label4.setLocation(211, 666);
             //네오 출격 몸통

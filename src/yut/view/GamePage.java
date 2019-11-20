@@ -89,7 +89,6 @@ public class GamePage {
         this.players = players;
 
 
-
         System.out.println("entering GamePage");
         //로딩 패널 제거
         mf.remove(lo);
@@ -99,7 +98,6 @@ public class GamePage {
         gamePanel.setLayout(null);
 
         GameMap gm = new GameMap(gamePanel);
-
 
 
         Mission ms = new Mission(mf, gamePanel);
@@ -587,7 +585,8 @@ public class GamePage {
                 @Override
                 public void mouseClicked(MouseEvent e) {
                     if (e.getButton() == 1) {
-                        players[1].getMals()[0].move(1, YUTGAP, mals, Outer());                    }
+                        players[1].getMals()[0].move(1, YUTGAP, mals, Outer());
+                    }
                 }
             });
             apeach_body_label2.addMouseListener(new MouseAdapter() {
@@ -728,7 +727,7 @@ public class GamePage {
                 @Override
                 public void mouseClicked(MouseEvent e) {
                     if (e.getButton() == 1) {
-                    players[2].getMals()[0].move(2, YUTGAP, mals, Outer());
+                        players[2].getMals()[0].move(2, YUTGAP, mals, Outer());
                     }
                 }
             });
@@ -737,7 +736,7 @@ public class GamePage {
                 public void mouseClicked(MouseEvent e) {
                     if (e.getButton() == 1) {
                         players[2].getMals()[1].move(2, YUTGAP, mals, Outer());
-                        }
+                    }
                 }
             });
             frodo_body_label3.addMouseListener(new MouseAdapter() {
@@ -899,28 +898,28 @@ public class GamePage {
             });
         }
 
-        mals[0][0] =  ryan_body_label1;
-        mals[0][1] =  ryan_body_label2;
-        mals[0][2] =  ryan_body_label3;
-        mals[0][3] =  ryan_body_label4;
+        mals[0][0] = ryan_body_label1;
+        mals[0][1] = ryan_body_label2;
+        mals[0][2] = ryan_body_label3;
+        mals[0][3] = ryan_body_label4;
 
 
-        mals[1][0] =  apeach_body_label1;
-        mals[1][1] =  apeach_body_label2;
-        mals[1][2] =  apeach_body_label3;
-        mals[1][3] =  apeach_body_label4;
+        mals[1][0] = apeach_body_label1;
+        mals[1][1] = apeach_body_label2;
+        mals[1][2] = apeach_body_label3;
+        mals[1][3] = apeach_body_label4;
 
 
-        mals[2][0] =  frodo_body_label1;
-        mals[2][1] =  frodo_body_label2;
-        mals[2][2] =  frodo_body_label3;
-        mals[2][3] =  frodo_body_label4;
+        mals[2][0] = frodo_body_label1;
+        mals[2][1] = frodo_body_label2;
+        mals[2][2] = frodo_body_label3;
+        mals[2][3] = frodo_body_label4;
 
 
-        mals[3][0] =  neo_body_label1;
-        mals[3][1] =  neo_body_label2;
-        mals[3][2] =  neo_body_label3;
-        mals[3][3] =  neo_body_label4;
+        mals[3][0] = neo_body_label1;
+        mals[3][1] = neo_body_label2;
+        mals[3][2] = neo_body_label3;
+        mals[3][3] = neo_body_label4;
 
         // {{ryan_body_label1, ryan_body_label2, ryan_body_label3, ryan_body_label4},
         //     {apeach_body_label1, apeach_body_label2, apeach_body_label3, apeach_body_label4},
@@ -1145,8 +1144,8 @@ public class GamePage {
         yutThrow1.addActionListener(new ActionListener() {
 
 
-                @Override
-                public void actionPerformed(ActionEvent e) {
+            @Override
+            public void actionPerformed(ActionEvent e) {
 
                 if (player.getYutCount() > 0) {
                     //오디오 프로그램 실행
@@ -1154,14 +1153,12 @@ public class GamePage {
                     System.out.println(file.exists()); //true
                     try {
                         AudioInputStream stream = AudioSystem.getAudioInputStream(file);
-                       Clip clip = AudioSystem.getClip();
+                        Clip clip = AudioSystem.getClip();
                         clip.open(stream);
                         clip.start();
 
 
-
-
-                    } catch(Exception e1) {
+                    } catch (Exception e1) {
 
                         e1.printStackTrace();
                     }
@@ -1174,44 +1171,50 @@ public class GamePage {
                     YutMadeByCho throwYut = new YutMadeByCho();
                     //                        System.out.println("yutgap1이 값을 가지는지 확인"+yutgap1);
 
-                    System.out.println("플레이어 남은 횟수 : " + player.getYutCount());
-                    if(selected_button == 10) {//아이템 moOrDo
+
+                    boolean ryan_own = false;//라이언 패시브발동했는지 확인하는 변수
+                    if (SELECTED_BUTTON == 10) {//아이템 moOrDo
                         System.out.println("모도아이템");
-                        yutgap = throwYut.mainYut(2, player);
-                        selected_button = 0;
-                        player.setYutCount(player.getYutCount() -1);
-                    }else if(selected_button==5) {//아이템백도
+                        YUTGAP = throwYut.mainYut(2, player);
+                        SELECTED_BUTTON = 0;
+                        // player.setYutCount(player.getYutCount() -1);
+                    } else if (SELECTED_BUTTON == 5) {//아이템백도
                         System.out.println("백도");
-                        yutgap = throwYut.mainYut(5, player);
-                        selected_button=0;
-                        player.setYutCount(player.getYutCount() -1);
-                    }else if(selected_button==4) {//라이언패시브->버튼으로 받는거 아니라서 수정해야함
-                        System.out.println("라이언 윷값*2패시브");
-                        yutgap = throwYut.mainYut(4, player);
-                        selected_button=0;
-                        player.setYutCount(player.getYutCount() -1);
-                    }else if(selected_button==8) {//네오윷값올리는 패시브->버튼으로 받는거 아니라서 수정해야함
+                        YUTGAP = throwYut.mainYut(5, player);
+                        SELECTED_BUTTON = 0;
+
+                    } else if (SELECTED_BUTTON == 4) {
+                        //라이언 패시브로 player.moves arrayList에 같은 값이 2번 담김
+                        //그래서 게임실행할때 라이언이 한번 나가면 라이언말을 한번 더 클릭해줘야 한번 더감
+                        ryan_own = true;//라이언패시브 발동할때를 확인
+                        System.out.println("라이언 패시브 ryan_own:" + ryan_own);
+
+                        YUTGAP = throwYut.mainYut(1, player);
+
+                        SELECTED_BUTTON = 0;
+
+
+                    } else if (SELECTED_BUTTON == 8) {
                         System.out.println("네오 윷값올리는 패시브");
-                        yutgap = throwYut.mainYut(3, player);
-                        selected_button=0;
-                        player.setYutCount(player.getYutCount() -1);
-                    }
-                    else{
+                        YUTGAP = throwYut.mainYut(3, player);
+                        SELECTED_BUTTON = 0;
+
+                    } else {
                         System.out.println("기본던지기");
-                        yutgap = throwYut.mainYut(1, player);
-                        selected_button=0;
+                        YUTGAP = throwYut.mainYut(1, player);
+                        SELECTED_BUTTON = 0;
                     }
 
 
-                        //윷값이 낙이 나왔을때
+                    //윷값이 낙이 나왔을때
 
-                        System.out.println("yutgap "+YUTGAP);
+                    System.out.println("yutgap " + YUTGAP);
                     // 낙인 경우 - 아무일 없이 끝
                     if (YUTGAP == 0) {
-                            Image yut1 = new ImageIcon("mini/낙영상.GIF").getImage().getScaledInstance(300, 300, 0);
-                            JLabel yut = new JLabel(new ImageIcon(yut1));
-                            yut.setSize(300, 300);
-                            yut.setLocation(1170, 150);
+                        Image yut1 = new ImageIcon("mini/낙영상.GIF").getImage().getScaledInstance(300, 300, 0);
+                        JLabel yut = new JLabel(new ImageIcon(yut1));
+                        yut.setSize(300, 300);
+                        yut.setLocation(1170, 150);
 
                         gamePanel.add(yut);
                         gamePanel.revalidate();
@@ -1222,315 +1225,315 @@ public class GamePage {
                         // 타이머 관련 메소드 선언
                         TimerTask tk = new TimerTask() {
 
-                                @Override
-                                public void run() {
+                            @Override
+                            public void run() {
 
-                                    gamePanel.remove(yut);
-                                    gamePanel.revalidate();
-                                    gamePanel.repaint();
+                                gamePanel.remove(yut);
+                                gamePanel.revalidate();
+                                gamePanel.repaint();
 
-                                }
-                            };
+                            }
+                        };
                         // delay 시간 이후 task 안 run() 수행
-                            ts.schedule(tk, 2400);
-                        }//윷값이 도가 나왔을때
-                        else if (YUTGAP == 1) {
-                            Image yut1 = new ImageIcon("mini/도.GIF").getImage().getScaledInstance(300, 300, 0);
-                            JLabel yut = new JLabel(new ImageIcon(yut1));
-                            yut.setSize(300, 300);
-                            yut.setLocation(1170, 150);
+                        ts.schedule(tk, 2400);
+                    }//윷값이 도가 나왔을때
+                    else if (YUTGAP == 1) {
+                        Image yut1 = new ImageIcon("mini/도.GIF").getImage().getScaledInstance(300, 300, 0);
+                        JLabel yut = new JLabel(new ImageIcon(yut1));
+                        yut.setSize(300, 300);
+                        yut.setLocation(1170, 150);
 
                         gamePanel.add(yut);
                         gamePanel.revalidate();
                         gamePanel.repaint();
                         gamePanel.setComponentZOrder(yut, 0);
 
-                            Timer ts = new Timer();
-                            TimerTask tk = new TimerTask() {
+                        Timer ts = new Timer();
+                        TimerTask tk = new TimerTask() {
 
-                                @Override
-                                public void run() {
-                                    Image dodo = new ImageIcon("mini/도버튼.PNG").getImage().getScaledInstance(50, 50, 0);
-                                    JButton dodoBtn = new JButton(new ImageIcon(dodo));
+                            @Override
+                            public void run() {
+                                Image dodo = new ImageIcon("mini/도버튼.PNG").getImage().getScaledInstance(50, 50, 0);
+                                JButton dodoBtn = new JButton(new ImageIcon(dodo));
 
-                                    dodoBtn.setLocation(1170, 150);
-                                    dodoBtn.setSize(50, 50);
+                                dodoBtn.setLocation(1170, 150);
+                                dodoBtn.setSize(50, 50);
 
 
-                                    gamePanel.remove(yut);
-                                    gamePanel.add(dodoBtn);
-                                    gamePanel.revalidate();
-                                    gamePanel.repaint();
-                                    gamePanel.setComponentZOrder(dodoBtn, 0);
+                                gamePanel.remove(yut);
+                                gamePanel.add(dodoBtn);
+                                gamePanel.revalidate();
+                                gamePanel.repaint();
+                                gamePanel.setComponentZOrder(dodoBtn, 0);
 
-                                    dodoBtn.addMouseListener(new MouseAdapter() {
-                                        @Override
-                                        public void mouseClicked(MouseEvent e) {
+                                dodoBtn.addMouseListener(new MouseAdapter() {
+                                    @Override
+                                    public void mouseClicked(MouseEvent e) {
 
-                                            System.out.println("addMoves후: "+player.getMoves());//삭제할거
-                                            System.out.println(" 윷카운트 확인:"+player.getYutCount());//삭제할거
+                                        System.out.println("addMoves후: " + player.getMoves());//삭제할거
+                                        System.out.println(" 윷카운트 확인:" + player.getYutCount());//삭제할거
 
-                                            gamePanel.remove(dodoBtn);
-                                            gamePanel.revalidate();
-                                            gamePanel.repaint();
+                                        gamePanel.remove(dodoBtn);
+                                        gamePanel.revalidate();
+                                        gamePanel.repaint();
 
-                                        }
-                                    });
+                                    }
+                                });
 
-                                }
-                            };
-                            ts.schedule(tk, 2400);
+                            }
+                        };
+                        ts.schedule(tk, 2400);
 
-                        }//윷값이 개가 나왔을때
-                        else if (YUTGAP == 2) {
-                            Image yut1 = new ImageIcon("mini/개.GIF").getImage().getScaledInstance(300, 300, 0);
-                            JLabel yut = new JLabel(new ImageIcon(yut1));
-                            yut.setSize(300, 300);
-                            yut.setLocation(1170, 150);
+                    }//윷값이 개가 나왔을때
+                    else if (YUTGAP == 2) {
+                        Image yut1 = new ImageIcon("mini/개.GIF").getImage().getScaledInstance(300, 300, 0);
+                        JLabel yut = new JLabel(new ImageIcon(yut1));
+                        yut.setSize(300, 300);
+                        yut.setLocation(1170, 150);
 
-                            gamePanel.add(yut);
-                            gamePanel.revalidate();
-                            gamePanel.repaint();
-                            gamePanel.setComponentZOrder(yut, 0);
+                        gamePanel.add(yut);
+                        gamePanel.revalidate();
+                        gamePanel.repaint();
+                        gamePanel.setComponentZOrder(yut, 0);
 
-                            Timer ts = new Timer();
-                            TimerTask tk = new TimerTask() {
+                        Timer ts = new Timer();
+                        TimerTask tk = new TimerTask() {
 
-                                @Override
-                                public void run() {
+                            @Override
+                            public void run() {
 
-                                    Image dodo = new ImageIcon("mini/개버튼.PNG").getImage().getScaledInstance(50, 50, 0);
-                                    JButton dodoBtn = new JButton(new ImageIcon(dodo));
+                                Image dodo = new ImageIcon("mini/개버튼.PNG").getImage().getScaledInstance(50, 50, 0);
+                                JButton dodoBtn = new JButton(new ImageIcon(dodo));
 
-                                    dodoBtn.setLocation(1170, 150);
-                                    dodoBtn.setSize(50, 50);
+                                dodoBtn.setLocation(1170, 150);
+                                dodoBtn.setSize(50, 50);
 
-                                    gamePanel.remove(yut);
-                                    gamePanel.add(dodoBtn);
-                                    gamePanel.revalidate();
-                                    gamePanel.repaint();
-                                    gamePanel.setComponentZOrder(dodoBtn, 0);
-                                    dodoBtn.addMouseListener(new MouseAdapter() {
-                                        @Override
-                                        public void mouseClicked(MouseEvent e) {
+                                gamePanel.remove(yut);
+                                gamePanel.add(dodoBtn);
+                                gamePanel.revalidate();
+                                gamePanel.repaint();
+                                gamePanel.setComponentZOrder(dodoBtn, 0);
+                                dodoBtn.addMouseListener(new MouseAdapter() {
+                                    @Override
+                                    public void mouseClicked(MouseEvent e) {
 
                                         System.out.println("addMoves후: " + player.getMoves());//삭제할거
                                         System.out.println(" 윷카운트 감소안헀을때:" + player.getYutCount());//삭제할거
 
-                                            gamePanel.remove(dodoBtn);
-                                            gamePanel.revalidate();
-                                            gamePanel.repaint();
+                                        gamePanel.remove(dodoBtn);
+                                        gamePanel.revalidate();
+                                        gamePanel.repaint();
 
-                                        }
-                                    });
+                                    }
+                                });
 
-                                }
-                            };
-                            ts.schedule(tk, 3400);
-                        }//윷값이 걸이 나왔을때
-                        else if (YUTGAP == 3) {
-                            Image yut1 = new ImageIcon("mini/걸.gif.GIF").getImage().getScaledInstance(300, 300, 0);
-                            JLabel yut = new JLabel(new ImageIcon(yut1));
-                            yut.setSize(300, 300);
-                            yut.setLocation(1170, 150);
-
-
-                            gamePanel.add(yut);
-                            gamePanel.revalidate();
-                            gamePanel.repaint();
-                            gamePanel.setComponentZOrder(yut, 0);
-
-                            Timer ts = new Timer();
-                            TimerTask tk = new TimerTask() {
-
-                                @Override
-                                public void run() {
-
-                                    Image dodo = new ImageIcon("mini/걸버튼.PNG").getImage().getScaledInstance(50, 50, 0);
-                                    JButton dodoBtn = new JButton(new ImageIcon(dodo));
-                                    dodoBtn.setLocation(1170, 150);
-                                    dodoBtn.setSize(50, 50);
+                            }
+                        };
+                        ts.schedule(tk, 3400);
+                    }//윷값이 걸이 나왔을때
+                    else if (YUTGAP == 3) {
+                        Image yut1 = new ImageIcon("mini/걸.gif.GIF").getImage().getScaledInstance(300, 300, 0);
+                        JLabel yut = new JLabel(new ImageIcon(yut1));
+                        yut.setSize(300, 300);
+                        yut.setLocation(1170, 150);
 
 
-                                    gamePanel.remove(yut);
-                                    gamePanel.add(dodoBtn);
-                                    gamePanel.revalidate();
-                                    gamePanel.repaint();
-                                    gamePanel.setComponentZOrder(dodoBtn, 0);
-                                    dodoBtn.addMouseListener(new MouseAdapter() {
-                                        @Override
-                                        public void mouseClicked(MouseEvent e) {
+                        gamePanel.add(yut);
+                        gamePanel.revalidate();
+                        gamePanel.repaint();
+                        gamePanel.setComponentZOrder(yut, 0);
 
-                                            System.out.println("addMoves후: "+player.getMoves());//삭제할거
-                                            System.out.println(" 윷카운트 감소안헀을때:"+player.getYutCount());//삭제할거
+                        Timer ts = new Timer();
+                        TimerTask tk = new TimerTask() {
 
-                                            gamePanel.remove(dodoBtn);
-                                            gamePanel.revalidate();
-                                            gamePanel.repaint();
+                            @Override
+                            public void run() {
 
-                                        }
-                                    });
-
-                                }
-                            };
-                            ts.schedule(tk, 3400);
-                        }//윷값이 윷이 나왔을때
-                        else if (YUTGAP == 4) {
-                            Image yut1 = new ImageIcon("mini/윷gir.GIF").getImage().getScaledInstance(300, 300, 0);
-                            JLabel yut = new JLabel(new ImageIcon(yut1));
-                            yut.setSize(300, 300);
-                            yut.setLocation(1170, 150);
-                            player.setYutCount(player.getYutCount() + 1);
-
-                            gamePanel.add(yut);
-                            gamePanel.revalidate();
-                            gamePanel.repaint();
-                            gamePanel.setComponentZOrder(yut, 0);
+                                Image dodo = new ImageIcon("mini/걸버튼.PNG").getImage().getScaledInstance(50, 50, 0);
+                                JButton dodoBtn = new JButton(new ImageIcon(dodo));
+                                dodoBtn.setLocation(1170, 150);
+                                dodoBtn.setSize(50, 50);
 
 
-                            Timer ts = new Timer();
-                            TimerTask tk = new TimerTask() {
-
-                                @Override
-                                public void run() {
-
-                                    Image dodo = new ImageIcon("mini/윷버튼.PNG").getImage().getScaledInstance(50, 50, 0);
-                                    JButton dodoBtn = new JButton(new ImageIcon(dodo));
-                                    dodoBtn.setLocation(1220, 150);
-                                    dodoBtn.setSize(50, 50);
-
-
-                                    gamePanel.remove(yut);
-                                    gamePanel.add(dodoBtn);
-                                    gamePanel.revalidate();
-                                    gamePanel.repaint();
-                                    gamePanel.setComponentZOrder(dodoBtn, 0);
-                                    dodoBtn.addMouseListener(new MouseAdapter() {
-                                        @Override
-                                        public void mouseClicked(MouseEvent e) {
+                                gamePanel.remove(yut);
+                                gamePanel.add(dodoBtn);
+                                gamePanel.revalidate();
+                                gamePanel.repaint();
+                                gamePanel.setComponentZOrder(dodoBtn, 0);
+                                dodoBtn.addMouseListener(new MouseAdapter() {
+                                    @Override
+                                    public void mouseClicked(MouseEvent e) {
 
                                         System.out.println("addMoves후: " + player.getMoves());//삭제할거
                                         System.out.println(" 윷카운트 감소안헀을때:" + player.getYutCount());//삭제할거
 
-                                            gamePanel.remove(dodoBtn);
-                                            gamePanel.revalidate();
-                                            gamePanel.repaint();
+                                        gamePanel.remove(dodoBtn);
+                                        gamePanel.revalidate();
+                                        gamePanel.repaint();
 
-                                        }
-                                    });
+                                    }
+                                });
 
+                            }
+                        };
+                        ts.schedule(tk, 3400);
+                    }//윷값이 윷이 나왔을때
+                    else if (YUTGAP == 4) {
+                        Image yut1 = new ImageIcon("mini/윷gir.GIF").getImage().getScaledInstance(300, 300, 0);
+                        JLabel yut = new JLabel(new ImageIcon(yut1));
+                        yut.setSize(300, 300);
+                        yut.setLocation(1170, 150);
+                        player.setYutCount(player.getYutCount() + 1);
 
-                                }
-                            };
-                            ts.schedule(tk, 3600);
-                        }//윷값이 모일때
-                        else if (YUTGAP==5) {
-                            Image yut1 = new ImageIcon("mini/모.GIF").getImage().getScaledInstance(300, 300, 0);
-                            JLabel yut = new JLabel(new ImageIcon(yut1));
-                            yut.setSize(300, 300);
-                            yut.setLocation(1170, 150);
-                            player.setYutCount(player.getYutCount() + 1);
-
-                            gamePanel.add(yut);
-                            gamePanel.revalidate();
-                            gamePanel.repaint();
-                            gamePanel.setComponentZOrder(yut, 0);
-
-                            Timer ts = new Timer();
-                            TimerTask tk = new TimerTask() {
-
-                                @Override
-                                public void run() {
-
-                                    Image dodo = new ImageIcon("mini/모버튼.PNG").getImage().getScaledInstance(50, 50, 0);
-                                    JButton dodoBtn = new JButton(new ImageIcon(dodo));
-                                    dodoBtn.setLocation(1270, 150);
-                                    dodoBtn.setSize(50, 50);
+                        gamePanel.add(yut);
+                        gamePanel.revalidate();
+                        gamePanel.repaint();
+                        gamePanel.setComponentZOrder(yut, 0);
 
 
-                                    gamePanel.remove(yut);
-                                    gamePanel.add(dodoBtn);
-                                    gamePanel.revalidate();
-                                    gamePanel.repaint();
-                                    gamePanel.setComponentZOrder(dodoBtn, 0);
-                                    dodoBtn.addMouseListener(new MouseAdapter() {
-                                        @Override
-                                        public void mouseClicked(MouseEvent e) {
+                        Timer ts = new Timer();
+                        TimerTask tk = new TimerTask() {
+
+                            @Override
+                            public void run() {
+
+                                Image dodo = new ImageIcon("mini/윷버튼.PNG").getImage().getScaledInstance(50, 50, 0);
+                                JButton dodoBtn = new JButton(new ImageIcon(dodo));
+                                dodoBtn.setLocation(1220, 150);
+                                dodoBtn.setSize(50, 50);
+
+
+                                gamePanel.remove(yut);
+                                gamePanel.add(dodoBtn);
+                                gamePanel.revalidate();
+                                gamePanel.repaint();
+                                gamePanel.setComponentZOrder(dodoBtn, 0);
+                                dodoBtn.addMouseListener(new MouseAdapter() {
+                                    @Override
+                                    public void mouseClicked(MouseEvent e) {
+
+                                        System.out.println("addMoves후: " + player.getMoves());//삭제할거
+                                        System.out.println(" 윷카운트 감소안헀을때:" + player.getYutCount());//삭제할거
+
+                                        gamePanel.remove(dodoBtn);
+                                        gamePanel.revalidate();
+                                        gamePanel.repaint();
+
+                                    }
+                                });
+
+
+                            }
+                        };
+                        ts.schedule(tk, 3600);
+                    }//윷값이 모일때
+                    else if (YUTGAP == 5) {
+                        Image yut1 = new ImageIcon("mini/모.GIF").getImage().getScaledInstance(300, 300, 0);
+                        JLabel yut = new JLabel(new ImageIcon(yut1));
+                        yut.setSize(300, 300);
+                        yut.setLocation(1170, 150);
+                        player.setYutCount(player.getYutCount() + 1);
+
+                        gamePanel.add(yut);
+                        gamePanel.revalidate();
+                        gamePanel.repaint();
+                        gamePanel.setComponentZOrder(yut, 0);
+
+                        Timer ts = new Timer();
+                        TimerTask tk = new TimerTask() {
+
+                            @Override
+                            public void run() {
+
+                                Image dodo = new ImageIcon("mini/모버튼.PNG").getImage().getScaledInstance(50, 50, 0);
+                                JButton dodoBtn = new JButton(new ImageIcon(dodo));
+                                dodoBtn.setLocation(1270, 150);
+                                dodoBtn.setSize(50, 50);
+
+
+                                gamePanel.remove(yut);
+                                gamePanel.add(dodoBtn);
+                                gamePanel.revalidate();
+                                gamePanel.repaint();
+                                gamePanel.setComponentZOrder(dodoBtn, 0);
+                                dodoBtn.addMouseListener(new MouseAdapter() {
+                                    @Override
+                                    public void mouseClicked(MouseEvent e) {
 
                                         System.out.println("addMoves후: " + player.getMoves());//삭제할거
 
                                         System.out.println("아이템썼을때 윷카운트 감소되는지:" + player.getYutCount());//삭제할거
 
-                                            gamePanel.remove(dodoBtn);
-                                            gamePanel.revalidate();
-                                            gamePanel.repaint();
+                                        gamePanel.remove(dodoBtn);
+                                        gamePanel.revalidate();
+                                        gamePanel.repaint();
 
-                                        }
-                                    });
-
-
-                                }
-                            };
-                            ts.schedule(tk, 3400);
-                        } else if (YUTGAP == -1) {
-                            // 빽도인 경우
-                            Image yut1 = new ImageIcon("mini/백도.GIF").getImage().getScaledInstance(300, 300, 0);
-                            JLabel yut = new JLabel(new ImageIcon(yut1));
-                            yut.setSize(300, 300);
-                            yut.setLocation(1170, 150);
+                                    }
+                                });
 
 
-                            gamePanel.add(yut);
-                            gamePanel.revalidate();
-                            gamePanel.repaint();
-                            gamePanel.setComponentZOrder(yut, 0);
-
-                            Timer ts = new Timer();
-                            TimerTask tk = new TimerTask() {
-
-                                @Override
-                                public void run() {
-
-                                    Image dodo = new ImageIcon("mini/백도버튼.PNG").getImage().getScaledInstance(50, 50, 0);
-                                    JButton dodoBtn = new JButton(new ImageIcon(dodo));
-                                    dodoBtn.setLocation(1170, 150);
-                                    dodoBtn.setSize(50, 50);
+                            }
+                        };
+                        ts.schedule(tk, 3400);
+                    } else if (YUTGAP == -1) {
+                        // 빽도인 경우
+                        Image yut1 = new ImageIcon("mini/백도.GIF").getImage().getScaledInstance(300, 300, 0);
+                        JLabel yut = new JLabel(new ImageIcon(yut1));
+                        yut.setSize(300, 300);
+                        yut.setLocation(1170, 150);
 
 
-                                    gamePanel.remove(yut);
-                                    gamePanel.add(dodoBtn);
-                                    gamePanel.revalidate();
-                                    gamePanel.repaint();
-                                    gamePanel.setComponentZOrder(dodoBtn, 0);
-                                    dodoBtn.addMouseListener(new MouseAdapter() {
-                                        @Override
-                                        public void mouseClicked(MouseEvent e) {
+                        gamePanel.add(yut);
+                        gamePanel.revalidate();
+                        gamePanel.repaint();
+                        gamePanel.setComponentZOrder(yut, 0);
+
+                        Timer ts = new Timer();
+                        TimerTask tk = new TimerTask() {
+
+                            @Override
+                            public void run() {
+
+                                Image dodo = new ImageIcon("mini/백도버튼.PNG").getImage().getScaledInstance(50, 50, 0);
+                                JButton dodoBtn = new JButton(new ImageIcon(dodo));
+                                dodoBtn.setLocation(1170, 150);
+                                dodoBtn.setSize(50, 50);
+
+
+                                gamePanel.remove(yut);
+                                gamePanel.add(dodoBtn);
+                                gamePanel.revalidate();
+                                gamePanel.repaint();
+                                gamePanel.setComponentZOrder(dodoBtn, 0);
+                                dodoBtn.addMouseListener(new MouseAdapter() {
+                                    @Override
+                                    public void mouseClicked(MouseEvent e) {
 
                                         System.out.println("addMoves후: " + player.getMoves());//삭제할거
 
                                         System.out.println("아이템썼을때 윷카운트 감소되는지:" + player.getYutCount());//삭제할거
 
-                                            gamePanel.remove(dodoBtn);
-                                            gamePanel.revalidate();
-                                            gamePanel.repaint();
+                                        gamePanel.remove(dodoBtn);
+                                        gamePanel.revalidate();
+                                        gamePanel.repaint();
 
-                                        }
-                                    });
-                                }
-                            };
-                            ts.schedule(tk, 3600);
-                        }
+                                    }
+                                });
+                            }
+                        };
+                        ts.schedule(tk, 3600);
+                    }
                     // 낙이 아닌 경우: move 에 값 추가
-                    if(YUTGAP != 0) {
-                        if(ryan_own) {//라이언 패시브 한정 윷값 두번저장
+                    if (YUTGAP != 0) {
+                        if (ryan_own) {//라이언 패시브 한정 윷값 두번저장
                             player.addMoves(YUTGAP);
                             player.addMoves(YUTGAP);
-                          }else {
+                        } else {
                             player.addMoves(YUTGAP);
-                          }
+                        }
                     }
                     // 윷 또는 모: yutCount +1
-                    if(YUTGAP >= 4) {
+                    if (YUTGAP >= 4) {
                         player.setYutCount(player.getYutCount() + 1);
                     }
                     // 한번 던졌으니 무조건 yutCount 감소

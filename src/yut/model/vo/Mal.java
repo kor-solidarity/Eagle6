@@ -1,5 +1,6 @@
 package yut.model.vo;
 
+import yut.view.GameMap;
 import yut.view.GamePage;
 
 import javax.swing.*;
@@ -110,7 +111,12 @@ public class Mal {
     }
 
     /**
-     * @param move_num : 윷의 결과값
+     *
+     *
+     * @param playerNum - 지금 차례인 플레이어 배열번호
+     * @param move_num - 이동해야할 윷값
+     * @param mals - 게임 내 모든 말의 라벨
+     * @param gp - 게임페이지 그 자체.
      */
     public void move(int playerNum, int move_num, JLabel[][] mals, GamePage gp) {
         // num 값 만큼 움직여야함.
@@ -125,6 +131,9 @@ public class Mal {
             }
 
         }
+
+
+
         // num이
 
         // move_num = (int)(Math.random() * 5 + 1);
@@ -256,7 +265,7 @@ public class Mal {
         }
 
         // 이제 아이템이 있는지 확인.
-
+        // if (GameMap)
 
     }
 

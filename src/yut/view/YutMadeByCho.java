@@ -12,7 +12,7 @@ public class YutMadeByCho {
     public int mainYut(int num, Player player) {
        
 
-        switch (1) {
+        switch (num) {
             case 1:
                 yutNum = throwYut(player);
                 break;
@@ -46,7 +46,7 @@ public class YutMadeByCho {
             case 1:
                 yutNum = nak();
                 break;//낙나왔을때
-            case 2:
+           case 2: 
                 yutNum = Do();
                 break;//도
             case 3:
@@ -79,7 +79,7 @@ public class YutMadeByCho {
     }
 
     public int nak() {
-        return 10;
+        return 0;
     }
 
     public int Do() {
@@ -95,13 +95,12 @@ public class YutMadeByCho {
     }
 
     public int yut(Player player) {
-        player.setYutCount(player.getYutCount() + 1);
-
+       
         return 4;
     }
 
     public int mo(Player player) {
-        player.setYutCount(player.getYutCount() + 1);
+        
         return 5;
     }
 
@@ -111,14 +110,14 @@ public class YutMadeByCho {
 
     // 모아니면 도 아이템
     public int moOrDo(Player player) {
-        player.setYutCount(player.getYutCount() + 1);
+//        player.setYutCount(player.getYutCount() + 1);
         //아이템 메소드에 가격과 이름 설정
         //Item item = new Item(5, "moOrDo");
         // 랜덤값 1 또는 0, 0이면 모 1이면 도
         if ((int) (Math.random() * 2) == 0) {
-            return mo(player);
+            return 5;
         } else {
-            return Do();
+            return 1;
         }
     }
 
@@ -130,7 +129,7 @@ public class YutMadeByCho {
         if (random == 0 || random == 1) {
             return 4;
         } else {
-            return nak();
+            return 0;
         }
     }
 

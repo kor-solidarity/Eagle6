@@ -993,7 +993,7 @@ public class GamePage {
                 if (e.getButton() == 1) {
                     Store shop = new Store();
                     boolean buy_successful = shop.buy(mf, gamePanel, player, 2);
-                    System.out.println(buy_successful);
+                    System.out.println("GamePage의 스킬2 모오얼도의 값:"+buy_successful);
                     if (buy_successful) {
                         SELECTED_BUTTON = 10;//moOrDo버튼번호
                         yutThrow1.doClick(50);
@@ -1013,7 +1013,7 @@ public class GamePage {
                     Store shop = new Store();
 
                     shop.buy(mf, gamePanel, player, 3);
-                    Outer().reload_songP(player);
+                    Outer().reload_songP(player);//위치다름
                 }
             }
         });
@@ -1047,7 +1047,7 @@ public class GamePage {
                 if (e.getButton() == 1) {
                     Store shop = new Store();
                     boolean buy_successful = shop.buy(mf, gamePanel, player, 5);
-                    System.out.println(buy_successful);
+                    System.out.println("GamePage 스킬5 백도 스킬의 값:"+buy_successful);
                     if (buy_successful) {
                         SELECTED_BUTTON = 5;//backDo버튼번호
                         yutThrow1.doClick(50);

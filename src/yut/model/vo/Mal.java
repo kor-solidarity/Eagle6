@@ -108,7 +108,7 @@ public class Mal {
             // 한칸 움직인 후에는 그 위치에 벽이 있나 확인한다. 있으면 그대로 종료.
 
             // num이
-        move_num = (int)(Math.random() * 5 + 1);
+        //move_num = (int)(Math.random() * 5 + 1);
         System.out.println("move_num " + move_num);
         if (move_num <= 0) {
             return;

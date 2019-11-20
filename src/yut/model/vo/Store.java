@@ -172,8 +172,8 @@ public class Store {
                 // show.repaint();
 
                 YutMadeByCho yut = new YutMadeByCho();
-                GamePage.yutgap = yut.mainYut(2, player);//윷값보내기
-
+//                GamePage.yutgap = yut.mainYut(2, player);//윷값보내기
+                      
                 Timer ts = new Timer();
                 TimerTask tk = new TimerTask() {
 
@@ -410,7 +410,7 @@ public class Store {
 
             return true;
         }
-        return false;
+        return true;
 
 
     }

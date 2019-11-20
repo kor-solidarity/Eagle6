@@ -35,7 +35,7 @@ public class PlayerPage {
     TextField n3;
     TextField n4;
     int playerNum;
-    String[] nickName = new String[4];
+    String[] nick = new String[4];
     //ArrayList arr=new ArrayList();
 
     public PlayerPage(MainFrame mf, JPanel panel, JPanel sb) {
@@ -88,7 +88,7 @@ public class PlayerPage {
         Image apeach = new ImageIcon("mini/어피치.PNG").getImage().getScaledInstance(230, 230, 0);
         JLabel apeachBtn = new JLabel(new ImageIcon(apeach));
         apeachBtn.setSize(230, 230);
-        apeachBtn.setLocation(380, 550);
+        apeachBtn.setLocation(380, 540);
         //네오 캐릭터
         Image neo = new ImageIcon("mini/네오.PNG").getImage().getScaledInstance(230, 230, 0);
         JLabel neoBtn = new JLabel(new ImageIcon(neo));
@@ -100,30 +100,30 @@ public class PlayerPage {
         prodoBtn.setSize(230, 230);
         prodoBtn.setLocation(810, 10);
 
-        //체크버튼
-        Image icon4 = new ImageIcon("mini/체크.PNG").getImage().getScaledInstance(100, 100, 0);
-        JButton user1c = new JButton(new ImageIcon(icon4));
-        user1c.setSize(100, 100);
-        user1c.setLocation(290, 420);
+        //체크버튼  //버튼변경
+        Image icon1 = new ImageIcon("mini/버튼라이언1.PNG").getImage().getScaledInstance(70, 70, 0);
+        JButton user1c = new JButton(new ImageIcon(icon1));
+        user1c.setSize(50, 50);
+        user1c.setLocation(250, 310);
 
-        Image icon5 = new ImageIcon("mini/체크.PNG").getImage().getScaledInstance(100, 100, 0);
-        JButton user2c = new JButton(new ImageIcon(icon4));
-        user2c.setSize(100, 100);
-        user2c.setLocation(880, 170);
+        Image icon2 = new ImageIcon("mini/버튼어피치1.PNG").getImage().getScaledInstance(50, 50, 0);
+        JButton user2c = new JButton(new ImageIcon(icon2));
+        user2c.setSize(50, 50);
+        user2c.setLocation(610, 310);
 
-        Image icon6 = new ImageIcon("mini/체크.PNG").getImage().getScaledInstance(100, 100, 0);
-        JButton user3c = new JButton(new ImageIcon(icon4));
-        user3c.setSize(100, 100);
-        user3c.setLocation(1360, 420);
+        Image icon3 = new ImageIcon("mini/버튼프로도1.PNG").getImage().getScaledInstance(70, 70, 0);
+        JButton user3c = new JButton(new ImageIcon(icon3));
+        user3c.setSize(50, 50);
+        user3c.setLocation(970, 310);
 
-        Image icon7 = new ImageIcon("mini/체크.PNG").getImage().getScaledInstance(100, 100, 0);
+        Image icon4 = new ImageIcon("mini/버튼네오1.PNG").getImage().getScaledInstance(77, 77, 0);
         JButton user4c = new JButton(new ImageIcon(icon4));
-        user4c.setSize(100, 100);
-        user4c.setLocation(880, 630);
+        user4c.setSize(50, 50);
+        user4c.setLocation(1360, 310);
 
-        //유저닉네임 텍스트
+        //유저닉네임 텍스트 //텍스트 위치변경
         JTextField n1 = new JTextField("user1");
-        n1.setBounds(60, 450, 230, 50);
+        n1.setBounds(18, 310, 230, 50);
         n1.setFont(new Font("Serif", Font.BOLD, 35));
         n1.setHorizontalAlignment(JTextField.LEFT);
         //텍스트 누르면 text안에 value 사라지게하는
@@ -136,7 +136,7 @@ public class PlayerPage {
 
 
         JTextField n2 = new JTextField("user2");
-        n2.setBounds(650, 200, 230, 50);
+        n2.setBounds(380, 310, 230, 50);
         n2.setFont(new Font("Serif", Font.BOLD, 35));
         n2.setHorizontalAlignment(JTextField.LEFT);
         n2.addMouseListener(new MouseAdapter() {
@@ -148,7 +148,7 @@ public class PlayerPage {
 
 
         JTextField n3 = new JTextField("user3");
-        n3.setBounds(1130, 450, 230, 50);
+        n3.setBounds(740, 310, 230, 50);
         n3.setFont(new Font("Serif", Font.BOLD, 35));
         n3.setHorizontalAlignment(JTextField.LEFT);
         n3.addMouseListener(new MouseAdapter() {
@@ -159,7 +159,7 @@ public class PlayerPage {
         });
 
         JTextField n4 = new JTextField("user4");
-        n4.setBounds(650, 650, 230, 50);
+        n4.setBounds(1130, 310, 230, 50);
         n4.setFont(new Font("Serif", Font.BOLD, 35));
         n4.setHorizontalAlignment(JTextField.LEFT);
         n4.addMouseListener(new MouseAdapter() {
@@ -207,13 +207,18 @@ public class PlayerPage {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                nickName[0] = n1.getText();
+            	Image btn1 = new ImageIcon("mini/버튼라이언2.png").getImage().getScaledInstance(390, 390, 0);
+                JLabel btn2 = new JLabel(new ImageIcon(btn1));
+                btn2.setSize(390, 390);
+                btn2.setLocation(0, 170);
 
-                for (int i = 0; i < nickName.length; i++) {
+                nick[0] = n1.getText();
+
+                for (int i = 0; i < nick.length; i++) {
                     if (i == 0) {
                         continue;
                     }
-                    if (nickName[0].equals(nickName[i])) {
+                    if (nick[0].equals(nick[i])) {
                         JOptionPane.showMessageDialog(null, "중복입니다");
                         return;
 
@@ -222,8 +227,11 @@ public class PlayerPage {
                 JOptionPane.showMessageDialog(null, "생성되었습니다");
                 subPanel.remove(n1);
                 subPanel.remove(user1c);
+                subPanel.add(btn2);
                 subPanel.repaint();
+                subPanel.setComponentZOrder(btn2, 1);
                 playerNum++;
+
 
             }
         });
@@ -232,13 +240,17 @@ public class PlayerPage {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                nickName[1] = n2.getText();
+            	Image btn3 = new ImageIcon("mini/버튼어피치2.png").getImage().getScaledInstance(350, 350, 0);
+                JLabel btn4 = new JLabel(new ImageIcon(btn3));
+                btn4.setSize(350, 350);
+                btn4.setLocation(350, 210);
+                nick[1] = n2.getText();
 
-                for (int i = 0; i < nickName.length; i++) {
+                for (int i = 0; i < nick.length; i++) {
                     if (i == 1) {
                         continue;
                     }
-                    if (nickName[1].equals(nickName[i])) {
+                    if (nick[1].equals(nick[i])) {
                         JOptionPane.showMessageDialog(null, "중복입니다");
                         return;
                     }
@@ -246,7 +258,9 @@ public class PlayerPage {
                 JOptionPane.showMessageDialog(null, "생성되었습니다");
                 subPanel.remove(n2);
                 subPanel.remove(user2c);
+                subPanel.add(btn4);
                 subPanel.repaint();
+                subPanel.setComponentZOrder(btn4, 1);
                 playerNum++;
 
             }
@@ -256,12 +270,16 @@ public class PlayerPage {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                nickName[2] = n3.getText();
-                for (int i = 0; i < nickName.length; i++) {
+            	Image btn5 = new ImageIcon("mini/버튼프로도2.png").getImage().getScaledInstance(350, 350, 0);
+                JLabel btn6 = new JLabel(new ImageIcon(btn5));
+                btn6.setSize(350, 350);
+                btn6.setLocation(700, 190);
+                nick[2] = n3.getText();
+                for (int i = 0; i < nick.length; i++) {
                     if (i == 2) {
                         continue;
                     }
-                    if (nickName[2].equals(nickName[i])) {
+                    if (nick[2].equals(nick[i])) {
                         JOptionPane.showMessageDialog(null, "중복입니다");
                         return;
 
@@ -270,7 +288,9 @@ public class PlayerPage {
                 JOptionPane.showMessageDialog(null, "생성되었습니다");
                 subPanel.remove(n3);
                 subPanel.remove(user3c);
+                subPanel.add(btn6);
                 subPanel.repaint();
+                subPanel.setComponentZOrder(btn6, 1);
                 playerNum++;
 
             }
@@ -280,12 +300,16 @@ public class PlayerPage {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                nickName[3] = n4.getText();
-                for (int i = 0; i < nickName.length; i++) {
+            	Image btn7 = new ImageIcon("mini/버튼네오2.png").getImage().getScaledInstance(230, 230, 0);
+                JLabel btn8 = new JLabel(new ImageIcon(btn7));
+                btn8.setSize(230, 230);
+                btn8.setLocation(1150, 270);
+                nick[3] = n4.getText();
+                for (int i = 0; i < nick.length; i++) {
                     if (i == 3) {
                         continue;
                     }
-                    if (nickName[3].equals(nickName[i])) {
+                    if (nick[3].equals(nick[i])) {
                         JOptionPane.showMessageDialog(null, "중복입니다");
                         return;
                     }
@@ -293,7 +317,9 @@ public class PlayerPage {
                 JOptionPane.showMessageDialog(null, "생성되었습니다");
                 subPanel.remove(n4);
                 subPanel.remove(user4c);
+                subPanel.add(btn8);
                 subPanel.repaint();
+                subPanel.setComponentZOrder(btn8, 1);
                 playerNum++;
             }
 
@@ -448,10 +474,31 @@ public class PlayerPage {
         });
 
         //게임시작 버튼 활성
+        user4c.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+        Image game = new ImageIcon("mini/스타트1.PNG").getImage().getScaledInstance(170, 170, 0);
+        JButton gameBtn = new JButton();
+        gameBtn = new JButton(new ImageIcon(game));
+        //도움말 버튼 크기,위치 조정
+        gameBtn.setSize(170, 170);
+        gameBtn.setLocation(1310, 580);
+        if(playerNum>=2) {
+        	subPanel.add(gameBtn);
+        	subPanel.setComponentZOrder(gameBtn, 0);
+        	subPanel.repaint();
+
+        }
+            }
+        });
+
+
+
         gameBtn.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                if (e.getButton() == 1 && playerNum >= 1) { //입력2이상일시 스타트버튼가능
+                if (e.getButton() == 1 ) { //입력2이상일시 스타트버튼가능
 
 
                     //로딩화면 패널 생성
@@ -500,17 +547,17 @@ public class PlayerPage {
                             // 은석: 플레이어 생성
                             // 라이언, 어피치, 프로도, 네오
                             Player[] players = new Player[4];
-                            if (nickName[0] != null) {
-                                players[0] = new Ryan(nickName[0]);
+                            if (nick[0] != null) {
+                                players[0] = new Ryan(nick[0]);
                             }
-                            if (nickName[1] != null) {
-                                players[1] = new Apeach(nickName[1]);
+                            if (nick[1] != null) {
+                                players[1] = new Apeach(nick[1]);
                             }
-                            if (nickName[2] != null) {
-                                players[2] = new Frodo(nickName[2]);
+                            if (nick[2] != null) {
+                                players[2] = new Frodo(nick[2]);
                             }
-                            if (nickName[3] != null) {
-                                players[3] = new Neo(nickName[3]);
+                            if (nick[3] != null) {
+                                players[3] = new Neo(nick[3]);
                             }
                             GamePage gm = new GamePage(mf, panel, lo, players);
                         }
@@ -522,6 +569,7 @@ public class PlayerPage {
             }
         });
 
-
     }
+
+
 }

@@ -14,5 +14,5 @@ public class Neo extends Player{
             GamePage.SELECTED_BUTTON=8;
             setSpecialty(false);
         }
-    } 
+    }
 }

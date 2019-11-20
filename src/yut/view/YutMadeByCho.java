@@ -24,9 +24,9 @@ public class YutMadeByCho {
             case 3:
                 yutNum = neoIncreaseYut(player);
                 break;
-            case 4:
+            /*case 4:
                 yutNum = ryanMoveDouble(player);
-                break;
+                break;*/
             case 5:
                 yutNum = mustBackDo(player);
                 break;
@@ -110,9 +110,7 @@ public class YutMadeByCho {
 
     // 모아니면 도 아이템
     public int moOrDo(Player player) {
-//        player.setYutCount(player.getYutCount() + 1);
-        //아이템 메소드에 가격과 이름 설정
-        //Item item = new Item(5, "moOrDo");
+
         // 랜덤값 1 또는 0, 0이면 모 1이면 도
         if ((int) (Math.random() * 2) == 0) {
             return 5;
@@ -135,15 +133,18 @@ public class YutMadeByCho {
 
 
     //ryan패시브 첫말*2로 이동
-    public int ryanMoveDouble(Player player) {
+   /* public int ryanMoveDouble(Player player) {
         int num = throwYut(player);
         System.out.println("윷클래스안에 라이언패시브 확인:"+num);
+        if(num==-1) {
+            return num;
+        }
         return 2 * num;
-    }
+    }*/
 
     //아이템 무조건 백도 메소드
     public int mustBackDo(Player player) {
-        //player.setYutCount(player.getYutCount() + 1);
+
         return -1;
     }
 

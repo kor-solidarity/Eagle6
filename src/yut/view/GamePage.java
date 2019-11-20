@@ -73,10 +73,7 @@ public class GamePage {
     public JLabel neo_body_label4;
 
 
-    public JLabel[][] mals = {{ryan_body_label1, ryan_body_label2, ryan_body_label3, ryan_body_label4},
-            {apeach_body_label1, apeach_body_label2, apeach_body_label3, apeach_body_label4},
-            {frodo_body_label1, frodo_body_label2, frodo_body_label3, frodo_body_label4},
-            {neo_body_label1, neo_body_label2, neo_body_label3, neo_body_label4}};
+    public JLabel[][] mals = new JLabel[4][4];
     //말 배열
 
 
@@ -365,6 +362,10 @@ public class GamePage {
             //라이언 몸통
             Image ryan_body1 = new ImageIcon("mini/1번라이언말.PNG").getImage().getScaledInstance(80, 80, 0);
             ryan_body_label1 = new JLabel(new ImageIcon(ryan_body1));
+            System.out.println("ryan_body_label1 " + ryan_body_label1);
+            System.out.println(mals[0]);
+            System.out.println(mals[0][0] == ryan_body_label1);
+            System.out.println(mals[0][0]);
             ryan_body_label1.setSize(100, 100);
             ryan_body_label1.setLocation(1, 99);
             Image ryan_body2 = new ImageIcon("mini/2번라이언말.PNG").getImage().getScaledInstance(80, 80, 0);
@@ -372,7 +373,7 @@ public class GamePage {
             ryan_body_label2.setSize(100, 100);
             ryan_body_label2.setLocation(71, 99);
             Image ryan_body3 = new ImageIcon("mini/3번라이언말.PNG").getImage().getScaledInstance(80, 80, 0);
-            JLabel ryan_body_label3 = new JLabel(new ImageIcon(ryan_body3));
+            ryan_body_label3 = new JLabel(new ImageIcon(ryan_body3));
             ryan_body_label3.setSize(100, 100);
             ryan_body_label3.setLocation(141, 99);
             Image ryan_body4 = new ImageIcon("mini/4번라이언말.PNG").getImage().getScaledInstance(80, 80, 0);
@@ -906,6 +907,34 @@ public class GamePage {
                 }
             });
         }
+
+        mals[0][0] =  ryan_body_label1;
+        mals[0][1] =  ryan_body_label2;
+        mals[0][2] =  ryan_body_label3;
+        mals[0][3] =  ryan_body_label4;
+
+
+        mals[1][0] =  apeach_body_label1;
+        mals[1][1] =  apeach_body_label2;
+        mals[1][2] =  apeach_body_label3;
+        mals[1][3] =  apeach_body_label4;
+
+
+        mals[2][0] =  frodo_body_label1;
+        mals[2][1] =  frodo_body_label2;
+        mals[2][2] =  frodo_body_label3;
+        mals[2][3] =  frodo_body_label4;
+
+
+        mals[3][0] =  neo_body_label1;
+        mals[3][1] =  neo_body_label2;
+        mals[3][2] =  neo_body_label3;
+        mals[3][3] =  neo_body_label4;
+
+        // {{ryan_body_label1, ryan_body_label2, ryan_body_label3, ryan_body_label4},
+        //     {apeach_body_label1, apeach_body_label2, apeach_body_label3, apeach_body_label4},
+        //     {frodo_body_label1, frodo_body_label2, frodo_body_label3, frodo_body_label4},
+        //     {neo_body_label1, neo_body_label2, neo_body_label3, neo_body_label4}};
 
 
         //게임패널에 부착

@@ -36,9 +36,14 @@ public class Mal {
     @Override
     public String toString() {
         return "Mal{" +
-                "grid=" + grid +
+                "owner='" + owner + '\'' +
+                ", player_num=" + player_num +
+                ", grid=" + grid +
                 ", num=" + num +
                 ", routes=" + routes +
+                ", mapGrid=" + mapGrid +
+                ", init_x=" + init_x +
+                ", init_y=" + init_y +
                 '}';
     }
 
@@ -111,7 +116,15 @@ public class Mal {
         // num 값 만큼 움직여야함.
         // 와일문을 써서 한번에 한칸씩 움직인다.
         // 한칸 움직인 후에는 그 위치에 벽이 있나 확인한다. 있으면 그대로 종료.
+        System.out.println("mal.move()");
+        for (int i = 0; i < mals.length; i++) {
+            System.out.println("i " + i);
+            for (int j = 0; j < mals[i].length; j++) {
+                System.out.println("j " + j + " " + mals[i][j]);
+                // System.out.println(mals[i][j].toString());
+            }
 
+        }
         // num이
 
         // move_num = (int)(Math.random() * 5 + 1);
@@ -123,7 +136,7 @@ public class Mal {
         }
         // 이 객체와 연결된 말
         JLabel my_mal = mals[playerNum][this.num];
-
+        my_mal.toString();
         // 말 움직이기 - 보류
         ActionListener movement = new ActionListener() {
             @Override

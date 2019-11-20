@@ -35,6 +35,7 @@ public class GameManager {
                 System.out.println(p.getNick() + "getYutCount() " + p.getYutCount());
                 System.out.println(p.getMoves().size());
                 // 이게 돌고있는 한 해당 플레이어 턴.
+                // 기본적으로 던질 수 있는 윷의 수와 이동할 수 있는 양이 있는 한 계속 플레이 가능하다.
                 while(p.getYutCount() > 0 || p.getMoves().size() > 0){
                     // 말 다 돌았는지 확인.
                     // 29, 즉 완주 안한 말이 하나라도 있으면 끝
@@ -380,7 +381,7 @@ public class GameManager {
 
     for (Player pl : players) {
         // 같은 플레이어 말이면 겹친다. 우선은 통과
-        if (pl.getCharName().equals(mal.getOwner().getCharName())) {
+        if (pl.getCharName().equals(mal.getOwner())) {
             continue;
         }
 

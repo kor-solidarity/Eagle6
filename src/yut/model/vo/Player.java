@@ -32,15 +32,7 @@ public class Player {
 
     @Override
     public String toString() {
-        return "Player{" +
-                "songP=" + songP +
-                ", mals=" + Arrays.toString(mals) +
-                ", nick='" + nick + '\'' +
-                ", specialty=" + specialty +
-                ", moves=" + moves +
-                ", yutCount=" + yutCount +
-                ", turn=" + turn +
-                '}';
+        return "Score [nick=" + nick + ", songP=" + songP + "]";
     }
 
     public String getCharName() {

@@ -54,6 +54,8 @@ public class GamePage {
 
     // 라이언 말 1
     public JLabel ryan_body_label1;
+    //게임 패널생성
+    public JPanel gamePanel;
 
 
     // todo 있어야 하는 이유를 모르겠음 - 은석
@@ -67,7 +69,7 @@ public class GamePage {
         //로딩 패널 제거
         mf.remove(lo);
         //게임 패널생성
-        JPanel gamePanel = new JPanel();
+        gamePanel = new JPanel();
         gamePanel.setBounds(0, 0, 1500, 800);
         gamePanel.setLayout(null);
 
@@ -1106,6 +1108,7 @@ public class GamePage {
                                 gamePanel.setComponentZOrder(yut, 0);
 
                                 Timer ts = new Timer();
+                                // 타이머 관련 메소드 선언
                                 TimerTask tk = new TimerTask() {
 
                                     @Override
@@ -1117,7 +1120,10 @@ public class GamePage {
 
                                     }
                                 };
+                                // delay 시간 이후 task 안 run() 수행
+                                System.out.println(123);
                                 ts.schedule(tk, 2400);
+                                System.out.println(456);
                             }//윷값이 도가 나왔을때
                             else if (yutgap == 1) {
                                 Image yut1 = new ImageIcon("mini/도.GIF").getImage().getScaledInstance(300, 300, 0);

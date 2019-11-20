@@ -2,6 +2,8 @@ package yut.model.vo;
 
 import yut.view.GamePage;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class Mal {
@@ -106,12 +108,20 @@ public class Mal {
             // 한칸 움직인 후에는 그 위치에 벽이 있나 확인한다. 있으면 그대로 종료.
 
             // num이
-
+        move_num = (int)(Math.random() * 5 + 1);
+        System.out.println("move_num " + move_num);
         if (move_num <= 0) {
             return;
         }
 
 
+        ActionListener movement = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("moving in");
+                // gp.ryan_body_label1.setLocation();
+            }
+        };
 
         // 말이 움직이기 시작한 최초위치.
         int start_grid = this.getGrid();
@@ -154,14 +164,15 @@ public class Mal {
             } else if (this.getGrid() == 0) {
                 // 0까지 왔으면 도착했다는 소리.
                 this.setGrid(29);
-                gp.ryan_body_label1.setLocation(MapGrid.GRIDS.get(29).x, MapGrid.GRIDS.get(29).y);
+                // 여기까지 왔으면 끝, 로케 종료처리한다.
+                gp.gamePanel.remove(gp.ryan_body_label1);
+                // gp.ryan_body_label1.setLocation(MapGrid.GRIDS.get(29).x, MapGrid.GRIDS.get(29).y);
             } else {
                 // 위에 해당사항 없으면 그냥 1추가
                 this.setGrid(this.getGrid() + 1);
                 gp.ryan_body_label1.setLocation(MapGrid.GRIDS.get(this.getGrid() ).x,
                         MapGrid.GRIDS.get(this.getGrid()).y);
             }
-
             System.out.println(" 최종위치 " + this.getGrid());
             System.out.println("x "+gp.ryan_body_label1.getX() + " y " + gp.ryan_body_label1.getY());
             System.out.println();
@@ -170,61 +181,9 @@ public class Mal {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+            gp.ryan_body_label1.repaint();
             move_num--;
         }
-            // do {
-            //     // 주사위 굴릴때 시작위치
-            //     int start_loc = grid;
-            //     System.out.println("현위치: " + grid);
-            //     // Scanner sc = new Scanner(System.in);
-            //     System.out.println("몇칸감: " + num);
-            //     // int num = sc.nextInt();
-            //
-            //     // grid += num;
-            //     while (num > 0){
-            //         if (grid == -1) {
-            //             System.out.println("grid == -1");
-            //             grid = 1;
-            //             // 우측상단
-            //         }else if (start_loc == 5){
-            //             System.out.println("start_loc == 5");
-            //             grid = 20;
-            //             // 좌측상단
-            //         } else if ( start_loc == 10) {
-            //             System.out.println("start_loc == 10");
-            //             grid = 25;
-            //             // 정가운데로
-            //         }else if (start_loc == 26){
-            //             System.out.println("정가운데 시작");
-            //             grid = 22;
-            //             start_loc = 0;
-            //             // 정가운데
-            //         }else if (start_loc == 22 && start_loc != 26) {
-            //             System.out.println("정가운데 시작");
-            //             grid = 27;
-            //         }else if (grid == 26) {
-            //             System.out.println("정가운데로 이동");
-            //             grid = 22;
-            //             start_loc = 26;
-            //         } else if (grid == 24) {
-            //             System.out.println("grid == 24");
-            //             grid = 15;
-            //         } else if (grid == 19||grid == 28) {
-            //             System.out.println("grid == 19||grid == 28");
-            //             grid = 0;
-            //         } else if (grid == 0) {
-            //             System.out.println("도착!");
-            //             break;
-            //         } else {
-            //             grid++;
-            //         }
-            //         // 초기화 용도. 위에 중복으로 걸리면 곤란하니.
-            //         if (start_loc != 0 && start_loc != 26){
-            //             start_loc = 0;
-            //         }
-            //         num--;
-            //     }
-            // }while (true);
 
     }
 

@@ -8,11 +8,14 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -45,7 +48,7 @@ public class GamePage {
     // 선택된 말
     public int selected_mal = -1;
 
-    //
+    //라이언 닉네임 표시
     public JTextField show_ryan_name;
     public JTextField show_ryan_songP;
     public JTextField show_apeach_songP;
@@ -959,6 +962,7 @@ public class GamePage {
                         selected_button = 10;//moOrDo버튼번호
                        yutThrow1.doClick(50);
                     }
+                    Outer().reload_songP(player);
 
                 }
             }
@@ -971,7 +975,9 @@ public class GamePage {
             public void mouseClicked(MouseEvent e) {
                 if (e.getButton() == 1) {
                     Store shop = new Store();
+
                     shop.buy(mf, gamePanel, player, 3);
+                    Outer().reload_songP(player);
                 }
             }
         });
@@ -1010,6 +1016,7 @@ public class GamePage {
                         selected_button = 5;//backDo버튼번호
                        yutThrow1.doClick(50);
                     }
+                    Outer().reload_songP(player);
                 }
             }
         });
@@ -1024,22 +1031,35 @@ public class GamePage {
                     ed.setSize(600, 600);
                     ed.setLocation(400, 400);
                     ed.setLayout(null);
+                    try {
+                        ed.setIconImage(ImageIO.read(new File("mini/윷타이틀.PNG")));
+                    } catch (IOException e1) {
+                        e1.printStackTrace();
+                    }
+
+                    Image end = new ImageIcon("mini/종료창.PNG").getImage().getScaledInstance(600, 600, 0);
+                    JLabel endlb = new JLabel();
+                    endlb = new JLabel(new ImageIcon(end));
+                    //도움말 버튼 크기,위치 조정
+                    endlb.setSize(600, 600);
+
                     //종료버튼 생성
-                    Image end1 = new ImageIcon("mini/창버튼.PNG").getImage().getScaledInstance(100, 100, 0);
-                    JButton endBtn1 = new JButton();
-                    endBtn1 = new JButton(new ImageIcon(end1));
+                    Image end1 = new ImageIcon("mini/체크취소.PNG").getImage().getScaledInstance(100, 100, 0);
+                    JLabel endBtn1 = new JLabel();
+                    endBtn1 = new JLabel(new ImageIcon(end1));
                     //도움말 버튼 크기,위치 조정
                     endBtn1.setSize(100, 100);
-                    endBtn1.setLocation(300, 200);
+                    endBtn1.setLocation(390, 430);
                     //체크 버튼 생성
-                    Image check = new ImageIcon("mini/체크1.PNG").getImage().getScaledInstance(100, 100, 0);
-                    JButton checkBtn = new JButton();
-                    checkBtn = new JButton(new ImageIcon(check));
+                    Image check = new ImageIcon("mini/체크확인.PNG").getImage().getScaledInstance(100, 100, 0);
+                    JLabel checkBtn = new JLabel();
+                    checkBtn = new JLabel(new ImageIcon(check));
                     checkBtn.setSize(100, 100);
-                    checkBtn.setLocation(100, 200);
+                    checkBtn.setLocation(100, 430);
                     //버튼 부착
                     ed.add(endBtn1);
                     ed.add(checkBtn);
+                    ed.add(endlb);
                     ed.setVisible(true);
 
                     endBtn1.addMouseListener(new MouseAdapter() {

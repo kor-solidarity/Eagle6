@@ -4,9 +4,12 @@ import java.awt.Image;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.File;
+import java.io.IOException;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -30,6 +33,12 @@ public class MainFrame extends JFrame {
         this.setSize(1500, 800);
         //컨테이너 레이아웃 설정
         this.setLayout(null);
+        try {
+            this.setIconImage(ImageIO.read(new File("mini/윷타이틀.PNG")));
+        } catch (IOException e1) {
+            e1.printStackTrace();
+        }
+        
 
         //메인 패널 생성
         JPanel mainPanel = new JPanel();
@@ -42,6 +51,14 @@ public class MainFrame extends JFrame {
         mainLb = new JLabel(new ImageIcon(main));
         //메인 라벨 크기 조정
         mainLb.setSize(1500, 770);
+
+        //메인 로고 라벨 생성
+        Image main1 = new ImageIcon("mini/로고.GIF").getImage().getScaledInstance(550, 300, 0);
+        JLabel mainLb1 = new JLabel();
+        mainLb1= new JLabel(new ImageIcon(main1));
+        //메인 로고크기 조정
+        mainLb1.setSize(550, 300);
+        mainLb1.setLocation(370,50);
 
         //게임 시작 버튼  생성
         Image start = new ImageIcon("mini/뉴게임스타트.PNG").getImage().getScaledInstance(370, 180, 0);
@@ -63,10 +80,12 @@ public class MainFrame extends JFrame {
         mainPanel.add(mainLb);
         mainPanel.add(helpBtn);
         mainPanel.add(startBtn);
+        mainPanel.add(mainLb1);
 
 
         //메인 라벨 우선 순위 마지막 배치
         mainPanel.setComponentZOrder(mainLb, 2);
+        mainPanel.setComponentZOrder(mainLb1, 0);
 
         //컨터이너에 패널 부착
         this.add(mainPanel);

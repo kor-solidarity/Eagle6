@@ -423,6 +423,12 @@ public class GamePage {
             gamePanel.add(ryan_body_label3_s);
             gamePanel.add(ryan_body_label4_s);
             gamePanel.add(backgroundPurple1);
+            
+            //@@@@@@@@@@@@@중복된주석 삭제해주세요@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+            //@PlayerNum -플레이어 배열번호
+            //@move_num - 이동해야할 값
+            //@mals - 게임 내 모든 말의 라벨
+            //@gp -게임페이지 그자체
 
             // 말 누르기.
             ryan_body_label1.addMouseListener(new MouseAdapter() {
@@ -437,7 +443,7 @@ public class GamePage {
                         // gamePanel.repaint();
                         // 시연이기에 개를 가정.
 
-                        players[0].getMals()[0].move(0, 1, mals, Outer());
+                        players[0].getMals()[0].move(0, YUTGAP, mals, Outer());
                         // players[0].getMals()[0].move(YUTGAP, Outer());
 
                     }
@@ -447,8 +453,7 @@ public class GamePage {
                 @Override
                 public void mouseClicked(MouseEvent e) {
                     if (e.getButton() == 1) {
-                        gamePanel.remove(ryan_body_label2);
-                        // gamePanel.repaint();
+                        players[0].getMals()[1].move(0, YUTGAP, mals, Outer());
                     }
                 }
             });
@@ -456,8 +461,7 @@ public class GamePage {
                 @Override
                 public void mouseClicked(MouseEvent e) {
                     if (e.getButton() == 1) {
-                        gamePanel.remove(ryan_body_label3);
-                        gamePanel.repaint();
+                        players[0].getMals()[2].move(0, YUTGAP, mals, Outer());
                     }
                 }
             });
@@ -465,8 +469,7 @@ public class GamePage {
                 @Override
                 public void mouseClicked(MouseEvent e) {
                     if (e.getButton() == 1) {
-                        gamePanel.remove(ryan_body_label4);
-                        gamePanel.repaint();
+                        players[0].getMals()[3].move(0, YUTGAP, mals, Outer());
                     }
                 }
             });
@@ -584,17 +587,14 @@ public class GamePage {
                 @Override
                 public void mouseClicked(MouseEvent e) {
                     if (e.getButton() == 1) {
-                        gamePanel.remove(apeach_body_label1);
-                        gamePanel.repaint();
-                    }
+                        players[1].getMals()[0].move(1, YUTGAP, mals, Outer());                    }
                 }
             });
             apeach_body_label2.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseClicked(MouseEvent e) {
                     if (e.getButton() == 1) {
-                        gamePanel.remove(apeach_body_label2);
-                        gamePanel.repaint();
+                        players[1].getMals()[1].move(1, YUTGAP, mals, Outer()); 
                     }
                 }
             });
@@ -602,8 +602,7 @@ public class GamePage {
                 @Override
                 public void mouseClicked(MouseEvent e) {
                     if (e.getButton() == 1) {
-                        gamePanel.remove(apeach_body_label3);
-                        gamePanel.repaint();
+                        players[1].getMals()[2].move(1, YUTGAP, mals, Outer()); 
                     }
                 }
             });
@@ -611,8 +610,7 @@ public class GamePage {
                 @Override
                 public void mouseClicked(MouseEvent e) {
                     if (e.getButton() == 1) {
-                        gamePanel.remove(apeach_body_label4);
-                        gamePanel.repaint();
+                        players[1].getMals()[3].move(1, YUTGAP, mals, Outer()); 
                     }
                 }
             });
@@ -730,26 +728,23 @@ public class GamePage {
                 @Override
                 public void mouseClicked(MouseEvent e) {
                     if (e.getButton() == 1) {
-                        gamePanel.remove(frodo_body_label1);
-                        gamePanel.repaint();
                     }
+                    players[2].getMals()[0].move(2, YUTGAP, mals, Outer()); 
                 }
             });
             frodo_body_label2.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseClicked(MouseEvent e) {
                     if (e.getButton() == 1) {
-                        gamePanel.remove(frodo_body_label2);
-                        gamePanel.repaint();
-                    }
+                        players[2].getMals()[1].move(2, YUTGAP, mals, Outer()); 
+                        }
                 }
             });
             frodo_body_label3.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseClicked(MouseEvent e) {
                     if (e.getButton() == 1) {
-                        gamePanel.remove(frodo_body_label3);
-                        gamePanel.repaint();
+                        players[2].getMals()[2].move(2, YUTGAP, mals, Outer()); 
                     }
                 }
             });
@@ -757,9 +752,9 @@ public class GamePage {
                 @Override
                 public void mouseClicked(MouseEvent e) {
                     if (e.getButton() == 1) {
-                        gamePanel.remove(frodo_body_label4);
-                        gamePanel.repaint();
+                        players[2].getMals()[3].move(2, YUTGAP, mals, Outer()); 
                     }
+                    
                 }
             });
 
@@ -874,8 +869,7 @@ public class GamePage {
                 @Override
                 public void mouseClicked(MouseEvent e) {
                     if (e.getButton() == 1) {
-                        gamePanel.remove(neo_body_label1);
-                        gamePanel.repaint();
+                        players[3].getMals()[0].move(3, YUTGAP, mals, Outer()); 
                     }
                 }
             });
@@ -883,8 +877,7 @@ public class GamePage {
                 @Override
                 public void mouseClicked(MouseEvent e) {
                     if (e.getButton() == 1) {
-                        gamePanel.remove(neo_body_label2);
-                        gamePanel.repaint();
+                        players[3].getMals()[1].move(3, YUTGAP, mals, Outer()); 
                     }
                 }
             });
@@ -892,8 +885,7 @@ public class GamePage {
                 @Override
                 public void mouseClicked(MouseEvent e) {
                     if (e.getButton() == 1) {
-                        gamePanel.remove(neo_body_label3);
-                        gamePanel.repaint();
+                        players[3].getMals()[2].move(3, YUTGAP, mals, Outer()); 
                     }
                 }
             });
@@ -901,8 +893,7 @@ public class GamePage {
                 @Override
                 public void mouseClicked(MouseEvent e) {
                     if (e.getButton() == 1) {
-                        gamePanel.remove(neo_body_label4);
-                        gamePanel.repaint();
+                        players[3].getMals()[3].move(3, YUTGAP, mals, Outer()); 
                     }
                 }
             });

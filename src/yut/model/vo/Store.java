@@ -32,7 +32,7 @@ public class Store {
      * @return
      */
     // param show:    가격 표시라는데 우선 주석처리
-    public boolean buy(MainFrame mf, JPanel panel, Player player, /*JTextField show,*/ int itemNum, int x1, int y1) {
+    public boolean buy(GamePage gm, MainFrame mf, JPanel panel, Player player, /*JTextField show,*/ int itemNum, int x1, int y1) {
         if (itemNum == 4) {
             if (player.getSongP() >= 10) {
                 //플레이어 말의 위치에 있는 grid값을 변수에 저장
@@ -156,7 +156,8 @@ public class Store {
                 pop1.setLocation(1200, 500);
                 //플레이어 송편 감소
                 player.setSongP(player.getSongP() - 5);
-                String str1 = Integer.valueOf(player.getSongP()).toString();
+                
+                
 
                 panel.add(mo1);
                 panel.add(pop1);

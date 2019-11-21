@@ -1,5 +1,6 @@
 package yut.view;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Image;
@@ -338,6 +339,7 @@ public class GamePage {
             show_ryan_songP.setSize(110, 40);
             show_ryan_songP.setLocation(190, 55);
             show_ryan_songP.setFont(font);
+            show_ryan_songP.setBackground(Color.getHSBColor(139,89,72));
             //닉네임 표시
             //라이언 닉네임 표시
             show_ryan_name = new JTextField(15);
@@ -348,6 +350,7 @@ public class GamePage {
             show_ryan_name.setSize(110, 40);
             show_ryan_name.setLocation(190, 5);
             show_ryan_name.setFont(font2);
+            
             //라이언 머리
             Image ryan_head = new ImageIcon("mini/ryan1.PNG").getImage().getScaledInstance(110, 110, 0);
             JLabel ryan_head_label = new JLabel(new ImageIcon(ryan_head));

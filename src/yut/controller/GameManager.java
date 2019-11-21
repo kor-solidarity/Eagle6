@@ -4,6 +4,11 @@ import yut.view.*;
 import yut.model.vo.*;
 
 import javax.swing.*;
+
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Image;
+import java.awt.PopupMenu;
 import java.util.Scanner;
 
 public class GameManager {
@@ -30,7 +35,16 @@ public class GameManager {
                 }
                 gamePage.reload_songP(p);
                 gamePage.player = p;
-                p.skill();
+                JTextField tx = new JTextField(p.getNick()+"턴 입니다.");
+                tx.setBounds(600,30,250,30);
+                tx.setFont(new Font("Rockwell",Font.CENTER_BASELINE,25));
+                tx.setHorizontalAlignment(JTextField.CENTER);
+                tx.setBackground(Color.getHSBColor(200, 100, 100));
+               
+                gamePage.gamePanel.add(tx);
+                gamePage.gamePanel.revalidate();
+                gamePage.gamePanel.repaint();
+                p.skill(gamePage);
                 // gamePage.show_ryan_songP.repaint();
                 System.out.println(p.getNick() + "getYutCount() " + p.getYutCount());
                 System.out.println(p.getMoves().size());

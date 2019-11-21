@@ -340,7 +340,7 @@ public class GamePage {
             show_ryan_songP.setSize(110, 40);
             show_ryan_songP.setLocation(190, 55);
             show_ryan_songP.setFont(font);
-            show_ryan_songP.setBackground(Color.getHSBColor(139,89,72));
+            show_ryan_songP.setBackground(Color.getHSBColor(139, 89, 72));
             //닉네임 표시
             //라이언 닉네임 표시
             show_ryan_name = new JTextField(15);
@@ -447,7 +447,7 @@ public class GamePage {
 
                         players[0].getMals()[0].move(0, TRUEYUTGAP, mals, Outer());
                         player.MovesSizeRemove();//사이즈 줄이기
-                        TRUEYUTGAP=0;
+                        TRUEYUTGAP = 0;
                         // players[0].getMals()[0].move(yutgap, Outer());
 
                     }
@@ -459,7 +459,7 @@ public class GamePage {
                     if (e.getButton() == 1) {
                         players[0].getMals()[1].move(0, TRUEYUTGAP, mals, Outer());
                         player.MovesSizeRemove();//사이즈 줄이기
-                        TRUEYUTGAP=0;
+                        TRUEYUTGAP = 0;
                     }
                 }
             });
@@ -469,7 +469,7 @@ public class GamePage {
                     if (e.getButton() == 1) {
                         players[0].getMals()[2].move(0, TRUEYUTGAP, mals, Outer());
                         player.MovesSizeRemove();//사이즈 줄이기
-                        TRUEYUTGAP=0;
+                        TRUEYUTGAP = 0;
                     }
                 }
             });
@@ -479,7 +479,7 @@ public class GamePage {
                     if (e.getButton() == 1) {
                         players[0].getMals()[3].move(0, TRUEYUTGAP, mals, Outer());
                         player.MovesSizeRemove();//사이즈 줄이기
-                        TRUEYUTGAP=0;
+                        TRUEYUTGAP = 0;
                     }
                 }
             });
@@ -599,7 +599,7 @@ public class GamePage {
                     if (e.getButton() == 1) {
                         players[1].getMals()[0].move(1, TRUEYUTGAP, mals, Outer());
                         player.MovesSizeRemove();//사이즈 줄이기
-                        TRUEYUTGAP=0;
+                        TRUEYUTGAP = 0;
                     }
                 }
             });
@@ -609,7 +609,7 @@ public class GamePage {
                     if (e.getButton() == 1) {
                         players[1].getMals()[1].move(1, TRUEYUTGAP, mals, Outer());
                         player.MovesSizeRemove();//사이즈 줄이기
-                        TRUEYUTGAP=0;
+                        TRUEYUTGAP = 0;
                     }
                 }
             });
@@ -619,7 +619,7 @@ public class GamePage {
                     if (e.getButton() == 1) {
                         players[1].getMals()[2].move(1, TRUEYUTGAP, mals, Outer());
                         player.MovesSizeRemove();//사이즈 줄이기
-                        TRUEYUTGAP=0;
+                        TRUEYUTGAP = 0;
                     }
                 }
             });
@@ -629,7 +629,7 @@ public class GamePage {
                     if (e.getButton() == 1) {
                         players[1].getMals()[3].move(1, TRUEYUTGAP, mals, Outer());
                         player.MovesSizeRemove();//사이즈 줄이기
-                        TRUEYUTGAP=0;
+                        TRUEYUTGAP = 0;
                     }
                 }
             });
@@ -749,7 +749,7 @@ public class GamePage {
                     if (e.getButton() == 1) {
                         players[2].getMals()[0].move(2, TRUEYUTGAP, mals, Outer());
                         player.MovesSizeRemove();//사이즈 줄이기
-                        TRUEYUTGAP=0;
+                        TRUEYUTGAP = 0;
                     }
                 }
             });
@@ -759,7 +759,7 @@ public class GamePage {
                     if (e.getButton() == 1) {
                         players[2].getMals()[1].move(2, TRUEYUTGAP, mals, Outer());
                         player.MovesSizeRemove();//사이즈 줄이기
-                        TRUEYUTGAP=0;
+                        TRUEYUTGAP = 0;
                     }
                 }
             });
@@ -769,7 +769,7 @@ public class GamePage {
                     if (e.getButton() == 1) {
                         players[2].getMals()[2].move(2, TRUEYUTGAP, mals, Outer());
                         player.MovesSizeRemove();//사이즈 줄이기
-                        TRUEYUTGAP=0;
+                        TRUEYUTGAP = 0;
                     }
                 }
             });
@@ -779,7 +779,7 @@ public class GamePage {
                     if (e.getButton() == 1) {
                         players[2].getMals()[3].move(2, TRUEYUTGAP, mals, Outer());
                         player.MovesSizeRemove();//사이즈 줄이기
-                        TRUEYUTGAP=0;
+                        TRUEYUTGAP = 0;
                     }
 
                 }
@@ -898,7 +898,7 @@ public class GamePage {
                     if (e.getButton() == 1) {
                         players[3].getMals()[0].move(3, TRUEYUTGAP, mals, Outer());
                         player.MovesSizeRemove();//사이즈 줄이기
-                        TRUEYUTGAP=0;
+                        TRUEYUTGAP = 0;
                     }
                 }
             });
@@ -908,7 +908,7 @@ public class GamePage {
                     if (e.getButton() == 1) {
                         players[3].getMals()[1].move(3, TRUEYUTGAP, mals, Outer());
                         player.MovesSizeRemove();//사이즈 줄이기
-                        TRUEYUTGAP=0;
+                        TRUEYUTGAP = 0;
                     }
                 }
             });
@@ -918,7 +918,7 @@ public class GamePage {
                     if (e.getButton() == 1) {
                         players[3].getMals()[2].move(3, TRUEYUTGAP, mals, Outer());
                         player.MovesSizeRemove();//사이즈 줄이기
-                        TRUEYUTGAP=0;
+                        TRUEYUTGAP = 0;
 
                     }
                 }
@@ -929,7 +929,7 @@ public class GamePage {
                     if (e.getButton() == 1) {
                         players[3].getMals()[3].move(3, TRUEYUTGAP, mals, Outer());
                         player.MovesSizeRemove();//사이즈 줄이기
-                        TRUEYUTGAP=0;
+                        TRUEYUTGAP = 0;
                     }
                 }
             });
@@ -1027,18 +1027,18 @@ public class GamePage {
         skilBtn2.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                if(player.getMoves().size()==0) {
+                if (player.getMoves().size() == 0) {
                     if (e.getButton() == 1) {
                         Store shop = new Store();
                         boolean buy_successful = shop.buy(mf, gamePanel, player, 2);
-                        System.out.println("GamePage의 스킬2 모오얼도의 값:"+buy_successful);
+                        System.out.println("GamePage의 스킬2 모오얼도의 값:" + buy_successful);
                         if (buy_successful) {
                             SELECTED_BUTTON = 10;//moOrDo버튼번호
                             yutThrow1.doClick(50);
                         }
                         Outer().reload_songP(player);
 
-                }
+                    }
                 }
             }
         });
@@ -1048,7 +1048,7 @@ public class GamePage {
         skilBtn3.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                if(player.getMoves().size()==0) {
+                if (player.getMoves().size() == 0) {
                     if (e.getButton() == 1) {
                         Store shop = new Store();
 
@@ -1064,25 +1064,24 @@ public class GamePage {
             @Override
             public void mouseClicked(MouseEvent e) {
 
-                    if (e.getButton() == 1) {
+                if (e.getButton() == 1) {
 
 
-                        apeach_body_label1.addMouseListener(new MouseAdapter() {
-                            @Override
-                            public void mouseClicked(MouseEvent e) {
-                                int grid = players[1].getMals()[0].getGrid();
+                    apeach_body_label1.addMouseListener(new MouseAdapter() {
+                        @Override
+                        public void mouseClicked(MouseEvent e) {
+                            int grid = players[1].getMals()[0].getGrid();
 
-                                Store shop = new Store();
-                                shop.buy(mf, gamePanel, player,4, grid);
-                                gm.removeGrid(grid);
-                                Outer().reload_songP(player);
+                            Store shop = new Store();
+                            shop.buy(mf, gamePanel, player, 4, grid);
+                            gm.removeGrid(grid);
+                            Outer().reload_songP(player);
 
-                            }
-                        });
+                        }
+                    });
 
 
-
-                    }
+                }
 
             }
         });
@@ -1091,11 +1090,11 @@ public class GamePage {
         skilBtn5.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                if(player.getMoves().size()==0) {
+                if (player.getMoves().size() == 0) {
                     if (e.getButton() == 1) {
                         Store shop = new Store();
                         boolean buy_successful = shop.buy(mf, gamePanel, player, 5);
-                        System.out.println("GamePage 스킬5 백도 스킬의 값:"+buy_successful);
+                        System.out.println("GamePage 스킬5 백도 스킬의 값:" + buy_successful);
                         if (buy_successful) {
                             SELECTED_BUTTON = 5;//backDo버튼번호
                             yutThrow1.doClick(50);
@@ -1320,12 +1319,9 @@ public class GamePage {
                                     public void mouseClicked(MouseEvent e) {
 
 
-
-
-                                        TRUEYUTGAP=1;
-                                       System.out.println("TRUEYUTGAP"+TRUEYUTGAP);
-                                       System.out.println("useMoves후: " + player.getMoves());//삭제할거
-
+                                        TRUEYUTGAP = 1;
+                                        System.out.println("TRUEYUTGAP" + TRUEYUTGAP);
+                                        System.out.println("useMoves후: " + player.getMoves());//삭제할거
 
 
                                         gamePanel.remove(dodoBtn);
@@ -1372,8 +1368,8 @@ public class GamePage {
                                     @Override
                                     public void mouseClicked(MouseEvent e) {
 
-                                        TRUEYUTGAP=2;
-                                        System.out.println("TRUEYUTGAP"+TRUEYUTGAP);
+                                        TRUEYUTGAP = 2;
+                                        System.out.println("TRUEYUTGAP" + TRUEYUTGAP);
 
                                         System.out.println("useMoves후: " + player.getMoves());//삭제할거
 
@@ -1423,8 +1419,8 @@ public class GamePage {
                                     @Override
                                     public void mouseClicked(MouseEvent e) {
 
-                                        TRUEYUTGAP=3;
-                                        System.out.println("TRUEYUTGAP"+TRUEYUTGAP);
+                                        TRUEYUTGAP = 3;
+                                        System.out.println("TRUEYUTGAP" + TRUEYUTGAP);
 
                                         System.out.println("useMoves후: " + player.getMoves());//삭제할거
 
@@ -1475,8 +1471,8 @@ public class GamePage {
                                     @Override
                                     public void mouseClicked(MouseEvent e) {
 
-                                        TRUEYUTGAP=4;
-                                        System.out.println("TRUEYUTGAP"+TRUEYUTGAP);
+                                        TRUEYUTGAP = 4;
+                                        System.out.println("TRUEYUTGAP" + TRUEYUTGAP);
 
                                         System.out.println("useMoves후: " + player.getMoves());//삭제할거
 
@@ -1528,8 +1524,8 @@ public class GamePage {
                                     public void mouseClicked(MouseEvent e) {
 
 
-                                        TRUEYUTGAP=5;
-                                        System.out.println("TRUEYUTGAP"+TRUEYUTGAP);
+                                        TRUEYUTGAP = 5;
+                                        System.out.println("TRUEYUTGAP" + TRUEYUTGAP);
 
                                         System.out.println("useMoves후: " + player.getMoves());//삭제할거
 
@@ -1581,8 +1577,8 @@ public class GamePage {
                                     public void mouseClicked(MouseEvent e) {
 
 
-                                        TRUEYUTGAP=-1;
-                                        System.out.println("TRUEYUTGAP"+TRUEYUTGAP);
+                                        TRUEYUTGAP = -1;
+                                        System.out.println("TRUEYUTGAP" + TRUEYUTGAP);
 
 
                                         System.out.println("MovesSizeRemove 후: " + player.getMoves());//삭제할거
@@ -1605,8 +1601,8 @@ public class GamePage {
                             player.addMoves(YUTGAP);
                         } else {*/
 
-                            player.addMoves(YUTGAP);
-                            System.out.println("ADDMOVES"+player.getMoves());
+                        player.addMoves(YUTGAP);
+                        System.out.println("ADDMOVES" + player.getMoves());
 
                         /*}*/
                     }

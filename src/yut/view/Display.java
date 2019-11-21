@@ -13,12 +13,12 @@ public class Display {
 
     // 현재 시각화 포기함. 그냥 텍스트로 뭐가 어딨는지만 본다.
 
-    public void display(GameMap map){
+    public void display(GameMap map) {
         System.out.println("Display().display()");
         // 각 맵에 아이템 파악
         for (int i = 0; i < map.getItemGrid().length; i++) {
             // 널이 아니다 - 뭔가가 있다.
-            if (map.getItemGrid()[i] != null){
+            if (map.getItemGrid()[i] != null) {
                 System.out.println("좌표 " + i + "에 " + map.getItemGrid()[i].getName() + "이(가) 있다.");
             }
         }
@@ -79,8 +79,8 @@ public class Display {
         // System.out.printf("○%-7s○%-7s○%-7s○%-7s○%-7s○%-7s");
         // // 🥮 🚧
     }
-    
-    public void show_mals(Player[] players){
+
+    public void show_mals(Player[] players) {
         System.out.println("show_mals()");
         // 각 플레이어 말 현황 보여주기.
         for (int i = 0; i < players.length; i++) {

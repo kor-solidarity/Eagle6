@@ -72,8 +72,6 @@ public class GameMap {
     
     public void removeGrid(int grid) {
         System.out.println("제거호출");
-
-        System.out.println(itemGrid[grid].getItemGrid());
        // itemGrid[grid]= null;
         
         

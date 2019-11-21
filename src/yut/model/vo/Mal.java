@@ -111,12 +111,10 @@ public class Mal {
     }
 
     /**
-     *
-     *
-     * @param playerNum - 지금 차례인 플레이어 배열번호
+     * @param playerNum  - 지금 차례인 플레이어 배열번호
      * @param TRUEYUTGAP - 이동해야할 윷값
-     * @param mals - 게임 내 모든 말의 라벨
-     * @param gp - 게임페이지 그 자체.
+     * @param mals       - 게임 내 모든 말의 라벨
+     * @param gp         - 게임페이지 그 자체.
      */
     public void move(int playerNum, int TRUEYUTGAP, JLabel[][] mals, GamePage gp) {
 
@@ -155,8 +153,7 @@ public class Mal {
         // move_num 이 마이너스면 빽도 발동
         if (move_num < 0) {
             this.backDo(playerNum, mals, gp, my_mal);
-        }
-        else {
+        } else {
             // move_num 이 0이 아니면 계속 갈 수 있다는 소리
             while (move_num > 0) {
 
@@ -187,7 +184,7 @@ public class Mal {
                     // 정가운데 좌측상단 바로 옆에 있으니 정가운데로
                     this.setGrid(22);
                     my_mal.setLocation(MapGrid.GRIDS.get(22).x, MapGrid.GRIDS.get(22).y);
-                } else if (this.getGrid() == 22 && (start_grid == 22 || start_grid ==  10 || start_grid == 25 || start_grid == 26)) {
+                } else if (this.getGrid() == 22 && (start_grid == 22 || start_grid == 10 || start_grid == 25 || start_grid == 26)) {
                     // 정가운데에 위치하고 있고 정가운데에서 출발한 경우
                     // 그리고 좌측상단에서 가운대로 내려온 모든 경우
 

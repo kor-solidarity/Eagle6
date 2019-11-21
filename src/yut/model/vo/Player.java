@@ -26,7 +26,7 @@ public class Player {
     private int turn;
     // 케릭터의 고유 이름
     private String charName;
-    private Iterator mIter=(Iterator) new LinkedList(moves); //조지연 수정 191121 12:07
+    private Iterator mIter = (Iterator) new LinkedList(moves); //조지연 수정 191121 12:07
 
 
     public Player(String nick, String charName) {
@@ -85,8 +85,6 @@ public class Player {
     public void useMoves(Integer moveInt) {
         this.moves.remove(this.moves.indexOf(moveInt));
     }
-
-
 
 
     public void MovesSizeRemove() {

@@ -189,8 +189,10 @@ public class Mal {
                 // 정가운데 좌측상단 바로 옆에 있으니 정가운데로
                 this.setGrid(22);
                 my_mal.setLocation(MapGrid.GRIDS.get(22).x, MapGrid.GRIDS.get(22).y);
-            } else if (this.getGrid() == 22 && start_grid == 22) {
+            } else if (this.getGrid() == 22 && (start_grid == 22 || start_grid ==  10 || start_grid == 25 || start_grid == 26)) {
                 // 정가운데에 위치하고 있고 정가운데에서 출발한 경우
+                // 그리고 좌측상단에서 가운대로 내려온 모든 경우
+
                 // 우측하단으로 내려간다.
                 this.setGrid(27);
                 my_mal.setLocation(MapGrid.GRIDS.get(27).x, MapGrid.GRIDS.get(27).y);
@@ -207,6 +209,7 @@ public class Mal {
                 this.setGrid(29);
                 // 여기까지 왔으면 끝, 로케 종료처리한다.
                 my_mal.setVisible(false);
+                break;
                 // gp.gamePanel.remove(my_mal);
                 // my_mal.setLocation(MapGrid.GRIDS.get(29).x, MapGrid.GRIDS.get(29).y);
             } else {

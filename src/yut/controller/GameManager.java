@@ -36,6 +36,7 @@ public class GameManager {
                 gamePage.reload_songP(p);
                 gamePage.player = p;
                 JTextField tx = new JTextField(p.getNick()+"턴 입니다.");
+                p.resetYutCount();
                 tx.setBounds(600,30,250,30);
                 tx.setFont(new Font("Rockwell",Font.CENTER_BASELINE,25));
                 tx.setHorizontalAlignment(JTextField.CENTER);
@@ -48,6 +49,7 @@ public class GameManager {
                 // gamePage.show_ryan_songP.repaint();
                 System.out.println(p.getNick() + "getYutCount() " + p.getYutCount());
                 System.out.println(p.getMoves().size());
+
                 // 이게 돌고있는 한 해당 플레이어 턴.
                 // 기본적으로 던질 수 있는 윷의 수와 이동할 수 있는 양이 있는 한 계속 플레이 가능하다.
                 while(true){
@@ -67,6 +69,7 @@ public class GameManager {
                         break;
                     }
                 }
+
                 System.out.println(p.getNick() + " 턴 끝");
 
                 if (finished) {

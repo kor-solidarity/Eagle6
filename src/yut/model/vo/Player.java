@@ -55,6 +55,10 @@ public class Player {
         this.yutCount = yutCount;
     }
 
+    public void resetYutCount() {
+        this.yutCount = 1;
+    }
+
     public int getTurn() {
         return turn;
     }

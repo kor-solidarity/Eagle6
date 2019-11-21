@@ -7,9 +7,6 @@ import javax.swing.*;
 
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.Image;
-import java.awt.PopupMenu;
-import java.util.Scanner;
 
 public class GameManager {
     // 이거 추후 스태틱 전부 없애야됨.
@@ -34,10 +31,10 @@ public class GameManager {
                     continue;
                 }
                 gamePage.reload_songP(p);
-                gamePage.player = p;
+                gamePage.currentPlayer = p;
                 JTextField tx = new JTextField(p.getNick() + "턴 입니다.");
                 // yutCount 1로 초기화 - 없으면 턴 안멈추고 계속 돌아감
-                p.resetYutCount();
+                p.setYutCount(1);
                 tx.setBounds(600, 30, 250, 30);
                 tx.setFont(new Font("Rockwell", Font.CENTER_BASELINE, 25));
                 tx.setHorizontalAlignment(JTextField.CENTER);
@@ -54,19 +51,24 @@ public class GameManager {
                 // 이게 돌고있는 한 해당 플레이어 턴.
                 // 기본적으로 던질 수 있는 윷의 수와 이동할 수 있는 양이 있는 한 계속 플레이 가능하다.
                 while (true) {
+                    int finished_horses = 0;
                     // 말 다 돌았는지 확인.
                     // 29, 즉 완주 안한 말이 하나라도 있으면 끝
                     for (int i = 0; i < p.getMals().length; i++) {
-                        if (p.getMals()[i].getGrid() != 29) {
-                            finished = true;
+                        if (p.getMals()[i].getGrid() == 29) {
+                            finished_horses++;
                             break;
                         }
                     }
-                    if (finished) {
+                    if (finished_horses == 4) {
+                        finished = true;
+                        System.out.println("ALL HORSES IN");
                         break;
                     }
                     // 던질 수 있는 윷, 이동할 수 있는 윷값. 이 둘이 있는 한 계속 해당 플레이어 턴.
                     if (p.getYutCount() == 0 && p.getMoves().size() == 0) {
+                        System.out.println("p.getYutCount() " + p.getYutCount());
+                        System.out.println("p.getMoves().size() " + p.getMoves().size());
                         break;
                     }
                 }

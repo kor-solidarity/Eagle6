@@ -117,6 +117,9 @@ public class Mal {
      * @param gp         - 게임페이지 그 자체.
      */
     public void move(int playerNum, int TRUEYUTGAP, JLabel[][] mals, GamePage gp) {
+        if (TRUEYUTGAP == 0) {
+            return;
+        }
 
         int move_num = TRUEYUTGAP;
         // num 값 만큼 움직여야함.

@@ -3,6 +3,8 @@ package yut.model.vo;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import yut.view.GamePage;
+
 public class Player {
     // 송편 수
     private int songP = 52;
@@ -108,7 +110,7 @@ public class Player {
         this.specialty = specialty;
     }
 
-    public void skill() {
+    public void skill(GamePage gm) {
 
     }
 }

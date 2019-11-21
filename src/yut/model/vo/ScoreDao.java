@@ -40,6 +40,7 @@ public class ScoreDao {
 					ObjectInputStream ois = new ObjectInputStream(fis);
 					Player p = (Player) ois.readObject();
 					
+					
 					hmap.put(p, p);
 					
 				} catch (IOException | ClassNotFoundException e) {

@@ -11,6 +11,7 @@ public class RankManager implements Comparator {
 		Player p1 = (Player) o1;
 		Player p2 = (Player) o2;
 		
+		
 		int result = 0;
 		if(p1.getSongP() == p2.getSongP()){
 			result = 0;

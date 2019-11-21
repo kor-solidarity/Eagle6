@@ -70,12 +70,11 @@ public class GameMap {
         return 0;
     }
     
-    public void removeGrid(int grid, JPanel panel) {
+    public void removeGrid(int grid) {
         System.out.println("제거호출");
+        
         System.out.println(itemGrid[grid].getGrid());
-        panel.revalidate();
-        panel.repaint();
-        itemGrid[grid]= null;
+       // itemGrid[grid]= null;
         
         
     }

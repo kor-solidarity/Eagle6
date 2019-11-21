@@ -957,6 +957,7 @@ public class GamePage {
                             TRUEYUTGAP = 0;
                         }
 
+
                     }
                 }
             });

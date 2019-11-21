@@ -6,6 +6,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -24,6 +25,7 @@ import yut.model.vo.Player;
 public class MainFrame extends JFrame {
     //메인 화면 출력
     private MainFrame mf;
+    private HashMap hmap;
 
     public MainFrame() {
 
@@ -75,17 +77,25 @@ public class MainFrame extends JFrame {
         //도움말 버튼 크기,위치 조정
         helpBtn.setSize(100, 100);
         helpBtn.setLocation(700, 400);
+        
+        Image rank = new ImageIcon("mini/랭킹버튼1.jpg").getImage().getScaledInstance(100, 100, 0);
+        JButton rankBtn = new JButton();
+        rankBtn = new JButton(new ImageIcon(rank));
+        rankBtn.setSize(100,100);
+        rankBtn.setLocation(800,400);
 
         //패널에 메인 배경 부착
         mainPanel.add(mainLb);
         mainPanel.add(helpBtn);
         mainPanel.add(startBtn);
         mainPanel.add(mainLb1);
+        mainPanel.add(rankBtn);
 
 
         //메인 라벨 우선 순위 마지막 배치
         mainPanel.setComponentZOrder(mainLb, 2);
         mainPanel.setComponentZOrder(mainLb1, 0);
+        mainPanel.setComponentZOrder(rankBtn, 1);
 
         //컨터이너에 패널 부착
         this.add(mainPanel);
@@ -174,6 +184,15 @@ public class MainFrame extends JFrame {
                 }
             }
 
+        });
+        rankBtn.addMouseListener(new MouseAdapter() {
+        	
+        	@Override
+        	public void mouseClicked(MouseEvent e) {
+        		if(e.getButton() == 1) {
+        			Ranking rk = new Ranking(mf,hmap);
+        		}
+        	}
         });
 
 

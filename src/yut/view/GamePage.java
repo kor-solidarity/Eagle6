@@ -51,7 +51,6 @@ public class GamePage {
     public static int SELECTED_BUTTON = 0;
     // 선택된 말
     public int selected_mal = -1;
-    
 
     //라이언 닉네임 표시
     public JTextField show_ryan_name;
@@ -994,7 +993,6 @@ public class GamePage {
         skilBtn2.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                if(player.getMoves().size()==0) {
                 if (e.getButton() == 1) {
                     Store shop = new Store();
                     boolean buy_successful = shop.buy(mf, gamePanel, player, 2);
@@ -1005,7 +1003,6 @@ public class GamePage {
                     }
                     Outer().reload_songP(player);
 
-                }
                 }
             }
         });
@@ -1024,34 +1021,27 @@ public class GamePage {
             }
         });
 
-//        스킬 4번(폭탄) 사용시 반응 예시
-//         이렇게 쓰면안됨
-         skilBtn4.addMouseListener(new MouseAdapter() {
-             @Override
-             public void mouseClicked(MouseEvent e) {
-                 if (e.getButton() == 1) {
-                     
-                     
-                     apeach_body_label1.addMouseListener(new MouseAdapter() {
-                         @Override
-                         public void mouseClicked(MouseEvent e) {
-                            int grid = players[1].getMals()[0].getGrid();
-                             Store shop = new Store();
-                             shop.buy(mf, gamePanel, player,4, grid);
-                             
-                             gamePanel.revalidate();
-                             gamePanel.repaint();
-                             Outer().reload_songP(player);
-                             
-                         }
-                     });
-                    
-                     
-        
-        
-                 }
-             }
-         });
+        //스킬 4번(폭탄) 사용시 반응 예시
+        // 이렇게 쓰면안됨
+        // skilBtn4.addMouseListener(new MouseAdapter() {
+        //     @Override
+        //     public void mouseClicked(MouseEvent e) {
+        //         if (e.getButton() == 1) {
+        //
+        //             ryan_body_label1.addMouseListener(new MouseAdapter() {
+        //                 @Override
+        //                 public void mouseClicked(MouseEvent e) {
+        //                      int x = ryan_body_label1.getX();
+        //                      int y = ryan_body_label1.getY();
+        //                      Store shop = new Store();
+        //                      shop.buy(mf, gamePanel, player,  4,x,y);
+        //                 }
+        //             });
+        //
+        //
+        //         }
+        //     }
+        // });
 
         //스킬 5번(빽도) 사용시 반응
         skilBtn5.addMouseListener(new MouseAdapter() {
@@ -1285,8 +1275,7 @@ public class GamePage {
 
                                         System.out.println("addMoves후: " + player.getMoves());//삭제할거
                                         System.out.println(" 윷카운트 확인:" + player.getYutCount());//삭제할거
-                                        
-                                        
+
                                         gamePanel.remove(dodoBtn);
                                         gamePanel.revalidate();
                                         gamePanel.repaint();
@@ -1477,7 +1466,7 @@ public class GamePage {
                                         System.out.println("addMoves후: " + player.getMoves());//삭제할거
 
                                         System.out.println("아이템썼을때 윷카운트 감소되는지:" + player.getYutCount());//삭제할거
-                                       
+
                                         gamePanel.remove(dodoBtn);
                                         gamePanel.revalidate();
                                         gamePanel.repaint();
@@ -1539,12 +1528,12 @@ public class GamePage {
                     }
                     // 낙이 아닌 경우: move 에 값 추가
                     if (YUTGAP != 0) {
-                      /*  if (ryan_own) {//라이언 패시브 한정 윷값 두번저장
+                        if (ryan_own) {//라이언 패시브 한정 윷값 두번저장
                             player.addMoves(YUTGAP);
                             player.addMoves(YUTGAP);
-                        } else {*/
+                        } else {
                             player.addMoves(YUTGAP);
-                        /*}*/
+                        }
                     }
                     // 윷 또는 모: yutCount +1
                     if (YUTGAP >= 4) {

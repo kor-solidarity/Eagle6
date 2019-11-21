@@ -11,7 +11,7 @@ public class SongPyeon extends Item {
     
 
     public SongPyeon(int price, int grid, JPanel panel) {
-        //super(price, "송편");
+        super(price, "송편");
 
         int x = MapGrid.GRIDS.get(grid).x;
         int y = MapGrid.GRIDS.get(grid).y;

@@ -2,8 +2,6 @@ package yut.model.vo;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Iterator;
-import java.util.LinkedList;
 
 import yut.view.GamePage;
 
@@ -26,7 +24,6 @@ public class Player {
     private int turn;
     // 케릭터의 고유 이름
     private String charName;
-    private Iterator mIter=(Iterator) new LinkedList(moves); //조지연 수정 191121 12:07
 
     public Player(String nick, String charName) {
         this.nick = nick;
@@ -79,23 +76,6 @@ public class Player {
     // (이동을 다 하면) 윷의 값 빼내기.
     public void useMoves(Integer moveInt) {
         this.moves.remove(this.moves.indexOf(moveInt));
-    }
-    //ArrayList moves size 가져오기
-    public int getMovesSize() {
-      
-        
-        int movesListSize=0;
-        while(mIter.hasNext()) {
-            movesListSize++;
-        }
-        return movesListSize;
-    }
-    public void setMovesSize(Integer movesListSize) {
-       
-       
-       //this.moves.remove();
-     
-       
     }
 
     public int getSongP() {

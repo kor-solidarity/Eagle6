@@ -1285,7 +1285,8 @@ public class GamePage {
 
                                         System.out.println("addMoves후: " + player.getMoves());//삭제할거
                                         System.out.println(" 윷카운트 확인:" + player.getYutCount());//삭제할거
-
+                                        
+                                        
                                         gamePanel.remove(dodoBtn);
                                         gamePanel.revalidate();
                                         gamePanel.repaint();
@@ -1476,7 +1477,7 @@ public class GamePage {
                                         System.out.println("addMoves후: " + player.getMoves());//삭제할거
 
                                         System.out.println("아이템썼을때 윷카운트 감소되는지:" + player.getYutCount());//삭제할거
-
+                                       
                                         gamePanel.remove(dodoBtn);
                                         gamePanel.revalidate();
                                         gamePanel.repaint();
@@ -1538,12 +1539,12 @@ public class GamePage {
                     }
                     // 낙이 아닌 경우: move 에 값 추가
                     if (YUTGAP != 0) {
-                        if (ryan_own) {//라이언 패시브 한정 윷값 두번저장
+                      /*  if (ryan_own) {//라이언 패시브 한정 윷값 두번저장
                             player.addMoves(YUTGAP);
                             player.addMoves(YUTGAP);
-                        } else {
+                        } else {*/
                             player.addMoves(YUTGAP);
-                        }
+                        /*}*/
                     }
                     // 윷 또는 모: yutCount +1
                     if (YUTGAP >= 4) {

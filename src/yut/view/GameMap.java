@@ -61,13 +61,23 @@ public class GameMap {
         return this.itemGrid;
     }
 
-    public void setItemGrid(Item[] itemGrid) {
-        this.itemGrid = itemGrid;
+    public void setItemGrid(Item itemGrid,int indexNum) {
+        this.itemGrid[indexNum] = itemGrid;
     }
 
     // 그리드에 아이템 배치.
     public int setItemOnGrid(Item item, int gridNum) {
         return 0;
+    }
+    
+    public void removeGrid(int grid, JPanel panel) {
+        System.out.println("제거호출");
+        System.out.println(itemGrid[grid].getGrid());
+        panel.revalidate();
+        panel.repaint();
+        itemGrid[grid]= null;
+        
+        
     }
 
 }

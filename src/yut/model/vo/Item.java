@@ -18,6 +18,7 @@ public class Item {
     private JPanel panel;
 
     public Object[] item_num = new Object[6];
+    private JLabel lb;
     //jpanel을 필드로 가지고 있고 매게변수로 받은 japanel을 set으로 값을 저장해주고
 
     public Item() {
@@ -27,20 +28,20 @@ public class Item {
         this.price = price;
     }
 
-    public Item(int price,/*int grid,JLabel lb,*/ String name) {
-        this.price = price;
+    public Item(int grid,JLabel lb) {
+        this.grid = grid;
         //this.grid = grid;
-        this.name = name;
+        this.lb = lb;
 
     }
 
 
-    public JPanel getPanel() {
-        return panel;
+    public JLabel getlb() {
+        return lb;
     }
 
-    public void setPanel(JPanel panel) {
-        this.panel = panel;
+    public void setlb(JLabel lb) {
+        this.lb = lb;
     }
 
     public int getPrice() {
@@ -50,12 +51,12 @@ public class Item {
     public void setPrice(int price) {
         this.price = price;
     }
-	/*public int getGrid() {
+	public int getGrid() {
 		return grid;
 	}
 	public void setGrid(int grid) {
 		this.grid = grid;
-	}*/
+	}
 
     public String getName() {
         return name;

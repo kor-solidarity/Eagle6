@@ -50,21 +50,24 @@ public class GameManager {
                 System.out.println(p.getMoves().size());
                 // 이게 돌고있는 한 해당 플레이어 턴.
                 // 기본적으로 던질 수 있는 윷의 수와 이동할 수 있는 양이 있는 한 계속 플레이 가능하다.
-                while(p.getYutCount() > 0 || p.getMoves().size() > 0){
+                while(true){
                     // 말 다 돌았는지 확인.
                     // 29, 즉 완주 안한 말이 하나라도 있으면 끝
-                    // for (int i = 0; i < p.getMals().length; i++) {
-                    //     if (p.getMals()[i].getGrid() != 29){
-                    //         finished = true;
-                    //         break;
-                    //     }
-                    // }
-                    // if (finished) {
-                    //     System.out.println(p.getNick() + " 턴 끝");
-                    //     break;
-                    // }
+                    for (int i = 0; i < p.getMals().length; i++) {
+                        if (p.getMals()[i].getGrid() != 29){
+                            finished = true;
+                            break;
+                        }
+                    }
+                    if (finished) {
+                        break;
+                    }
+                    // 던질 수 있는 윷, 이동할 수 있는 윷값. 이 둘이 있는 한 계속 해당 플레이어 턴.
+                    if (p.getYutCount() == 0 && p.getMoves().size() == 0) {
+                        break;
+                    }
                 }
-               
+                System.out.println(p.getNick() + " 턴 끝");
 
                 if (finished) {
                     break;

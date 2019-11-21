@@ -2,13 +2,16 @@ package yut.model.vo;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
+import java.util.LinkedList;
+
+import yut.view.GamePage;
 
 public class Player {
     // 송편 수
     private int songP = 52;
     // 말 수
-    private Mal[] mals = {new Mal(1), new Mal(2),
-            new Mal(3), new Mal(4)};
+    private Mal[] mals = new Mal[4];
     // 플레이어 별명
     private String nick;
     // 플레이어 특수능력 사용여부
@@ -23,10 +26,15 @@ public class Player {
     private int turn;
     // 케릭터의 고유 이름
     private String charName;
+    private Iterator mIter=(Iterator) new LinkedList(moves); //조지연 수정 191121 12:07
 
     public Player(String nick, String charName) {
         this.nick = nick;
         this.charName = charName;
+        this.mals[0] = new Mal(0, this.nick);
+        this.mals[1] = new Mal(1, this.nick);
+        this.mals[2] = new Mal(2, this.nick);
+        this.mals[3] = new Mal(3, this.nick);
     }
 
 
@@ -55,6 +63,10 @@ public class Player {
         this.turn = turn;
     }
 
+    public boolean getSpecialty() {
+        return specialty;
+    }
+
     public ArrayList getMoves() {
         return moves;
     }
@@ -64,9 +76,26 @@ public class Player {
         this.moves.add(yutResult);
     }
 
-    // 이동을 하면서 윷의 값 빼내기.
+    // (이동을 다 하면) 윷의 값 빼내기.
     public void useMoves(Integer moveInt) {
         this.moves.remove(this.moves.indexOf(moveInt));
+    }
+    //ArrayList moves size 가져오기
+    public int getMovesSize() {
+      
+        
+        int movesListSize=0;
+        while(mIter.hasNext()) {
+            movesListSize++;
+        }
+        return movesListSize;
+    }
+    public void setMovesSize(Integer movesListSize) {
+       
+       
+       //this.moves.remove();
+     
+       
     }
 
     public int getSongP() {
@@ -99,5 +128,9 @@ public class Player {
 
     public void setSpecialty(boolean specialty) {
         this.specialty = specialty;
+    }
+
+    public void skill(GamePage gm) {
+
     }
 }

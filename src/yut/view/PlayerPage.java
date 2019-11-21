@@ -114,6 +114,13 @@ public class PlayerPage {
         user1c.setSize(50, 50);
         user1c.setLocation(250, 310);
 
+        Image game1 = new ImageIcon("mini/스타트1.PNG").getImage().getScaledInstance(170, 170, 0);
+        JButton gameBtn1 = new JButton(new ImageIcon(game1));
+        
+        //도움말 버튼 크기,위치 조정
+        gameBtn1.setSize(170, 170);
+        gameBtn1.setLocation(1310, 580);
+        
         Image icon2 = new ImageIcon("mini/버튼어피치1.PNG").getImage().getScaledInstance(50, 50, 0);
         JButton user2c = new JButton(new ImageIcon(icon2));
         user2c.setSize(50, 50);
@@ -195,7 +202,7 @@ public class PlayerPage {
         subPanel.add(neoBtn);
         subPanel.add(apeachBtn);
         subPanel.add(ryanBtn);
-        subPanel.add(gameBtn);
+        subPanel.add(gameBtn1);
         subPanel.add(mainLb2);
         //데이터 새로고침
         subPanel.revalidate();
@@ -551,30 +558,12 @@ public class PlayerPage {
         });
 
         //게임시작 버튼 활성
-        user4c.addActionListener(new ActionListener() {
-
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                Image game = new ImageIcon("mini/스타트1.PNG").getImage().getScaledInstance(170, 170, 0);
-                JButton gameBtn = new JButton();
-                gameBtn = new JButton(new ImageIcon(game));
-                //도움말 버튼 크기,위치 조정
-                gameBtn.setSize(170, 170);
-                gameBtn.setLocation(1310, 580);
-                if (playerNum >= 2) {
-                    subPanel.add(gameBtn);
-                    subPanel.setComponentZOrder(gameBtn, 0);
-                    subPanel.repaint();
-
-                }
-            }
-        });
 
 
-        gameBtn.addMouseListener(new MouseAdapter() {
+        gameBtn1.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                if (e.getButton() == 1) { //입력2이상일시 스타트버튼가능
+                if (e.getButton() == 1 && playerNum>=2) { //입력2이상일시 스타트버튼가능
 
                     //로딩화면 패널 생성
                     JPanel lo = new JPanel();

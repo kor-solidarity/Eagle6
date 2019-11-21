@@ -28,6 +28,7 @@ public class Player {
     private String charName;
     private Iterator mIter=(Iterator) new LinkedList(moves); //조지연 수정 191121 12:07
 
+
     public Player(String nick, String charName) {
         this.nick = nick;
         this.charName = charName;
@@ -53,6 +54,10 @@ public class Player {
 
     public void setYutCount(int yutCount) {
         this.yutCount = yutCount;
+    }
+
+    public void resetYutCount() {
+        this.yutCount = 1;
     }
 
     public int getTurn() {
@@ -81,6 +86,12 @@ public class Player {
         this.moves.remove(this.moves.indexOf(moveInt));
     }
 
+
+
+
+    public void MovesSizeRemove() {
+        this.moves.remove(0);
+    }
 
 
     public int getSongP() {

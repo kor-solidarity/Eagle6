@@ -114,14 +114,13 @@ public class Mal {
      *
      *
      * @param playerNum - 지금 차례인 플레이어 배열번호
-     * @param yutgap - 이동해야할 윷값
+     * @param TRUEYUTGAP - 이동해야할 윷값
      * @param mals - 게임 내 모든 말의 라벨
      * @param gp - 게임페이지 그 자체.
      */
-    public void move(int playerNum, int yutgap, JLabel[][] mals, GamePage gp) {
-        // 스태틱이어서 수정하면 값이 다 바뀌어버린다고함...
-        int move_num = yutgap;
+    public void move(int playerNum, int TRUEYUTGAP, JLabel[][] mals, GamePage gp) {
 
+        int move_num = TRUEYUTGAP;
         // num 값 만큼 움직여야함.
         // 와일문을 써서 한번에 한칸씩 움직인다.
         // 한칸 움직인 후에는 그 위치에 벽이 있나 확인한다. 있으면 그대로 종료.

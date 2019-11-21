@@ -51,7 +51,7 @@ public class GamePage {
     public static int SELECTED_BUTTON = 0;
     // 선택된 말
     public int selected_mal = -1;
-    
+
 
     //라이언 닉네임 표시
     public JTextField show_ryan_name;
@@ -351,7 +351,7 @@ public class GamePage {
             show_ryan_name.setSize(110, 40);
             show_ryan_name.setLocation(190, 5);
             show_ryan_name.setFont(font2);
-            
+
             //라이언 머리
             Image ryan_head = new ImageIcon("mini/ryan1.PNG").getImage().getScaledInstance(110, 110, 0);
             JLabel ryan_head_label = new JLabel(new ImageIcon(ryan_head));
@@ -728,7 +728,7 @@ public class GamePage {
             gamePanel.add(show_frodo_name);
             gamePanel.add(show_frodo_songP);
             //그리드값 조건으로 활성화
-/*		gamePanel.add(frodo_body_labelx1);
+            /*		gamePanel.add(frodo_body_labelx1);
 		gamePanel.add(frodo_body_labelx2);
 		gamePanel.add(frodo_body_labelx3);
 		gamePanel.add(frodo_body_labelx4);*/
@@ -877,7 +877,7 @@ public class GamePage {
             gamePanel.add(show_neo_name);
             gamePanel.add(show_neo_songP);
             //그리드값 조건으로 활성화
-/*		gamePanel.add(neo_body_labelx1);
+            /*		gamePanel.add(neo_body_labelx1);
 		gamePanel.add(neo_body_labelx2);
 		gamePanel.add(neo_body_labelx3);
 		gamePanel.add(neo_body_labelx4);*/
@@ -1028,17 +1028,17 @@ public class GamePage {
             @Override
             public void mouseClicked(MouseEvent e) {
                 if(player.getMoves().size()==0) {
-                if (e.getButton() == 1) {
-                    Store shop = new Store();
-                    boolean buy_successful = shop.buy(mf, gamePanel, player, 2);
-                    System.out.println("GamePage의 스킬2 모오얼도의 값:"+buy_successful);
-                    if (buy_successful) {
-                        SELECTED_BUTTON = 10;//moOrDo버튼번호
-                        yutThrow1.doClick(50);
-                    }
-                    Outer().reload_songP(player);
+                    if (e.getButton() == 1) {
+                        Store shop = new Store();
+                        boolean buy_successful = shop.buy(mf, gamePanel, player, 2);
+                        System.out.println("GamePage의 스킬2 모오얼도의 값:"+buy_successful);
+                        if (buy_successful) {
+                            SELECTED_BUTTON = 10;//moOrDo버튼번호
+                            yutThrow1.doClick(50);
+                        }
+                        Outer().reload_songP(player);
 
-                }
+                    }
                 }
             }
         });
@@ -1048,57 +1048,61 @@ public class GamePage {
         skilBtn3.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                if (e.getButton() == 1) {
-                    Store shop = new Store();
+                if(player.getMoves().size()==0) {
+                    if (e.getButton() == 1) {
+                        Store shop = new Store();
 
-                    shop.buy(mf, gamePanel, player, 3);
-                    Outer().reload_songP(player);//위치다름
+                        shop.buy(mf, gamePanel, player, 3);
+                        Outer().reload_songP(player);//위치다름
+                    }
                 }
             }
         });
 
-//        스킬 4번(폭탄) 사용시 반응 예시
-//         이렇게 쓰면안됨
-         skilBtn4.addMouseListener(new MouseAdapter() {
-             @Override
-             public void mouseClicked(MouseEvent e) {
-                 if (e.getButton() == 1) {
-                     
-                     
-                     apeach_body_label1.addMouseListener(new MouseAdapter() {
-                         @Override
-                         public void mouseClicked(MouseEvent e) {
-                            int grid = players[1].getMals()[0].getGrid();
-                             Store shop = new Store();
-                             shop.buy(mf, gamePanel, player,4, grid);
-                             
-                             gamePanel.revalidate();
-                             gamePanel.repaint();
-                             Outer().reload_songP(player);
-                             
-                         }
-                     });
-                    
-                     
-        
-        
-                 }
-             }
-         });
+        //        스킬 4번(폭탄) 사용시 반응 예시
+        //         이렇게 쓰면안됨
+        skilBtn4.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+               
+                    if (e.getButton() == 1) {
+
+
+                        apeach_body_label1.addMouseListener(new MouseAdapter() {
+                            @Override
+                            public void mouseClicked(MouseEvent e) {
+                                int grid = players[1].getMals()[0].getGrid();
+                                
+                                Store shop = new Store();
+                                shop.buy(mf, gamePanel, player,4, grid);
+                                gm.removeGrid(grid);
+                                Outer().reload_songP(player);
+
+                            }
+                        });
+
+
+
+                    }
+                
+            }
+        });
 
         //스킬 5번(빽도) 사용시 반응
         skilBtn5.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                if (e.getButton() == 1) {
-                    Store shop = new Store();
-                    boolean buy_successful = shop.buy(mf, gamePanel, player, 5);
-                    System.out.println("GamePage 스킬5 백도 스킬의 값:"+buy_successful);
-                    if (buy_successful) {
-                        SELECTED_BUTTON = 5;//backDo버튼번호
-                        yutThrow1.doClick(50);
+                if(player.getMoves().size()==0) {
+                    if (e.getButton() == 1) {
+                        Store shop = new Store();
+                        boolean buy_successful = shop.buy(mf, gamePanel, player, 5);
+                        System.out.println("GamePage 스킬5 백도 스킬의 값:"+buy_successful);
+                        if (buy_successful) {
+                            SELECTED_BUTTON = 5;//backDo버튼번호
+                            yutThrow1.doClick(50);
+                        }
+                        Outer().reload_songP(player);
                     }
-                    Outer().reload_songP(player);
                 }
             }
         });
@@ -1316,11 +1320,15 @@ public class GamePage {
                                     @Override
                                     public void mouseClicked(MouseEvent e) {
 
-                                       TRUEYUTGAP=1;
+
+
+
+                                        TRUEYUTGAP=1;
                                        System.out.println("TRUEYUTGAP"+TRUEYUTGAP);
                                        System.out.println("useMoves후: " + player.getMoves());//삭제할거
                                         
                                         
+
                                         gamePanel.remove(dodoBtn);
                                         gamePanel.revalidate();
                                         gamePanel.repaint();
@@ -1527,7 +1535,7 @@ public class GamePage {
                                         System.out.println("useMoves후: " + player.getMoves());//삭제할거
                                         
                                         System.out.println("아이템썼을때 윷카운트 감소되는지:" + player.getYutCount());//삭제할거
-                                       
+
                                         gamePanel.remove(dodoBtn);
                                         gamePanel.revalidate();
                                         gamePanel.repaint();
@@ -1593,12 +1601,14 @@ public class GamePage {
                     }
                     // 낙이 아닌 경우: move 에 값 추가
                     if (YUTGAP != 0) {
-                      /*  if (ryan_own) {//라이언 패시브 한정 윷값 두번저장
+                        /*  if (ryan_own) {//라이언 패시브 한정 윷값 두번저장
                             player.addMoves(YUTGAP);
                             player.addMoves(YUTGAP);
                         } else {*/
+
                             player.addMoves(YUTGAP);
                             System.out.println("ADDMOVES"+player.getMoves());
+
                         /*}*/
                     }
                     // 윷 또는 모: yutCount +1

@@ -58,7 +58,7 @@ public class Store {
                 
                 
                 //마인클래스에 해당 grid값을 매개변수로 보냄
-                Mine m = new Mine(grid, mine1);
+                Item m = new Mine(grid, mine1);
              
                 GameMap mp = new GameMap(panel);
 

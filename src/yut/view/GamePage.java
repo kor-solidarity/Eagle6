@@ -447,6 +447,8 @@ public class GamePage {
 
                         players[0].getMals()[0].move(0, TRUEYUTGAP, mals, Outer());
                         player.MovesSizeRemove();//사이즈 줄이기
+                        System.out.println("움직인후 player.moves사이즈 줄었는지 확인(사이즈값):"+player.getMoves().size());
+                        System.out.println("움직인후 윷카운트가 줄었는 지 확인: "+player.getYutCount());
                         TRUEYUTGAP=0;
                         // players[0].getMals()[0].move(yutgap, Outer());
 
@@ -459,6 +461,8 @@ public class GamePage {
                     if (e.getButton() == 1) {
                         players[0].getMals()[1].move(0, TRUEYUTGAP, mals, Outer());
                         player.MovesSizeRemove();//사이즈 줄이기
+                        System.out.println("움직인후 player.moves사이즈 줄었는지 확인(사이즈값):"+player.getMoves().size());
+                        System.out.println("움직인후 윷카운트가 줄었는 지 확인: "+player.getYutCount());
                         TRUEYUTGAP=0;
                     }
                 }
@@ -469,6 +473,8 @@ public class GamePage {
                     if (e.getButton() == 1) {
                         players[0].getMals()[2].move(0, TRUEYUTGAP, mals, Outer());
                         player.MovesSizeRemove();//사이즈 줄이기
+                        System.out.println("움직인후 player.moves사이즈 줄었는지 확인(사이즈값):"+player.getMoves().size());
+                        System.out.println("움직인후 윷카운트가 줄었는 지 확인: "+player.getYutCount());
                         TRUEYUTGAP=0;
                     }
                 }
@@ -479,6 +485,8 @@ public class GamePage {
                     if (e.getButton() == 1) {
                         players[0].getMals()[3].move(0, TRUEYUTGAP, mals, Outer());
                         player.MovesSizeRemove();//사이즈 줄이기
+                        System.out.println("움직인후 player.moves사이즈 줄었는지 확인(사이즈값):"+player.getMoves().size());
+                        System.out.println("움직인후 윷카운트가 줄었는 지 확인: "+player.getYutCount());
                         TRUEYUTGAP=0;
                     }
                 }
@@ -599,6 +607,8 @@ public class GamePage {
                     if (e.getButton() == 1) {
                         players[1].getMals()[0].move(1, TRUEYUTGAP, mals, Outer());
                         player.MovesSizeRemove();//사이즈 줄이기
+                        System.out.println("움직인후 player.moves사이즈 줄었는지 확인(사이즈값):"+player.getMoves().size());
+                        System.out.println("움직인후 윷카운트가 줄었는 지 확인: "+player.getYutCount());
                         TRUEYUTGAP=0;
                     }
                 }
@@ -609,6 +619,8 @@ public class GamePage {
                     if (e.getButton() == 1) {
                         players[1].getMals()[1].move(1, TRUEYUTGAP, mals, Outer());
                         player.MovesSizeRemove();//사이즈 줄이기
+                        System.out.println("움직인후 player.moves사이즈 줄었는지 확인(사이즈값):"+player.getMoves().size());
+                        System.out.println("움직인후 윷카운트가 줄었는 지 확인: "+player.getYutCount());
                         TRUEYUTGAP=0;
                     }
                 }
@@ -619,6 +631,8 @@ public class GamePage {
                     if (e.getButton() == 1) {
                         players[1].getMals()[2].move(1, TRUEYUTGAP, mals, Outer());
                         player.MovesSizeRemove();//사이즈 줄이기
+                        System.out.println("움직인후 player.moves사이즈 줄었는지 확인(사이즈값):"+player.getMoves().size());
+                        System.out.println("움직인후 윷카운트가 줄었는 지 확인: "+player.getYutCount());
                         TRUEYUTGAP=0;
                     }
                 }
@@ -629,6 +643,8 @@ public class GamePage {
                     if (e.getButton() == 1) {
                         players[1].getMals()[3].move(1, TRUEYUTGAP, mals, Outer());
                         player.MovesSizeRemove();//사이즈 줄이기
+                        System.out.println("움직인후 player.moves사이즈 줄었는지 확인(사이즈값):"+player.getMoves().size());
+                        System.out.println("움직인후 윷카운트가 줄었는 지 확인: "+player.getYutCount());
                         TRUEYUTGAP=0;
                     }
                 }
@@ -749,6 +765,8 @@ public class GamePage {
                     if (e.getButton() == 1) {
                         players[2].getMals()[0].move(2, TRUEYUTGAP, mals, Outer());
                         player.MovesSizeRemove();//사이즈 줄이기
+                        System.out.println("움직인후 player.moves사이즈 줄었는지 확인(사이즈값):"+player.getMoves().size());
+                        System.out.println("움직인후 윷카운트가 줄었는 지 확인: "+player.getYutCount());
                         TRUEYUTGAP=0;
                     }
                 }
@@ -759,6 +777,8 @@ public class GamePage {
                     if (e.getButton() == 1) {
                         players[2].getMals()[1].move(2, TRUEYUTGAP, mals, Outer());
                         player.MovesSizeRemove();//사이즈 줄이기
+                        System.out.println("움직인후 player.moves사이즈 줄었는지 확인(사이즈값):"+player.getMoves().size());
+                        System.out.println("움직인후 윷카운트가 줄었는 지 확인: "+player.getYutCount());
                         TRUEYUTGAP=0;
                     }
                 }
@@ -769,6 +789,8 @@ public class GamePage {
                     if (e.getButton() == 1) {
                         players[2].getMals()[2].move(2, TRUEYUTGAP, mals, Outer());
                         player.MovesSizeRemove();//사이즈 줄이기
+                        System.out.println("움직인후 player.moves사이즈 줄었는지 확인(사이즈값):"+player.getMoves().size());
+                        System.out.println("움직인후 윷카운트가 줄었는 지 확인: "+player.getYutCount());
                         TRUEYUTGAP=0;
                     }
                 }
@@ -779,6 +801,8 @@ public class GamePage {
                     if (e.getButton() == 1) {
                         players[2].getMals()[3].move(2, TRUEYUTGAP, mals, Outer());
                         player.MovesSizeRemove();//사이즈 줄이기
+                        System.out.println("움직인후 player.moves사이즈 줄었는지 확인(사이즈값):"+player.getMoves().size());
+                        System.out.println("움직인후 윷카운트가 줄었는 지 확인: "+player.getYutCount());
                         TRUEYUTGAP=0;
                     }
 
@@ -898,6 +922,8 @@ public class GamePage {
                     if (e.getButton() == 1) {
                         players[3].getMals()[0].move(3, TRUEYUTGAP, mals, Outer());
                         player.MovesSizeRemove();//사이즈 줄이기
+                        System.out.println("움직인후 player.moves사이즈 줄었는지 확인(사이즈값):"+player.getMoves().size());
+                        System.out.println("움직인후 윷카운트가 줄었는 지 확인: "+player.getYutCount());
                         TRUEYUTGAP=0;
                     }
                 }
@@ -908,6 +934,8 @@ public class GamePage {
                     if (e.getButton() == 1) {
                         players[3].getMals()[1].move(3, TRUEYUTGAP, mals, Outer());
                         player.MovesSizeRemove();//사이즈 줄이기
+                        System.out.println("움직인후 player.moves사이즈 줄었는지 확인(사이즈값):"+player.getMoves().size());
+                        System.out.println("움직인후 윷카운트가 줄었는 지 확인: "+player.getYutCount());
                         TRUEYUTGAP=0;
                     }
                 }
@@ -918,6 +946,8 @@ public class GamePage {
                     if (e.getButton() == 1) {
                         players[3].getMals()[2].move(3, TRUEYUTGAP, mals, Outer());
                         player.MovesSizeRemove();//사이즈 줄이기
+                        System.out.println("움직인후 player.moves사이즈 줄었는지 확인(사이즈값):"+player.getMoves().size());
+                        System.out.println("움직인후 윷카운트가 줄었는 지 확인: "+player.getYutCount());
                         TRUEYUTGAP=0;
 
                     }
@@ -929,6 +959,8 @@ public class GamePage {
                     if (e.getButton() == 1) {
                         players[3].getMals()[3].move(3, TRUEYUTGAP, mals, Outer());
                         player.MovesSizeRemove();//사이즈 줄이기
+                        System.out.println("움직인후 player.moves사이즈 줄었는지 확인(사이즈값):"+player.getMoves().size());
+                        System.out.println("움직인후 윷카운트가 줄었는 지 확인: "+player.getYutCount());
                         TRUEYUTGAP=0;
                     }
                 }
@@ -1447,7 +1479,7 @@ public class GamePage {
                         JLabel yut = new JLabel(new ImageIcon(yut1));
                         yut.setSize(300, 300);
                         yut.setLocation(1170, 150);
-                        player.setYutCount(player.getYutCount() + 1);
+                        
 
                         gamePanel.add(yut);
                         gamePanel.revalidate();
@@ -1500,7 +1532,7 @@ public class GamePage {
                         JLabel yut = new JLabel(new ImageIcon(yut1));
                         yut.setSize(300, 300);
                         yut.setLocation(1170, 150);
-                        player.setYutCount(player.getYutCount() + 1);
+                        
 
                         gamePanel.add(yut);
                         gamePanel.revalidate();

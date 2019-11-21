@@ -73,7 +73,6 @@ public class GameMap {
     public void removeGrid(int grid) {
         System.out.println("제거호출");
 
-       
        // itemGrid[grid]= null;
         
         

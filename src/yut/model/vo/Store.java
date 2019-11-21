@@ -66,7 +66,7 @@ public class Store {
                 //플레이어 송편을 가격만큼 감소
                 player.setSongP(player.getSongP() - 10);
 
-             
+
 
                 panel.add(motion);
                 panel.add(pop1);
@@ -82,6 +82,7 @@ public class Store {
 
                     @Override
                     public void run() {
+
                         panel.remove(motion);
                         panel.remove(pop1);
                         panel.revalidate();

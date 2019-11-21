@@ -31,7 +31,7 @@ public class ScoreDao {
 	public HashMap readAll() {
 		HashMap hmap = null;
 		FileInputStream fis = null;
-		
+
 		try {
 			fis = new FileInputStream("Score.dat");
 			hmap = new HashMap();
@@ -39,8 +39,11 @@ public class ScoreDao {
 				try {
 					ObjectInputStream ois = new ObjectInputStream(fis);
 					Player p = (Player) ois.readObject();
+
+
 					hmap.put(p, p);
 					
+
 				} catch (IOException | ClassNotFoundException e) {
 					e.printStackTrace();
 				}

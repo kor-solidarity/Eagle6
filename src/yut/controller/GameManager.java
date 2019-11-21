@@ -21,7 +21,7 @@ public class GameManager {
     // private static Ryan ryan;
     private GamePage gamePage;
 
-    public GameManager(GamePage gamePage){
+    public GameManager(GamePage gamePage) {
         this.gamePage = gamePage;
         // GAME OVER?
         boolean finished = false;
@@ -29,18 +29,20 @@ public class GameManager {
         do {
 
             // 각 플레이어 턴
-            for (Player p: gamePage.players ) {
+            for (Player p : gamePage.players) {
                 if (p == null) {
                     continue;
                 }
                 gamePage.reload_songP(p);
                 gamePage.player = p;
-                JTextField tx = new JTextField(p.getNick()+"턴 입니다.");
-                tx.setBounds(600,30,250,30);
-                tx.setFont(new Font("Rockwell",Font.CENTER_BASELINE,25));
+                JTextField tx = new JTextField(p.getNick() + "턴 입니다.");
+                // yutCount 1로 초기화 - 없으면 턴 안멈추고 계속 돌아감
+                p.resetYutCount();
+                tx.setBounds(600, 30, 250, 30);
+                tx.setFont(new Font("Rockwell", Font.CENTER_BASELINE, 25));
                 tx.setHorizontalAlignment(JTextField.CENTER);
                 tx.setBackground(Color.getHSBColor(200, 100, 100));
-               
+
                 gamePage.gamePanel.add(tx);
                 gamePage.gamePanel.revalidate();
                 gamePage.gamePanel.repaint();
@@ -48,13 +50,14 @@ public class GameManager {
                 // gamePage.show_ryan_songP.repaint();
                 System.out.println(p.getNick() + "getYutCount() " + p.getYutCount());
                 System.out.println(p.getMoves().size());
+
                 // 이게 돌고있는 한 해당 플레이어 턴.
                 // 기본적으로 던질 수 있는 윷의 수와 이동할 수 있는 양이 있는 한 계속 플레이 가능하다.
-                while(true){
+                while (true) {
                     // 말 다 돌았는지 확인.
                     // 29, 즉 완주 안한 말이 하나라도 있으면 끝
                     for (int i = 0; i < p.getMals().length; i++) {
-                        if (p.getMals()[i].getGrid() != 29){
+                        if (p.getMals()[i].getGrid() != 29) {
                             finished = true;
                             break;
                         }
@@ -67,6 +70,7 @@ public class GameManager {
                         break;
                     }
                 }
+
                 System.out.println(p.getNick() + " 턴 끝");
 
                 if (finished) {
@@ -76,14 +80,14 @@ public class GameManager {
             }
             if (!finished) {
                 // 전원 다 차례 끝내고 다음 턴으로 넘기기
-                for (Player p: gamePage.players ){
+                for (Player p : gamePage.players) {
                     if (p != null) {
                         p.setSongP(p.getSongP() + 2);
                         gamePage.reload_songP(p);
                     }
                 }
             }
-        }while (!finished);
+        } while (!finished);
 
         // 코드가 여기에 도달하면 게임 끝.
 
@@ -386,91 +390,91 @@ public class GameManager {
         }*/
 
 
-    }
-
-    // 이동 후 해야하는 일:
-    // - 지뢰가 있는지 확인. 있으면 말은 죽는다.
-    // - 다른 말들이 있는지 확인. 있으면 그 말은 죽는다.
-    // - 미션 깼는지 확인.
-
-    // 말 잡음?
-    boolean captured = false;
-
-
-    for (Player pl : players) {
-        // 같은 플레이어 말이면 겹친다. 우선은 통과
-        if (pl.getCharName().equals(mal.getOwner())) {
-            continue;
         }
 
-        // 다른 플레이어면 같은 그리드에 적이 있는지 확인한다.
-        for (Mal enemy : pl.getMals()) {
-            if (enemy.getGrid() == mal.getGrid()) {
+        // 이동 후 해야하는 일:
+        // - 지뢰가 있는지 확인. 있으면 말은 죽는다.
+        // - 다른 말들이 있는지 확인. 있으면 그 말은 죽는다.
+        // - 미션 깼는지 확인.
 
-                enemy.setGrid(-1);
+        // 말 잡음?
+        boolean captured = false;
+
+
+        for (Player pl : players) {
+            // 같은 플레이어 말이면 겹친다. 우선은 통과
+            if (pl.getCharName().equals(mal.getOwner())) {
+                continue;
             }
+
+            // 다른 플레이어면 같은 그리드에 적이 있는지 확인한다.
+            for (Mal enemy : pl.getMals()) {
+                if (enemy.getGrid() == mal.getGrid()) {
+
+                    enemy.setGrid(-1);
+                }
+            }
+
         }
+
 
     }
 
-
-}
-
-/**
- * 디스플레이에 떠야할 것들:
- * 말, 템.
- *
- * @return 윷 결과값
- */
+    /**
+     * 디스플레이에 떠야할 것들:
+     * 말, 템.
+     *
+     * @return 윷 결과값
+     */
 // public int roll_yut(){}
-public void display(Player[] players, GameMap map) {
-    // 게임 맵과 플레이어 현황 등 모든걸 표기.
+    public void display(Player[] players, GameMap map) {
+        // 게임 맵과 플레이어 현황 등 모든걸 표기.
 
-    // 송편: S
-    // 벽: W
-    // 지뢰: M
-    // 순간이동: X - 출발, O - 도착
-    // 말: 플레이어 캐릭명 첫글자 (R/F/N/A)
-    //
-    // ○       ○       ○       ○       ○       ○
-    // ○                                       ○
-    //         ○                       ○
-    //             ○               ○
-    // ○                   ○                   ○
-    //             ○               ○
-    // ○                                       ○
-    //         ○                       ○
-    // ○                                       ○
-    // ○       ○       ○       ○       ○       ○
-    // 플레이어명(캐릭)
-    // 송편:
-    // 남은 말:
-    // 고유스킬 썼는가: 불리언
+        // 송편: S
+        // 벽: W
+        // 지뢰: M
+        // 순간이동: X - 출발, O - 도착
+        // 말: 플레이어 캐릭명 첫글자 (R/F/N/A)
+        //
+        // ○       ○       ○       ○       ○       ○
+        // ○                                       ○
+        //         ○                       ○
+        //             ○               ○
+        // ○                   ○                   ○
+        //             ○               ○
+        // ○                                       ○
+        //         ○                       ○
+        // ○                                       ○
+        // ○       ○       ○       ○       ○       ○
+        // 플레이어명(캐릭)
+        // 송편:
+        // 남은 말:
+        // 고유스킬 썼는가: 불리언
 
 
-    // Item ten = map.itemGrid[10];
+        // Item ten = map.itemGrid[10];
 
-    // 첫줄 10 9 8 7 6 5
-    System.out.printf("○       ○       ○       ○       ○       ○\n");
-    // 둘째줄 11 4
-    System.out.printf("○                                       ○\n");
-    // 25 20
-    System.out.printf("        ○                       ○\n");
-    // 26 21
-    System.out.printf("            ○               ○\n");
-    // 12 22 3
-    System.out.printf("○                   ○                   ○\n");
-    // 23 27
-    System.out.printf("            ○               ○\n");
-    // 13 2
-    System.out.printf("○                                       ○\n");
-    // 24 28
-    System.out.printf("        ○                       ○\n");
-    // 14 1
-    System.out.printf("○                                       ○\n");
-    // 15 16 17 18 19 0
-    System.out.printf("○       ○       ○       ○       ○       ○");
-    // 🥮 🚧
-}
+        // 첫줄 10 9 8 7 6 5
+        System.out.printf("○       ○       ○       ○       ○       ○\n");
+        // 둘째줄 11 4
+        System.out.printf("○                                       ○\n");
+        // 25 20
+        System.out.printf("        ○                       ○\n");
+        // 26 21
+        System.out.printf("            ○               ○\n");
+        // 12 22 3
+        System.out.printf("○                   ○                   ○\n");
+        // 23 27
+        System.out.printf("            ○               ○\n");
+        // 13 2
+        System.out.printf("○                                       ○\n");
+        // 24 28
+        System.out.printf("        ○                       ○\n");
+        // 14 1
+        System.out.printf("○                                       ○\n");
+        // 15 16 17 18 19 0
+        System.out.printf("○       ○       ○       ○       ○       ○");
+        // 🥮 🚧
+    }
 
 }

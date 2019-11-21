@@ -51,7 +51,7 @@ public class GamePage {
     public static int SELECTED_BUTTON = 0;
     // 선택된 말
     public int selected_mal = -1;
-
+    
 
     //라이언 닉네임 표시
     public JTextField show_ryan_name;
@@ -728,7 +728,7 @@ public class GamePage {
             gamePanel.add(show_frodo_name);
             gamePanel.add(show_frodo_songP);
             //그리드값 조건으로 활성화
-            /*		gamePanel.add(frodo_body_labelx1);
+/*		gamePanel.add(frodo_body_labelx1);
 		gamePanel.add(frodo_body_labelx2);
 		gamePanel.add(frodo_body_labelx3);
 		gamePanel.add(frodo_body_labelx4);*/
@@ -877,7 +877,7 @@ public class GamePage {
             gamePanel.add(show_neo_name);
             gamePanel.add(show_neo_songP);
             //그리드값 조건으로 활성화
-            /*		gamePanel.add(neo_body_labelx1);
+/*		gamePanel.add(neo_body_labelx1);
 		gamePanel.add(neo_body_labelx2);
 		gamePanel.add(neo_body_labelx3);
 		gamePanel.add(neo_body_labelx4);*/
@@ -919,7 +919,7 @@ public class GamePage {
                         players[3].getMals()[2].move(3, TRUEYUTGAP, mals, Outer());
                         player.MovesSizeRemove();//사이즈 줄이기
                         TRUEYUTGAP=0;
-                        
+
                     }
                 }
             });
@@ -1064,7 +1064,7 @@ public class GamePage {
         skilBtn4.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-               
+
                     if (e.getButton() == 1) {
 
 
@@ -1072,7 +1072,7 @@ public class GamePage {
                             @Override
                             public void mouseClicked(MouseEvent e) {
                                 int grid = players[1].getMals()[0].getGrid();
-                                
+
                                 Store shop = new Store();
                                 shop.buy(mf, gamePanel, player,4, grid);
                                 gm.removeGrid(grid);
@@ -1084,7 +1084,7 @@ public class GamePage {
 
 
                     }
-                
+
             }
         });
 
@@ -1326,8 +1326,8 @@ public class GamePage {
                                         TRUEYUTGAP=1;
                                        System.out.println("TRUEYUTGAP"+TRUEYUTGAP);
                                        System.out.println("useMoves후: " + player.getMoves());//삭제할거
-                                        
-                                        
+
+
 
                                         gamePanel.remove(dodoBtn);
                                         gamePanel.revalidate();
@@ -1375,9 +1375,9 @@ public class GamePage {
 
                                         TRUEYUTGAP=2;
                                         System.out.println("TRUEYUTGAP"+TRUEYUTGAP);
-                                       
+
                                         System.out.println("useMoves후: " + player.getMoves());//삭제할거
-                                        
+
                                         System.out.println(" 윷카운트 감소안헀을때:" + player.getYutCount());//삭제할거
 
                                         gamePanel.remove(dodoBtn);
@@ -1426,9 +1426,9 @@ public class GamePage {
 
                                         TRUEYUTGAP=3;
                                         System.out.println("TRUEYUTGAP"+TRUEYUTGAP);
-                                        
+
                                         System.out.println("useMoves후: " + player.getMoves());//삭제할거
-                                        
+
                                         System.out.println(" 윷카운트 감소안헀을때:" + player.getYutCount());//삭제할거
 
                                         gamePanel.remove(dodoBtn);
@@ -1478,9 +1478,9 @@ public class GamePage {
 
                                         TRUEYUTGAP=4;
                                         System.out.println("TRUEYUTGAP"+TRUEYUTGAP);
-                                        
+
                                         System.out.println("useMoves후: " + player.getMoves());//삭제할거
-                                        
+
                                         System.out.println(" 윷카운트 감소안헀을때:" + player.getYutCount());//삭제할거
 
                                         gamePanel.remove(dodoBtn);
@@ -1528,12 +1528,12 @@ public class GamePage {
                                     @Override
                                     public void mouseClicked(MouseEvent e) {
 
-                                       
+
                                         TRUEYUTGAP=5;
                                         System.out.println("TRUEYUTGAP"+TRUEYUTGAP);
-                                      
+
                                         System.out.println("useMoves후: " + player.getMoves());//삭제할거
-                                        
+
                                         System.out.println("아이템썼을때 윷카운트 감소되는지:" + player.getYutCount());//삭제할거
 
                                         gamePanel.remove(dodoBtn);
@@ -1581,11 +1581,11 @@ public class GamePage {
                                     @Override
                                     public void mouseClicked(MouseEvent e) {
 
-                                       
+
                                         TRUEYUTGAP=-1;
                                         System.out.println("TRUEYUTGAP"+TRUEYUTGAP);
-                                       
-                                       
+
+
                                         System.out.println("MovesSizeRemove 후: " + player.getMoves());//삭제할거
                                         System.out.println("아이템썼을때 윷카운트 감소되는지:" + player.getYutCount());//삭제할거
 

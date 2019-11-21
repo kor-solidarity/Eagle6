@@ -114,12 +114,12 @@ public class Mal {
      *
      *
      * @param playerNum - 지금 차례인 플레이어 배열번호
-     * @param move_num - 이동해야할 윷값
+     * @param TRUEYUTGAP - 이동해야할 윷값
      * @param mals - 게임 내 모든 말의 라벨
      * @param gp - 게임페이지 그 자체.
      */
     public void move(int playerNum, int TRUEYUTGAP, JLabel[][] mals, GamePage gp) {
-        
+
         int move_num = TRUEYUTGAP;
         // num 값 만큼 움직여야함.
         // 와일문을 써서 한번에 한칸씩 움직인다.
@@ -135,107 +135,104 @@ public class Mal {
         }
 
 
-
-        // num이
-
-        // move_num = (int)(Math.random() * 5 + 1);
-
-
         System.out.println("move_num " + move_num);
-        if (move_num <= 0) {
-            return;
-        }
+
         // 이 객체와 연결된 말
         JLabel my_mal = mals[playerNum][this.num];
-        my_mal.toString();
-        // 말 움직이기 - 보류
-        ActionListener movement = new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                System.out.println("moving in");
-                // my_mal.setLocation();
-            }
-        };
+        // my_mal.toString();
+        // // 말 움직이기 - 보류
+        // ActionListener movement = new ActionListener() {
+        //     @Override
+        //     public void actionPerformed(ActionEvent e) {
+        //         System.out.println("moving in");
+        //         // my_mal.setLocation();
+        //     }
+        // };
 
         // 말이 움직이기 시작한 최초위치.
         int start_grid = this.getGrid();
         System.out.println("출발위치 " + start_grid);
+        // move_num 이 마이너스면 빽도 발동
+        if (move_num < 0) {
+            this.backDo(playerNum, mals, gp, my_mal);
+        }
+        else {
+            // move_num 이 0이 아니면 계속 갈 수 있다는 소리
+            while (move_num > 0) {
 
-        // move_num 이 0이 아니면 계속 갈 수 있다는 소리
-        while (move_num > 0) {
+                // 루트 추가: 이동직전 현위치를 넣는다.
+                // 다만, 첫 출발일 경우 -1로 넣으면 안되니 유의
+                if (this.getGrid() == -1) {
+                    this.addRoutes(0);
+                } else {
+                    this.addRoutes(this.getGrid());
+                }
 
-            // 루트 추가: 이동직전 현위치를 넣는다.
-            // 다만, 첫 출발일 경우 -1로 넣으면 안되니 유의
-            if (this.getGrid() == -1) {
-                this.addRoutes(0);
-            } else {
-                this.addRoutes(this.getGrid());
+                System.out.println("moving");
+                // 처음 출발하는 말.
+                if (this.getGrid() == -1) {
+                    this.setGrid(1);
+                    my_mal.setLocation(MapGrid.GRIDS.get(1).x, MapGrid.GRIDS.get(1).y);
+
+                } else if (this.getGrid() == 5 && start_grid == 5) {
+                    // 우측상단에서 출발했으니 대각 진입
+                    this.setGrid(20);
+                    my_mal.setLocation(MapGrid.GRIDS.get(20).x, MapGrid.GRIDS.get(20).y);
+                } else if (this.getGrid() == 10 && start_grid == 10) {
+                    // 좌측상단에서 출발했으니 대각 진입
+                    this.setGrid(25);
+                    my_mal.setLocation(MapGrid.GRIDS.get(25).x, MapGrid.GRIDS.get(25).y);
+
+                } else if (this.getGrid() == 26) {
+                    // 정가운데 좌측상단 바로 옆에 있으니 정가운데로
+                    this.setGrid(22);
+                    my_mal.setLocation(MapGrid.GRIDS.get(22).x, MapGrid.GRIDS.get(22).y);
+                } else if (this.getGrid() == 22 && (start_grid == 22 || start_grid ==  10 || start_grid == 25 || start_grid == 26)) {
+                    // 정가운데에 위치하고 있고 정가운데에서 출발한 경우
+                    // 그리고 좌측상단에서 가운대로 내려온 모든 경우
+
+                    // 우측하단으로 내려간다.
+                    this.setGrid(27);
+                    my_mal.setLocation(MapGrid.GRIDS.get(27).x, MapGrid.GRIDS.get(27).y);
+                } else if (this.getGrid() == 24) {
+                    // 대각에 나와서 좌측하단 모서리 도착
+                    this.setGrid(15);
+                    my_mal.setLocation(MapGrid.GRIDS.get(15).x, MapGrid.GRIDS.get(15).y);
+                } else if (this.getGrid() == 19 || this.getGrid() == 28) {
+                    // 19 || 28 걸렸다면 마지막 칸이라는거.
+                    this.setGrid(0);
+                    my_mal.setLocation(MapGrid.GRIDS.get(0).x, MapGrid.GRIDS.get(0).y);
+                } else if (this.getGrid() == 0) {
+                    // 0까지 왔으면 도착했다는 소리.
+                    this.setGrid(29);
+                    // 여기까지 왔으면 끝, 로케 종료처리한다.
+                    my_mal.setVisible(false);
+                    break;
+                    // gp.gamePanel.remove(my_mal);
+                    // my_mal.setLocation(MapGrid.GRIDS.get(29).x, MapGrid.GRIDS.get(29).y);
+                } else {
+                    // 위에 해당사항 없으면 그냥 1추가
+                    this.setGrid(this.getGrid() + 1);
+                    my_mal.setLocation(MapGrid.GRIDS.get(this.getGrid()).x,
+                            MapGrid.GRIDS.get(this.getGrid()).y);
+                }
+                System.out.println(" 최종위치 " + this.getGrid());
+                System.out.println("x " + my_mal.getX() + " y " + my_mal.getY());
+                System.out.println();
+
+
+                // try {
+                //     Thread.sleep(2000);
+                // } catch (InterruptedException e) {
+                //     e.printStackTrace();
+                // }
+                my_mal.repaint();
+                move_num--;
+
+                // 안에 장애물(벽) 있나 확인
+
+
             }
-
-            System.out.println("moving");
-            // 처음 출발하는 말.
-            if (this.getGrid() == -1) {
-                this.setGrid(1);
-                my_mal.setLocation(MapGrid.GRIDS.get(1).x, MapGrid.GRIDS.get(1).y);
-
-            } else if (this.getGrid() == 5 && start_grid == 5) {
-                // 우측상단에서 출발했으니 대각 진입
-                this.setGrid(20);
-                my_mal.setLocation(MapGrid.GRIDS.get(20).x, MapGrid.GRIDS.get(20).y);
-            } else if (this.getGrid() == 10 && start_grid == 10) {
-                // 좌측상단에서 출발했으니 대각 진입
-                this.setGrid(25);
-                my_mal.setLocation(MapGrid.GRIDS.get(25).x, MapGrid.GRIDS.get(25).y);
-
-            } else if (this.getGrid() == 26) {
-                // 정가운데 좌측상단 바로 옆에 있으니 정가운데로
-                this.setGrid(22);
-                my_mal.setLocation(MapGrid.GRIDS.get(22).x, MapGrid.GRIDS.get(22).y);
-            } else if (this.getGrid() == 22 && (start_grid == 22 || start_grid ==  10 || start_grid == 25 || start_grid == 26)) {
-                // 정가운데에 위치하고 있고 정가운데에서 출발한 경우
-                // 그리고 좌측상단에서 가운대로 내려온 모든 경우
-
-                // 우측하단으로 내려간다.
-                this.setGrid(27);
-                my_mal.setLocation(MapGrid.GRIDS.get(27).x, MapGrid.GRIDS.get(27).y);
-            } else if (this.getGrid() == 24) {
-                // 대각에 나와서 좌측하단 모서리 도착
-                this.setGrid(15);
-                my_mal.setLocation(MapGrid.GRIDS.get(15).x, MapGrid.GRIDS.get(15).y);
-            } else if (this.getGrid() == 19 || this.getGrid() == 28) {
-                // 19 || 28 걸렸다면 마지막 칸이라는거.
-                this.setGrid(0);
-                my_mal.setLocation(MapGrid.GRIDS.get(0).x, MapGrid.GRIDS.get(0).y);
-            } else if (this.getGrid() == 0) {
-                // 0까지 왔으면 도착했다는 소리.
-                this.setGrid(29);
-                // 여기까지 왔으면 끝, 로케 종료처리한다.
-                my_mal.setVisible(false);
-                break;
-                // gp.gamePanel.remove(my_mal);
-                // my_mal.setLocation(MapGrid.GRIDS.get(29).x, MapGrid.GRIDS.get(29).y);
-            } else {
-                // 위에 해당사항 없으면 그냥 1추가
-                this.setGrid(this.getGrid() + 1);
-                my_mal.setLocation(MapGrid.GRIDS.get(this.getGrid()).x,
-                        MapGrid.GRIDS.get(this.getGrid()).y);
-            }
-            System.out.println(" 최종위치 " + this.getGrid());
-            System.out.println("x " + my_mal.getX() + " y " + my_mal.getY());
-            System.out.println();
-
-
-            // try {
-            //     Thread.sleep(2000);
-            // } catch (InterruptedException e) {
-            //     e.printStackTrace();
-            // }
-            my_mal.repaint();
-            move_num--;
-
-            // 안에 장애물(벽) 있나 확인
-
-
         }
 
         // 돌거 다 돌았음.
@@ -244,7 +241,6 @@ public class Mal {
         // 아래 플레이어 확인용도
         int playerArrayNum = -1;
         for (Player p : gp.players) {
-            
             playerArrayNum++;
             // 플레이어가 없거나 지금 말주인과 갈은 사람이면 통과
             if (p == null || p.getNick().equals(this.owner)) {
@@ -307,53 +303,6 @@ public class Mal {
 
 
         }
-
-        // System.out.println("moving");
-        // // 처음 출발하는 말.
-        // if (this.getGrid() == -1) {
-        //     this.setGrid(1);
-        //     my_mal.setLocation(MapGrid.GRIDS.get(1).x, MapGrid.GRIDS.get(1).y);
-        //
-        // } else if (this.getGrid() == 5) {
-        //     // 우측상단에 있으니 대각 진입
-        //     this.setGrid(20);
-        //     my_mal.setLocation(MapGrid.GRIDS.get(20).x, MapGrid.GRIDS.get(20).y);
-        // } else if (this.getGrid() == 10) {
-        //     // 좌측상단에 있으니 대각 진입
-        //     this.setGrid(25);
-        //     my_mal.setLocation(MapGrid.GRIDS.get(25).x, MapGrid.GRIDS.get(25).y);
-        //
-        // } else if (this.getGrid() == 26) {
-        //     // 정가운데 좌측상단 바로 옆에 있으니 정가운데로
-        //     this.setGrid(22);
-        //     my_mal.setLocation(MapGrid.GRIDS.get(22).x, MapGrid.GRIDS.get(22).y);
-        // } else if (this.getGrid() == 22 && start_grid == 22) {
-        //     // 정가운데에 위치하고 있고 정가운데에서 출발한 경우
-        //     // 우측하단으로 내려간다.
-        //     this.setGrid(27);
-        //     my_mal.setLocation(MapGrid.GRIDS.get(27).x, MapGrid.GRIDS.get(27).y);
-        // } else if (this.getGrid() == 24) {
-        //     // 대각에 나와서 좌측하단 모서리 도착
-        //     this.setGrid(15);
-        //     my_mal.setLocation(MapGrid.GRIDS.get(15).x, MapGrid.GRIDS.get(15).y);
-        // } else if (this.getGrid() == 19 || this.getGrid() == 28) {
-        //     // 19 || 28 걸렸다면 마지막 칸이라는거.
-        //     this.setGrid(0);
-        //     my_mal.setLocation(MapGrid.GRIDS.get(0).x, MapGrid.GRIDS.get(0).y);
-        // } else if (this.getGrid() == 0) {
-        //     // 0까지 왔으면 도착했다는 소리.
-        //     this.setGrid(29);
-        //     // 여기까지 왔으면 끝, 로케 종료처리한다.
-        //     my_mal.setVisible(false);
-        //     // gp.gamePanel.remove(my_mal);
-        //     // my_mal.setLocation(MapGrid.GRIDS.get(29).x, MapGrid.GRIDS.get(29).y);
-        // } else {
-        //     // 위에 해당사항 없으면 그냥 1추가
-        //     this.setGrid(this.getGrid() + 1);
-        //     my_mal.setLocation(MapGrid.GRIDS.get(this.getGrid() ).x,
-        //             MapGrid.GRIDS.get(this.getGrid()).y);
-        // }
-
 
     }
 

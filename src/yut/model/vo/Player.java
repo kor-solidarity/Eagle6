@@ -81,13 +81,13 @@ public class Player {
         this.moves.remove(this.moves.indexOf(moveInt));
     }
 
-    
-   
+
+
 
     public void MovesSizeRemove() {
         this.moves.remove(0);
     }
-   
+
 
     public int getSongP() {
         return songP;

@@ -55,8 +55,8 @@ public class Store {
                 motion.setSize(300, 200);
                 motion.setLocation(1000, 480);
 
-                
-                
+
+
                 //마인클래스에 해당 grid값을 매개변수로 보냄
                 Item m = new Mine(grid, mine1);
              
@@ -82,7 +82,6 @@ public class Store {
 
                     @Override
                     public void run() {
-                        
                         panel.remove(motion);
                         panel.remove(pop1);
                         panel.revalidate();

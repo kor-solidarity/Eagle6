@@ -154,8 +154,6 @@ public class PlayerPage {
         n2.setBounds(380, 310, 230, 50);
         n2.setFont(new Font("Serif", Font.BOLD, 35));
         n2.setHorizontalAlignment(JTextField.LEFT);
-        
-        
         n2.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -565,10 +563,7 @@ public class PlayerPage {
         gameBtn1.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-
-                if (e.getButton() == 1 && playerNum >=2 ) { //입력2이상일시 스타트버튼가능
-
-
+                if (e.getButton() == 1 && playerNum>=2) { //입력2이상일시 스타트버튼가능
 
                     //로딩화면 패널 생성
                     JPanel lo = new JPanel();

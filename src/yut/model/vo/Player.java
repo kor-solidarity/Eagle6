@@ -27,6 +27,7 @@ public class Player {
     // 케릭터의 고유 이름
     private String charName;
 
+
     public Player(String nick, String charName) {
         this.nick = nick;
         this.charName = charName;
@@ -79,7 +80,13 @@ public class Player {
     public void useMoves(Integer moveInt) {
         this.moves.remove(this.moves.indexOf(moveInt));
     }
+
     
+   
+
+    public void MovesSizeRemove() {
+        this.moves.remove(0);
+    }
    
 
     public int getSongP() {

@@ -118,7 +118,9 @@ public class Mal {
      * @param mals - 게임 내 모든 말의 라벨
      * @param gp - 게임페이지 그 자체.
      */
-    public void move(int playerNum, int move_num, JLabel[][] mals, GamePage gp) {
+    public void move(int playerNum, int TRUEYUTGAP, JLabel[][] mals, GamePage gp) {
+        
+        int move_num = TRUEYUTGAP;
         // num 값 만큼 움직여야함.
         // 와일문을 써서 한번에 한칸씩 움직인다.
         // 한칸 움직인 후에는 그 위치에 벽이 있나 확인한다. 있으면 그대로 종료.
@@ -242,6 +244,7 @@ public class Mal {
         // 아래 플레이어 확인용도
         int playerArrayNum = -1;
         for (Player p : gp.players) {
+            
             playerArrayNum++;
             // 플레이어가 없거나 지금 말주인과 갈은 사람이면 통과
             if (p == null || p.getNick().equals(this.owner)) {

@@ -116,11 +116,11 @@ public class PlayerPage {
 
         Image game1 = new ImageIcon("mini/스타트1.PNG").getImage().getScaledInstance(170, 170, 0);
         JButton gameBtn1 = new JButton(new ImageIcon(game1));
-        
+
         //도움말 버튼 크기,위치 조정
         gameBtn1.setSize(170, 170);
         gameBtn1.setLocation(1310, 580);
-        
+
         Image icon2 = new ImageIcon("mini/버튼어피치1.PNG").getImage().getScaledInstance(50, 50, 0);
         JButton user2c = new JButton(new ImageIcon(icon2));
         user2c.setSize(50, 50);
@@ -563,7 +563,7 @@ public class PlayerPage {
         gameBtn1.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                if (e.getButton() == 1 && playerNum>=2) { //입력2이상일시 스타트버튼가능
+                if (e.getButton() == 1 && playerNum >= 2) { //입력2이상일시 스타트버튼가능
 
                     //로딩화면 패널 생성
                     JPanel lo = new JPanel();
@@ -628,7 +628,7 @@ public class PlayerPage {
                             GamePage gm = new GamePage(mf, panel, lo, players);
                         }
                     };
-                    ts.schedule(tk, 100); //원래 4000
+                    ts.schedule(tk, 3000); //원래 4000
 
 
                 }

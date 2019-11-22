@@ -84,6 +84,8 @@ public class Player {
 
 
 
+    //arrayList moves사이즈 한칸
+
     public void MovesSizeRemove() {
         this.moves.remove(0);
     }

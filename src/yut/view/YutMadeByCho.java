@@ -40,7 +40,7 @@ public class YutMadeByCho {
     public int throwYut(Player player) {
         //랜덤값으로 윷확률 받기
         
-        int yutRate = new Random().nextInt(10) + 1;
+        int yutRate = new Random().nextInt(20) + 1;
 
         switch (yutRate) {
             case 1:
@@ -71,6 +71,36 @@ public class YutMadeByCho {
                 yutNum = mo(player);
                 break;//모
             case 10:
+                yutNum = gea();
+                break;//백도
+            case 11:
+                yutNum = gea();
+                break;//낙나왔을때
+           case 12: 
+                yutNum = Do();
+                break;//도
+            case 13:
+                yutNum = gea();
+                break;//개
+            case 14:
+                yutNum = gea();
+                break;//개
+            case 15:
+                yutNum = gul();
+                break;//걸
+            case 16:
+                yutNum = gul();
+                break;//걸
+            case 17:
+                yutNum = yut(player);
+                break;//윷
+            case 18:
+                yutNum = yut(player);
+                break;//윷
+            case 19:
+                yutNum = mo(player);
+                break;//모
+            case 20:
                 yutNum = backDo();
                 break;//백도
 

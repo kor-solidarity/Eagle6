@@ -50,12 +50,14 @@ public class Item {
     public void setPrice(int price) {
         this.price = price;
     }
-	/*public int getGrid() {
-		return grid;
-	}
-	public void setGrid(int grid) {
-		this.grid = grid;
-	}*/
+
+    public int getGrid() {
+        return grid;
+    }
+
+    public void setGrid(int grid) {
+        this.grid = grid;
+    }
 
     public String getName() {
         return name;

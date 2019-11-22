@@ -71,7 +71,7 @@ public class YutMadeByCho {
                 yutNum = mo(player);
                 break;//모
             case 10:
-                yutNum = backDo();
+                yutNum = gea();
                 break;//백도
             case 11:
                 yutNum = gea();

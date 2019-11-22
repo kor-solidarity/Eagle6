@@ -1497,7 +1497,7 @@ public class GamePage {
                         JLabel yut = new JLabel(new ImageIcon(yut1));
                         yut.setSize(300, 300);
                         yut.setLocation(1170, 150);
-                        currentPlayer.setYutCount(currentPlayer.getYutCount() + 1);
+                       
 
                         gamePanel.add(yut);
                         gamePanel.revalidate();
@@ -1550,7 +1550,7 @@ public class GamePage {
                         JLabel yut = new JLabel(new ImageIcon(yut1));
                         yut.setSize(300, 300);
                         yut.setLocation(1170, 150);
-                        currentPlayer.setYutCount(currentPlayer.getYutCount() + 1);
+                        
 
                         gamePanel.add(yut);
                         gamePanel.revalidate();

@@ -34,7 +34,7 @@ public class GameManager {
                 gamePage.currentPlayer = p;
                 System.out.println("gamePage.currentPlayer " + gamePage.currentPlayer);
                 System.out.println("p " + p);
-                JTextField tx = new JTextField(p.getNick() + "턴 입니다.");
+                JTextField tx = new JTextField(p.getNick()+ " TURN !!");
                 // yutCount 1로 초기화 - 없으면 턴 안멈추고 계속 돌아감
                 p.setYutCount(1);
                 tx.setBounds(600, 30, 250, 30);
@@ -422,11 +422,23 @@ public class GameManager {
             // 다른 플레이어면 같은 그리드에 적이 있는지 확인한다.
             for (Mal enemy : pl.getMals()) {
                 if (enemy.getGrid() == mal.getGrid()) {
-
+                       captured = true;
                     enemy.setGrid(-1);
+                   
                 }
             }
 
+        }
+        if(captured) {
+            for (Player pl : players) {
+                if (pl.getCharName().equals(mal.getOwner())) {
+                    pl.setYutCount(pl.getYutCount()+1); 
+                    System.out.println("유저 잡을때 카운트 : "+pl.getYutCount());
+                    break;
+                    
+                }
+
+            }
         }
 
 

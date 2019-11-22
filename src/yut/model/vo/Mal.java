@@ -230,8 +230,6 @@ public class Mal {
                 move_num--;
 
                 // 안에 장애물(벽) 있나 확인
-
-
             }
         }
 
@@ -241,6 +239,16 @@ public class Mal {
         // 아래 플레이어 확인용도
         int playerArrayNum = -1;
         for (Player p : gp.players) {
+            // 임시조치
+            if (p == null) {
+                System.out.println("p == null");
+                continue;
+            }
+
+            System.out.println("player p.getNick() " + p.getNick());
+            System.out.println("current piece this.owner: " + this.owner);
+            System.out.println("p.getNick().equals(this.owner) " + p.getNick().equals(this.owner));
+
             playerArrayNum++;
             // 플레이어가 없거나 지금 말주인과 갈은 사람이면 통과
             if (p == null || p.getNick().equals(this.owner)) {

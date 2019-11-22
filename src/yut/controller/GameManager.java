@@ -34,7 +34,7 @@ public class GameManager {
                 gamePage.currentPlayer = p;
                 System.out.println("gamePage.currentPlayer " + gamePage.currentPlayer);
                 System.out.println("p " + p);
-                JTextField tx = new JTextField(p.getNick()+ " TURN !!");
+                JTextField tx = new JTextField(p.getNick() + "턴 입니다.");
                 // yutCount 1로 초기화 - 없으면 턴 안멈추고 계속 돌아감
                 p.setYutCount(1);
                 tx.setBounds(600, 30, 250, 30);
@@ -74,12 +74,18 @@ public class GameManager {
                     if (p.getYutCount() == 0 && p.getMoves().size() == 0) {
                         break;
                     }
-                    if (counter == 2100000000) {
+                    //  5초에 한번씩 뜨게끔.
+                    if (counter == 5000) {
                         counter = 0;
-                        System.out.println("p.getYutCount() " + p.getYutCount());
-                        System.out.println("p.getMoves().size() " + p.getMoves().size());
+                        System.out.println("p.getYutCount() " + p.getYutCount() + " p.getMoves().size() " + p.getMoves().size());
                         System.out.println("gamePage.currentPlayer.getYutCount() " + gamePage.currentPlayer.getYutCount());
                         System.out.println("gamePage.currentPlayer.getMoves().size() " + gamePage.currentPlayer.getMoves().size());
+                    }
+                    // interval 1ms
+                    try {
+                        Thread.sleep(1);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
                     }
                 }
 
@@ -422,23 +428,11 @@ public class GameManager {
             // 다른 플레이어면 같은 그리드에 적이 있는지 확인한다.
             for (Mal enemy : pl.getMals()) {
                 if (enemy.getGrid() == mal.getGrid()) {
-                       captured = true;
+
                     enemy.setGrid(-1);
-                   
                 }
             }
 
-        }
-        if(captured) {
-            for (Player pl : players) {
-                if (pl.getCharName().equals(mal.getOwner())) {
-                    pl.setYutCount(pl.getYutCount()+1); 
-                    System.out.println("유저 잡을때 카운트 : "+pl.getYutCount());
-                    break;
-                    
-                }
-
-            }
         }
 
 

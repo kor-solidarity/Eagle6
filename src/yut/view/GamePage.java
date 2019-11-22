@@ -1125,7 +1125,7 @@ public class GamePage {
                     Store shop = new Store();
                     shop.buy(gm,mf, gamePanel, currentPlayer, 4, grid);
                     Outer().reload_songP(currentPlayer);
-                    
+
 
 
                 }
@@ -1173,8 +1173,8 @@ public class GamePage {
                     endlb = new JLabel(new ImageIcon(end));
                     //도움말 버튼 크기,위치 조정
                     endlb.setSize(600, 600);
-                    
-                    //itemgrid 배열 내용 확인 
+
+                    //itemgrid 배열 내용 확인
                     gm.removeGrid(3);
 
                     //종료버튼 생성
@@ -1693,8 +1693,6 @@ public class GamePage {
                     // 한번 던졌으니 무조건 yutCount 감소
                     System.out.println("한번 던졌으니 무조건 yutCount 감소");
                     currentPlayer.setYutCount(currentPlayer.getYutCount() - 1);
-
-
                 }
             }
         });

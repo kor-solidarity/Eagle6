@@ -354,7 +354,8 @@ public class GameManager {
             } else if (mal.getGrid() == 0) {
                 // 0까지 왔으면 도착했다는 소리.
                 mal.setGrid(29);
-            } else {
+            } 
+            else {
                 // 위에 해당사항 없으면 그냥 1추가
                 mal.setGrid(mal.getGrid() + 1);
             }

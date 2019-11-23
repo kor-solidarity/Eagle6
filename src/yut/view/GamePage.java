@@ -35,6 +35,7 @@ import yut.model.vo.Store;
 public class GamePage {
     public static int YUTGAP;//YutMadeByCho에서 윷값 받을 수 있는 전역변수
     public static int TRUEYUTGAP;
+    public static boolean mineYs;//폭탄 설치 
     public Player[] players;
 
     // 현재 턴인 플레이어
@@ -73,6 +74,9 @@ public class GamePage {
 
     // 아무것도 없는 상태에서 빽도 걸려서 게임 그냥 끝인지 확인.
     private boolean backdo_end;
+
+    //폭탄 그리드 값 확인용
+    private int mineGrid;
 
 
     public JLabel[][] mals = new JLabel[4][4];
@@ -114,6 +118,17 @@ public class GamePage {
         endBtn.setSize(40, 40);
         endBtn.setLocation(1445, 0);
         gamePanel.setComponentZOrder(endBtn, 0);
+        
+        //음량 음소거 버튼  생성
+        Image audioStop = new ImageIcon("mini/음소거버튼.PNG").getImage().getScaledInstance(70, 70, 0);
+        JLabel audioStopBtn = new JLabel(new ImageIcon(audioStop));
+        audioStopBtn.setSize(70, 70);
+        audioStopBtn.setLocation(20, 680 );
+        //음량 시작 버튼  생성
+        Image audioStart = new ImageIcon("mini/음향버튼.PNG").getImage().getScaledInstance(150, 100, 0);
+        JLabel audioStartBtn = new JLabel(new ImageIcon(audioStart));
+        audioStartBtn.setSize(120, 110);
+        audioStartBtn.setLocation(20, 680 );
 
         //스토어 라벨생성
         Image store = new ImageIcon("mini/스토어.PNG").getImage().getScaledInstance(370, 220, 0);
@@ -1069,6 +1084,9 @@ public class GamePage {
         gamePanel.add(yutBackGround);
         gamePanel.add(yutThrow1);
         gamePanel.add(mainBackGround);
+        gamePanel.add(audioStartBtn);
+        gamePanel.add(audioStopBtn);
+        gamePanel.setComponentZOrder(audioStopBtn, 0);
 
         gamePanel.revalidate();
         gamePanel.repaint();
@@ -1113,25 +1131,24 @@ public class GamePage {
             }
         });
 
+        
+        
+        
+        
+        
         //        스킬 4번(폭탄) 사용시 반응 예시
         skilBtn4.addMouseListener(new MouseAdapter() {
             @Override
-            public void mouseClicked(MouseEvent e) {
-
-                if (e.getButton() == 1) {
-
-
-                    int grid = players[1].getMals()[0].getGrid();
-                    Store shop = new Store();
-                    shop.buy(gm,mf, gamePanel, currentPlayer, 4, grid);
-                    Outer().reload_songP(currentPlayer);
-                    
-
-
-                }
-
+            public void mouseReleased(MouseEvent e) {
+               int gr0 = players[0].getMals()[0].getGrid();
+               int gr1 = players[0].getMals()[1].getGrid();
+               int gr2 = players[0].getMals()[2].getGrid();
+               int gr3 = players[0].getMals()[3].getGrid();   
+                
             }
-        });
+
+            });
+        
 
         //스킬 5번(빽도) 사용시 반응
         skilBtn5.addMouseListener(new MouseAdapter() {
@@ -1173,9 +1190,7 @@ public class GamePage {
                     endlb = new JLabel(new ImageIcon(end));
                     //도움말 버튼 크기,위치 조정
                     endlb.setSize(600, 600);
-                    
-                    //itemgrid 배열 내용 확인 
-                    gm.removeGrid(3);
+
 
                     //종료버튼 생성
                     Image end1 = new ImageIcon("mini/체크취소.PNG").getImage().getScaledInstance(100, 100, 0);
@@ -1195,6 +1210,10 @@ public class GamePage {
                     ed.add(checkBtn);
                     ed.add(endlb);
                     ed.setVisible(true);
+
+                    gm.removeGrid(players[2].getMals()[0].getGrid());
+                    gamePanel.revalidate();
+                    gamePanel.repaint();
 
                     endBtn1.addMouseListener(new MouseAdapter() {
                         @Override
@@ -1237,6 +1256,8 @@ public class GamePage {
                 }
             }
         });
+        
+      
 
         //윷 던지기 버튼을 눌럿을시 반응
         yutThrow1.addActionListener(new ActionListener() {
@@ -1252,9 +1273,9 @@ public class GamePage {
                     System.out.println(file.exists()); //true
                     try {
                         AudioInputStream stream = AudioSystem.getAudioInputStream(file);
-                        Clip clip = AudioSystem.getClip();
-                        clip.open(stream);
-                        clip.start();
+                       Clip clip1 = AudioSystem.getClip();
+                        clip1.open(stream);
+                        clip1.start();
 
 
                     } catch (Exception e1) {
@@ -1696,6 +1717,31 @@ public class GamePage {
 
 
                 }
+            }
+        });
+        //오디오 음소거 버튼 추가
+        audioStopBtn.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                MainFrame.stopAudio();
+                
+                gamePanel.remove(audioStopBtn);
+                gamePanel.add(audioStartBtn);
+                gamePanel.revalidate();
+                gamePanel.repaint();
+                gamePanel.setComponentZOrder(audioStartBtn, 0);
+            }
+        });
+        
+        audioStartBtn.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                MainFrame.startAudio();
+                gamePanel.remove(audioStartBtn);
+                gamePanel.add(audioStopBtn);
+                gamePanel.revalidate();
+                gamePanel.repaint();
+                gamePanel.setComponentZOrder(audioStopBtn, 0);
             }
         });
 

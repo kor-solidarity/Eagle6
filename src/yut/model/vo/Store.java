@@ -35,6 +35,24 @@ public class Store {
     public boolean buy(GameMap gm, MainFrame mf, JPanel panel, Player player,  int itemNum, int grid) {
         if (itemNum == 4) {
             if (player.getSongP() >= 10) {
+                System.out.println(GamePage.mineYs);
+                int x = MapGrid.GRIDS.get(grid).x;
+                int y = MapGrid.GRIDS.get(grid).y;
+                
+                //송편 표시 라벨
+                Image mine = new ImageIcon("mini/폭탄.PNG").getImage().getScaledInstance(20, 20, 0);
+                JLabel minelb = new JLabel(new ImageIcon(mine));
+                minelb.setSize(20, 20);
+                minelb.setLocation(x, y);
+
+
+                panel.add(minelb);
+                panel.revalidate();
+                panel.repaint();
+                panel.setComponentZOrder(minelb, 0);
+                
+                
+                
                 //폭탄 설치시 문구 생성
                 Image pop = new ImageIcon("mini/폭탄설치로고.PNG").getImage().getScaledInstance(200, 80, 0);
                 JLabel pop1 = new JLabel(new ImageIcon(pop));
@@ -49,8 +67,8 @@ public class Store {
 
 
                 //마인클래스에 해당 grid값을 매개변수로 보냄
-                //마인 객체 생성 및 배열에 넣기
-                gm.setItemGrid(new Mine(5,grid,panel), grid);
+              
+                gm.setItemGrid(new Mine(5,grid,panel,minelb), grid);
                 //플레이어 송편을 가격만큼 감소
                 player.setSongP(player.getSongP() - 10);
 
@@ -114,9 +132,9 @@ public class Store {
                 ts.schedule(tk, 1300);
 
             }
-            return true;
+            return GamePage.mineYs=false;
         }
-        return false;
+        return GamePage.mineYs=false;
 
     }
 

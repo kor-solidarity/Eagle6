@@ -70,6 +70,7 @@ public class GameManager {
                         System.out.println("ALL HORSES IN");
                         break;
                     }
+                    finished_horses = 0;
                     // 던질 수 있는 윷, 이동할 수 있는 윷값. 이 둘이 있는 한 계속 해당 플레이어 턴.
                     if (p.getYutCount() == 0 && p.getMoves().size() == 0) {
                         break;

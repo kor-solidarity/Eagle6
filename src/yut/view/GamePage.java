@@ -44,6 +44,7 @@ public class GamePage {
     public static int SELECTED_BUTTON = 0;
     // 선택된 말
     public int selected_mal = -1;
+    private boolean ryan_own = false;//라이언 패시브발동했는지 확인하는 변수(윷던지기 안에서사용)
 
 
     //라이언 닉네임 표시
@@ -1249,6 +1250,7 @@ public class GamePage {
             @Override
             public void actionPerformed(ActionEvent e) {
 
+                
                  backdo_end = false;
                 if (currentPlayer.getYutCount() > 0) {
                     //오디오 프로그램 실행
@@ -1275,7 +1277,6 @@ public class GamePage {
                     //                        System.out.println("yutgap1이 값을 가지는지 확인"+yutgap1);
 
 
-                    boolean ryan_own = false;//라이언 패시브발동했는지 확인하는 변수
                     if (SELECTED_BUTTON == 10) {//아이템 moOrDo
                         System.out.println("모도아이템");
                         YUTGAP = throwYut.mainYut(2, currentPlayer);
@@ -1372,9 +1373,13 @@ public class GamePage {
                                 dodoBtn.addMouseListener(new MouseAdapter() {
                                     @Override
                                     public void mouseClicked(MouseEvent e) {
-
-
                                         TRUEYUTGAP = 1;
+                                        if(ryan_own) {
+                                            TRUEYUTGAP*=2;
+                                        }
+                                        ryan_own=false;
+                                        
+
                                         System.out.println("TRUEYUTGAP" + TRUEYUTGAP);
                                         System.out.println("useMoves후: " + currentPlayer.getMoves());//삭제할거
 
@@ -1424,6 +1429,10 @@ public class GamePage {
                                     public void mouseClicked(MouseEvent e) {
 
                                         TRUEYUTGAP = 2;
+                                        if(ryan_own) {
+                                            TRUEYUTGAP*=2;
+                                        }
+                                        ryan_own=false;
                                         System.out.println("TRUEYUTGAP" + TRUEYUTGAP);
 
                                         System.out.println("useMoves후: " + currentPlayer.getMoves());//삭제할거
@@ -1475,6 +1484,10 @@ public class GamePage {
                                     public void mouseClicked(MouseEvent e) {
 
                                         TRUEYUTGAP = 3;
+                                        if(ryan_own) {
+                                            TRUEYUTGAP*=2;
+                                        }
+                                        ryan_own=false;
                                         System.out.println("TRUEYUTGAP" + TRUEYUTGAP);
 
                                         System.out.println("useMoves후: " + currentPlayer.getMoves());//삭제할거
@@ -1527,6 +1540,10 @@ public class GamePage {
                                     public void mouseClicked(MouseEvent e) {
 
                                         TRUEYUTGAP = 4;
+                                        if(ryan_own) {
+                                            TRUEYUTGAP*=2;
+                                        }
+                                        ryan_own=false;
                                         System.out.println("TRUEYUTGAP" + TRUEYUTGAP);
 
                                         System.out.println("useMoves후: " + currentPlayer.getMoves());//삭제할거
@@ -1580,6 +1597,10 @@ public class GamePage {
 
 
                                         TRUEYUTGAP = 5;
+                                        if(ryan_own) {
+                                            TRUEYUTGAP*=2;
+                                        }
+                                        ryan_own=false;
                                         System.out.println("TRUEYUTGAP" + TRUEYUTGAP);
 
                                         System.out.println("useMoves후: " + currentPlayer.getMoves());//삭제할거
@@ -1681,10 +1702,10 @@ public class GamePage {
                     // 낙이 아닌 경우: move 에 값 추가
                     if (YUTGAP != 0) {
                         // 빽도고 아무것도 못하는 경우면 추가하지 않는다.
-                        if (!backdo_end) {
+                        
 
                             currentPlayer.addMoves(YUTGAP);
-                        }
+                        
                         System.out.println("ADDMOVES" + currentPlayer.getMoves());
 
 

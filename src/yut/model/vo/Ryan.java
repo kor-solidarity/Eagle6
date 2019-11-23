@@ -43,12 +43,12 @@ public class Ryan extends Player {
                     gm.gamePanel.remove(wall2);
                     gm.gamePanel.revalidate();
                     gm.gamePanel.repaint();
-                    //setSpecialty(false);
+                    
                 }
             };
             */
            
-            
+            setSpecialty(false);
             
         }
     }

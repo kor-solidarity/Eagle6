@@ -24,6 +24,10 @@ public class Mal {
     private int init_x;
     private int init_y;
 
+    // 판 내 좌표 위치. 겹칠때 위치 다르게 하려고 놓은거임.
+    private int strafe_x;
+    private int strafe_y;
+
 
     // { 2, 3, 4, 5}
     // Integer[] route = new Integer[];
@@ -111,12 +115,13 @@ public class Mal {
     }
 
     /**
-     * @param playerNum  - 지금 차례인 플레이어 배열번호
-     * @param TRUEYUTGAP - 이동해야할 윷값
-     * @param mals       - 게임 내 모든 말의 라벨
-     * @param gp         - 게임페이지 그 자체.
+     * @param playerIndexNum - 지금 차례인 플레이어 배열번호
+     * @param TRUEYUTGAP     - 이동해야할 윷값, static
+     * @param mal_labels     - 게임 내 모든 말의 라벨
+     * @param gp             - 게임페이지 그 자체.
+     * @param player         - 지금 이 말의 플레이어.
      */
-    public void move(int playerNum, int TRUEYUTGAP, JLabel[][] mals, GamePage gp) {
+    public void move(int playerIndexNum, int TRUEYUTGAP, JLabel[][] mal_labels, GamePage gp, Player player) {
         if (TRUEYUTGAP == 0) {
             return;
         }
@@ -126,36 +131,38 @@ public class Mal {
         // 와일문을 써서 한번에 한칸씩 움직인다.
         // 한칸 움직인 후에는 그 위치에 벽이 있나 확인한다. 있으면 그대로 종료.
         System.out.println("mal.move()");
-        for (int i = 0; i < mals.length; i++) {
+        for (int i = 0; i < mal_labels.length; i++) {
             System.out.println("i " + i);
-            for (int j = 0; j < mals[i].length; j++) {
-                System.out.println("j " + j + " " + mals[i][j]);
-                // System.out.println(mals[i][j].toString());
+            for (int j = 0; j < mal_labels[i].length; j++) {
+                System.out.println("j " + j + " " + mal_labels[i][j]);
             }
 
         }
 
-
+        // TODO: 2019-11-23 지금 안되는 작업
+        //  1 말 업어 움직이기 + 업힐때
+        //  2 아이템..
         System.out.println("move_num " + move_num);
 
-        // 이 객체와 연결된 말
-        JLabel my_mal = mals[playerNum][this.num];
-        // my_mal.toString();
-        // // 말 움직이기 - 보류
-        // ActionListener movement = new ActionListener() {
-        //     @Override
-        //     public void actionPerformed(ActionEvent e) {
-        //         System.out.println("moving in");
-        //         // my_mal.setLocation();
-        //     }
-        // };
+        /*
+         * 말 업기 위한 방법:
+         * 우선 같은 칸에 같은 말이 있는지 확인한다.
+         * 있으면 같이 이동시킬 말 객체로 가져온다.
+         * 이제 이동.
+         * 겹친 말은 같이 움직인다. 다만 마지막 갈때만 이동.
+         * 현재 애니메이션 구현이 무리가 된 상황이니 이리 놓는거.
+         *
+         */
 
+
+        // 이 객체와 연결된 말
+        JLabel my_mal = mal_labels[playerIndexNum][this.num];
         // 말이 움직이기 시작한 최초위치.
         int start_grid = this.getGrid();
         System.out.println("출발위치 " + start_grid);
         // move_num 이 마이너스면 빽도 발동
         if (move_num < 0) {
-            this.backDo(playerNum, mals, gp, my_mal);
+            this.backDo(playerIndexNum, mal_labels, gp, my_mal);
         } else {
             // move_num 이 0이 아니면 계속 갈 수 있다는 소리
             while (move_num > 0) {
@@ -205,11 +212,9 @@ public class Mal {
                 } else if (this.getGrid() == 0) {
                     // 0까지 왔으면 도착했다는 소리.
                     this.setGrid(29);
-                    // 여기까지 왔으면 끝, 로케 종료처리한다.
+                    // 여기까지 왔으면 끝, 말을 보여주는 레이블을 없애버린다.
                     my_mal.setVisible(false);
                     break;
-                    // gp.gamePanel.remove(my_mal);
-                    // my_mal.setLocation(MapGrid.GRIDS.get(29).x, MapGrid.GRIDS.get(29).y);
                 } else {
                     // 위에 해당사항 없으면 그냥 1추가
                     this.setGrid(this.getGrid() + 1);
@@ -220,63 +225,90 @@ public class Mal {
                 System.out.println("x " + my_mal.getX() + " y " + my_mal.getY());
                 System.out.println();
 
-
-                // try {
-                //     Thread.sleep(2000);
-                // } catch (InterruptedException e) {
-                //     e.printStackTrace();
-                // }
                 my_mal.repaint();
                 move_num--;
 
+                // 한칸 이동 완료.
                 // 안에 장애물(벽) 있나 확인
+
             }
         }
 
         // 돌거 다 돌았음.
         // 이제 말 잡기 - 모든 말 한번씩 스크리닝 해서 같은 곳에 위치하면 잡는다.
-
-        // 아래 플레이어 확인용도
-        int playerArrayNum = -1;
-        for (Player p : gp.players) {
-            // 임시조치
-            if (p == null) {
-                System.out.println("p == null");
-                continue;
-            }
-
-            System.out.println("player p.getNick() " + p.getNick());
-            System.out.println("current piece this.owner: " + this.owner);
-            System.out.println("p.getNick().equals(this.owner) " + p.getNick().equals(this.owner));
-
-            playerArrayNum++;
-            // 플레이어가 없거나 지금 말주인과 갈은 사람이면 통과
-            if (p == null || p.getNick().equals(this.owner)) {
-                continue;
-            }
-            // 아래 말번호 확인용도
-            int malNum = 0;
-            // 각 말 뒤적이기
-            for (Mal m : p.getMals()) {
-
-                // 같은 위치에 있으면 잡힌거.
-                if (m.getGrid() == this.getGrid()) {
-                    // 그리드 위치 원위치
-                    m.setGrid(-1);
-                    // GUI 말 위치도 원위치
-                    mals[playerArrayNum][malNum].setLocation(
-                            m.getInit_x(), m.getInit_y()
-                    );
-
+        // 말의 그리드가 -1 또는 29면 판에 있는게 아니니 실행할 필요가 없다.
+        if (!(this.getGrid() == 29 || this.getGrid() == -1)) {
+            // 아래 플레이어 확인용도
+            int playerArrayNum = -1;
+            // 플레이어 포문
+            for (Player p : gp.players) {
+                // 임시조치. 그냥 널이 있는지 확인용도
+                if (p == null) {
+                    System.out.println("p == null");
+                    continue;
                 }
-                malNum++;
-            }
 
+                System.out.println("player p.getNick() " + p.getNick());
+                System.out.println("current piece this.owner: " + this.owner);
+                System.out.println("p.getNick().equals(this.owner) " + p.getNick().equals(this.owner));
+
+                playerArrayNum++;
+                // 플레이어가 없거나 지금 말주인과 갈은 사람이면 통과
+                if (p == null || p.getNick().equals(this.owner)) {
+                    continue;
+                }
+
+
+                // 아래 말번호 확인용도
+                int malNum = 0;
+                // 각 말 뒤적이기
+                for (Mal m : p.getMals()) {
+                    // 같은 위치에 있으면 잡힌거.
+                    if (m.getGrid() == this.getGrid()) {
+                        // 그리드 위치 원위치
+                        m.setGrid(-1);
+                        // GUI 말 위치도 원위치
+                        mal_labels[playerArrayNum][malNum].setLocation(
+                                m.getInit_x(), m.getInit_y()
+                        );
+
+                    }
+                    malNum++;
+                }
+
+            }
         }
+
 
         // 이제 아이템이 있는지 확인.
         // if (GameMap)
 
+
+        // 위에 모든 이동절차가 끝났으면
+        // 업혔던 말 이동한다.
+        // 만일 애니메이션 넣기로 되면 이거 엎어야함.
+        for (Mal m : player.getMals()) {
+            // 말중에 지금 말과 같은 위치에 존재하는 말이 있는지 확인한다. 그게 업힌 말임.
+            if (m.getGrid() == start_grid) {
+                // 그리드값 좌표 가져오기.
+                int gridX = MapGrid.GRIDS.get(this.getGrid()).x;
+                int gridY = MapGrid.GRIDS.get(this.getGrid()).y;
+                // 그리드 재조정
+                m.setGrid(this.getGrid());
+                // 그리드 -1, 29 등인 경우를 따로 해줘야함.
+
+                if (m.getGrid() == 29) {
+                    // 29인 경우 완주한거임. 고로 없애준다.
+                    mal_labels[playerIndexNum][this.num].setVisible(false);
+                } else if (m.getGrid() == -1) {
+                    // 시작위치로 간 경우
+                    mal_labels[playerIndexNum][this.num].setLocation(
+                            m.getInit_x(), m.getInit_y());
+                } else {
+                    mal_labels[playerIndexNum][this.num].setLocation(gridX, gridY);
+                }
+            }
+        }
     }
 
 

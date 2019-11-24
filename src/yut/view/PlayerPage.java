@@ -628,7 +628,7 @@ public class PlayerPage {
                             GamePage gm = new GamePage(mf, panel, lo, players);
                         }
                     };
-                    ts.schedule(tk, 3000); //원래 4000
+                    ts.schedule(tk, 100); //원래 4000
 
 
                 }

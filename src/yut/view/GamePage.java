@@ -1722,7 +1722,7 @@ public class GamePage {
      * @param player - 갱신할 대상인 플레이어
      */
     public void reload_songP(Player player) {
-
+ 
         if (player instanceof Ryan) {
             show_ryan_songP.setText(Integer.valueOf(player.getSongP()).toString());
             show_ryan_songP.repaint();

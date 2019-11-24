@@ -43,7 +43,7 @@ public class GameManager {
                 tx.setFont(new Font("Rockwell", Font.CENTER_BASELINE, 25));
                 tx.setHorizontalAlignment(JTextField.CENTER);
                 tx.setBackground(Color.getHSBColor(200, 100, 100));
-
+ 
                 gamePage.gamePanel.add(tx);
                 gamePage.gamePanel.revalidate();
                 gamePage.gamePanel.repaint();

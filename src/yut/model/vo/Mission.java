@@ -112,6 +112,7 @@ public class Mission {
             GamePage.currentPlayer1.setSongP(GamePage.currentPlayer1.getSongP()+10);
             System.out.println("*********************현재 송편 갯수!!!!!" + GamePage.currentPlayer1.getSongP());
             //reload 메소드 불러야됨
+            
          
         } else if(missionNum == 2) {
             Mal.cou2++;

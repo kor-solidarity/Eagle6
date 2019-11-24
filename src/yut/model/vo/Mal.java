@@ -305,7 +305,7 @@ public class Mal {
         if(m.missionNum == 2 && cou2 == 1) {
             
             if(gp.YUTGAP == 4) {
-                
+                 
                 System.out.println("======미션 2번 성공======");
                 m.confirmMission(mf);   
             }

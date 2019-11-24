@@ -8,7 +8,7 @@ import java.util.LinkedList;
 import yut.view.GamePage;
 
 public class Player {
-    // 송편 수
+    // 송편 수 
     private int songP = 52;
     // 말 수
     private Mal[] mals = new Mal[4];

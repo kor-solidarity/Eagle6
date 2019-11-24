@@ -39,9 +39,86 @@ public class YutMadeByCho {
     // 기본 윷던지기
     public int throwYut(Player player) {
         //랜덤값으로 윷확률 받기
-        
-        int yutRate = new Random().nextInt(20) + 1;
+        int finished_horses = 0;
+        boolean finished=false;
+        // 말 다 돌았는지 확인.
+       
+        for (int i = 0; i < player.getMals().length; i++) {
+            if (player.getMals()[i].getGrid() >=0&&player.getMals()[i].getGrid() <=29) {
+                finished=true;
+            }
+        }
+  
+        if(finished) {
+            int yutRate = new Random().nextInt(20) + 1;
+            switch (yutRate) {
+            case 1:
+                yutNum = nak();
+                break;//낙나왔을때
+           case 2: 
+                yutNum = Do();
+                break;//도
+            case 3:
+                yutNum = gea();
+                break;//개
+            case 4:
+                yutNum = gea();
+                break;//개
+            case 5:
+                yutNum = gul();
+                break;//걸
+            case 6:
+                yutNum = gul();
+                break;//걸
+            case 7:
+                yutNum = yut(player);
+                break;//윷
+            case 8:
+                yutNum = yut(player);
+                break;//윷
+            case 9:
+                yutNum = gul();
+                break;//모
+            case 10:
+                yutNum = backDo();
+                break;//백도
+            case 11:
+                yutNum = gea();
+                break;//낙나왔을때
+           case 12: 
+                yutNum = Do();
+                break;//도
+            case 13:
+                yutNum = gea();
+                break;//개
+            case 14:
+                yutNum = gea();
+                break;//개
+            case 15:
+                yutNum = gul();
+                break;//걸
+            case 16:
+                yutNum = gul();
+                break;//걸
+            case 17:
+                yutNum = Do();
+                break;//윷
+            case 18:
+                yutNum = gul();
+                break;//윷
+            case 19:
+                yutNum = mo(player);
+                break;//모
+            case 20:
+                yutNum = backDo();
+                break;//백도
 
+
+            }
+
+            
+        }else {
+        int yutRate = new Random().nextInt(20) + 1;
         switch (yutRate) {
             case 1:
                 yutNum = nak();
@@ -68,10 +145,10 @@ public class YutMadeByCho {
                 yutNum = yut(player);
                 break;//윷
             case 9:
-                yutNum = mo(player);
-                break;//모
+                yutNum = gul();
+                break;//걸
             case 10:
-                yutNum = backDo();
+                yutNum = gea();
                 break;//백도
             case 11:
                 yutNum = gea();
@@ -92,18 +169,19 @@ public class YutMadeByCho {
                 yutNum = gul();
                 break;//걸
             case 17:
-                yutNum = yut(player);
-                break;//윷
+                yutNum = gea();
+                break;//개
             case 18:
-                yutNum = yut(player);
-                break;//윷
+                yutNum = gul();
+                break;//걸
             case 19:
                 yutNum = mo(player);
                 break;//모
             case 20:
-                yutNum = backDo();
+                yutNum = Do();
                 break;//백도
 
+        }
         }
         return yutNum;
     }
@@ -162,15 +240,6 @@ public class YutMadeByCho {
     }
 
 
-    //ryan패시브 첫말*2로 이동
-   /* public int ryanMoveDouble(Player player) {
-        int num = throwYut(player);
-        System.out.println("윷클래스안에 라이언패시브 확인:"+num);
-        if(num==-1) {
-            return num;
-        }
-        return 2 * num;
-    }*/
 
     //아이템 무조건 백도 메소드
     public int mustBackDo(Player player) {

@@ -80,7 +80,7 @@ public class YutMadeByCho {
                 yutNum = gul();
                 break;//모
             case 10:
-                yutNum = gea();
+                yutNum = backDo();
                 break;//백도
             case 11:
                 yutNum = gea();

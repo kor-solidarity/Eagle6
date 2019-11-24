@@ -18,7 +18,7 @@ public class Ryan extends Player {
     public void skill(GamePage gm) {
         if(getSpecialty()==true) {
             GamePage.SELECTED_BUTTON=4;
-         /*   try {
+            try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -46,7 +46,7 @@ public class Ryan extends Player {
                     
                 }
             };
-            */
+            
            
             setSpecialty(false);
             

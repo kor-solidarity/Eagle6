@@ -5,9 +5,11 @@ import java.awt.Panel;
 import javax.swing.JPanel;
 
 import yut.model.vo.Item;
+import yut.model.vo.Mine;
 import yut.model.vo.SongPyeon;
 
 public class GameMap {
+    public static int randomNum = (int) (Math.random() * 28 + 1);
 
 
     // 놀이판 좌표, 안에 실제로 들어가야 하는건 템들.
@@ -16,7 +18,7 @@ public class GameMap {
     // 생성되면 송편위치 무작위로 넷 찍는걸로
     public GameMap(/*Object[] itemGrid*/JPanel panel) {
         add_or_refresh_songPyeon(panel);
-        
+
     }
 
     /**
@@ -36,7 +38,7 @@ public class GameMap {
 
         // 송편은 무조건 4개여야 한다.
         while (songPyeons < 4) {
-            int randomNum = (int) (Math.random() * 28 + 1);
+            randomNum = (int) (Math.random() * 28 + 1);
             // 혹시나 1-28 외 것이 나오면 안됨.
             if (1 <= randomNum && randomNum <= 28) {
                 // 송편이 이미 있는가? 있으면 안됨
@@ -47,9 +49,9 @@ public class GameMap {
                 this.itemGrid[randomNum] = new SongPyeon((int) (Math.random() * 5 + 1), randomNum, panel);
                 songPyeons++;
                 for(int i=0; i<29;i++) {
-                    
-                     }
-                    
+
+                }
+
             }
         }
 
@@ -62,20 +64,20 @@ public class GameMap {
     }
 
     public void setItemGrid(Item itemGrid,int indexNum) {
-        this.itemGrid[indexNum] = itemGrid;
+        this.itemGrid[indexNum] = (Item) itemGrid;
     }
 
     // 그리드에 아이템 배치.
     public int setItemOnGrid(Item item, int gridNum) {
         return 0;
     }
-    
+    //폭탄 , 벽 그리드 같을 시 제거 메소드
     public void removeGrid(int grid) {
-        System.out.println("제거호출");
+        itemGrid[grid].getPanel().remove(itemGrid[grid].getLb());
+        
+        itemGrid[grid]= null;
 
-       // itemGrid[grid]= null;
-        
-        
+
     }
 
 }

@@ -32,18 +32,27 @@ public class Store {
      * @return
      */
     // param show:    가격 표시라는데 우선 주석처리
-    public boolean buy( MainFrame mf, JPanel panel, Player player,  int itemNum, int grid) {
+    public boolean buy(GameMap gm, MainFrame mf, JPanel panel, Player player,  int itemNum, int grid) {
         if (itemNum == 4) {
             if (player.getSongP() >= 10) {
-                //플레이어 말의 위치에 있는 grid값을 변수에 저장
-                int x =MapGrid.GRIDS.get(grid).x;
-                int y =MapGrid.GRIDS.get(grid).y;
-                //폭탄 이미지를 grid를 *좌표(아직 안만들어짐)으로 해당위치에 폭탄 라벨 생성
-                Image mm = new ImageIcon("mini/폭탄.PNG").getImage().getScaledInstance(50, 50, 0);
-                JLabel mine1 = new JLabel(new ImageIcon(mm));
-                mine1.setSize(50, 50);
-                mine1.setLocation(x+10, y+20);
+                System.out.println(GamePage.mineYs);
+                int x = MapGrid.GRIDS.get(grid).x;
+                int y = MapGrid.GRIDS.get(grid).y;
+                
+                //송편 표시 라벨
+                Image mine = new ImageIcon("mini/폭탄.PNG").getImage().getScaledInstance(20, 20, 0);
+                JLabel minelb = new JLabel(new ImageIcon(mine));
+                minelb.setSize(20, 20);
+                minelb.setLocation(x, y);
 
+
+                panel.add(minelb);
+                panel.revalidate();
+                panel.repaint();
+                panel.setComponentZOrder(minelb, 0);
+                
+                
+                
                 //폭탄 설치시 문구 생성
                 Image pop = new ImageIcon("mini/폭탄설치로고.PNG").getImage().getScaledInstance(200, 80, 0);
                 JLabel pop1 = new JLabel(new ImageIcon(pop));
@@ -58,11 +67,8 @@ public class Store {
 
 
                 //마인클래스에 해당 grid값을 매개변수로 보냄
-                Item m = new Mine(grid, mine1);
-             
-                GameMap mp = new GameMap(panel);
-
-                mp.setItemGrid(m, grid);
+              
+                gm.setItemGrid(new Mine(5,grid,panel,minelb), grid);
                 //플레이어 송편을 가격만큼 감소
                 player.setSongP(player.getSongP() - 10);
 
@@ -70,10 +76,10 @@ public class Store {
 
                 panel.add(motion);
                 panel.add(pop1);
-                panel.add(mine1);
+              
                 panel.revalidate();
                 panel.repaint();
-                panel.setComponentZOrder(mine1, 2);
+                
                 panel.setComponentZOrder(pop1, 0);
                 panel.setComponentZOrder(motion, 0);
 
@@ -126,9 +132,9 @@ public class Store {
                 ts.schedule(tk, 1300);
 
             }
-            return true;
+            return GamePage.mineYs=false;
         }
-        return false;
+        return GamePage.mineYs=false;
 
     }
 

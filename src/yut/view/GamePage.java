@@ -36,10 +36,11 @@ public class GamePage {
     public static int YUTGAP;//YutMadeByCho에서 윷값 받을 수 있는 전역변수
     public static int TRUEYUTGAP;
     public Player[] players;
+    //public Mission m; //=====다영=====
 
     // 현재 턴인 플레이어
     public Player currentPlayer;
-
+    public static Player currentPlayer1;
     // 현재 어떤게 클릭된 상태인가?
     public static int SELECTED_BUTTON = 0;
     // 선택된 말
@@ -73,6 +74,8 @@ public class GamePage {
 
     // 아무것도 없는 상태에서 빽도 걸려서 게임 그냥 끝인지 확인.
     private boolean backdo_end;
+    
+   
 
 
     public JLabel[][] mals = new JLabel[4][4];
@@ -96,9 +99,9 @@ public class GamePage {
         gamePanel.setLayout(null);
 
         GameMap gm = new GameMap(gamePanel);
-
-
+        
         Mission ms = new Mission(mf, gamePanel);
+       
         //도움말 버튼  생성
         Image help = new ImageIcon("mini/도움말 게임.PNG").getImage().getScaledInstance(60, 60, 0);
         JButton helpBtn = new JButton();
@@ -326,6 +329,10 @@ public class GamePage {
         //후에 setText 변경
         //송편 text 표시
 
+        
+        
+        
+        
         if (players[0] != null) {
             //라이언 송편표시
             show_ryan_songP = new JTextField(15);
@@ -1060,6 +1067,8 @@ public class GamePage {
         gamePanel.add(grid2);
         gamePanel.add(grid1);
         gamePanel.add(grid0);
+        
+
 
         // gamePanel.add(testmal); //============테스트용=============== 좌표찾기 - 다영
         // gamePanel.setComponentZOrder(testmal, 0); //==========테스트용============ 좌표찾기 - 다영

@@ -17,6 +17,7 @@ public class GameManager {
     // private static Neo neo;
     // private static Ryan ryan;
     private GamePage gamePage;
+    private MainFrame mf;
 
     public GameManager(GamePage gamePage) {
         this.gamePage = gamePage;
@@ -32,6 +33,7 @@ public class GameManager {
                 }
                 gamePage.reload_songP(p);
                 gamePage.currentPlayer = p;
+                gamePage.currentPlayer1 = p;
                 System.out.println("gamePage.currentPlayer " + gamePage.currentPlayer);
                 System.out.println("p " + p);
                 JTextField tx = new JTextField(p.getNick()+ " TURN !!");
@@ -317,6 +319,10 @@ public class GameManager {
         // System.out.println("moving " + move_num);
         // 0 이하로 들어와선 안됨
         int i = 0; //player[i] - 다영
+        //==============다영================
+        Mission m = new Mission(mf,gamePage.gamePanel);
+        
+        
 
         if (move_num <= 0) {
             return;
@@ -330,6 +336,7 @@ public class GameManager {
             // 처음 출발하는 말.
             if (mal.getGrid() == -1) {
                 mal.setGrid(1);
+              
 
             } else if (mal.getGrid() == 5) {
                 // 우측상단에 있으니 대각 진입
@@ -341,10 +348,13 @@ public class GameManager {
             } else if (mal.getGrid() == 26) {
                 // 정가운데 좌측상단 바로 옆에 있으니 정가운데로
                 mal.setGrid(22);
+               
             } else if (mal.getGrid() == 22 && start_grid == 22) {
                 // 정가운데에 위치하고 있고 정가운데에서 출발한 경우
                 // 우측하단으로 내려간다.
+               
                 mal.setGrid(27);
+                
             } else if (mal.getGrid() == 24) {
                 // 대각에 나와서 좌측하단 모서리 도착
                 mal.setGrid(15);
@@ -362,45 +372,6 @@ public class GameManager {
             move_num--;
             // TODO: 2019-11-15 :  한칸이동 끝나면 벽이 있나 확인.
             //  있으면 그대로 멈추고 끝
-
-
-            //============= 미션 ----- 다영 (여기에 넣는게 맞는지 확인) ================
-            //에러나서 아래 부분 다 일단은 주석으로 바꿔놓음!!!!
-            /*Mission m = new Mission();
-
-            //1등으로 들어오기
-            if (mal.getGrid() == -1) {
-               m.confirmMission(player[i], mal[i]);
-
-            //정중앙에 1등으로 가기
-            } else if(mal.getGrid() == 22) {
-                m.confirmMission(player[i], mal[i]);
-            }
-
-
-
-            //다른 플레이어 말 1등으로 잡기
-            for (Player pl : players) {
-                //잡은게 내 말일 경우
-                if (pl.getCharName().equals(mal.getOwner().getCharName())) {
-                    continue;
-                }
-
-                //잡은게 다른 플레이어 말일 경우
-                for (Mal enemy : pl.getMals()) {
-                    if (enemy.getGrid() == mal.getGrid()) {
-                        pl.setSongP(pl.getSongP() + 10);
-                    }
-                }
-
-            }
-
-            //빽도로 말 잡기
-            //잡은게 내 말일 경우
-            //잡은게 다른 플레이어 말일 경우
-
-        }*/
-
 
         }
 

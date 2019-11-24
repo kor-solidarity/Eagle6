@@ -12,10 +12,7 @@ public class GameManager {
     // 이거 추후 스태틱 전부 없애야됨.
     private Display disp;
     private YutMadeByCho yut;//조지연수정1118_1
-    // private static Apeach apeach;
-    // private static Frodo frodo;
-    // private static Neo neo;
-    // private static Ryan ryan;
+
     private GamePage gamePage;
 
     public GameManager(GamePage gamePage) {
@@ -34,7 +31,7 @@ public class GameManager {
                 gamePage.currentPlayer = p;
                 System.out.println("gamePage.currentPlayer " + gamePage.currentPlayer);
                 System.out.println("p " + p);
-                JTextField tx = new JTextField(p.getNick()+ " TURN !!");
+                JTextField tx = new JTextField(p.getNick() + "턴 입니다.");
                 // yutCount 1로 초기화 - 없으면 턴 안멈추고 계속 돌아감
                 p.setYutCount(1);
                 tx.setBounds(600, 30, 250, 30);
@@ -74,12 +71,18 @@ public class GameManager {
                     if (p.getYutCount() == 0 && p.getMoves().size() == 0) {
                         break;
                     }
-                    if (counter == 2100000000) {
+                    //  5초에 한번씩 뜨게끔.
+                    if (counter == 5000) {
                         counter = 0;
-                        System.out.println("p.getYutCount() " + p.getYutCount());
-                        System.out.println("p.getMoves().size() " + p.getMoves().size());
+                        System.out.println("p.getYutCount() " + p.getYutCount() + " p.getMoves().size() " + p.getMoves().size());
                         System.out.println("gamePage.currentPlayer.getYutCount() " + gamePage.currentPlayer.getYutCount());
                         System.out.println("gamePage.currentPlayer.getMoves().size() " + gamePage.currentPlayer.getMoves().size());
+                    }
+                    // interval 1ms
+                    try {
+                        Thread.sleep(1);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
                     }
                 }
 
@@ -297,153 +300,7 @@ public class GameManager {
     // }
 
 
-    /**
-     * 이동 메소드. 말의 모든 이동 스크립트는 여기서 진행된다.
-     * 이동 전 확인사항:
-     * - 해당 케릭에 업힌게 있는가?
-     * 이동 중 해야하는 일: 벽이 있나 확인. 있으면 그대로 멈추고 끝.
-     * 이동 후 해야하는 일:
-     * - 지뢰가 있는지 확인. 있으면 말은 죽는다.
-     * - 다른 말들이 있는지 확인. 있으면 그 말은 죽는다.
-     * - 미션 깼는지 확인.
-     *
-     * @param players
-     * @param mal
-     * @param move_num
-     */
-    public void move(Player[] players, Mal mal, int move_num) {
 
-        // System.out.println("player " + players.getNick() + "(" + players.getCharName() + ")");
-        // System.out.println("moving " + move_num);
-        // 0 이하로 들어와선 안됨
-        int i = 0; //player[i] - 다영
-
-        if (move_num <= 0) {
-            return;
-        }
-
-        // 말이 움직이기 시작한 최초위치.
-        int start_grid = mal.getGrid();
-
-        // move_num 이 0이 아니면 계속 갈 수 있다는 소리
-        while (move_num > 0) {
-            // 처음 출발하는 말.
-            if (mal.getGrid() == -1) {
-                mal.setGrid(1);
-
-            } else if (mal.getGrid() == 5) {
-                // 우측상단에 있으니 대각 진입
-                mal.setGrid(20);
-            } else if (mal.getGrid() == 10) {
-                // 좌측상단에 있으니 대각 진입
-                mal.setGrid(25);
-
-            } else if (mal.getGrid() == 26) {
-                // 정가운데 좌측상단 바로 옆에 있으니 정가운데로
-                mal.setGrid(22);
-            } else if (mal.getGrid() == 22 && start_grid == 22) {
-                // 정가운데에 위치하고 있고 정가운데에서 출발한 경우
-                // 우측하단으로 내려간다.
-                mal.setGrid(27);
-            } else if (mal.getGrid() == 24) {
-                // 대각에 나와서 좌측하단 모서리 도착
-                mal.setGrid(15);
-            } else if (mal.getGrid() == 19 || mal.getGrid() == 28) {
-                // 19 || 28 걸렸다면 마지막 칸이라는거.
-                mal.setGrid(0);
-            } else if (mal.getGrid() == 0) {
-                // 0까지 왔으면 도착했다는 소리.
-                mal.setGrid(29);
-            } 
-            else {
-                // 위에 해당사항 없으면 그냥 1추가
-                mal.setGrid(mal.getGrid() + 1);
-            }
-
-            move_num--;
-            // TODO: 2019-11-15 :  한칸이동 끝나면 벽이 있나 확인.
-            //  있으면 그대로 멈추고 끝
-
-
-            //============= 미션 ----- 다영 (여기에 넣는게 맞는지 확인) ================
-            //에러나서 아래 부분 다 일단은 주석으로 바꿔놓음!!!!
-            /*Mission m = new Mission();
-
-            //1등으로 들어오기
-            if (mal.getGrid() == -1) {
-               m.confirmMission(player[i], mal[i]);
-
-            //정중앙에 1등으로 가기
-            } else if(mal.getGrid() == 22) {
-                m.confirmMission(player[i], mal[i]);
-            }
-
-
-
-            //다른 플레이어 말 1등으로 잡기
-            for (Player pl : players) {
-                //잡은게 내 말일 경우
-                if (pl.getCharName().equals(mal.getOwner().getCharName())) {
-                    continue;
-                }
-
-                //잡은게 다른 플레이어 말일 경우
-                for (Mal enemy : pl.getMals()) {
-                    if (enemy.getGrid() == mal.getGrid()) {
-                        pl.setSongP(pl.getSongP() + 10);
-                    }
-                }
-
-            }
-
-            //빽도로 말 잡기
-            //잡은게 내 말일 경우
-            //잡은게 다른 플레이어 말일 경우
-
-        }*/
-
-
-        }
-
-        // 이동 후 해야하는 일:
-        // - 지뢰가 있는지 확인. 있으면 말은 죽는다.
-        // - 다른 말들이 있는지 확인. 있으면 그 말은 죽는다.
-        // - 미션 깼는지 확인.
-
-        // 말 잡음?
-        boolean captured = false;
-
-
-        for (Player pl : players) {
-            // 같은 플레이어 말이면 겹친다. 우선은 통과
-            if (pl.getCharName().equals(mal.getOwner())) {
-                continue;
-            }
-
-            // 다른 플레이어면 같은 그리드에 적이 있는지 확인한다.
-            for (Mal enemy : pl.getMals()) {
-                if (enemy.getGrid() == mal.getGrid()) {
-                       captured = true;
-                    enemy.setGrid(-1);
-                   
-                }
-            }
-
-        }
-        if(captured) {
-            for (Player pl : players) {
-                if (pl.getCharName().equals(mal.getOwner())) {
-                    pl.setYutCount(pl.getYutCount()+1); 
-                    System.out.println("유저 잡을때 카운트 : "+pl.getYutCount());
-                    break;
-                    
-                }
-
-            }
-        }
-
-
-    }
 
     /**
      * 디스플레이에 떠야할 것들:

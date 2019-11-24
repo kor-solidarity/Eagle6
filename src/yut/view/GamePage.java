@@ -465,7 +465,9 @@ public class GamePage {
                             //
                             //     }
                             // }
-                            players[0].getMals()[0].move(0, TRUEYUTGAP, mals, Outer());
+
+
+                            players[0].getMals()[0].move(0, TRUEYUTGAP, mals, Outer(), players[0]);
                             currentPlayer.MovesSizeRemove();//사이즈 줄이기
 
                             System.out.println("p.getYutCount() " + players[0].getYutCount());
@@ -483,7 +485,7 @@ public class GamePage {
                     if (e.getButton() == 1) {
                         if (currentPlayer instanceof Ryan && TRUEYUTGAP != 0) {
 
-                            players[0].getMals()[1].move(0, TRUEYUTGAP, mals, Outer());
+                            players[0].getMals()[1].move(0, TRUEYUTGAP, mals, Outer(), players[0]);
                             currentPlayer.MovesSizeRemove();//사이즈 줄이기
                             TRUEYUTGAP = 0;
                         }
@@ -496,7 +498,7 @@ public class GamePage {
                     if (e.getButton() == 1) {
                         if (currentPlayer instanceof Ryan && TRUEYUTGAP != 0) {
 
-                            players[0].getMals()[2].move(0, TRUEYUTGAP, mals, Outer());
+                            players[0].getMals()[2].move(0, TRUEYUTGAP, mals, Outer(), players[0]);
                             currentPlayer.MovesSizeRemove();//사이즈 줄이기
                             TRUEYUTGAP = 0;
                         }
@@ -509,7 +511,7 @@ public class GamePage {
                     if (e.getButton() == 1) {
                         if (currentPlayer instanceof Ryan && TRUEYUTGAP != 0) {
 
-                            players[0].getMals()[3].move(0, TRUEYUTGAP, mals, Outer());
+                            players[0].getMals()[3].move(0, TRUEYUTGAP, mals, Outer(), players[0]);
                             currentPlayer.MovesSizeRemove();//사이즈 줄이기
                             TRUEYUTGAP = 0;
                         }
@@ -632,7 +634,7 @@ public class GamePage {
                     if (e.getButton() == 1) {
                         if (currentPlayer instanceof Apeach && TRUEYUTGAP != 0) {
 
-                            players[1].getMals()[0].move(1, TRUEYUTGAP, mals, Outer());
+                            players[1].getMals()[0].move(1, TRUEYUTGAP, mals, Outer(), players[1]);
                             currentPlayer.MovesSizeRemove();//사이즈 줄이기
                             TRUEYUTGAP = 0;
                         }
@@ -645,7 +647,7 @@ public class GamePage {
                     if (e.getButton() == 1) {
                         if (currentPlayer instanceof Apeach && TRUEYUTGAP != 0) {
 
-                            players[1].getMals()[1].move(1, TRUEYUTGAP, mals, Outer());
+                            players[1].getMals()[1].move(1, TRUEYUTGAP, mals, Outer(), players[1]);
                             currentPlayer.MovesSizeRemove();//사이즈 줄이기
                             TRUEYUTGAP = 0;
                         }
@@ -658,7 +660,7 @@ public class GamePage {
                     if (e.getButton() == 1) {
                         if (currentPlayer instanceof Apeach && TRUEYUTGAP != 0) {
 
-                            players[1].getMals()[2].move(1, TRUEYUTGAP, mals, Outer());
+                            players[1].getMals()[2].move(1, TRUEYUTGAP, mals, Outer(), players[1]);
                             currentPlayer.MovesSizeRemove();//사이즈 줄이기
                             TRUEYUTGAP = 0;
                         }
@@ -671,7 +673,7 @@ public class GamePage {
                     if (e.getButton() == 1) {
                         if (currentPlayer instanceof Apeach && TRUEYUTGAP != 0) {
 
-                            players[1].getMals()[3].move(1, TRUEYUTGAP, mals, Outer());
+                            players[1].getMals()[3].move(1, TRUEYUTGAP, mals, Outer(), players[1]);
                             currentPlayer.MovesSizeRemove();//사이즈 줄이기
                             TRUEYUTGAP = 0;
                         }
@@ -794,7 +796,7 @@ public class GamePage {
                     if (e.getButton() == 1) {
                         if (currentPlayer instanceof Frodo && TRUEYUTGAP != 0) {
 
-                            players[2].getMals()[0].move(2, TRUEYUTGAP, mals, Outer());
+                            players[2].getMals()[0].move(2, TRUEYUTGAP, mals, Outer(), players[2]);
                             currentPlayer.MovesSizeRemove();//사이즈 줄이기
                             TRUEYUTGAP = 0;
                         }
@@ -807,7 +809,7 @@ public class GamePage {
                     if (e.getButton() == 1) {
                         if (currentPlayer instanceof Frodo && TRUEYUTGAP != 0) {
 
-                            players[2].getMals()[1].move(2, TRUEYUTGAP, mals, Outer());
+                            players[2].getMals()[1].move(2, TRUEYUTGAP, mals, Outer(), players[2]);
                             currentPlayer.MovesSizeRemove();//사이즈 줄이기
                             TRUEYUTGAP = 0;
                         }
@@ -819,7 +821,7 @@ public class GamePage {
                 public void mouseClicked(MouseEvent e) {
                     if (e.getButton() == 1) {
                         if (currentPlayer instanceof Frodo && TRUEYUTGAP != 0) {
-                            players[2].getMals()[2].move(2, TRUEYUTGAP, mals, Outer());
+                            players[2].getMals()[2].move(2, TRUEYUTGAP, mals, Outer(), players[2]);
                             currentPlayer.MovesSizeRemove();//사이즈 줄이기
                             TRUEYUTGAP = 0;
                         }
@@ -832,7 +834,7 @@ public class GamePage {
                     if (e.getButton() == 1) {
                         if (currentPlayer instanceof Frodo && TRUEYUTGAP != 0) {
 
-                            players[2].getMals()[3].move(2, TRUEYUTGAP, mals, Outer());
+                            players[2].getMals()[3].move(2, TRUEYUTGAP, mals, Outer(), players[2]);
                             currentPlayer.MovesSizeRemove();//사이즈 줄이기
                             TRUEYUTGAP = 0;
                         }
@@ -954,7 +956,7 @@ public class GamePage {
                     if (e.getButton() == 1) {
                         if (currentPlayer instanceof Neo && TRUEYUTGAP != 0) {
 
-                            players[3].getMals()[0].move(3, TRUEYUTGAP, mals, Outer());
+                            players[3].getMals()[0].move(3, TRUEYUTGAP, mals, Outer(), players[3]);
                             currentPlayer.MovesSizeRemove();//사이즈 줄이기
                             TRUEYUTGAP = 0;
                         }
@@ -967,7 +969,7 @@ public class GamePage {
                     if (e.getButton() == 1) {
                         if (currentPlayer instanceof Neo && TRUEYUTGAP != 0) {
 
-                            players[3].getMals()[1].move(3, TRUEYUTGAP, mals, Outer());
+                            players[3].getMals()[1].move(3, TRUEYUTGAP, mals, Outer(), players[3]);
                             currentPlayer.MovesSizeRemove();//사이즈 줄이기
                             TRUEYUTGAP = 0;
                         }
@@ -980,7 +982,7 @@ public class GamePage {
                     if (e.getButton() == 1) {
                         if (currentPlayer instanceof Neo && TRUEYUTGAP != 0) {
 
-                            players[3].getMals()[2].move(3, TRUEYUTGAP, mals, Outer());
+                            players[3].getMals()[2].move(3, TRUEYUTGAP, mals, Outer(), players[3]);
                             currentPlayer.MovesSizeRemove();//사이즈 줄이기
                             TRUEYUTGAP = 0;
                         }
@@ -995,7 +997,7 @@ public class GamePage {
                     if (e.getButton() == 1) {
                         if (currentPlayer instanceof Neo && TRUEYUTGAP != 0) {
 
-                            players[3].getMals()[3].move(3, TRUEYUTGAP, mals, Outer());
+                            players[3].getMals()[3].move(3, TRUEYUTGAP, mals, Outer(), players[3]);
                             currentPlayer.MovesSizeRemove();//사이즈 줄이기
                             TRUEYUTGAP = 0;
                         }
@@ -1139,12 +1141,22 @@ public class GamePage {
         //        스킬 4번(폭탄) 사용시 반응 예시
         skilBtn4.addMouseListener(new MouseAdapter() {
             @Override
-            public void mouseReleased(MouseEvent e) {
-               int gr0 = players[0].getMals()[0].getGrid();
-               int gr1 = players[0].getMals()[1].getGrid();
-               int gr2 = players[0].getMals()[2].getGrid();
-               int gr3 = players[0].getMals()[3].getGrid();   
-                
+
+            public void mouseClicked(MouseEvent e) {
+
+                if (e.getButton() == 1) {
+
+
+                    int grid = players[1].getMals()[0].getGrid();
+                    Store shop = new Store();
+                    shop.buy(gm,mf, gamePanel, currentPlayer, 4, grid);
+                    Outer().reload_songP(currentPlayer);
+
+
+
+                }
+
+
             }
 
             });
@@ -1190,6 +1202,7 @@ public class GamePage {
                     endlb = new JLabel(new ImageIcon(end));
                     //도움말 버튼 크기,위치 조정
                     endlb.setSize(600, 600);
+
 
 
                     //종료버튼 생성
@@ -1714,8 +1727,6 @@ public class GamePage {
                     // 한번 던졌으니 무조건 yutCount 감소
                     System.out.println("한번 던졌으니 무조건 yutCount 감소");
                     currentPlayer.setYutCount(currentPlayer.getYutCount() - 1);
-
-
                 }
             }
         });

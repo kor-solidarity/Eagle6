@@ -4,7 +4,9 @@ import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.Collection;
 import java.util.HashMap;
+import java.util.Iterator;
 
 import javax.swing.AbstractButton;
 import javax.swing.ImageIcon;
@@ -15,10 +17,13 @@ import javax.swing.JLabel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
+import yut.model.vo.Player;
+
 public class Ranking {
     private HashMap hmap;
     private MainFrame mf;
     JLabel rankLb;
+    
 
     public Ranking(MainFrame mf, HashMap hmap) {
         this.mf = mf;
@@ -57,11 +62,20 @@ public class Ranking {
 
     public void printRankm(HashMap Hmap) {
         JTextArea ra = new JTextArea("간다ㅏ라마");
-        ra.setEditable(false);
-        ra.setBounds(300, 300, 800, 500);
-        ra.setFont(new Font("Cursive", Font.BOLD, 50));
-        rankLb.add(ra);
-
-
+        
+        Collection values = hmap.values();
+        int sum = 0;
+       /* Iterator keyIter=hmap.keySet().iterator();
+        while(keyIter.hasNext()) {
+        	String key = (String) keyIter.next();
+			int vaule = (int) hmap.get(key);
+			if(key.equals("Plyer")) {
+				sum += vaule;
+			}
+        }
+        for(int i = 0; i < ; i++) {*/
+        	
+        
     }
+    
 }

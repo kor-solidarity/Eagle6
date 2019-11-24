@@ -24,7 +24,6 @@ public class MainPage extends JPanel {
         System.out.println("MainPage()");
         this.mf = mf;
         mainPage = this;
-
         this.setLayout(null);
 
         this.setSize(1500, 800);
@@ -44,16 +43,9 @@ public class MainPage extends JPanel {
         this.add(lb3);
         this.add(lb2);
         this.setVisible(true);
-
-
         this.add(lb1);
-
         mf.add(this);
-
-
         lb2.addMouseListener(new MyMouseAdapter());
-
-
         lb3.addMouseListener(new MyMouseAdapter1());
 
     }
@@ -65,52 +57,7 @@ public class MainPage extends JPanel {
             boolean ys = false;
 
             if (e.getButton() == 1) {
-				/*System.out.println("���콺 ���� Ŭ��");
-             if(ys !=true) {
-				JPanel panel1 = new JPanel();
-				panel1.setLayout(null);
-				panel1.setSize(1500,800);
-
-				Image icon2 = new ImageIcon("mini/����.PNG").getImage().getScaledInstance(100, 100, 0);
-				JLabel lb3 = new JLabel(new ImageIcon(icon2));
-				lb3.setLocation(500,500);
-				lb3.setSize(200,200);
-
-				panel1.add(lb3);
-				mf.remove(mainPage);
-
-				mf.add(panel1);
-
-				mf.repaint();
-				ys =true;
-				
-*/
-                // changePage.changePanel(mf, mainPage, new SupPage(mf));
-
-
                 int i = 1;
-			
-				/*	for(i=1; i<3;i++) {
-					
-					if(i == 1) {
-						changePage.changePanel2(mf, mainPage, new Suppage1(mf));
-						System.out.println("ùȭ��");
-						
-					}
-					if(i ==2) {
-						mf.remove(mainPage);
-						changePage.changePanel(mf, new Suppage1(mf), new SupPage(mf));
-						System.out.println("�ι�°ȭ��");
-					}*/
-					/*
-					try {
-						Thread.sleep(500);
-					} catch (InterruptedException e1) {
-						e1.printStackTrace();
-					}*/
-                //}
-
-
             }
         }
     }

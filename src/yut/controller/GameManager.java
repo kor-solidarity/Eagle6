@@ -12,10 +12,7 @@ public class GameManager {
     // 이거 추후 스태틱 전부 없애야됨.
     private Display disp;
     private YutMadeByCho yut;//조지연수정1118_1
-    // private static Apeach apeach;
-    // private static Frodo frodo;
-    // private static Neo neo;
-    // private static Ryan ryan;
+
     private GamePage gamePage;
     private MainFrame mf;
 
@@ -36,7 +33,7 @@ public class GameManager {
                 gamePage.currentPlayer1 = p;
                 System.out.println("gamePage.currentPlayer " + gamePage.currentPlayer);
                 System.out.println("p " + p);
-                JTextField tx = new JTextField(p.getNick()+ " TURN !!");
+                JTextField tx = new JTextField(p.getNick() + "턴 입니다.");
                 // yutCount 1로 초기화 - 없으면 턴 안멈추고 계속 돌아감
                 p.setYutCount(1);
                 tx.setBounds(600, 30, 250, 30);
@@ -76,12 +73,18 @@ public class GameManager {
                     if (p.getYutCount() == 0 && p.getMoves().size() == 0) {
                         break;
                     }
-                    if (counter == 2100000000) {
+                    //  5초에 한번씩 뜨게끔.
+                    if (counter == 5000) {
                         counter = 0;
-                        System.out.println("p.getYutCount() " + p.getYutCount());
-                        System.out.println("p.getMoves().size() " + p.getMoves().size());
+                        System.out.println("p.getYutCount() " + p.getYutCount() + " p.getMoves().size() " + p.getMoves().size());
                         System.out.println("gamePage.currentPlayer.getYutCount() " + gamePage.currentPlayer.getYutCount());
                         System.out.println("gamePage.currentPlayer.getMoves().size() " + gamePage.currentPlayer.getMoves().size());
+                    }
+                    // interval 1ms
+                    try {
+                        Thread.sleep(1);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
                     }
                 }
 

@@ -301,6 +301,7 @@ public class GameManager {
 
 
 
+
     /**
      * 디스플레이에 떠야할 것들:
      * 말, 템.

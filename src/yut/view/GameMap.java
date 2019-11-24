@@ -5,6 +5,7 @@ import java.awt.Panel;
 import javax.swing.JPanel;
 
 import yut.model.vo.Item;
+import yut.model.vo.Mine;
 import yut.model.vo.SongPyeon;
 
 public class GameMap {
@@ -70,17 +71,11 @@ public class GameMap {
     public int setItemOnGrid(Item item, int gridNum) {
         return 0;
     }
-
+    //폭탄 , 벽 그리드 같을 시 제거 메소드
     public void removeGrid(int grid) {
-        System.out.println("제거호출");
-        for(int i=0; i<itemGrid.length;i++) {
-            System.out.println(itemGrid[i]);
-            //itemGrid[grid].getLb().removeAll();
-            //itemGrid[grid] = null;
-        }
+        itemGrid[grid].getPanel().remove(itemGrid[grid].getLb());
         
-        
-        // itemGrid[grid]= null;
+        itemGrid[grid]= null;
 
 
     }

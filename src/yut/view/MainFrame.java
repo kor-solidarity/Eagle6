@@ -77,6 +77,18 @@ public class MainFrame extends JFrame {
         //메인 라벨 크기 ,위치 조정
         startBtn.setSize(370, 180);
         startBtn.setLocation(70, 468);
+        
+        //음량 음소거 버튼  생성
+        Image audioStop = new ImageIcon("mini/음소거버튼.PNG").getImage().getScaledInstance(70, 70, 0);
+        JLabel audioStopBtn = new JLabel(new ImageIcon(audioStop));
+        audioStopBtn.setSize(70, 70);
+        audioStopBtn.setLocation(20, 680 );
+        //음량 시작 버튼  생성
+        Image audioStart = new ImageIcon("mini/음향버튼.PNG").getImage().getScaledInstance(150, 100, 0);
+        JLabel audioStartBtn = new JLabel(new ImageIcon(audioStart));
+        audioStartBtn.setSize(120, 110);
+        audioStartBtn.setLocation(0, 660 );
+
 
         //도움말 버튼  생성
         Image help = new ImageIcon("mini/뉴도움말.PNG").getImage().getScaledInstance(100, 100, 0);
@@ -91,11 +103,14 @@ public class MainFrame extends JFrame {
         mainPanel.add(helpBtn);
         mainPanel.add(startBtn);
         mainPanel.add(mainLb1);
+        mainPanel.add(audioStopBtn); 
 
 
         //메인 라벨 우선 순위 마지막 배치
         mainPanel.setComponentZOrder(mainLb, 2);
+        mainPanel.setComponentZOrder(startBtn, 0);
         mainPanel.setComponentZOrder(mainLb1, 0);
+        mainPanel.setComponentZOrder(audioStopBtn, 0);
 
         //컨터이너에 패널 부착
         this.add(mainPanel);
@@ -106,6 +121,32 @@ public class MainFrame extends JFrame {
         //화면 출력 및 종료 버튼 클릭 반응
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
+        //오디오 음소거 버튼 추가
+        audioStopBtn.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                stopAudio();
+                mainPanel.remove(audioStopBtn);
+                mainPanel.add(audioStartBtn);
+                mainPanel.revalidate();
+                mainPanel.repaint();
+                mainPanel.setComponentZOrder(audioStartBtn, 0);
+            }
+        });
+        
+        audioStartBtn.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                startAudio();
+                mainPanel.remove(audioStartBtn);
+                mainPanel.add(audioStopBtn);
+                mainPanel.revalidate();
+                mainPanel.repaint();
+                mainPanel.setComponentZOrder(audioStopBtn, 0);
+            }
+        });
+        
 
         //도움말 클릭시 반응 추가
         startBtn.addMouseListener(new MouseAdapter() {
@@ -233,9 +274,17 @@ public class MainFrame extends JFrame {
     
     //메인 오디오 정지 메소드
     public static void stopAudio() {
-       
+      
         clip.stop();
-        clip.close();
+        
+        
+    }
+    
+
+    //메인 오디오 스타트 메소드
+    public static void startAudio() {
+        clip.start();
+        
         
     }
 

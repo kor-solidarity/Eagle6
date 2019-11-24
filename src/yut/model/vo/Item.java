@@ -28,13 +28,24 @@ public class Item {
         this.price = price;
     }
 
-    public Item(int price,/*int grid*/JLabel lb,String name) {
+    public Item(int price,/*int grid*/JLabel lb,String name,JPanel panel) {
         this.price = price;
         //this.grid = grid;
         this.name = name;
+        this.lb = lb;
+        this.panel = panel;
+        
 
     }
 
+
+    public JPanel getPanel() {
+        return panel;
+    }
+
+    public void setPanel(JPanel panel) {
+        this.panel = panel;
+    }
 
     public JLabel getLb() {
         return lb;

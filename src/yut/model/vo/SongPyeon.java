@@ -12,7 +12,7 @@ private static JLabel sogplb;
     public SongPyeon(int price, int grid, JPanel panel) {
         
         
-        super(price, sogplb, "송편");
+        super(price, sogplb, "송편",panel);
 
         int x = MapGrid.GRIDS.get(grid).x;
         int y = MapGrid.GRIDS.get(grid).y;

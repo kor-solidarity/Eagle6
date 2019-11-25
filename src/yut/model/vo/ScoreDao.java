@@ -10,10 +10,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class ScoreDao {
-
+    
+    
    Player pl=new Player();
    public HashMap hmap = null;
-
+  
     public void insertScore(Player p) {
         ObjectOutputStream oos = null;
 
@@ -21,7 +22,7 @@ public class ScoreDao {
             oos = new ObjectOutputStream(new FileOutputStream("score.dat"));
             oos.writeObject(hmap);
             oos.flush();
-
+            
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -36,10 +37,11 @@ public class ScoreDao {
     }
 
     public HashMap readAll() {
-        FileInputStream fis = null;
+        ObjectInputStream fis = null;
 
         try {
-            fis = new FileInputStream("Score.dat");
+            try {
+            fis = new ObjectInputStream(new FileInputStream("Score.dat"));
             while (true) {
                 try {
                     hmap = new HashMap();
@@ -48,7 +50,7 @@ public class ScoreDao {
 
 
                     hmap.put(p.getNick(), p.getSongP());
-
+                  
 
                 } catch (IOException | ClassNotFoundException e) {
                     e.printStackTrace();
@@ -59,6 +61,10 @@ public class ScoreDao {
         }finally {
         }try {
             fis.close();
+        } catch (IOException e1) {
+           // TODO Auto-generated catch block
+           e1.printStackTrace();
+        }
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -27,7 +27,7 @@ public class Ranking {
 
     public Ranking(MainFrame mf, HashMap hmap) {
         this.mf = mf;
-        this.hmap = hmap;
+        this.hmap = hmap;  //파일에서 ㅇㄺ어온다음다운캐스팅후 집어넣기
 
         Image rank1 = new ImageIcon("mini/랭킹메인.jpg").getImage().getScaledInstance(1400, 700, 0);
         rankLb = new JLabel(new ImageIcon(rank1));
@@ -61,19 +61,20 @@ public class Ranking {
     }
 
     public void printRankm(HashMap Hmap) {
-        JTextArea ta = new JTextArea();
-        
-        for(int i = 0; i < hmap.size(); i++){
+        JTextArea ra = new JTextArea();
+       /* for(int i = 0; i < hmap.size(); i++){
            Player p = (Player) hmap.get(i);
-           ta.append((i+1) + "닉네임" + p.getNick() + " 점    "+ p.getSongP() + "\n");
+           ra.append((i+1) + "닉네임" + p.getNick() + " 점    "+ p.getSongP() + "\n");
            if(i >= 9){
               break;
            }
-        }
+        }*/
 
-        ta.setBounds(430, 270, 500, 430);
-        ta.setFont(new Font("Sanscerif", Font.BOLD, 30));
-        rankLb.add(ta);
+
+        ra.setBounds(430, 270, 500, 430);
+      ra.setFont(new Font("Sanscerif", Font.BOLD, 30));
+      rankLb.add(ra);
+
 
     }
     

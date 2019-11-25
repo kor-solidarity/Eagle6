@@ -27,6 +27,7 @@ public class GameManager {
         boolean finished = false;
         // 은석 : 턴 시작
         do {
+            
 
             // 각 플레이어 턴
             for (Player p : gamePage.players) {
@@ -48,7 +49,15 @@ public class GameManager {
                 gamePage.gamePanel.add(tx);
                 gamePage.gamePanel.revalidate();
                 gamePage.gamePanel.repaint();
-                p.skill(gamePage);
+                if (p instanceof Ryan) {
+                    ((Ryan)p).skill(gamePage);
+                }else if (p instanceof Apeach) {
+                    ((Apeach)p).skill(gamePage);
+                }else if (p instanceof Frodo) {
+                    ((Frodo)p).skill(gamePage);
+                }else if (p instanceof Neo) {
+                    ((Neo)p).skill(gamePage);
+                }
                 // gamePage.show_ryan_songP.repaint();
                 System.out.println(p.getNick() + "getYutCount() " + p.getYutCount());
                 System.out.println(p.getMoves().size());

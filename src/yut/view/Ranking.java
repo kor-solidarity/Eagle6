@@ -70,6 +70,11 @@ public class Ranking {
               break;
            }
         }
+
+        ra.setBounds(430, 270, 500, 430);
+        ra.setFont(new Font("Sanscerif", Font.BOLD, 30));
+        rankLb.add(ra);
+
     }
     
 }

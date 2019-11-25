@@ -26,8 +26,8 @@ public class Player {
     private int turn;
     // 케릭터의 고유 이름
     private String charName;
-    
-    public Player() {} //미션 때문에 추가 -------- 다영 
+
+    public Player() {} //미션 때문에 추가 -------- 다영
 
 
 
@@ -58,6 +58,10 @@ public class Player {
         this.yutCount = yutCount;
     }
 
+    public void resetYutCount() {
+        this.yutCount = 1;
+    }
+
     public int getTurn() {
         return turn;
     }
@@ -76,7 +80,7 @@ public class Player {
 
     // 윷의 값을 목록에 하나 추가함. 이게 사실상의 setMoves
     public void addMoves(Integer yutResult) {
-     
+
         this.moves.add(yutResult);
     }
 
@@ -93,7 +97,7 @@ public class Player {
 
     //arrayList moves사이즈 한칸
 
-   
+
 
 
     public int getSongP() {

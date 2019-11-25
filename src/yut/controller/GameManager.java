@@ -16,21 +16,23 @@ public class GameManager {
     private GamePage gamePage;
 
     private MainFrame mf;
-    
-    
 
 
-
-    public GameManager(GamePage gamePage) {
+    public GameManager(MainFrame mf, GamePage gamePage) {
         this.gamePage = gamePage;
         // GAME OVER?
         boolean finished = false;
+
+        // 최종 와일문 끝난이후 플레이어 - 아마도 승자.
+        Player final_player;
+
         // 은석 : 턴 시작
         do {
-            
+
 
             // 각 플레이어 턴
             for (Player p : gamePage.players) {
+                final_player = p;
                 if (p == null) {
                     continue;
                 }
@@ -50,13 +52,13 @@ public class GameManager {
                 gamePage.gamePanel.revalidate();
                 gamePage.gamePanel.repaint();
                 if (p instanceof Ryan) {
-                    ((Ryan)p).skill(gamePage);
-                }else if (p instanceof Apeach) {
-                    ((Apeach)p).skill(gamePage);
-                }else if (p instanceof Frodo) {
-                    ((Frodo)p).skill(gamePage);
-                }else if (p instanceof Neo) {
-                    ((Neo)p).skill(gamePage);
+                    p.skill(gamePage);
+                } else if (p instanceof Apeach) {
+                    p.skill(gamePage);
+                } else if (p instanceof Frodo) {
+                    p.skill(gamePage);
+                } else if (p instanceof Neo) {
+                    p.skill(gamePage);
                 }
                 // gamePage.show_ryan_songP.repaint();
                 System.out.println(p.getNick() + "getYutCount() " + p.getYutCount());
@@ -74,7 +76,6 @@ public class GameManager {
                     for (int i = 0; i < p.getMals().length; i++) {
                         if (p.getMals()[i].getGrid() == 29) {
                             finished_horses++;
-                            break;
                         }
                     }
                     if (finished_horses == 4) {
@@ -82,7 +83,7 @@ public class GameManager {
                         System.out.println("ALL HORSES IN");
                         break;
                     }
-                    finished_horses = 0;
+
                     // 던질 수 있는 윷, 이동할 수 있는 윷값. 이 둘이 있는 한 계속 해당 플레이어 턴.
                     if (p.getYutCount() == 0 && p.getMoves().size() == 0) {
                         break;
@@ -121,6 +122,15 @@ public class GameManager {
         } while (!finished);
 
         // 코드가 여기에 도달하면 게임 끝.
+        JPanel endPanel = new JPanel();
+        endPanel.setBounds(0, 0, 1500, 800);
+        endPanel.setLayout(null);
+
+
+        mf.remove(gamePage.gamePanel);
+        mf.add(endPanel);
+        mf.revalidate();
+        mf.repaint();
 
 
     }
@@ -314,8 +324,6 @@ public class GameManager {
     //     // 윷던지는 방법:
     //     //
     // }
-
-
 
 
     /**

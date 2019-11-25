@@ -26,6 +26,8 @@ public class Player {
     private int turn;
     // 케릭터의 고유 이름
     private String charName;
+    
+    public Player() {} //미션 때문에 추가 -------- 다영 
 
 
     public Player(String nick, String charName) {
@@ -73,12 +75,16 @@ public class Player {
 
     // 윷의 값을 목록에 하나 추가함. 이게 사실상의 setMoves
     public void addMoves(Integer yutResult) {
+     
         this.moves.add(yutResult);
     }
 
     // (이동을 다 하면) 윷의 값 빼내기.
     public void useMoves(Integer moveInt) {
         this.moves.remove(this.moves.indexOf(moveInt));
+        System.out.println("Player.userMoves()안의 윷값넘겨받을때"+GamePage.TRUEYUTGAP);
+        GamePage.TRUEYUTGAP=0;
+        System.out.println("Player.useMoves() 안의 윷값 초기화= "+GamePage.TRUEYUTGAP );
     }
 
 
@@ -86,9 +92,7 @@ public class Player {
 
     //arrayList moves사이즈 한칸
 
-    public void MovesSizeRemove() {
-        this.moves.remove(0);
-    }
+   
 
 
     public int getSongP() {

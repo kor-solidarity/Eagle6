@@ -14,6 +14,9 @@ public class GameManager {
     private YutMadeByCho yut;//조지연수정1118_1
 
     private GamePage gamePage;
+    private MainFrame mf;
+    
+    
 
     public GameManager(GamePage gamePage) {
         this.gamePage = gamePage;

@@ -8,14 +8,23 @@ import java.util.LinkedList;
 import yut.view.GamePage;
 
 public class Player {
-    // 송편 수
+	private boolean specialty = true;
+
+	
+	
+	// 송편 수
     private int songP = 52;
     // 말 수
     private Mal[] mals = new Mal[4];
     // 플레이어 별명
     private String nick;
     // 플레이어 특수능력 사용여부
-    private boolean specialty = true;
+    
+    
+    
+    
+    
+    
     // 특수능력 뭔지 표기. GUI 때 필요할진 모르겠음
     private String special_skill;
     // 던진 윷 결과들.

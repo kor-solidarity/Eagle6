@@ -636,12 +636,21 @@ public class GamePage {
             apeach_body_label1.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseClicked(MouseEvent e) {
-                    if (e.getButton() == 1) {
+                    if (e.getButton() == 1 && currentPlayer instanceof Apeach) {
                         if (currentPlayer instanceof Apeach && TRUEYUTGAP != 0) {
 
                             players[1].getMals()[0].move(1, TRUEYUTGAP, mals, Outer(), players[1]);
                             currentPlayer.useMoves(YUTGAP);//사이즈 줄이기
                            // TRUEYUTGAP = 0;
+                            if (currentPlayer instanceof Ryan) {
+                            	((Ryan)currentPlayer).skill(Outer());
+                            }else if (currentPlayer instanceof Apeach) {
+                            	((Apeach)currentPlayer).skill(Outer());
+                            }else if (currentPlayer instanceof Frodo) {
+                            	((Frodo)currentPlayer).skill(Outer());
+                            }else if (currentPlayer instanceof Neo) {
+                            	((Neo)currentPlayer).skill(Outer());
+                            }
                         }
                     }
                 }
@@ -655,6 +664,15 @@ public class GamePage {
                             players[1].getMals()[1].move(1, TRUEYUTGAP, mals, Outer(), players[1]);
                             currentPlayer.useMoves(YUTGAP);//사이즈 줄이기
                           //  TRUEYUTGAP = 0;
+                            if (currentPlayer instanceof Ryan) {
+                            	((Ryan)currentPlayer).skill(Outer());
+                            }else if (currentPlayer instanceof Apeach) {
+                            	((Apeach)currentPlayer).skill(Outer());
+                            }else if (currentPlayer instanceof Frodo) {
+                            	((Frodo)currentPlayer).skill(Outer());
+                            }else if (currentPlayer instanceof Neo) {
+                            	((Neo)currentPlayer).skill(Outer());
+                            }
                         }
                     }
                 }
@@ -668,6 +686,15 @@ public class GamePage {
                             players[1].getMals()[2].move(1, TRUEYUTGAP, mals, Outer(), players[1]);
                             currentPlayer.useMoves(YUTGAP);//사이즈 줄이기
                          //   TRUEYUTGAP = 0;
+                            if (currentPlayer instanceof Ryan) {
+                            	((Ryan)currentPlayer).skill(Outer());
+                            }else if (currentPlayer instanceof Apeach) {
+                            	((Apeach)currentPlayer).skill(Outer());
+                            }else if (currentPlayer instanceof Frodo) {
+                            	((Frodo)currentPlayer).skill(Outer());
+                            }else if (currentPlayer instanceof Neo) {
+                            	((Neo)currentPlayer).skill(Outer());
+                            }
                         }
                     }
                 }
@@ -681,6 +708,15 @@ public class GamePage {
                             players[1].getMals()[3].move(1, TRUEYUTGAP, mals, Outer(), players[1]);
                             currentPlayer.useMoves(YUTGAP);//사이즈 줄이기
                             //TRUEYUTGAP = 0;
+                            if (currentPlayer instanceof Ryan) {
+                            	((Ryan)currentPlayer).skill(Outer());
+                            }else if (currentPlayer instanceof Apeach) {
+                            	((Apeach)currentPlayer).skill(Outer());
+                            }else if (currentPlayer instanceof Frodo) {
+                            	((Frodo)currentPlayer).skill(Outer());
+                            }else if (currentPlayer instanceof Neo) {
+                            	((Neo)currentPlayer).skill(Outer());
+                            }
                         }
                     }
                 }

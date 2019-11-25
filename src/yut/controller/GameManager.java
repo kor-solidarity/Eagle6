@@ -47,6 +47,7 @@ public class GameManager {
                 tx.setBackground(Color.getHSBColor(200, 100, 100));
 
                 gamePage.gamePanel.add(tx);
+                gamePage.gamePanel.setComponentZOrder(tx,0);
                 gamePage.gamePanel.revalidate();
                 gamePage.gamePanel.repaint();
                 if (p instanceof Ryan) {
@@ -94,6 +95,15 @@ public class GameManager {
                         System.out.println("gamePage.currentPlayer.getYutCount() " + gamePage.currentPlayer.getYutCount());
                         System.out.println("gamePage.currentPlayer.getMoves().size() " + gamePage.currentPlayer.getMoves().size());
                     }
+//                    if (p instanceof Ryan) {
+//                    	((Ryan)p).skill(gamePage);
+//                    }else if (p instanceof Apeach) {
+//                    	((Apeach)p).skill(gamePage);
+//                    }else if (p instanceof Frodo) {
+//                    	((Frodo)p).skill(gamePage);
+//                    }else if (p instanceof Neo) {
+//                    	((Neo)p).skill(gamePage);
+//                    }
                     // interval 1ms
                     try {
                         Thread.sleep(1);

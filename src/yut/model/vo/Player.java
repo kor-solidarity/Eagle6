@@ -26,6 +26,8 @@ public class Player {
     private int turn;
     // 케릭터의 고유 이름
     private String charName;
+    
+    public Player() {} //미션때문에 추가 ---- 다영
 
 
     public Player(String nick, String charName) {

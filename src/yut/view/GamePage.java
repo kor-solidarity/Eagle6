@@ -40,6 +40,8 @@ public class GamePage {
 
     // 현재 턴인 플레이어
     public Player currentPlayer;
+    //미션떄문에 추가 ---- 다영
+    public static Player currentPlayer1;
 
     // 현재 어떤게 클릭된 상태인가?
     public static int SELECTED_BUTTON = 0;

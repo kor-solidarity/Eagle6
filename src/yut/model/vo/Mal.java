@@ -285,7 +285,7 @@ public class Mal {
                         mal_labels[playerArrayNum][malNum].setLocation(
                                 m.getInit_x(), m.getInit_y()
                         );
-                        mal_labels[playerIndexNum][malNum].repaint();
+                        mal_labels[playerArrayNum][malNum].repaint();
                         //미션 확인용 - 다영
                         confirmM = true;
                     }
@@ -354,31 +354,42 @@ public class Mal {
         // 만일 애니메이션 넣기로 되면 이거 엎어야함.
         // 우선 말의 시작지점이 0-28 사이인 경우에만 발동해야 한다.
         if (0 <= start_grid && start_grid <= 28) {
+            // 이동한 말의 그리드값 좌표 가져오기.
+            int gridX = MapGrid.GRIDS.get(this.getGrid()).x;
+            int gridY = MapGrid.GRIDS.get(this.getGrid()).y;
+
+            // 이동할 말의 인덱스번호
+            int indexNum = -1;
             for (Mal m : player.getMals()) {
+                indexNum++;
+                // 같은 말이면 통과.
+                if (m == this) {
+                    continue;
+                }
+
                 // 말중에 지금 말과 같은 위치에 존재하는 말이 있는지 확인한다. 그게 업힌 말임.
                 if (m.getGrid() == start_grid) {
-                    // 그리드값 좌표 가져오기.
-                    int gridX = MapGrid.GRIDS.get(this.getGrid()).x;
-                    int gridY = MapGrid.GRIDS.get(this.getGrid()).y;
                     // 그리드 재조정
                     m.setGrid(this.getGrid());
                     // 그리드 -1, 29 등인 경우를 따로 해줘야함.
 
                     if (m.getGrid() == 29) {
                         // 29인 경우 완주한거임. 고로 없애준다.
-                        mal_labels[playerIndexNum][this.num].setVisible(false);
+                        mal_labels[playerIndexNum][indexNum].setVisible(false);
                     } else if (m.getGrid() == -1) {
                         // 시작위치로 간 경우
-                        mal_labels[playerIndexNum][this.num].setLocation(
+                        mal_labels[playerIndexNum][indexNum].setLocation(
                                 m.getInit_x(), m.getInit_y());
                     } else {
-                        mal_labels[playerIndexNum][this.num].setLocation(gridX, gridY);
+                        mal_labels[playerIndexNum][indexNum].setLocation(gridX, gridY);
                     }
-                    mal_labels[playerIndexNum][this.num].repaint();
+                    mal_labels[playerIndexNum][indexNum].repaint();
 
                 }
             }
         }
+
+
     }
 
 

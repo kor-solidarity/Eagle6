@@ -71,9 +71,9 @@ public class Ranking {
            }
         }
 
-        ra.setBounds(430, 270, 500, 430);
-        ra.setFont(new Font("Sanscerif", Font.BOLD, 30));
-        rankLb.add(ra);
+        ta.setBounds(430, 270, 500, 430);
+        ta.setFont(new Font("Sanscerif", Font.BOLD, 30));
+        rankLb.add(ta);
 
     }
     

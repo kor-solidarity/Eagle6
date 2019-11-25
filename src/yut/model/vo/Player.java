@@ -27,6 +27,7 @@ public class Player {
     // 케릭터의 고유 이름
     private String charName;
     private Iterator mIter = (Iterator) new LinkedList(moves); //조지연 수정 191121 12:07
+    public Player() {}
 
 
     public Player(String nick, String charName) {

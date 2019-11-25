@@ -25,7 +25,7 @@ public class Ranking {
     JLabel rankLb;
     
 
-    public Ranking(MainFrame mf, HashMap hmap) {
+    public Ranking(MainFrame mf) {
         this.mf = mf;
         this.hmap = hmap;
 
@@ -61,19 +61,20 @@ public class Ranking {
     }
 
     public void printRankm(HashMap Hmap) {
-        JTextArea ra = new JTextArea("간다ㅏ라마");
+        JTextArea ra = new JTextArea();
         
-        Collection values = hmap.values();
-        int sum = 0;
-       /* Iterator keyIter=hmap.keySet().iterator();
-        while(keyIter.hasNext()) {
-        	String key = (String) keyIter.next();
-			int vaule = (int) hmap.get(key);
-			if(key.equals("Plyer")) {
-				sum += vaule;
-			}
+        for(int i = 0; i < hmap.size(); i++){
+           Player p = (Player) hmap.get(i);
+           ra.append((i+1) + "닉네임" + p.getNick() + " 점    "+ p.getSongP() + "\n");
+           if(i >= 9){
+              break;
+           }
         }
-        for(int i = 0; i < ; i++) {*/
+    
+
+        ra.setBounds(430, 270, 500, 430);
+		ra.setFont(new Font("Sanscerif", Font.BOLD, 30));
+		rankLb.add(ra);
         	
         
     }

@@ -85,17 +85,25 @@ public class MainFrame extends JFrame {
         //도움말 버튼 크기,위치 조정
         helpBtn.setSize(100, 100);
         helpBtn.setLocation(700, 400);
+        
+        Image rank4 = new ImageIcon("mini/랭킹버튼3.jpg").getImage().getScaledInstance(100, 100, 0);
+        JButton rankBtn = new JButton();
+        rankBtn = new JButton(new ImageIcon(rank4));
+        rankBtn.setLocation(500,500);
+        rankBtn.setSize(100,100);
 
         //패널에 메인 배경 부착
         mainPanel.add(mainLb);
         mainPanel.add(helpBtn);
         mainPanel.add(startBtn);
         mainPanel.add(mainLb1);
+        mainPanel.add(rankBtn);
 
 
         //메인 라벨 우선 순위 마지막 배치
         mainPanel.setComponentZOrder(mainLb, 2);
         mainPanel.setComponentZOrder(mainLb1, 0);
+        mainPanel.setComponentZOrder(rankBtn, 1);
 
         //컨터이너에 패널 부착
         this.add(mainPanel);
@@ -208,9 +216,23 @@ public class MainFrame extends JFrame {
 
         });
 
+    
+    
+    
+    rankBtn.addMouseListener(new MouseAdapter() {
+    	@Override
+    	public void mouseClicked(MouseEvent e) {
+             //마우스 왼쪽 클릭만 입력 될 시
+             if (e.getButton() == 1) {
+            	 Ranking rk = new Ranking(mf);
 
-    }
-    //메인 오디오 실행 메소드
+             }
+         }
+
+     });
+    
+
+ }
     public static void audioPlayer(String file) {
         //오디오 프로그램 실행
         File file1 = new File(file);

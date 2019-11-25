@@ -7,6 +7,9 @@ import javax.swing.*;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Image;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class GameManager {
     // 이거 추후 스태틱 전부 없애야됨.
@@ -16,6 +19,8 @@ public class GameManager {
     private GamePage gamePage;
 
     private MainFrame mf;
+    private JTextField tx;
+    
     
     
 
@@ -26,11 +31,10 @@ public class GameManager {
         boolean finished = false;
 
         // 최종 와일문 끝난이후 플레이어 - 아마도 승자.
-        Player final_player;
+        Player final_player = null;
 
         // 은석 : 턴 시작
         do {
-
 
             // 각 플레이어 턴
             for (Player p : gamePage.players) {
@@ -42,7 +46,7 @@ public class GameManager {
                 gamePage.currentPlayer = p;
                 System.out.println("gamePage.currentPlayer " + gamePage.currentPlayer);
                 System.out.println("p " + p);
-                JTextField tx = new JTextField(p.getNick() + "턴 입니다.");
+                tx = new JTextField(p.getNick() + "턴 입니다.");
                 // yutCount 1로 초기화 - 없으면 턴 안멈추고 계속 돌아감
                 p.setYutCount(1);
                 tx.setBounds(600, 30, 250, 30);
@@ -51,6 +55,7 @@ public class GameManager {
                 tx.setBackground(Color.getHSBColor(200, 100, 100));
 
                 gamePage.gamePanel.add(tx);
+                gamePage.gamePanel.setComponentZOrder(tx, 0);
                 gamePage.gamePanel.revalidate();
                 gamePage.gamePanel.repaint();
                 if (p instanceof Ryan) {
@@ -118,6 +123,8 @@ public class GameManager {
                     if (p != null) {
                         p.setSongP(p.getSongP() + 2);
                         gamePage.reload_songP(p);
+                        
+                        
                     }
                 }
             }
@@ -127,12 +134,53 @@ public class GameManager {
         JPanel endPanel = new JPanel();
         endPanel.setBounds(0, 0, 1500, 800);
         endPanel.setLayout(null);
+        
+        //게임 화면에 백그라운드 배경
+        Image mainGround = new ImageIcon("mini/게임종료화면.PNG").getImage().getScaledInstance(1500, 770, 0);
+        JLabel mainBackGround = new JLabel(new ImageIcon(mainGround));
+        mainBackGround.setSize(1500, 770);
+       
+        JTextField gameTx = new JTextField(final_player.getNick());
+        gameTx.setBounds(530, 300, 100, 50);
+        gameTx.setFont(new Font("Rockwell", Font.CENTER_BASELINE, 25));
+        gameTx.setHorizontalAlignment(JTextField.CENTER);
+        gameTx.setBackground(Color.getHSBColor(200, 100, 100));
+        
+        JTextField scoreTx = new JTextField(final_player.getSongP()*10+"point !!");
+        scoreTx.setBounds(800, 300, 130, 50);
+        scoreTx.setFont(new Font("Rockwell", Font.CENTER_BASELINE, 25));
+        scoreTx.setHorizontalAlignment(JTextField.CENTER);
+        scoreTx.setBackground(Color.getHSBColor(200, 100, 100));
 
-
+        endPanel.add(gameTx);
+        endPanel.add(scoreTx);
+        endPanel.add(mainBackGround);
+        endPanel.setComponentZOrder(gameTx, 0);
+        endPanel.setComponentZOrder(scoreTx, 0);
+        endPanel.revalidate();
+        endPanel.repaint();
         mf.remove(gamePage.gamePanel);
         mf.add(endPanel);
         mf.revalidate();
         mf.repaint();
+        
+        Timer ts = new Timer();
+        TimerTask tk = new TimerTask() {
+
+            @Override
+            public void run() {
+                    mf.remove(endPanel);
+                    mf.add(mf.mainPanel);
+                    mf.revalidate();
+                    mf.repaint();
+                    //오디오 종료
+                    MainFrame.stopAudio();
+                    //오디오 실행
+                    MainFrame.audioPlayer("sound/시작메인음악.WAV");
+
+            }
+        };
+        ts.schedule(tk, 4000); //원래 4000
 
 
     }

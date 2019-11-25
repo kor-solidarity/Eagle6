@@ -32,6 +32,7 @@ public class MainFrame extends JFrame {
     private MainFrame mf;
     private HashMap hmap;
     public static Clip clip;
+    public JPanel mainPanel;
    
    
 
@@ -53,7 +54,7 @@ public class MainFrame extends JFrame {
 
 
         //메인 패널 생성
-        JPanel mainPanel = new JPanel();
+        mainPanel = new JPanel();
         mainPanel.setSize(1500, 800);
         mainPanel.setLayout(null);
 

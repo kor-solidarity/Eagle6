@@ -25,7 +25,7 @@ public class Ranking {
     JLabel rankLb;
     
 
-    public Ranking(MainFrame mf, HashMap hmap) {
+    public Ranking(MainFrame mf/*, HashMap hmap*/) {
         this.mf = mf;
         this.hmap = hmap;  //파일에서 ㅇㄺ어온다음다운캐스팅후 집어넣기
 

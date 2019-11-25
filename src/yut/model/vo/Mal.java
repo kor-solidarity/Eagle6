@@ -379,10 +379,8 @@ public class Mal {
         // 업혔던 말 이동한다.
         // 만일 애니메이션 넣기로 되면 이거 엎어야함.
         // 우선 말의 시작지점이 0-28 사이인 경우에만 발동해야 한다.
-        if (0 <= start_grid && start_grid <= 28) {
+        if ((0 <= start_grid && start_grid <= 28) ||this.getGrid()==29) {
             // 이동한 말의 그리드값 좌표 가져오기.
-            int gridX = MapGrid.GRIDS.get(this.getGrid()).x;
-            int gridY = MapGrid.GRIDS.get(this.getGrid()).y;
 
             // 이동할 말의 인덱스번호
             int indexNum = -1;
@@ -398,6 +396,13 @@ public class Mal {
                     // 그리드 재조정
                     m.setGrid(this.getGrid());
                     // 그리드 -1, 29 등인 경우를 따로 해줘야함.
+                    int gridX =0;
+                    int gridY=0;
+                    if(this.getGrid()!=29) {
+                        gridX = MapGrid.GRIDS.get(this.getGrid()).x;
+                        gridY = MapGrid.GRIDS.get(this.getGrid()).y;
+                        
+                    }
 
                     if (m.getGrid() == 29) {
                         // 29인 경우 완주한거임. 고로 없애준다.

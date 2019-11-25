@@ -121,6 +121,15 @@ public class GameManager {
         } while (!finished);
 
         // 코드가 여기에 도달하면 게임 끝.
+        JPanel endPanel = new JPanel();
+        endPanel.setBounds(0, 0, 1500, 800);
+        endPanel.setLayout(null);
+
+        
+        mf.remove(gamePage.gamePanel);
+        mf.add(endPanel);
+        mf.revalidate();
+        mf.repaint();
 
 
     }

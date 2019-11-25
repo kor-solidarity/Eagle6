@@ -237,22 +237,18 @@ public class Mal {
         // 돌거 다 돌았음.
         // 이제 말 잡기 - 모든 말 한번씩 스크리닝 해서 같은 곳에 위치하면 잡는다.
         // 말의 그리드가 -1 또는 29면 판에 있는게 아니니 실행할 필요가 없다.
-        if (!(this.getGrid() == 29 || this.getGrid() == -1)) {
+        // if (!(this.getGrid() == 29 || this.getGrid() == -1)) {
+        if (0 <= this.getGrid()&& this.getGrid() <= 28) {
             // 아래 플레이어 확인용도
             int playerArrayNum = -1;
             // 플레이어 포문
             for (Player p : gp.players) {
-                // 임시조치. 그냥 널이 있는지 확인용도
-                if (p == null) {
-                    System.out.println("p == null");
-                    continue;
-                }
+                playerArrayNum++;
 
                 System.out.println("player p.getNick() " + p.getNick());
                 System.out.println("current piece this.owner: " + this.owner);
                 System.out.println("p.getNick().equals(this.owner) " + p.getNick().equals(this.owner));
 
-                playerArrayNum++;
                 // 플레이어가 없거나 지금 말주인과 갈은 사람이면 통과
                 if (p == null || p.getNick().equals(this.owner)) {
                     continue;
@@ -271,6 +267,7 @@ public class Mal {
                         mal_labels[playerArrayNum][malNum].setLocation(
                                 m.getInit_x(), m.getInit_y()
                         );
+                        mal_labels[playerIndexNum][malNum].repaint();
 
                     }
                     malNum++;
@@ -287,25 +284,29 @@ public class Mal {
         // 위에 모든 이동절차가 끝났으면
         // 업혔던 말 이동한다.
         // 만일 애니메이션 넣기로 되면 이거 엎어야함.
-        for (Mal m : player.getMals()) {
-            // 말중에 지금 말과 같은 위치에 존재하는 말이 있는지 확인한다. 그게 업힌 말임.
-            if (m.getGrid() == start_grid) {
-                // 그리드값 좌표 가져오기.
-                int gridX = MapGrid.GRIDS.get(this.getGrid()).x;
-                int gridY = MapGrid.GRIDS.get(this.getGrid()).y;
-                // 그리드 재조정
-                m.setGrid(this.getGrid());
-                // 그리드 -1, 29 등인 경우를 따로 해줘야함.
+        // 우선 말의 시작지점이 0-28 사이인 경우에만 발동해야 한다.
+        if (0 <= start_grid && start_grid <= 28) {
+            for (Mal m : player.getMals()) {
+                // 말중에 지금 말과 같은 위치에 존재하는 말이 있는지 확인한다. 그게 업힌 말임.
+                if (m.getGrid() == start_grid) {
+                    // 그리드값 좌표 가져오기.
+                    int gridX = MapGrid.GRIDS.get(this.getGrid()).x;
+                    int gridY = MapGrid.GRIDS.get(this.getGrid()).y;
+                    // 그리드 재조정
+                    m.setGrid(this.getGrid());
+                    // 그리드 -1, 29 등인 경우를 따로 해줘야함.
 
-                if (m.getGrid() == 29) {
-                    // 29인 경우 완주한거임. 고로 없애준다.
-                    mal_labels[playerIndexNum][this.num].setVisible(false);
-                } else if (m.getGrid() == -1) {
-                    // 시작위치로 간 경우
-                    mal_labels[playerIndexNum][this.num].setLocation(
-                            m.getInit_x(), m.getInit_y());
-                } else {
-                    mal_labels[playerIndexNum][this.num].setLocation(gridX, gridY);
+                    if (m.getGrid() == 29) {
+                        // 29인 경우 완주한거임. 고로 없애준다.
+                        mal_labels[playerIndexNum][this.num].setVisible(false);
+                    } else if (m.getGrid() == -1) {
+                        // 시작위치로 간 경우
+                        mal_labels[playerIndexNum][this.num].setLocation(
+                                m.getInit_x(), m.getInit_y());
+                    } else {
+                        mal_labels[playerIndexNum][this.num].setLocation(gridX, gridY);
+                    }
+                    mal_labels[playerIndexNum][this.num].repaint();
                 }
             }
         }

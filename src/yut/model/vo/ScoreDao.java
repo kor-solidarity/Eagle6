@@ -11,6 +11,7 @@ import java.util.HashMap;
 
 public class ScoreDao {
     
+    
    Player pl=new Player();
    public HashMap hmap = null;
   

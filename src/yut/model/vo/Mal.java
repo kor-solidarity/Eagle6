@@ -4,6 +4,9 @@ import yut.view.GameMap;
 import yut.view.GamePage;
 import yut.view.MainFrame;
 
+import yut.model.vo.*;
+
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -20,7 +23,9 @@ public class Mal {
     private ArrayList<Integer> routes = new ArrayList();
 
     private MapGrid mapGrid;
-    private MainFrame mf; //추가 ------ 다영
+
+    private MainFrame mf;
+
 
     // 그리드 -1일때 위치할 곳.
     private int init_x;
@@ -40,11 +45,23 @@ public class Mal {
     // { 2, 3, 4, 5}
     // Integer[] route = new Integer[];
 
+    //=======미션 카운트======= -> 다영
+    public static int cou = 1;
+    public static int cou2 = 1;
+    public static int cou3 = 1;
+    public static int cou4 = 1;
+
+
+    // { 2, 3, 4, 5}
+    // Integer[] route = new Integer[];
+
     public Mal(int num, String ownerName) {
         this.grid = -1;
         this.num = num;
         this.owner = ownerName;
     }
+
+
 
     @Override
     public String toString() {
@@ -242,9 +259,13 @@ public class Mal {
             }
         }
 
+        
+        // 미션 확인용 용도 - 다영
+        boolean confirmM = false;
         // 돌거 다 돌았음.
         // 이제 말 잡기 - 모든 말 한번씩 스크리닝 해서 같은 곳에 위치하면 잡는다.
         // 말의 그리드가 -1 또는 29면 판에 있는게 아니니 실행할 필요가 없다.
+
         
         // 미션 확인용 용도 - 다영
         boolean confirmM = false;
@@ -252,6 +273,7 @@ public class Mal {
         if (!(this.getGrid() == 29 || this.getGrid() == -1)) {
             // 아래 플레이어 확인용도
             int playerArrayNum = -1;
+
             // 플레이어 포문
             for (Player p : gp.players) {
                 // 임시조치. 그냥 널이 있는지 확인용도
@@ -283,6 +305,9 @@ public class Mal {
                         mal_labels[playerArrayNum][malNum].setLocation(
                                 m.getInit_x(), m.getInit_y()
                         );
+                        //미션 확인용 - 다영
+                        confirmM = true;
+
 
                         //미션 확인용 - 다영
                         confirmM = true;
@@ -291,6 +316,7 @@ public class Mal {
                 }
 
             }
+
         }
         
       //====================미션==================== -> 다영
@@ -342,14 +368,64 @@ public class Mal {
        //================여기 까지 미션 ===================
 
 
+
         // 이제 아이템이 있는지 확인.
         // if (GameMap)
+        
+        //====================미션==================== -> 다영
+        //while문 안에 있으면 말이 한칸씩 움직이기 때문에 그냥 가운데를 지나가도 미션이 완수되서 while문 밖으로 뺌
+        //System.out.println("미션완료: " + cou);
+        
+        //미션 클래스의 랜덤 미션과 맞추기 위해 미션 
+//        Mission m = new Mission(mf, gp.gamePanel);
+//        
+//        //미션 1번 - 1등으로 들어오기
+//        if(m.missionNum == 1 && cou == 1) {
+//            
+//            if(this.getGrid() == 0) {
+//                System.out.println("======미션 1번 성공======");
+//                m.confirmMission(mf);
+//            }
+//        }
+//        
+//        //미션 2번 - 처음으로 윷 나오기
+//        if(m.missionNum == 2 && cou2 == 1) {
+//            
+//            if(gp.YUTGAP == 4) {
+//                 
+//                System.out.println("======미션 2번 성공======");
+//                m.confirmMission(mf);   
+//            }
+//        }
+//        
+//        //미션 3번 - 정중앙에 1등으로 가기
+//        if(m.missionNum == 3 && cou3 == 1) {
+//            
+//            if(this.getGrid() == 5) { //22
+//                System.out.println("======미션 3번 성공======");
+//                m.confirmMission(mf);
+//            }
+//        }
+//        
+//        //미션 4번 - 빽도로 플레이어 잡기
+//        if(m.missionNum == 4 && cou4 == 1) {
+//            
+//            if(confirmM == true) {
+//                System.out.println("=====미션 4번 성공 =====");
+//                m.confirmMission(mf);
+//            }
+//            
+//        }
+//        
+
+
 
 
         //위에 모든 이동절차가 끝났으면
         //업혔던 말 이동한다.
         //만일 애니메이션 넣기로 되면 이거 엎어야함.
         //Mal m을 Mal mal로 수정
+
         for (Mal mal : player.getMals()) {
             // 말중에 지금 말과 같은 위치에 존재하는 말이 있는지 확인한다. 그게 업힌 말임.
             if (mal.getGrid() == start_grid) {

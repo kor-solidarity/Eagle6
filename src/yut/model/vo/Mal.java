@@ -31,26 +31,25 @@ public class Mal {
     private int init_x;
     private int init_y;
 
-   // 판 내 좌표 위치. 겹칠때 위치 다르게 하려고 놓은거임.
-   private int strafe_x;
-   private int strafe_y;
+    // 판 내 좌표 위치. 겹칠때 위치 다르게 하려고 놓은거임.
+    private int strafe_x;
+    private int strafe_y;
 
-   //미션 때문에 추가 ------------다영
-   static int cou1 = 1;
-   static int cou2 = 1;
-   static int cou3 = 1;
-   static int cou4 = 1;
-   static int cou5 = 1;
+    //미션 때문에 추가 ------------다영
+    static int cou1 = 1;
+    static int cou2 = 1;
+    static int cou3 = 1;
+    static int cou4 = 1;
+    static int cou5 = 1;
 
-   // { 2, 3, 4, 5}
-   // Integer[] route = new Integer[];
+    // { 2, 3, 4, 5}
+    // Integer[] route = new Integer[];
 
     public Mal(int num, String ownerName) {
         this.grid = -1;
         this.num = num;
         this.owner = ownerName;
     }
-
 
 
     @Override
@@ -257,7 +256,7 @@ public class Mal {
         // 말의 그리드가 -1 또는 29면 판에 있는게 아니니 실행할 필요가 없다.
 
         // if (!(this.getGrid() == 29 || this.getGrid() == -1)) {
-        if (0 <= this.getGrid()&& this.getGrid() <= 28) {
+        if (0 <= this.getGrid() && this.getGrid() <= 28) {
             // 아래 플레이어 확인용도
             int playerArrayNum = -1;
 
@@ -288,6 +287,9 @@ public class Mal {
                                 m.getInit_x(), m.getInit_y()
                         );
                         mal_labels[playerArrayNum][malNum].repaint();
+
+                        player.setYutCount(player.getYutCount() + 1);
+
                         //미션 확인용 - 다영
                         confirmM = true;
                     }
@@ -297,92 +299,89 @@ public class Mal {
             }
 
         }
-        
-      //====================미션==================== -> 다영
-      //while문 안에 있으면 말이 한칸씩 움직이기 때문에 그냥 가운데를 지나가도 미션이 완수되서 while문 밖으로 뺌
-      //System.out.println("미션완료: " + cou);
 
-      //미션 클래스의 랜덤 미션과 맞추기 위해 미션
-      Mission mission = new Mission(mf, gp.gamePanel);
-      int missionNum = 1;
+        //====================미션==================== -> 다영
+        //while문 안에 있으면 말이 한칸씩 움직이기 때문에 그냥 가운데를 지나가도 미션이 완수되서 while문 밖으로 뺌
+        //System.out.println("미션완료: " + cou);
 
-      if(missionNum == 1) {
+        //미션 클래스의 랜덤 미션과 맞추기 위해 미션
+        Mission mission = new Mission(mf, gp.gamePanel);
+        int missionNum = 1;
 
-          //미션 1번 - 1등으로 들어오기
-          if(this.getGrid() == 0 && cou1 == 1) {
-              System.out.println("======미션 1번 성공======");
-              mission.confirmMission(mf);
-              gp.currentPlayer.setSongP(gp.currentPlayer.getSongP() + 10);
-              System.out.println("*********************현재 송편 갯수!!!!!" + gp.currentPlayer.getSongP());
-              gp.reload_songP(player);
-              //처음 달성해야 줄 수 있게 카운트 증가
-              System.out.println("카운트=================== : " + cou1);
-              cou1++;
-              System.out.println("카운트=================== : " + cou1);
+        if (missionNum == 1) {
 
-              //미션 2번 - 다른 플레이어 말 1등으로 잡기
-          } else if(confirmM == true && cou2 == 1) {
-              System.out.println("======미션 2번 성공======");
-              mission.confirmMission(mf);
-              gp.currentPlayer.setSongP(gp.currentPlayer.getSongP() + 10);
-              System.out.println("*********************현재 송편 갯수!!!!!" + gp.currentPlayer.getSongP());
-              gp.reload_songP(player);
-              //처음 달성해야 줄 수 있게 카운트 증가
-              System.out.println("카운트=================== : " + cou2);
-              cou2++;
-              System.out.println("카운트=================== : " + cou2);
+            //미션 1번 - 1등으로 들어오기
+            if (this.getGrid() == 0 && cou1 == 1) {
+                System.out.println("======미션 1번 성공======");
+                mission.confirmMission(mf);
+                gp.currentPlayer.setSongP(gp.currentPlayer.getSongP() + 10);
+                System.out.println("*********************현재 송편 갯수!!!!!" + gp.currentPlayer.getSongP());
+                gp.reload_songP(player);
+                //처음 달성해야 줄 수 있게 카운트 증가
+                System.out.println("카운트=================== : " + cou1);
+                cou1++;
+                System.out.println("카운트=================== : " + cou1);
 
-              //미션 3번 - 정중앙에 1등으로 가기
-          } else if(this.getGrid() == 22 && cou3 == 1) {
-              System.out.println("======미션 3번 성공======");
-              mission.confirmMission(mf);
-              gp.currentPlayer.setSongP(gp.currentPlayer.getSongP() + 10);
-              System.out.println("*********************현재 송편 갯수!!!!!" + gp.currentPlayer.getSongP());
-              gp.reload_songP(player);
-              //처음 달성해야 줄 수 있게 카운트 증가
-              cou3++;
+                //미션 2번 - 다른 플레이어 말 1등으로 잡기
+            } else if (confirmM == true && cou2 == 1) {
+                System.out.println("======미션 2번 성공======");
+                mission.confirmMission(mf);
+                gp.currentPlayer.setSongP(gp.currentPlayer.getSongP() + 10);
+                System.out.println("*********************현재 송편 갯수!!!!!" + gp.currentPlayer.getSongP());
+                gp.reload_songP(player);
+                //처음 달성해야 줄 수 있게 카운트 증가
+                System.out.println("카운트=================== : " + cou2);
+                cou2++;
+                System.out.println("카운트=================== : " + cou2);
 
-              //미션 4번 - 뺵도로 플에이어 잡기
-          } else if(gp.YUTGAP == -1 && confirmM == true && cou4 == 1) {
-              System.out.println("======미션 4번 성공======");
-              mission.confirmMission(mf);
-              gp.currentPlayer.setSongP(gp.currentPlayer.getSongP() + 10);
-              System.out.println("*********************현재 송편 갯수!!!!!" + gp.currentPlayer.getSongP());
-              gp.reload_songP(player);
-              //처음 달성해야 줄 수 있게 카운트 증가
-              cou4++;
+                //미션 3번 - 정중앙에 1등으로 가기
+            } else if (this.getGrid() == 22 && cou3 == 1) {
+                System.out.println("======미션 3번 성공======");
+                mission.confirmMission(mf);
+                gp.currentPlayer.setSongP(gp.currentPlayer.getSongP() + 10);
+                System.out.println("*********************현재 송편 갯수!!!!!" + gp.currentPlayer.getSongP());
+                gp.reload_songP(player);
+                //처음 달성해야 줄 수 있게 카운트 증가
+                cou3++;
 
-              //미션 5번 - 처음으로 윷 나오기
-          } else if(gp.YUTGAP == 4 && cou5 == 1) {
-              System.out.println("======미션 5번 성공======");
-              mission.confirmMission(mf);
-              gp.currentPlayer.setSongP(gp.currentPlayer.getSongP() + 10);
-              System.out.println("*********************현재 송편 갯수!!!!!" + gp.currentPlayer.getSongP());
-              gp.reload_songP(player);
-              //처음 달성해야 줄 수 있게 카운트 증가
-              System.out.println("카운트=================== : " + cou5);
-              cou5++;
-              System.out.println("카운트=================== : " + cou5);
+                //미션 4번 - 뺵도로 플에이어 잡기
+            } else if (gp.YUTGAP == -1 && confirmM == true && cou4 == 1) {
+                System.out.println("======미션 4번 성공======");
+                mission.confirmMission(mf);
+                gp.currentPlayer.setSongP(gp.currentPlayer.getSongP() + 10);
+                System.out.println("*********************현재 송편 갯수!!!!!" + gp.currentPlayer.getSongP());
+                gp.reload_songP(player);
+                //처음 달성해야 줄 수 있게 카운트 증가
+                cou4++;
 
-          }
+                //미션 5번 - 처음으로 윷 나오기
+            } else if (gp.YUTGAP == 4 && cou5 == 1) {
+                System.out.println("======미션 5번 성공======");
+                mission.confirmMission(mf);
+                gp.currentPlayer.setSongP(gp.currentPlayer.getSongP() + 10);
+                System.out.println("*********************현재 송편 갯수!!!!!" + gp.currentPlayer.getSongP());
+                gp.reload_songP(player);
+                //처음 달성해야 줄 수 있게 카운트 증가
+                System.out.println("카운트=================== : " + cou5);
+                cou5++;
+                System.out.println("카운트=================== : " + cou5);
 
-      }
+            }
 
-      //================여기 까지 미션 ===================
+        }
 
+        //================여기 까지 미션 ===================
 
 
         // 이제 아이템이 있는지 확인.
         // if (GameMap)
-          
+
         // 위에 모든 이동절차가 끝났으면
         // 업혔던 말 이동한다.
         // 만일 애니메이션 넣기로 되면 이거 엎어야함.
         // 우선 말의 시작지점이 0-28 사이인 경우에만 발동해야 한다.
-        if (0 <= start_grid && start_grid <= 28) {
-            // 이동한 말의 그리드값 좌표 가져오기.
-            int gridX = MapGrid.GRIDS.get(this.getGrid()).x;
-            int gridY = MapGrid.GRIDS.get(this.getGrid()).y;
+        // 29인 경우에도 해당됨.
+        if ((0 <= start_grid && start_grid <= 28) || this.getGrid() == 29) {
 
             // 이동할 말의 인덱스번호
             int indexNum = -1;
@@ -398,6 +397,14 @@ public class Mal {
                     // 그리드 재조정
                     m.setGrid(this.getGrid());
                     // 그리드 -1, 29 등인 경우를 따로 해줘야함.
+                    // 이동한 말의 그리드값 좌표 가져오기.
+                    int gridX = 0;
+                    int gridY = 0;
+                    // 29일경우 좌표가 없어서 에러남
+                    if (this.getGrid() != 29) {
+                        gridX = MapGrid.GRIDS.get(this.getGrid()).x;
+                        gridY = MapGrid.GRIDS.get(this.getGrid()).y;
+                    }
 
                     if (m.getGrid() == 29) {
                         // 29인 경우 완주한거임. 고로 없애준다.

@@ -15,6 +15,12 @@ public class GameManager {
 
     private GamePage gamePage;
 
+    private MainFrame mf;
+    
+    
+
+
+
     public GameManager(GamePage gamePage) {
         this.gamePage = gamePage;
         // GAME OVER?

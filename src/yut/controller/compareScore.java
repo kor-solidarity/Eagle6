@@ -17,10 +17,10 @@ public int compare(Object o1, Object o2) {
 		result = 0;
 	}
 	if(p1.getSongP() > p2.getSongP()){
-		result = -1;
+		result = -1;//바꿔줌
 	}
 	if(p1.getSongP() < p2.getSongP()){
-		result = 1;
+		result = 1;//안바꿔줌
 	}
 	
 	return result;

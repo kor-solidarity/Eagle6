@@ -16,6 +16,8 @@ public class GameManager {
     private GamePage gamePage;
 
     private MainFrame mf;
+    
+    
 
 
     public GameManager(MainFrame mf, GamePage gamePage) {
@@ -324,6 +326,8 @@ public class GameManager {
     //     // 윷던지는 방법:
     //     //
     // }
+
+
 
 
     /**

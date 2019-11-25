@@ -123,17 +123,17 @@ public class GamePage {
         endBtn.setSize(40, 40);
         endBtn.setLocation(1445, 0);
         gamePanel.setComponentZOrder(endBtn, 0);
-
+        
         //음량 음소거 버튼  생성
-        Image audioStop = new ImageIcon("mini/음소거버튼.PNG").getImage().getScaledInstance(70, 70, 0);
+        Image audioStop = new ImageIcon("mini/음소거버튼.PNG").getImage().getScaledInstance(30, 30, 0);
         JLabel audioStopBtn = new JLabel(new ImageIcon(audioStop));
-        audioStopBtn.setSize(70, 70);
-        audioStopBtn.setLocation(20, 680);
+        audioStopBtn.setSize(30, 30);
+        audioStopBtn.setLocation(1450, 460 );
         //음량 시작 버튼  생성
-        Image audioStart = new ImageIcon("mini/음향버튼.PNG").getImage().getScaledInstance(150, 100, 0);
+        Image audioStart = new ImageIcon("mini/음향버튼.PNG").getImage().getScaledInstance(60, 50, 0);
         JLabel audioStartBtn = new JLabel(new ImageIcon(audioStart));
-        audioStartBtn.setSize(120, 110);
-        audioStartBtn.setLocation(20, 680);
+        audioStartBtn.setSize(60, 40);
+        audioStartBtn.setLocation(1440, 460 );
 
         //스토어 라벨생성
         Image store = new ImageIcon("mini/스토어.PNG").getImage().getScaledInstance(370, 220, 0);
@@ -1222,10 +1222,6 @@ public class GamePage {
                     ed.add(checkBtn);
                     ed.add(endlb);
                     ed.setVisible(true);
-
-                    gm.removeGrid(players[2].getMals()[0].getGrid());
-                    gamePanel.revalidate();
-                    gamePanel.repaint();
 
                     endBtn1.addMouseListener(new MouseAdapter() {
                         @Override

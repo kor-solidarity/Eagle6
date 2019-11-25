@@ -63,13 +63,13 @@ public class Ranking {
     public void printRankm(HashMap Hmap) {
         JTextArea ra = new JTextArea();
         
-        for(int i = 0; i < hmap.size(); i++){
+        /*for(int i = 0; i < hmap.size(); i++){
            Player p = (Player) hmap.get(i);
            ra.append((i+1) + "닉네임" + p.getNick() + " 점    "+ p.getSongP() + "\n");
            if(i >= 9){
               break;
            }
-        }
+        }*/
     
 
         ra.setBounds(430, 270, 500, 430);

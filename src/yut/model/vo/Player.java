@@ -30,6 +30,7 @@ public class Player {
     public Player() {} //미션 때문에 추가 -------- 다영 
 
 
+
     public Player(String nick, String charName) {
         this.nick = nick;
         this.charName = charName;

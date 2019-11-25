@@ -3,7 +3,9 @@ package yut.model.vo;
 import yut.view.GameMap;
 import yut.view.GamePage;
 import yut.view.MainFrame;
+
 import yut.model.vo.*;
+
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -21,6 +23,7 @@ public class Mal {
     private ArrayList<Integer> routes = new ArrayList();
 
     private MapGrid mapGrid;
+
     private MainFrame mf;
 
 
@@ -31,6 +34,12 @@ public class Mal {
     // 판 내 좌표 위치. 겹칠때 위치 다르게 하려고 놓은거임.
     private int strafe_x;
     private int strafe_y;
+    
+    //=======미션 카운트======= -> 다영
+    public static int cou = 1;
+    public static int cou2 = 1;
+    public static int cou3 = 1;
+    public static int cou4 = 1;
 
 
     // { 2, 3, 4, 5}
@@ -256,7 +265,12 @@ public class Mal {
         // 돌거 다 돌았음.
         // 이제 말 잡기 - 모든 말 한번씩 스크리닝 해서 같은 곳에 위치하면 잡는다.
         // 말의 그리드가 -1 또는 29면 판에 있는게 아니니 실행할 필요가 없다.
-    //   if (!(this.getGrid() == 29 || this.getGrid() == -1)) {
+
+        
+        // 미션 확인용 용도 - 다영
+        boolean confirmM = false;
+        
+        if (!(this.getGrid() == 29 || this.getGrid() == -1)) {
             // 아래 플레이어 확인용도
             int playerArrayNum = -1;
 
@@ -295,40 +309,64 @@ public class Mal {
                         confirmM = true;
 
 
+                        //미션 확인용 - 다영
+                        confirmM = true;
                     }
                     malNum++;
                 }
 
             }
+
+        }
+        
+      //====================미션==================== -> 다영
+        //while문 안에 있으면 말이 한칸씩 움직이기 때문에 그냥 가운데를 지나가도 미션이 완수되서 while문 밖으로 뺌
+        //System.out.println("미션완료: " + cou);
+        
+        //미션 클래스의 랜덤 미션과 맞추기 위해 미션 
+        Mission m = new Mission(mf, gp.gamePanel);
+        
+        //미션 1번 - 1등으로 들어오기
+        if(m.missionNum == 1 && cou == 1) {
             
-   //    }
-        //수정한부분-----------조지연
-//        int playerArrayNum = -1;
-//        for (Player p : gp.players) {
-//            playerArrayNum++;
-//            // 플레이어가 없거나 지금 말주인과 갈은 사람이면 통과
-//            if (p == null || p.getNick().equals(this.owner)) {
-//                continue;
-//            }
-//            // 아래 말번호 확인용도
-//            int malNum = 0;
-//            // 각 말 뒤적이기
-//            for (Mal m : p.getMals()) {
-//
-//                // 같은 위치에 있으면 잡힌거.
-//                if (m.getGrid() == this.getGrid()) {
-//                    // 그리드 위치 원위치
-//                    m.setGrid(-1);
-//                    // GUI 말 위치도 원위치
-//                    mal_labels[playerArrayNum][malNum].setLocation(
-//                            m.getInit_x(), m.getInit_y()
-//                    );
-//
-//                }
-//                malNum++;
-//            }
-//
-//        }
+            if(this.getGrid() == 0) {
+                System.out.println("======미션 1번 성공======");
+                m.confirmMission(mf);
+            }
+        }
+        
+        //미션 2번 - 처음으로 윷 나오기
+        if(m.missionNum == 2 && cou2 == 1) {
+            
+            if(gp.YUTGAP == 4) {
+                 
+                System.out.println("======미션 2번 성공======");
+                m.confirmMission(mf);   
+            }
+        }
+        
+        //미션 3번 - 정중앙에 1등으로 가기
+        if(m.missionNum == 3 && cou3 == 1) {
+            
+            if(this.getGrid() == 5) { //22
+                System.out.println("======미션 3번 성공======");
+                m.confirmMission(mf);
+            }
+        }
+        
+        //미션 4번 - 빽도로 플레이어 잡기
+        if(m.missionNum == 4 && cou4 == 1) {
+            
+            if(confirmM == true) {
+                System.out.println("=====미션 4번 성공 =====");
+                m.confirmMission(mf);
+            }
+            
+        }
+        
+        
+       //================여기 까지 미션 ===================
+
 
 
         // 이제 아이템이 있는지 확인.
@@ -382,9 +420,12 @@ public class Mal {
 
 
 
-        // 위에 모든 이동절차가 끝났으면
-        // 업혔던 말 이동한다.
-        // 만일 애니메이션 넣기로 되면 이거 엎어야함.
+
+        //위에 모든 이동절차가 끝났으면
+        //업혔던 말 이동한다.
+        //만일 애니메이션 넣기로 되면 이거 엎어야함.
+        //Mal m을 Mal mal로 수정
+
         for (Mal mal : player.getMals()) {
             // 말중에 지금 말과 같은 위치에 존재하는 말이 있는지 확인한다. 그게 업힌 말임.
             if (mal.getGrid() == start_grid) {

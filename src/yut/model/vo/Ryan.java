@@ -8,7 +8,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 import yut.view.GamePage;
-
+ 
 public class Ryan extends Player {
     public Ryan(String nick) {
         super(nick, "Ryan");

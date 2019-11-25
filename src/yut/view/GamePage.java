@@ -58,7 +58,7 @@ public class GamePage {
     public JTextField show_apeach_songP;
     public JTextField show_frodo_songP;
     public JTextField show_neo_songP;
-
+ 
     // 라이언 말 1
     public JLabel ryan_body_label1;
     public JLabel ryan_body_label2;

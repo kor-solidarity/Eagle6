@@ -142,6 +142,6 @@ public class Player {
     }
 
     public void skill(GamePage gm) {
-
+ 
     }
 }

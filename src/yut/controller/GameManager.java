@@ -358,7 +358,7 @@ public class GameManager {
         // 송편:
         // 남은 말:
         // 고유스킬 썼는가: 불리언
-
+ 
 
         // Item ten = map.itemGrid[10];
 

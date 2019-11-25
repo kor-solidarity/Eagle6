@@ -1,7 +1,7 @@
 package yut.model.vo;
 
 import yut.view.GamePage;
-
+ 
 public class Apeach extends Player {
 
     public Apeach(String nick) {

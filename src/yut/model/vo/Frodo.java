@@ -5,7 +5,7 @@ import yut.view.GamePage;
 public class Frodo extends Player {
     public Frodo(String nick) {
         super(nick, "Frodo");
-    }
+    } 
     @Override
     public void skill(GamePage gp) {
         if(getSpecialty()==true) {

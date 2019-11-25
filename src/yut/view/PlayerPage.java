@@ -563,8 +563,10 @@ public class PlayerPage {
         gameBtn1.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
+            	if(e.getButton() == 1 && playerNum <2) {
+            		JOptionPane.showMessageDialog(null, "2명이상 입력해주세요");             	
+            	}
                 if (e.getButton() == 1 && playerNum >= 2) { //입력2이상일시 스타트버튼가능
-
                     //로딩화면 패널 생성
                     JPanel lo = new JPanel();
                     lo.setBounds(0, 0, 1500, 800);

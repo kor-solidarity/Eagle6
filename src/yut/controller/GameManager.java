@@ -27,6 +27,7 @@ public class GameManager {
         boolean finished = false;
         // 은석 : 턴 시작
         do {
+            
 
             // 각 플레이어 턴
             for (Player p : gamePage.players) {

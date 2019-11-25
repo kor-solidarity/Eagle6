@@ -11,16 +11,22 @@ import java.util.HashMap;
 
 public class ScoreDao {
 
+   Player pl=new Player();
+   public HashMap hmap = null;
+
     public void insertScore(Player p) {
         ObjectOutputStream oos = null;
 
         try {
             oos = new ObjectOutputStream(new FileOutputStream("score.dat"));
-            oos.writeObject(p);
+            oos.writeObject(hmap);
+            oos.flush();
+
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
+        } finally {
             try {
                 oos.close();
             } catch (IOException e1) {
@@ -30,19 +36,18 @@ public class ScoreDao {
     }
 
     public HashMap readAll() {
-        HashMap hmap = null;
         FileInputStream fis = null;
 
         try {
             fis = new FileInputStream("Score.dat");
-            hmap = new HashMap();
             while (true) {
                 try {
+                    hmap = new HashMap();
                     ObjectInputStream ois = new ObjectInputStream(fis);
                     Player p = (Player) ois.readObject();
 
 
-                    hmap.put(p, p);
+                    hmap.put(p.getNick(), p.getSongP());
 
 
                 } catch (IOException | ClassNotFoundException e) {
@@ -51,14 +56,21 @@ public class ScoreDao {
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-        }
-        try {
+        }finally {
+        }try {
             fis.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
         return hmap;
     }
-
-
+    public void read(String text) {
+        for (String word : text.split(" ")) {
+            if (hmap.containsKey(word)) {
+                Integer songP = (Integer) hmap.get(word);
+                songP+=(Integer)pl.getSongP();
+                hmap.put(word, songP);
+            }
+        }
+    }
 }

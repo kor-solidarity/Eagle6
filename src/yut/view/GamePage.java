@@ -3,12 +3,14 @@ package yut.view;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
+import java.awt.TextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.IOException;
+import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -123,7 +125,7 @@ public class GamePage {
         endBtn.setSize(40, 40);
         endBtn.setLocation(1445, 0);
         gamePanel.setComponentZOrder(endBtn, 0);
-        
+
         //음량 음소거 버튼  생성
         Image audioStop = new ImageIcon("mini/음소거버튼.PNG").getImage().getScaledInstance(30, 30, 0);
         JLabel audioStopBtn = new JLabel(new ImageIcon(audioStop));
@@ -147,7 +149,7 @@ public class GamePage {
         JButton skilBtn2 = new JButton();
         skilBtn2 = new JButton(new ImageIcon(skil2));
         skilBtn2.setSize(80, 80);
-        skilBtn2.setLocation(1370, 660);
+        skilBtn2.setLocation(1370, 600);
 
 
         //스킬 3번 생성 예시
@@ -158,18 +160,18 @@ public class GamePage {
         skilBtn3.setLocation(1260, 660);
 
         //스킬 4번 생성 예시
-        Image skil4 = new ImageIcon("mini/폭탄.PNG").getImage().getScaledInstance(80, 80, 0);
+        Image skil4 = new ImageIcon("mini/복주머니.JPG").getImage().getScaledInstance(80, 80, 0);
         JButton skilBtn4 = new JButton();
         skilBtn4 = new JButton(new ImageIcon(skil4));
         skilBtn4.setSize(80, 80);
-        skilBtn4.setLocation(1150, 660);
+        skilBtn4.setLocation(1150, 600);
 
         //스킬 5번 생성 예시
         Image skil5 = new ImageIcon("mini/빽도스킬.PNG").getImage().getScaledInstance(80, 80, 0);
         JButton skilBtn5 = new JButton();
         skilBtn5 = new JButton(new ImageIcon(skil5));
         skilBtn5.setSize(80, 80);
-        skilBtn5.setLocation(1150, 560);
+        skilBtn5.setLocation(1260, 600);
 
         //게임 화면에 백그라운드 배경
         Image mainGround = new ImageIcon("mini/판떼기.PNG").getImage().getScaledInstance(1500, 800, 0);
@@ -1088,7 +1090,7 @@ public class GamePage {
         //스킬라벨
 
         gamePanel.add(skilBtn2);
-        gamePanel.add(skilBtn3);
+        /*gamePanel.add(skilBtn3);*/
         gamePanel.add(skilBtn4);
         gamePanel.add(skilBtn5);
         gamePanel.add(store1);
@@ -1183,20 +1185,48 @@ public class GamePage {
         });
 
 
-        //        스킬 4번(폭탄) 사용시 반응 예시
+        // 스킬 복주머니
         skilBtn4.addMouseListener(new MouseAdapter() {
             @Override
 
             public void mouseClicked(MouseEvent e) {
 
                 if (e.getButton() == 1) {
+                    if (currentPlayer.getMoves().size() == 0) {
+                        if(currentPlayer.getSongP()>=5) {
+                            int rom = new Random().nextInt(10)+1;
+                            currentPlayer.setSongP(currentPlayer.getSongP()-5);
+                            currentPlayer.setSongP(currentPlayer.getSongP()+rom);
+                            Outer().reload_songP(currentPlayer);
 
+                            JTextField gameTx = new JTextField(rom + "송편 획득!!!");
+                            gameTx.setBounds(900, 400, 200, 50);
+                            gameTx.setFont(new Font("Rockwell", Font.CENTER_BASELINE, 25));
+                            gameTx.setHorizontalAlignment(JTextField.CENTER);
+                            gameTx.setBackground(Color.getHSBColor(200, 100, 100));
 
-                    int grid = players[1].getMals()[0].getGrid();
-                    Store shop = new Store();
-                    shop.buy(gm, mf, gamePanel, currentPlayer, 4, grid);
-                    Outer().reload_songP(currentPlayer);
+                            gamePanel.add(gameTx);
+                            gamePanel.revalidate();
+                            gamePanel.repaint();
+                            
+                            
+                            Timer ts = new Timer();
+                            TimerTask tk = new TimerTask() {
 
+                                @Override
+                                public void run() {
+                                    gamePanel.remove(gameTx);
+                                    gamePanel.revalidate();
+                                    gamePanel.repaint();
+                                    currentPlayer.setYutCount(currentPlayer.getYutCount()-1);
+
+                                }
+
+                            };
+                            ts.schedule(tk, 1300);
+
+                        }
+                    }
 
                 }
 

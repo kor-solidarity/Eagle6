@@ -19,8 +19,7 @@ public class Ryan extends Player {
     public void skill(GamePage gm) {
         if(getSpecialty()==true) {
             GamePage.SELECTED_BUTTON=4;
-          
-            
+
            
             setSpecialty(false);
             

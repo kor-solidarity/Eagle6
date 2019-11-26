@@ -32,6 +32,7 @@ public class MainFrame extends JFrame {
     private MainFrame mf;
     private HashMap hmap;
     public static Clip clip;
+    public JPanel mainPanel;
    
    
 
@@ -53,7 +54,7 @@ public class MainFrame extends JFrame {
 
 
         //메인 패널 생성
-        JPanel mainPanel = new JPanel();
+        mainPanel = new JPanel();
         mainPanel.setSize(1500, 800);
         mainPanel.setLayout(null);
 
@@ -100,12 +101,11 @@ public class MainFrame extends JFrame {
         helpBtn.setSize(100, 100);
         helpBtn.setLocation(700, 400);
 
-        Image rank4 = new ImageIcon("mini/랭킹버튼3.jpg").getImage().getScaledInstance(100, 100, 0);
+        Image rank4 = new ImageIcon("mini/랭킹버튼3.jpg").getImage().getScaledInstance(70, 70, 0);
         JButton rankBtn = new JButton();
         rankBtn = new JButton(new ImageIcon(rank4));
-        rankBtn.setLocation(500,500);
-        rankBtn.setSize(100,100);
-
+        rankBtn.setLocation(450,500);
+        rankBtn.setSize(70,70);
 
 
         //패널에 메인 배경 부착
@@ -267,7 +267,7 @@ public class MainFrame extends JFrame {
             public void mouseClicked(MouseEvent e) {
                   //마우스 왼쪽 클릭만 입력 될 시
                   if (e.getButton() == 1) {
-                     Ranking rk = new Ranking(mf, hmap);
+                     Ranking rk = new Ranking(mf);
 
                   }
               }
